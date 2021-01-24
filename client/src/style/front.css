@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.home-content
+{
+    width: 100%;
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    padding-top: 60px;
+}
+
+
+
+.navi-buttons
+{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.navi-button
+{
+    width: 50%;
+    height: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid #121212;
+
+}
+.navi-button > img
+{
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    
+}
+
+
+.ds > img
+{
+    bottom: 15%;
+    left: 15%;
+}
+.ds span
+{
+    position: absolute;
+    left: 75%;
+    bottom: 75%;
+}
+.sd > img
+{
+    bottom: 15%;
+    right: 15%;
+}
+.sd span
+{
+    position: absolute;
+    right: 75%;
+    bottom: 75%;
+}
+.cv > img
+{
+    top: 15%;
+    right: 15%;
+}
+.cv span
+{
+    position: absolute;
+    right: 75%;
+    top: 75%;
+}
+.at > img
+{
+    top: 15%;
+    left: 15%;
+}
+.at span
+{
+    position: absolute;
+    left: 75%;
+    top: 75%;
+}
+.navi-buttons > .ds
+{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 0 100% 0 0;
+    
+}
+
+.navi-buttons > .sd
+{
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    border-radius: 100% 0 0 0;
+}
+.navi-buttons > .cv
+{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    border-radius: 0 0 0 100%;
+}
+.navi-buttons > .at
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 0 0 100% 0;
+}
+.navi-button:hover
+{
+    border: 0.5px solid #121212;
+    width: 155px;
+    height: 155px;
+}
+
+
+
+.avatar
+{
+    width: 100%;
+    min-height: 180px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.avatar > img
+{
+    margin: 15px;
+}
+.avatar > span
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    font-size: 24px;
+    position: relative;
+}
+.avatar > span > span
+{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    
+    font-size: 24px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+}

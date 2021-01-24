@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    
+}
+body, html
+{
+    width: 100vw;
+    height: 100vh;
+    margin: 0!important;
+    padding: 0!important;
+    text-align: justify;
+    word-wrap: break-word;
+    display: block;
+
+    background-color: #fff;
+    color: #5f5b5b;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+}
+
+a, button, textarea, input
+{
+    outline: none;
+    color: #121212;
+    text-decoration: none;
+}
+
+a, button
+{
+    
+    font-weight: 400;
+    overflow: hidden;
+}
+a:hover, button:hover
+{
+    color: lightblue;
+}
+a:focus, button:focus
+{
+    color: #49c500;
+}
+a > button
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    
+}
+
+textarea
+{
+    resize: none;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: rgba(232, 240, 254, 0.7);
+}
+
+input
+{
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: rgba(232, 240, 254, 0.7);
+}
+
+.shield
+{
+    width: 100%;
+    min-height: 91vh;
+    padding: 5vw;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding-top: calc(12vh + 1px);
+}
+hr
+{
+    color: #000;
+    width: 90%;
+}
