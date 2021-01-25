@@ -85,6 +85,6 @@ input
 }
 hr
 {
-    color: #000;
-    width: 90%;
+    color: #121212;
+    width: calc(100%);
 }
