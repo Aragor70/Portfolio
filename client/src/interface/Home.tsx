@@ -37,7 +37,7 @@ const Home = ({ history, pageTitle, setPageTitle }: any) => {
             </div>
             <div className="avatar">
                 <img src={photo} />
-                <span>Miko<span>Prus</span></span>
+                <span>Mikołaj<span>Prus</span></span>
             </div>
         </div>
     );

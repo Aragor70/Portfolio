@@ -134,14 +134,16 @@
     width: 100%;
     min-height: 180px;
     padding: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
 }
 .avatar > img
 {
     margin: 15px;
+    border-radius: 7.5px;
 }
 .avatar > span
 {

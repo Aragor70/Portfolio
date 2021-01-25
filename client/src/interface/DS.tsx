@@ -14,7 +14,7 @@ const DS = ({ location, pageTitle, setPageTitle, match }: any) => {
             <div className="section-content">
                 <div className="params">
                 
-                I especially build data analisis. I share with you some data personal projects.
+                I especially build statistic data analisis and algorithms. I share with you some data personal projects.
                 Data Science analyses have been made to describe the business problem and get to know the right solution.
                 
 

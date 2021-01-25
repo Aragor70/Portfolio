@@ -40,7 +40,6 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
 
             <div className="params">
                 
-                <img src={pht} style={{ width: '100%', borderRadius: '7.5px' }} />
                 I especially develop JavaScript, TypeScript, and Python web applications in the environment of React Js, Redux, Django, Node js, Express, CSS, and Jest testing libraries. 
                 This page is right to overview the tech development.
                 

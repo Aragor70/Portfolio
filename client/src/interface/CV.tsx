@@ -11,7 +11,35 @@ const CV = ({ location, pageTitle, setPageTitle, match }: any) => {
 
     return (
         <Fragment>
-            curriculum vitae
+            <div className="section-content">
+                <div className="params">
+                <p>SUMMARY</p>
+                    My background in personal projects has given me an excellent foundation of problem-solving and focusing on current activities. 
+                    Practicing coding and building projects together with my friends had given me a grip on the team-working. 
+                    I have always been interested in how modern applications are created and this curiosity, along with my programming steps and level of studies in the field of learning programming languages has greatly influenced my present activities.
+
+                </div>
+
+                <div className="params">
+                <p>TECH SKILLS</p>
+                    I especially develop JavaScript, TypeScript, and Python web applications in the environment of React Js, Redux, Django, Node js, Express, CSS, and Jest testing libraries. 
+                    I provide also Data Science analyses, to describe the business problem and get to know the right solution.
+
+                    I have the fluent knowledge to match database structures SQL and No-SQL.
+                
+                </div>
+                <div className="params">
+                <p>LANGUAGES</p>
+                HTML 5, CSS 3, JavaScript, TypeScript, Python, PHP, SQL
+                
+                <p>OTHER</p>
+                <p>Development</p>
+                React, Redux, Node, Express, Django, GIT
+                
+                <p>Testing libraries</p>
+                Jest, Enzyme
+                </div>
+            </div>
         </Fragment>
             
     );
