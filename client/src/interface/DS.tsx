@@ -11,7 +11,16 @@ const DS = ({ location, pageTitle, setPageTitle, match }: any) => {
 
     return (
         <Fragment>
-            data science
+            <div className="section-content">
+                <div className="params">
+                
+                I especially build data analisis. I share with you some data personal projects.
+                Data Science analyses have been made to describe the business problem and get to know the right solution.
+                
+
+
+                </div>
+            </div>
         </Fragment>
             
     );

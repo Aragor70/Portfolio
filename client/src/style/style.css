@@ -72,19 +72,40 @@ input
 .shield
 {
     width: 100%;
-    min-height: 91vh;
+    height: 100vh;
     padding: 5vw;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #fff;
     padding-top: calc(12vh + 1px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 hr
 {
     color: #121212;
     width: calc(100%);
+}
+
+.output
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.content-center
+{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.icon10
+{
+    width: 20%;
+    border-radius: 7.5px;
+    margin: 7.5px;
 }

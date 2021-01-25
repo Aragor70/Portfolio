@@ -3,9 +3,15 @@ import React, { Fragment } from 'react';
 import leftArrow from '../style/left-arrow.png';
 import homeBtn from '../style/home.png';
 
+import dsBtn from '../style/ds.png';
+import sdBtn from '../style/sd.png';
+import cvBtn from '../style/cv.png';
+import atBtn from '../style/at.png';
+
+
 import { withRouter } from 'react-router-dom';
 
-const Header = ({ location, pageTitle, match, history }: any) => {
+const Header = ({ location: { pathname}, pageTitle, match, history }: any) => {
 
     // <img src={leftArrow} style={{ width: "55px", marginRight: '7.5px' }}  />
 
@@ -14,9 +20,21 @@ const Header = ({ location, pageTitle, match, history }: any) => {
             <div className="page-title">
             <p>
                 {
-                    location.pathname === "/" ? null : <Fragment>
-                        <img src={leftArrow} style={{ width: "55px", marginRight: '7.5px' }}  />
-                        <img src={homeBtn} style={{ width: "55px" , marginRight: '7.5px'}} onClick={e=> history.push('/')} />
+                    pathname === "/" ? null : <Fragment>
+                        <img src={leftArrow} style={{ width: "55px", marginRight: '7.5px' }} onClick={e=> history.goBack()}  />
+                        
+                        {
+                            pathname === '/software_development' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                        }
+                        {
+                            pathname === '/data_science' && <img src={dsBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                        }
+                        {
+                            pathname === '/curriculum_vitae' && <img src={cvBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                        }
+                        {
+                            pathname === '/contact_mikolaj' && <img src={atBtn} style={{ width: "35px" , marginRight: '7.5px'}} onClick={e=> history.push('/')} />
+                        }
                     </Fragment>
                 }
                 <span>{pageTitle}</span>
