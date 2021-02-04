@@ -39,6 +39,8 @@
     text-align: right;
     padding-left: 7.5px;
     padding-right: 7.5px;
+    
+    
 }
 
 .page-title p
@@ -53,4 +55,10 @@
     align-items: center;
     flex-direction: row;
     text-align: center;
+}
+
+.page-title .btn:hover
+{
+    transform: scale(0.8);
+
 }

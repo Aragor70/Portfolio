@@ -7,15 +7,19 @@ const DS = ({ location, pageTitle, setPageTitle, match }: any) => {
 
     useEffect(() => {
         setPageTitle('data science')
-    }, [])
+
+        return () => {
+            setPageTitle('')
+        }
+    }, [setPageTitle])
 
     return (
         <Fragment>
             <div className="section-content">
                 <div className="params">
                 
-                I especially build statistic data analisis and algorithms. I share with you some data personal projects.
-                Data Science analyses have been made to describe the business problem and get to know the right solution.
+                I learn data processing to build data analisis.
+                Data Science analysis have been made to describe the business problem and get to know the right solution.
                 
 
 

@@ -18,10 +18,9 @@ import imgRedux from '../style/icons/redux.png';
 import imgTypescript from '../style/icons/typescript.png';
 import imgSocketio from '../style/icons/socketio.png';
 import imgPhp from '../style/icons/php.png';
-
-
-
-
+import imgMocha from '../style/icons/mocha.png';
+import imgGoogleDrive from '../style/icons/Google-Drive.png';
+import imgMachine from '../style/icons/machine.png';
 
 
 
@@ -31,7 +30,11 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
 
     useEffect(() => {
         setPageTitle('sotfware development')
-    }, [])
+
+        return () => {
+            setPageTitle('')
+        }
+    }, [setPageTitle])
 
     return (
         <Fragment>
@@ -48,27 +51,65 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
             <h1>Current projects</h1>
             
             <div className="params">
-                <p className="content-center"><img src={ typesImg } /></p>
+                <p className="content-center"><img src={ typesImg } alt="types" /></p>
                 <p>Real-Time TypeScript React app</p>
                     You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
                     Connect with friends and family, send photos, videos, GIFs, emoji, and more.
                     Intuitive and modern, Types makes conversations easy, expressive, and fun.
                 <p>
-                    <img src={imgJavascript} className="icon10" />
-                    <img src={imgTypescript} className="icon10" />
-                    <img src={imgCss} className="icon10" />
-                    <img src={imgReact} className="icon10" />
-                    <img src={imgNodejs} className="icon10" />
-                    <img src={imgRedux} className="icon10" />
-                    <img src={imgMongoDB} className="icon10" />
-                    <img src={imgGithub} className="icon10" />
-                    <img src={imgSocketio} className="icon10" />
-                    <img src={imgJest} className="icon10" />
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgTypescript} className="icon10" alt="typeScript" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgReact} className="icon10" alt="reactJs" />
+                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                    <img src={imgRedux} className="icon10" alt="reduxJs" />
+                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                    <img src={imgGithub} className="icon10" alt="github" />
+                    <img src={imgSocketio} className="icon10" alt="socketIo" />
+                    <img src={imgJest} className="icon10" alt="jest" />
+                </p>
+                
+            </div>
+
+            <div className="params">
+                <p className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></p>
+                <p>WebShot - JavaScript React app</p>
+                    Automated screenshot generator.
+
+                    The website allows users to generate screenshots of any website and save them into the Google Drive service.
+                <p>
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgReact} className="icon10" alt="reactJs" />
+                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                    <img src={imgGithub} className="icon10" alt="github" />
+                    <img src={imgGoogleDrive} className="icon10" alt="googleDrive" />
+                    <img src={imgMachine} className="icon10" alt="machine" />
                 </p>
                 
             </div>
 
             <h1>Deployed projects</h1>
+
+            <div className="params">
+                <p className="content-center"><span style={{ fontSize: '45px' }}>ShortNister</span></p>
+                <p>ShortNister - TypeScript React app</p>
+                Take control of your URL address. Meet Shortster, to build a shortcut address. 
+                Get the quick report of the frequency. 
+                Right now you know how many times your partners clicked your address.
+                
+                <p>
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgTypescript} className="icon10" alt="typeScript" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgReact} className="icon10" alt="reactJs" />
+                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                    <img src={imgGithub} className="icon10" alt="github" />
+                    <img src={imgJest} className="icon10" alt="jest" />
+                    <img src={imgMocha} className="icon10" alt="mocha" />
+                </p>
+            </div>
 
             <div className="params">
                 <p className="content-center"><span style={{ fontSize: '45px' }}>onLoud</span></p>
@@ -79,13 +120,13 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     Intuitive and modern interface, makes listening music easy, expressive, and fun.
                 
                 <p>
-                    <img src={imgJavascript} className="icon10" />
-                    <img src={imgCss} className="icon10" />
-                    <img src={imgReact} className="icon10" />
-                    <img src={imgNodejs} className="icon10" />
-                    <img src={imgRedux} className="icon10" />
-                    <img src={imgMongoDB} className="icon10" />
-                    <img src={imgGithub} className="icon10" />
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgReact} className="icon10" alt="reactJs" />
+                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                    <img src={imgRedux} className="icon10" alt="reduxJs" />
+                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                    <img src={imgGithub} className="icon10" alt="github" />
                 </p>
             </div>
 
@@ -97,11 +138,11 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                 Stay close with your favorite people using Niconnect.uk.
                   
                 <p>
-                    <img src={imgJavascript} className="icon10" />
-                    <img src={imgPhp} className="icon10" />
-                    <img src={imgCss} className="icon10" />
-                    <img src={imgMysql} className="icon10" />
-                    <img src={imgGithub} className="icon10" />
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgPhp} className="icon10" alt="php" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgMysql} className="icon10" alt="mySql" />
+                    <img src={imgGithub} className="icon10" alt="github" />
                 </p>
             </div>
 
@@ -113,10 +154,17 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
             
             <div className="params">
                 <p className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></p>
-                <p>Emojis - React JavaScript Django Python app</p>
+                <p>Emojis - JavaScript React Python Django app</p>
 
                 App is currently waiting for deployment.
-
+                <p>
+                    <img src={imgJavascript} className="icon10" alt="javaScript" />
+                    <img src={imgPython} className="icon10" alt="python" />
+                    <img src={imgCss} className="icon10" alt="css" />
+                    <img src={imgDjango} className="icon10" alt="django" />
+                    <img src={imgMysql} className="icon10" alt="mySql" />
+                    <img src={imgGithub} className="icon10" alt="github" />
+                </p>
                     
             </div>
 

@@ -21,19 +21,19 @@ const Header = ({ location: { pathname}, pageTitle, match, history }: any) => {
             <p>
                 {
                     pathname === "/" ? null : <Fragment>
-                        <img src={leftArrow} style={{ width: "55px", marginRight: '7.5px' }} onClick={e=> history.goBack()}  />
+                        <img src={leftArrow} style={{ width: "35px", marginRight: '7.5px' }} className="btn" onClick={e=> history.goBack()} alt="leftArrow"  />
                         
                         {
-                            pathname === '/software_development' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                            pathname === '/software_development' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="SD" />
                         }
                         {
-                            pathname === '/data_science' && <img src={dsBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                            pathname === '/data_science' && <img src={dsBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="DS" />
                         }
                         {
-                            pathname === '/curriculum_vitae' && <img src={cvBtn} style={{ width: "35px" , marginRight: '7.5px'}} />
+                            pathname === '/curriculum_vitae' && <img src={cvBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="CV" />
                         }
                         {
-                            pathname === '/contact_mikolaj' && <img src={atBtn} style={{ width: "35px" , marginRight: '7.5px'}} onClick={e=> history.push('/')} />
+                            pathname === '/contact_mikolaj' && <img src={atBtn} style={{ width: "35px" , marginRight: '7.5px'}} onClick={e=> history.push('/')} alt="AT" />
                         }
                     </Fragment>
                 }

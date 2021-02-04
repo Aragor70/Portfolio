@@ -11,7 +11,11 @@ const Home = ({ history, pageTitle, setPageTitle }: any) => {
 
     useEffect(() => {
         setPageTitle('home')
-    }, [])
+
+        return () => {
+            setPageTitle('')
+        }
+    }, [setPageTitle])
     
 
     return (

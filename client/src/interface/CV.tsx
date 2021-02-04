@@ -7,7 +7,10 @@ const CV = ({ location, pageTitle, setPageTitle, match }: any) => {
 
     useEffect(() => {
         setPageTitle('curriculum vitae')
-    }, [])
+        return () => {
+            setPageTitle('')
+        }
+    }, [setPageTitle])
 
     return (
         <Fragment>
@@ -22,22 +25,26 @@ const CV = ({ location, pageTitle, setPageTitle, match }: any) => {
 
                 <div className="params">
                 <p>TECH SKILLS</p>
-                    I especially develop JavaScript, TypeScript, and Python web applications in the environment of React Js, Redux, Django, Node js, Express, CSS, and Jest testing libraries. 
+                    I especially develop <b>JavaScript</b>, <b>TypeScript</b>, and <b>Python</b> web applications in the environment of React Js, Redux, Django, Node js, Express, CSS, and Jest testing libraries. 
                     I provide also Data Science analyses, to describe the business problem and get to know the right solution.
 
-                    I have the fluent knowledge to match database structures SQL and No-SQL.
+                    I have the fluent knowledge to match database structures <b>SQL</b> and <b>No-SQL</b>.
                 
                 </div>
                 <div className="params">
                 <p>LANGUAGES</p>
-                HTML 5, CSS 3, JavaScript, TypeScript, Python, PHP, SQL
+                    HTML 5, CSS 3, JavaScript, TypeScript, Python, PHP, SQL
                 
                 <p>OTHER</p>
                 <p>Development</p>
-                React, Redux, Node, Express, Django, GIT
+                    React, Redux, Node, Express, Django, GIT
                 
                 <p>Testing libraries</p>
-                Jest, Enzyme
+                    Jest, Enzyme, Mocha, Chai
+                    
+                <p>Services</p>
+                    Google Drive, ScreenshotMachine, Heroku, AWS s3 Storage
+
                 </div>
             </div>
         </Fragment>
