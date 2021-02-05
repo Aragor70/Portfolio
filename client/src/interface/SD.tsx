@@ -24,11 +24,12 @@ import imgMachine from '../style/icons/machine.png';
 
 
 
-import { withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, BrowserRouter as Router, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
 
 const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
 
+    const { path, url } = useRouteMatch();
     useEffect(() => {
         setPageTitle('sotfware development')
 
@@ -37,151 +38,216 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
         }
     }, [setPageTitle])
 
+
+    
+
     return (
         <Fragment>
+            
             <div className="section-content">
                 
+            <Switch>
+                <Route exact path={path}>
+                    <div className="params">
+                        
+                        I especially develop applications using JavaScript, TypeScript, and Python in the environment of React Js, Redux Js, Django, Node Js, Express Js, CSS, and Jest testing libraries. 
+                        This page is right to overview the tech development.
+                        
+                    </div>
 
-            <div className="params">
-                
-                I especially develop applications using JavaScript, TypeScript, and Python in the environment of React Js, Redux Js, Django, Node Js, Express Js, CSS, and Jest testing libraries. 
-                This page is right to overview the tech development.
-                
-            </div>
+                    <h1>Current projects</h1>
+                </Route>
+            </Switch>
 
-            <h1>Current projects</h1>
-            
-            <div className="params">
-                <p className="content-center"><img src={ typesImg } alt="types" /></p>
-                <p>Real-Time TypeScript React app</p>
-                    You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
-                    Connect with friends and family, send photos, videos, GIFs, emoji, and more.
-                    Intuitive and modern, Types makes conversations easy, expressive, and fun.
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgTypescript} className="icon10" alt="typeScript" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgReact} className="icon10" alt="reactJs" />
-                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
-                    <img src={imgRedux} className="icon10" alt="reduxJs" />
-                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                    <img src={imgSocketio} className="icon10" alt="socketIo" />
-                    <img src={imgJest} className="icon10" alt="jest" />
-                </p>
 
-                <p className="more-about" onClick={e=> history.push("/software_development/types")}>
-                    View project details {"->"}
-                </p>
-                
-            </div>
+            <Switch>
+                <Route exact path={path}>
+                    <div className="params">
+                        <p className="content-center"><img src={ typesImg } alt="types" /></p>
+                        <p>Real-Time TypeScript React app</p>
+                            You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
+                            Connect with friends and family, send photos, videos, GIFs, emoji, and more.
+                            Intuitive and modern, Types makes conversations easy, expressive, and fun.
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgTypescript} className="icon10" alt="typeScript" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgReact} className="icon10" alt="reactJs" />
+                            <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                            <img src={imgRedux} className="icon10" alt="reduxJs" />
+                            <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                            <img src={imgSocketio} className="icon10" alt="socketIo" />
+                            <img src={imgJest} className="icon10" alt="jest" />
+                        </p>
 
-            <div className="params">
-                
-                <p className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></p>
-                <p>WebShot - JavaScript React app</p>
-                    Automated screenshot generator.
-
-                    The website allows you to generate screenshots of any website and save them into the Google Drive service.
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgReact} className="icon10" alt="reactJs" />
-                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                    <img src={imgGoogleDrive} className="icon10" alt="googleDrive" />
-                    <img src={imgMachine} className="icon10" alt="machine" />
-                </p>
-                
-                <p className="more-about" onClick={e=> history.push("/software_development/webshot")}>View project details {"->"}</p>
-                
-            </div>
-
-            <h1>Deployed projects</h1>
-
-            <div className="params">
-                <p className="content-center"><span style={{ fontSize: '45px' }}>ShortNister</span></p>
-                <p>ShortNister - TypeScript React app</p>
-                Take control of your URL address. Meet Shortster, to build a shortcut address. 
-                Get the quick report of the frequency. 
-                Right now you know how many times your partners clicked your address.
-                
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgTypescript} className="icon10" alt="typeScript" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgReact} className="icon10" alt="reactJs" />
-                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
-                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                    <img src={imgJest} className="icon10" alt="jest" />
-                    <img src={imgMocha} className="icon10" alt="mocha" />
-                </p>
-                <p className="more-about" onClick={e=> history.push("/software_development/shortnister")}>View project details {"->"}</p>
-            </div>
-
-            <div className="params">
-                <p className="content-center"><span style={{ fontSize: '45px' }}>onLoud</span></p>
-                <p>onLoud - JavaScript React app</p>
-                    You can share your favorite titles with anyone in any location with the lyrics and your audio. 
-                    Play music with friends and family making the meeting special and full of sound.
-                    Send messages to chat about the new songs.
-                    Intuitive and modern interface, makes listening music easy, expressive, and fun.
-                
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgReact} className="icon10" alt="reactJs" />
-                    <img src={imgNodejs} className="icon10" alt="nodeJs" />
-                    <img src={imgRedux} className="icon10" alt="reduxJs" />
-                    <img src={imgMongoDB} className="icon10" alt="mongoDB" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                </p>
-
-                <p className="more-about">View project details {"->"}</p>
-            </div>
-
-            <div className="params">
-                <p className="content-center"><span style={{ fontSize: '45px' }}>niconnect.uk</span></p>
-                <p>niconnect - JavaScript PHP app</p>
-                
-                Niconnect make it easy to connect with family, friends or coworkers. Groups are dedicated spaces where you can share updates, photos or documents and message other group members.
-                Stay close with your favorite people using Niconnect.uk.
-                  
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgPhp} className="icon10" alt="php" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgMysql} className="icon10" alt="mySql" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                </p>
-
-                <p className="more-about" onClick={e=> history.push("/software_development/niconnect")}>View project details {"->"}</p>
-            </div>
-
-            <h1>Drafts</h1>
-
-            <div className="params">
-                <i>Draft projections include projects temporarily stopped development, waiting for deployment</i>
-            </div>
-            
-            <div className="params">
-                <p className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></p>
-                <p>Emojis - JavaScript React Python Django app</p>
-
-                App is currently waiting for deployment.
-                <p>
-                    <img src={imgJavascript} className="icon10" alt="javaScript" />
-                    <img src={imgPython} className="icon10" alt="python" />
-                    <img src={imgCss} className="icon10" alt="css" />
-                    <img src={imgDjango} className="icon10" alt="django" />
-                    <img src={imgMysql} className="icon10" alt="mySql" />
-                    <img src={imgGithub} className="icon10" alt="github" />
-                </p>
-
-                <p className="more-about" onClick={e=> history.push("/software_development/emojis")}>View project details {"->"}</p>
+                        <p className="more-about" onClick={e=> history.push(`${url}/types`)}>
+                            View project details {"->"}
+                        </p>
                     
-            </div>
+                    </div>
+
+                </Route>
+            </Switch> 
+
+
+            <Switch>  
+                
+                <Route exact path={`${path}/types`}>
+                    <Project 
+                        name="Types"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
+
+
+            <Switch>
+
+                <Route exact path={path}>
+                    <div className="params">
+                        
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></p>
+                        <p>WebShot - JavaScript React app</p>
+                            Automated screenshot generator.
+
+                            The website allows you to generate screenshots of any website and save them into the Google Drive service.
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgReact} className="icon10" alt="reactJs" />
+                            <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                            <img src={imgGoogleDrive} className="icon10" alt="googleDrive" />
+                            <img src={imgMachine} className="icon10" alt="machine" />
+                        </p>
+                        
+                        <p className="more-about" onClick={e=> history.push("/software_development/webshot")}>View project details {"->"}</p>
+                        
+                    </div>
+                </Route>
+            </Switch> 
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <h1>Deployed projects</h1>
+                
+                </Route>
+            </Switch> 
+
+
+            <Switch>
+                <Route exact path={path}>
+
+                    <div className="params">
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>ShortNister</span></p>
+                        <p>ShortNister - TypeScript React app</p>
+                        Take control of your URL address. Meet Shortster, to build a shortcut address. 
+                        Get the quick report of the frequency. 
+                        Right now you know how many times your partners clicked your address.
+                        
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgTypescript} className="icon10" alt="typeScript" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgReact} className="icon10" alt="reactJs" />
+                            <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                            <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                            <img src={imgJest} className="icon10" alt="jest" />
+                            <img src={imgMocha} className="icon10" alt="mocha" />
+                        </p>
+                        <p className="more-about" onClick={e=> history.push("/software_development/shortnister")}>View project details {"->"}</p>
+                    </div>
+                </Route>
+            </Switch>  
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="params">
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>onLoud</span></p>
+                        <p>onLoud - JavaScript React app</p>
+                            You can share your favorite titles with anyone in any location with the lyrics and your audio. 
+                            Play music with friends and family making the meeting special and full of sound.
+                            Send messages to chat about the new songs.
+                            Intuitive and modern interface, makes listening music easy, expressive, and fun.
+                        
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgReact} className="icon10" alt="reactJs" />
+                            <img src={imgNodejs} className="icon10" alt="nodeJs" />
+                            <img src={imgRedux} className="icon10" alt="reduxJs" />
+                            <img src={imgMongoDB} className="icon10" alt="mongoDB" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                        </p>
+
+                        <p className="more-about">View project details {"->"}</p>
+                    </div>
+                </Route>
+            </Switch>  
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="params">
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>niconnect.uk</span></p>
+                        <p>niconnect - JavaScript PHP app</p>
+                        
+                        Niconnect make it easy to connect with family, friends or coworkers. Groups are dedicated spaces where you can share updates, photos or documents and message other group members.
+                        Stay close with your favorite people using Niconnect.uk.
+                        
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgPhp} className="icon10" alt="php" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgMysql} className="icon10" alt="mySql" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                        </p>
+
+                        <p className="more-about" onClick={e=> history.push("/software_development/niconnect")}>View project details {"->"}</p>
+                    </div>
+                </Route>
+            </Switch>  
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <h1>Drafts</h1>
+                
+                    <div className="params">
+                        <i>Draft projections include projects temporarily stopped development, waiting for deployment</i>
+                    </div>
+                </Route>
+            </Switch>
+
+
+            <Switch>
+                <Route exact path={path}>
+
+                    <div className="params">
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></p>
+                        <p>Emojis - JavaScript React Python Django app</p>
+
+                        App is currently waiting for deployment.
+                        <p>
+                            <img src={imgJavascript} className="icon10" alt="javaScript" />
+                            <img src={imgPython} className="icon10" alt="python" />
+                            <img src={imgCss} className="icon10" alt="css" />
+                            <img src={imgDjango} className="icon10" alt="django" />
+                            <img src={imgMysql} className="icon10" alt="mySql" />
+                            <img src={imgGithub} className="icon10" alt="github" />
+                        </p>
+
+                        <p className="more-about" onClick={e=> history.push("/software_development/emojis")}>View project details {"->"}</p>
+                            
+                    </div>
+                </Route>
+
+            </Switch>
+            
 
             </div>
 

@@ -1,17 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
 
 
 
-const Project = ({ match }: any) => {
+const Project = ({ name, title }: any) => {
 
-
-
+    
 
     return (
         <Fragment>
-            { match.params.title }
+            <div className="params">
+
+                <h1>{ name }</h1> 
+                
+                <p><span>{ title }</span></p>
+
+
+
+            </div>
         </Fragment>
     );
 }

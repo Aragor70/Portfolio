@@ -31,7 +31,7 @@ const App = ({ history }: any) => {
               <Home pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
           
-              <Route exact path="/software_development">
+              <Route path="/software_development">
                 <SD pageTitle={pageTitle} setPageTitle={setPageTitle} />
               </Route>
               <Route exact path="/data_science">
@@ -44,9 +44,6 @@ const App = ({ history }: any) => {
                 <AT pageTitle={pageTitle} setPageTitle={setPageTitle} />
               </Route>
 
-              <Route exact path="/software_development/:title">
-                <Project />
-              </Route>
             
           </Switch>
 
