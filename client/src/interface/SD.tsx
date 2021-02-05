@@ -133,7 +133,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 <Route exact path={`${path}/webshot`}>
                     <Project 
                         name="WebShot"
-                        title="Real-Time TypeScript React app"
+                        title="JavaScript React app"
                     />
                 </Route>
             </Switch> 
@@ -170,14 +170,14 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                         <p className="more-about" onClick={e=> history.push("/software_development/shortnister")}>View project details {"->"}</p>
                     </div>
                 </Route>
-            </Switch>  
+            </Switch>
 
             <Switch>  
                 
                 <Route exact path={`${path}/shortnister`}>
                     <Project 
                         name="ShortNister"
-                        title="Real-Time TypeScript React app"
+                        title="TypeScript React app"
                     />
                 </Route>
             </Switch> 
@@ -203,6 +203,8 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                         </p>
 
                         <p className="more-about">View project details {"->"}</p>
+
+                        
                     </div>
                 </Route>
             </Switch>  
@@ -212,7 +214,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 <Route exact path={`${path}/onloud`}>
                     <Project 
                         name="onLoud"
-                        title="Real-Time TypeScript React app"
+                        title="JavaScript React app"
                     />
                 </Route>
             </Switch> 
@@ -244,7 +246,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 <Route exact path={`${path}/niconnect`}>
                     <Project 
                         name="niconnect.uk"
-                        title="Real-Time TypeScript React app"
+                        title="JavaScript PHP app"
                     />
                 </Route>
             </Switch> 
@@ -253,7 +255,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 <Route exact path={path}>
                     <h1>Drafts</h1>
                 
-                    <div className="params">
+                    <div className="params" style={{ marginBottom: '30px' }}>
                         <i>Draft projections include projects temporarily stopped development, waiting for deployment</i>
                     </div>
                 </Route>
@@ -263,7 +265,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
             <Switch>
                 <Route exact path={path}>
 
-                    <div className="params">
+                    <div className="params" style={{ marginBottom: '0'}}>
                         <p className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></p>
                         <p>Emojis - JavaScript React Python Django app</p>
 
@@ -287,7 +289,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 <Route exact path={`${path}/emojis`}>
                     <Project 
                         name="Emojis"
-                        title="Real-Time TypeScript React app"
+                        title="JavaScript React Python Django app"
                     />
                 </Route>
             </Switch> 

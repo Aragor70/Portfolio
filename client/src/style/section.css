@@ -15,10 +15,13 @@
 .section-content .params
 {
     width: 100%;
+    padding: 30px;
     padding-left: 30px;
     padding-right: 30px;
     font-size: 18px;
-
+    background-color: rgba(193, 193, 193, 0.55);
+    border-radius: 7.5px;
+    margin-bottom: 30px;
 }
 
 .more-about
@@ -31,7 +34,7 @@
     width: 100%;
     position: relative;
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 45px;
 }
 
 .section-content > h1::before {

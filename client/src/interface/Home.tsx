@@ -43,6 +43,7 @@ const Home = ({ history, pageTitle, setPageTitle }: any) => {
     return (
         <div className="home-content">
 
+
             <div className="navi-buttons">
                 <div className="navi-button sd" onClick={e=> history.push('/software_development')}>
                 <img src={sdBtn} alt="software_development" />
