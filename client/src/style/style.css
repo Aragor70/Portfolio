@@ -94,7 +94,13 @@ hr
 {
     overflow-x: hidden;
     overflow-y: auto;
+    z-index: 2;
+    
 }
+
+
+
+
 
 .content-center
 {

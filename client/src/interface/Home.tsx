@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import photo from '../style/avatar.png';
 import dsBtn from '../style/ds.png';
@@ -6,6 +6,7 @@ import sdBtn from '../style/sd.png';
 import cvBtn from '../style/cv.png';
 import atBtn from '../style/at.png';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 const Home = ({ history, pageTitle, setPageTitle }: any) => {
 
@@ -17,6 +18,27 @@ const Home = ({ history, pageTitle, setPageTitle }: any) => {
         }
     }, [setPageTitle])
     
+    const [repos, setRepos] = useState([])
+    useEffect(() => {
+        const getRepos = async() => {
+            try {
+                const res = await axios.get('https://api.github.com/users/Aragor70/repos')
+
+                setRepos(res.data)
+            } catch (err) {
+                console.log(err.message)
+            }
+            
+        }
+        getRepos()
+
+        return () => {
+            setRepos([])
+        }
+
+    }, [])
+
+    console.log(repos)
 
     return (
         <div className="home-content">
@@ -42,6 +64,13 @@ const Home = ({ history, pageTitle, setPageTitle }: any) => {
             <div className="avatar">
                 <img src={photo} />
                 <span>Mikołaj<span>Prus</span></span>
+            </div>
+            
+            <div className="section-content">
+                
+                {
+                    repos && repos.map((repo: any) => <p>{repo.name} </p>)
+                }
             </div>
         </div>
     );

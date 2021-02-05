@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 2;
 }
 
 .page-title
@@ -61,4 +62,28 @@
 {
     transform: scale(0.8);
 
+}
+
+.logo
+{
+    width: 128px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-image: url('./logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 64px;
+    opacity: 0.70;
+    z-index: 1;
 }

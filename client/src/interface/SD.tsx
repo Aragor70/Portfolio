@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 
 import pht from '../style/pht.jpg';
-import typesImg from '../style/typesReadMe.png';
+import typesImg from '../style/types.png';
 
 import imgCss from '../style/icons/css.png';
 import imgDjango from '../style/icons/django.png';
@@ -128,6 +128,15 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 </Route>
             </Switch> 
 
+            <Switch>  
+                
+                <Route exact path={`${path}/webshot`}>
+                    <Project 
+                        name="WebShot"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
 
             <Switch>
                 <Route exact path={path}>
@@ -163,6 +172,15 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 </Route>
             </Switch>  
 
+            <Switch>  
+                
+                <Route exact path={`${path}/shortnister`}>
+                    <Project 
+                        name="ShortNister"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
 
             <Switch>
                 <Route exact path={path}>
@@ -189,6 +207,15 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 </Route>
             </Switch>  
 
+            <Switch>  
+                
+                <Route exact path={`${path}/onloud`}>
+                    <Project 
+                        name="onLoud"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
 
             <Switch>
                 <Route exact path={path}>
@@ -212,6 +239,15 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                 </Route>
             </Switch>  
 
+            <Switch>  
+                
+                <Route exact path={`${path}/niconnect`}>
+                    <Project 
+                        name="niconnect.uk"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
 
             <Switch>
                 <Route exact path={path}>
@@ -245,6 +281,16 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             
                     </div>
                 </Route>
+
+                <Switch>  
+                
+                <Route exact path={`${path}/emojis`}>
+                    <Project 
+                        name="Emojis"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
 
             </Switch>
             

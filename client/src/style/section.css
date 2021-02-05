@@ -25,3 +25,25 @@
 {
     color: blue;
 }
+
+.section-content > h1
+{
+    width: 100%;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.section-content > h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('./logo.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    opacity: 0.55;
+    z-index: 1;
+}
