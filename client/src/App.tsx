@@ -7,6 +7,7 @@ import CV from './interface/CV';
 import DS from './interface/DS';
 import Header from './interface/Header';
 import Home from './interface/Home';
+import Project from './interface/Project';
 import SD from './interface/SD';
 
 const App = ({ history }: any) => {
@@ -43,6 +44,9 @@ const App = ({ history }: any) => {
                 <AT pageTitle={pageTitle} setPageTitle={setPageTitle} />
               </Route>
 
+              <Route exact path="/software_development/:title">
+                <Project />
+              </Route>
             
           </Switch>
 

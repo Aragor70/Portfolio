@@ -25,8 +25,9 @@ import imgMachine from '../style/icons/machine.png';
 
 
 import { withRouter } from 'react-router-dom';
+import Project from './Project';
 
-const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
+const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
 
     useEffect(() => {
         setPageTitle('sotfware development')
@@ -43,7 +44,7 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
 
             <div className="params">
                 
-                I especially develop JavaScript, TypeScript, and Python web applications in the environment of React Js, Redux, Django, Node js, Express, CSS, and Jest testing libraries. 
+                I especially develop applications using JavaScript, TypeScript, and Python in the environment of React Js, Redux Js, Django, Node Js, Express Js, CSS, and Jest testing libraries. 
                 This page is right to overview the tech development.
                 
             </div>
@@ -68,15 +69,20 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgSocketio} className="icon10" alt="socketIo" />
                     <img src={imgJest} className="icon10" alt="jest" />
                 </p>
+
+                <p className="more-about" onClick={e=> history.push("/software_development/types")}>
+                    View project details {"->"}
+                </p>
                 
             </div>
 
             <div className="params">
+                
                 <p className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></p>
                 <p>WebShot - JavaScript React app</p>
                     Automated screenshot generator.
 
-                    The website allows users to generate screenshots of any website and save them into the Google Drive service.
+                    The website allows you to generate screenshots of any website and save them into the Google Drive service.
                 <p>
                     <img src={imgJavascript} className="icon10" alt="javaScript" />
                     <img src={imgCss} className="icon10" alt="css" />
@@ -86,6 +92,8 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgGoogleDrive} className="icon10" alt="googleDrive" />
                     <img src={imgMachine} className="icon10" alt="machine" />
                 </p>
+                
+                <p className="more-about" onClick={e=> history.push("/software_development/webshot")}>View project details {"->"}</p>
                 
             </div>
 
@@ -109,6 +117,7 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgJest} className="icon10" alt="jest" />
                     <img src={imgMocha} className="icon10" alt="mocha" />
                 </p>
+                <p className="more-about" onClick={e=> history.push("/software_development/shortnister")}>View project details {"->"}</p>
             </div>
 
             <div className="params">
@@ -128,6 +137,8 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgMongoDB} className="icon10" alt="mongoDB" />
                     <img src={imgGithub} className="icon10" alt="github" />
                 </p>
+
+                <p className="more-about">View project details {"->"}</p>
             </div>
 
             <div className="params">
@@ -144,6 +155,8 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgMysql} className="icon10" alt="mySql" />
                     <img src={imgGithub} className="icon10" alt="github" />
                 </p>
+
+                <p className="more-about" onClick={e=> history.push("/software_development/niconnect")}>View project details {"->"}</p>
             </div>
 
             <h1>Drafts</h1>
@@ -165,10 +178,13 @@ const SD = ({ location, pageTitle, setPageTitle, match }: any) => {
                     <img src={imgMysql} className="icon10" alt="mySql" />
                     <img src={imgGithub} className="icon10" alt="github" />
                 </p>
+
+                <p className="more-about" onClick={e=> history.push("/software_development/emojis")}>View project details {"->"}</p>
                     
             </div>
 
             </div>
+
         </Fragment>
             
     );
