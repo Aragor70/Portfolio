@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import leftArrow from '../style/left-arrow.png';
+import leftArrow from '../style/left-arrow.png';/* 
 import homeBtn from '../style/home.png';
-
+ */
 import dsBtn from '../style/ds.png';
 import sdBtn from '../style/sd.png';
 import cvBtn from '../style/cv.png';

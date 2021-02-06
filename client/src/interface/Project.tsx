@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 
 
@@ -15,7 +15,8 @@ const Project = ({ name, title }: any) => {
                 <h1>{ name }</h1> 
                 
                 <p><span>{ title }</span></p>
-
+                
+                
 
 
             </div>

@@ -101,7 +101,11 @@ hr
     margin-top: calc(12vh + 1px - 15px);
 }
 
-
+p
+{
+    height: auto;
+    display: block;
+}
 
 
 
@@ -110,11 +114,4 @@ hr
     display: flex;
     justify-content: center;
     
-}
-
-.icon10
-{
-    width: 20%;
-    border-radius: 7.5px;
-    margin: 7.5px;
 }

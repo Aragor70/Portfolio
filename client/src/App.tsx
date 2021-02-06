@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -7,7 +7,6 @@ import CV from './interface/CV';
 import DS from './interface/DS';
 import Header from './interface/Header';
 import Home from './interface/Home';
-import Project from './interface/Project';
 import SD from './interface/SD';
 
 const App = ({ history }: any) => {
