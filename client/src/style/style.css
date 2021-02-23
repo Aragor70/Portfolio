@@ -91,14 +91,18 @@ hr
 {
     color: #121212;
     width: calc(100%);
+    margin-bottom: 0;
 }
 
 .output
 {
+    height: calc(100vh - 12vh - 1px);
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 2;
-    margin-top: calc(12vh + 1px - 15px);
+    margin-top: 12vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 p
@@ -114,4 +118,9 @@ p
     display: flex;
     justify-content: center;
     
+}
+
+.b-left
+{
+    border-left: 7.5px solid rgb(0 0 0 / 20%);
 }

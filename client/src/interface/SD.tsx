@@ -63,7 +63,7 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
             <Switch>
                 <Route exact path={path}>
                     <div className="params">
-                        <p className="content-center"><img src={ typesImg } alt="types" /></p>
+                        <p className="content-center"><span style={{ fontSize: '45px' }}>NiChess</span></p>
                         <p>Real-Time TypeScript React app</p>
                             You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
                             Connect with friends and family, send photos, videos, GIFs, emoji, and more.
@@ -81,8 +81,54 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                         </p>
 
-                        <p className="more-about" onClick={e=> history.push(`${url}/types`)}>
-                            View project details {"->"}
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/types`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch> 
+
+
+            <Switch>  
+                
+                <Route exact path={`${path}/types`}>
+                    <Project 
+                        name="NiChess"
+                        title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="params">
+                        <p className="content-center"><img src={ typesImg } alt="types" /></p>
+                        <p>Real-Time TypeScript React app</p>
+                            Play chess with anyone in any location. NiChess is a game of chess with the elements of communication between the players.
+                            You can invite to play anyone with the reliability of texting and the richness of chat. 
+                            Have a fun with friends and family.
+                            
+                        <p className="icons">
+                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
+                            <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
+                            <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
+                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
+                            <div className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></div>
+                            <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/nichess`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -123,8 +169,12 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             
                         </p>
                         
-                        <p className="more-about" onClick={e=> history.push("/software_development/webshot")}>View project details {"->"}</p>
-                        
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/webshot`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>
+
                     </div>
                 </Route>
             </Switch> 
@@ -168,7 +218,12 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                             <div className="icon"><img src={imgMocha} alt="mocha" /><span>Mocha</span></div>
                         </p>
-                        <p className="more-about" onClick={e=> history.push("/software_development/shortnister")}>View project details {"->"}</p>
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/shortnister`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>
+                    
                     </div>
                 </Route>
             </Switch>
@@ -203,7 +258,11 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 
-                        <p className="more-about">View project details {"->"}</p>
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/onloud`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>
 
                         
                     </div>
@@ -238,7 +297,12 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 
-                        <p className="more-about" onClick={e=> history.push("/software_development/niconnect")}>View project details {"->"}</p>
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/niconnect`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>
+                    
                     </div>
                 </Route>
             </Switch>  
@@ -281,8 +345,11 @@ const SD = ({ location, pageTitle, setPageTitle, match, history }: any) => {
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 
-                        <p className="more-about" onClick={e=> history.push("/software_development/emojis")}>View project details {"->"}</p>
-                            
+                        <p className="more-about" >
+                            <span onClick={e=> history.push(`${url}/emojis`)}>View project details</span>
+                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                        </p>    
                     </div>
                 </Route>
 

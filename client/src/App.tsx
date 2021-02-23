@@ -15,7 +15,6 @@ const App = ({ history }: any) => {
 
   return (
     <Fragment>
-      <div className="shield">
         
         <header className="header-content">
 
@@ -48,7 +47,6 @@ const App = ({ history }: any) => {
 
         </main>
           
-      </div>
     </Fragment>
   );
 }
