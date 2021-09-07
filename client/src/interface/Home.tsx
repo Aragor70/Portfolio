@@ -45,7 +45,7 @@ const Home = ({ history, setPageTitle }: any) => {
         <div className="home-content">
 
             <div className="avatar">
-                <img src={photo} onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
+                <img src={photo} alt="mikolaj_photo" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
                 <span>Mikołaj Prus</span>
             </div>
             <h1>

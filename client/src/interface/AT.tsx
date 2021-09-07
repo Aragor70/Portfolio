@@ -19,7 +19,7 @@ const AT = ({ setPageTitle }: any) => {
             <div className="section-content">
                 <div className="params">
                 
-                <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} /></p>
+                <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
 
                 <p>Text me</p>
                     mikey.prus@gmail.com

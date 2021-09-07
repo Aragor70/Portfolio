@@ -11,7 +11,7 @@ import Header from './interface/Header';
 import Home from './interface/Home';
 import SD from './interface/SD';
 
-const App = ({ }: any) => {
+const App = () => {
 
   const [pageTitle, setPageTitle] = useState('')
 
