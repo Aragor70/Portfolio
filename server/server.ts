@@ -7,6 +7,8 @@ import errorHandler from './middlewares/error';
 import authRouter from './routes/api/auth'
 import usersRouter from './routes/api/users'
 
+import path from 'path'
+
 const app: Application = express();
 
 
@@ -24,6 +26,16 @@ app.use('/api/users', usersRouter);
 
 
 app.use(errorHandler)
+
+if (process.env.NODE_ENV === 'production') {
+    // static folder
+    app.use(express.static('client/build'))
+    
+    // get index directory
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 const PORT:number | string = process.env.PORT || 5000;
 
