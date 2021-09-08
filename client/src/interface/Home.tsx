@@ -44,15 +44,15 @@ const Home = ({ history, setPageTitle }: any) => {
     return (
         <div className="home-content">
 
-            <div className="avatar">
+            <div className="avatar box1">
                 <img src={photo} alt="mikolaj_photo" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
                 <span>Mikołaj Prus</span>
             </div>
-            <h1>
+            <h1 className="box2">
                 Full-Stack Software Enginner
             </h1>
 
-            <div className="navi-buttons">
+            <div className="navi-buttons box3">
                 <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                     <img src={sdBtn} alt="software_development" />
                     <nav>Work experience</nav>
@@ -71,7 +71,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 </div>
                 <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
                     <img src={atBtn} alt="contact_mikolaj" style={{ borderLeft: '1.6px solid #0A1248'}} />
-                    <nav>contact</nav>
+                    <nav>Contact</nav>
                 </div>
             </div>
             

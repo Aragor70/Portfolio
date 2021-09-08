@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -15,6 +15,14 @@ const App = () => {
 
   const [pageTitle, setPageTitle] = useState('')
 
+  const [inUpdate, setInUpdate] = useState<string>('1')
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInUpdate('0')
+    }, 2500)
+  }, [])
+
   return (
     <Fragment>
         
@@ -23,7 +31,14 @@ const App = () => {
           <Header pageTitle={pageTitle} setPageTitle={setPageTitle} />
         
         </header>
-
+        {
+          inUpdate && <Fragment>
+            <div className="inUpdate" style={{opacity: inUpdate}}>
+              Page In Update
+            </div>
+          </Fragment>
+        }
+        
         
         <main className="output">
           <Switch>
