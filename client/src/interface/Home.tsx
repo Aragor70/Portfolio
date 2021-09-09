@@ -119,7 +119,7 @@ const Home = ({ history, setPageTitle }: any) => {
             </div>
             <section className="frontImage">
                 <button onClick={() => decreaseImage(currentIndex)} className="switchButton left">{"<"}</button>
-                <img src={currentImage} />
+                <img src={currentImage} alt="projects_image" />
                 <button onClick={() => increaseImage(currentIndex)} className="switchButton right">{">"}</button>
             </section>
             {/* <div className="section-content">
