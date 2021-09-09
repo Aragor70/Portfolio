@@ -41,7 +41,7 @@ const Home = ({ history, setPageTitle }: any) => {
         }
 
     }, [])
-
+    console.log(repos)
     const [currentImage, setCurrentImage] = useState<any>(types1)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
 
