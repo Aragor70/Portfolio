@@ -11,6 +11,7 @@ import axios from 'axios';
 
 import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
+import shortnister1 from '../style/shortnister1.png';
 
 const Home = ({ history, setPageTitle }: any) => {
 
@@ -47,7 +48,7 @@ const Home = ({ history, setPageTitle }: any) => {
     const [arryImages, setArryImages] = useState<any[]>([])
     
     useEffect(() => {
-        const arry: any[] = [types1, onloud1]
+        const arry: any[] = [types1, onloud1, shortnister1]
         setArryImages(arry)
     }, [])
     
