@@ -9,6 +9,9 @@ import edBtn from '../style/icons/pic3.png';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
+import types1 from '../style/types1.png';
+import onloud1 from '../style/onloud1.png';
+
 const Home = ({ history, setPageTitle }: any) => {
 
     useEffect(() => {
@@ -39,7 +42,47 @@ const Home = ({ history, setPageTitle }: any) => {
 
     }, [])
 
-    console.log(repos)
+    const [currentImage, setCurrentImage] = useState<any>(types1)
+    const [currentIndex, setCurrentIndex] = useState<number>(0)
+
+    const increaseImage = (i: number) => {
+
+        const arry = [
+            types1,
+            onloud1
+        ]
+
+        if (i > arry.length - 1 || i === arry.length - 1) {
+            i = arry.length - 1;
+            setCurrentIndex(i)
+        } else {
+            i += 1
+            setCurrentIndex(i)
+        }
+
+        setCurrentImage(arry[i])
+
+    }
+    const decreaseImage = (i: number) => {
+
+        const arry = [
+            types1,
+            onloud1
+        ]
+
+        if (i < 0 || i === 0) {
+            i = 0;
+            setCurrentIndex(i)
+        } else {
+            i -= 1
+            setCurrentIndex(i)
+        }
+
+        setCurrentImage(arry[i])
+
+    }
+
+    console.log(currentImage, currentIndex)
 
     return (
         <div className="home-content">
@@ -74,7 +117,11 @@ const Home = ({ history, setPageTitle }: any) => {
                     <nav>Contact</nav>
                 </div>
             </div>
-            
+            <section className="frontImage">
+                <button onClick={() => decreaseImage(currentIndex)} className="switchButton left">{"<"}</button>
+                <img src={currentImage} />
+                <button onClick={() => increaseImage(currentIndex)} className="switchButton right">{">"}</button>
+            </section>
             {/* <div className="section-content">
                 
                 {
