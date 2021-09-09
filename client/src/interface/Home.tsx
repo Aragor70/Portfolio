@@ -44,31 +44,29 @@ const Home = ({ history, setPageTitle }: any) => {
     console.log(repos)
     const [currentImage, setCurrentImage] = useState<any>(types1)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-
+    const [arryImages, setArryImages] = useState<any[]>([])
+    
+    useEffect(() => {
+        const arry: any[] = [types1, onloud1]
+        setArryImages(arry)
+    }, [])
+    
     const increaseImage = (i: number) => {
 
-        const arry = [
-            types1,
-            onloud1
-        ]
-
-        if (i > arry.length - 1 || i === arry.length - 1) {
-            i = arry.length - 1;
+        if (i > arryImages.length - 1 || i === arryImages.length - 1) {
+            i = arryImages.length - 1;
             setCurrentIndex(i)
         } else {
             i += 1
             setCurrentIndex(i)
         }
 
-        setCurrentImage(arry[i])
+        setCurrentImage(arryImages[i])
 
     }
     const decreaseImage = (i: number) => {
 
-        const arry = [
-            types1,
-            onloud1
-        ]
+        
 
         if (i < 0 || i === 0) {
             i = 0;
@@ -78,7 +76,7 @@ const Home = ({ history, setPageTitle }: any) => {
             setCurrentIndex(i)
         }
 
-        setCurrentImage(arry[i])
+        setCurrentImage(arryImages[i])
 
     }
 
@@ -118,9 +116,14 @@ const Home = ({ history, setPageTitle }: any) => {
                 </div>
             </div>
             <section className="frontImage">
-                <button onClick={() => decreaseImage(currentIndex)} className="switchButton left">{"<"}</button>
+                {
+                    currentIndex > 0 && <button onClick={() => decreaseImage(currentIndex)} className="switchButton left">{"<"}</button>
+                }
                 <img src={currentImage} alt="projects_image" />
-                <button onClick={() => increaseImage(currentIndex)} className="switchButton right">{">"}</button>
+                {
+                    currentIndex < arryImages.length - 1 && <button onClick={() => increaseImage(currentIndex)} className="switchButton right">{">"}</button>
+                }
+                
             </section>
             {/* <div className="section-content">
                 
