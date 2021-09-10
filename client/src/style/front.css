@@ -123,6 +123,7 @@
     display: none;
     z-index: 1;
     position: relative;
+    transition: all 0.5s ease;
 }
 
 .frontImage .switchButton
@@ -140,6 +141,26 @@
 {
     position: absolute;
     right: 0;
+}
+
+.frontImage .number_of_images
+{
+    position: absolute;
+    bottom: -15px;
+    width: 400px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.frontImage .number_of_images div
+{
+    width: 25%;
+    cursor: pointer;
+    text-align: center;
+    z-index: 5;
+    transition: all 0.3s ease;
 }
 
 @media (min-width: 1023px) {

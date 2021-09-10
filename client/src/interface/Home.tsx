@@ -43,50 +43,34 @@ const Home = ({ history, setPageTitle }: any) => {
         }
 
     }, [])
+
     console.log(repos)
-    const [currentImage, setCurrentImage] = useState<any>(null)
-    const [currentIndex, setCurrentIndex] = useState<number>(0)
-    const [arryImages, setArryImages] = useState<any[]>([])
     
+    const arryImages: any[] = [types1, onloud1, shortnister1, webshot1]
+    const [currentIndex, setCurrentIndex] = useState<number>(Math.floor(Math.random() * (arryImages.length || 4)))
+    
+
+
     useEffect(() => {
-        const arry: any[] = [types1, onloud1, shortnister1, webshot1]
-        const randomValue: number = Math.floor(Math.random() * (arry.length))
-        setArryImages(arry)
-        
-        setCurrentIndex(randomValue)
-        setCurrentImage(arry[randomValue])
-    }, [])
+
+        const timer = setInterval(() => {
+
+            if (currentIndex >= arryImages.length - 1) {
+                setCurrentIndex(0)
+            } else {
+                setCurrentIndex(currentIndex + 1)
+            }
+            
+        }, 2500)
+
+        return () => {
+            clearInterval(timer)
+            console.log('clear')
+        }
+
+    }, [currentIndex, arryImages.length])
+
     
-    const increaseImage = (i: number) => {
-
-        if (i > arryImages.length - 1 || i === arryImages.length - 1) {
-            i = arryImages.length - 1;
-            setCurrentIndex(i)
-        } else {
-            i += 1
-            setCurrentIndex(i)
-        }
-
-        setCurrentImage(arryImages[i])
-
-    }
-    const decreaseImage = (i: number) => {
-
-        
-
-        if (i < 0 || i === 0) {
-            i = 0;
-            setCurrentIndex(i)
-        } else {
-            i -= 1
-            setCurrentIndex(i)
-        }
-
-        setCurrentImage(arryImages[i])
-
-    }
-
-    console.log(currentImage, currentIndex)
 
     return (
         <div className="home-content">
@@ -122,13 +106,14 @@ const Home = ({ history, setPageTitle }: any) => {
                 </div>
             </div>
             <section className="frontImage">
-                {
-                    currentIndex > 0 && <button onClick={() => decreaseImage(currentIndex)} className="switchButton left">{"<"}</button>
-                }
-                <img src={currentImage} alt="projects_image" />
-                {
-                    currentIndex < arryImages.length - 1 && <button onClick={() => increaseImage(currentIndex)} className="switchButton right">{">"}</button>
-                }
+                
+                <img src={arryImages[currentIndex]} alt="projects_image" />
+
+                <div className="number_of_images">
+                    {
+                        arryImages.map((_, index) => index === currentIndex ? <div key={index} style={{ fontWeight: 'bold' }} onClick={() => setCurrentIndex(index)}>X</div> : <div key={index} onClick={() => setCurrentIndex(index)}>O</div>)
+                    }
+                </div>
                 
             </section>
             {/* <div className="section-content">
