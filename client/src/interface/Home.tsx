@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import photo from '../style/avatar.png';
 import sdBtn from '../style/icons/pic1.png';
@@ -49,6 +49,7 @@ const Home = ({ history, setPageTitle }: any) => {
     const arryImages: any[] = [types1, onloud1, shortnister1, webshot1]
     const [currentIndex, setCurrentIndex] = useState<number>(Math.floor(Math.random() * (arryImages.length || 4)))
     
+    const image = useRef(null)
 
 
     useEffect(() => {
@@ -61,7 +62,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 setCurrentIndex(currentIndex + 1)
             }
             
-        }, 2500)
+        }, 3500)
 
         return () => {
             clearInterval(timer)
@@ -107,7 +108,7 @@ const Home = ({ history, setPageTitle }: any) => {
             </div>
             <section className="frontImage">
                 
-                <img src={arryImages[currentIndex]} alt="projects_image" />
+                <img src={arryImages[currentIndex]} alt="projects_image" ref={image} />
 
                 <div className="number_of_images">
                     {
