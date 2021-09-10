@@ -18,7 +18,7 @@ import imgHtml from '../style/icons/html-5.png';
 import imgJavascript from '../style/icons/javascript.png'; */
 /* import imgJest from '../style/icons/jest.png'; */
 import imgMongoDB from '../style/icons/mongodb.png';
-/* import imgMysql from '../style/icons/mysql.png'; *//* 
+import imgMysql from '../style/icons/mysql.png';/* 
 import imgNodejs from '../style/icons/nodejs.png';
 import imgPython from '../style/icons/python.png';
 import imgReact from '../style/icons/react.png'; */
@@ -80,8 +80,8 @@ const Experience = ({ setPageTitle }: any) => {
 
                         <p className="more-about" >
                             {/* <span></span> */}
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
+                            <div className="icon-box" onClick={() => window.open("https://brikkapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -117,14 +117,14 @@ const Experience = ({ setPageTitle }: any) => {
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript ES6</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
-                            <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
+                            <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 
                         <p className="more-about" >
                             {/* <span></span> */}
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
+                            <div className="icon-box" onClick={() => window.open("https://data4you.cz/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>

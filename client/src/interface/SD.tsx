@@ -90,8 +90,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/types`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div>
+                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
                     
                     </div>
@@ -134,8 +134,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/nichess`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/NiChess", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://nichess.netlify.app/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -180,8 +180,8 @@ const SD = ({ setPageTitle, history }: any) => {
                         
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/webshot`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/WebShot", "_blank")}><i className="fas fa-code fa"></i></div>
+                            {/* <div className="icon-box" onClick={() => window.open("", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
 
                     </div>
@@ -231,8 +231,8 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/shortnister`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/ShortNister", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://shortnister.herokuapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -274,8 +274,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/onloud`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Niconnect.uk", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://niconnect.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
 
                         
@@ -350,8 +350,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/emojis`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Emojis", "_blank")}><i className="fas fa-code fa"></i></div>
+                            {/* <div className="icon-box"><i className="fab fa-chrome fa"></i></div> */}
                         </p>    
                     </div>
                 </Route>
