@@ -219,7 +219,13 @@
     }
     .navi-buttons .navi-button img
     {
-        width: 55px;
+        width: 43px;
+        height: 41px;
+    }
+    .navi-buttons .navi-button:nth-last-child(1) img
+    {
+        width: 43px;
+        height: auto;
     }
     
     .avatar

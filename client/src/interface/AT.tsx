@@ -23,11 +23,10 @@ const AT = ({ setPageTitle }: any) => {
 
                 <p>Text me</p>
                     mikey.prus@gmail.com
-                
-                <p>in : www.linkedin.com/in/mikolaj-prus</p>
-                <p>hr : www.hackerrank.com/mikey_prus</p>
+                <p>
                     
-                
+                <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}><i className="fab fa-linkedin fa-2x"></i></div>
+                </p>
 
                 </div>
             </div>
