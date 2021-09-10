@@ -44,13 +44,17 @@ const Home = ({ history, setPageTitle }: any) => {
 
     }, [])
     console.log(repos)
-    const [currentImage, setCurrentImage] = useState<any>(types1)
+    const [currentImage, setCurrentImage] = useState<any>(null)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [arryImages, setArryImages] = useState<any[]>([])
     
     useEffect(() => {
         const arry: any[] = [types1, onloud1, shortnister1, webshot1]
+        const randomValue: number = Math.floor(Math.random() * (arry.length))
         setArryImages(arry)
+        
+        setCurrentIndex(randomValue)
+        setCurrentImage(arry[randomValue])
     }, [])
     
     const increaseImage = (i: number) => {

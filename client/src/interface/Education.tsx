@@ -34,6 +34,8 @@ import imgPhp from '../style/icons/php.png'; */
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 /* import imgMachine from '../style/icons/machine.png'; */
 
+import gdansk1 from '../style/gdansk1.jpg';
+import koszalin1 from '../style/koszalin1.jpg';
 
 
 const Education = ({ setPageTitle }: any) => {
@@ -56,6 +58,9 @@ const Education = ({ setPageTitle }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={gdansk1} alt="projects_image" />
+                    </div>
                     <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Computer science and econometrics, Master's degree </span></h3>
                         
@@ -110,8 +115,11 @@ const Education = ({ setPageTitle }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={koszalin1} alt="projects_image" />
+                    </div>
                     <div className="params">
-                    <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Computer science and econometrics, Master's degree </span></h3>
+                    <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Economy and real estate management, Bachelor's degree</span></h3>
                         
                         <p>University of Technology Koszalin, Poland 03/2013 – 09/2017</p>
 

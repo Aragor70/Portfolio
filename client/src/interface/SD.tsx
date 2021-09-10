@@ -23,6 +23,10 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 import imgMachine from '../style/icons/machine.png';
 
 
+import types1 from '../style/types1.png';
+import onloud1 from '../style/onloud1.png';
+import shortnister1 from '../style/shortnister1.png';
+import webshot1 from '../style/webshot1.png';
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
@@ -62,6 +66,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={types1} alt="projects_image" />
+                    </div>
                     <div className="params">
                         <h3 className="content-center"><img src={ typesImg } alt="types" /></h3>
                         <p>Real-Time TypeScript React app</p>
@@ -151,8 +158,10 @@ const SD = ({ setPageTitle, history }: any) => {
             <Switch>
 
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={webshot1} alt="projects_image" />
+                    </div>
                     <div className="params">
-                        
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></h3>
                         <p>WebShot - JavaScript React app</p>
                             <p>Automated screenshot generator.</p>
@@ -199,7 +208,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
-
+                    <div className="section-image">
+                        <img src={shortnister1} alt="projects_image" />
+                    </div>
                     <div className="params">
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>ShortNister</span></h3>
                         <p>ShortNister - TypeScript React app</p>
@@ -240,6 +251,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={onloud1} alt="projects_image" />
+                    </div>
                     <div className="params">
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>onLoud</span></h3>
                         <p>onLoud - JavaScript React app</p>

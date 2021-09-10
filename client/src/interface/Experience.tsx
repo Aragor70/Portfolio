@@ -30,6 +30,8 @@ import imgPhp from '../style/icons/php.png'; */
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 /* import imgMachine from '../style/icons/machine.png'; */
 
+import brikkapp1 from '../style/brikkapp1.png';
+import data4you1 from '../style/data4you1.jpg';
 
 
 const Experience = ({ setPageTitle }: any) => {
@@ -52,6 +54,9 @@ const Experience = ({ setPageTitle }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={brikkapp1} alt="projects_image" />
+                    </div>
                     <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Junior Full-Stack Software Engineer at BrikkApp</span></h3>
                         
@@ -97,6 +102,9 @@ const Experience = ({ setPageTitle }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={data4you1} alt="projects_image" />
+                    </div>
                     <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Bootcamp mentor at Data4you</span></h3>
                         
