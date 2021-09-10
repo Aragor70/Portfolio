@@ -152,8 +152,9 @@ footer > p
 .pop-up
 {
     display: none;
-    width: 64px;
+    width: 5vw;
 }
+
 
 @media (min-width: 1023px) {
 
@@ -306,11 +307,32 @@ footer > p
     .pop-up
     {
         display: flex;
-        width: 64px;
+        width: 5vw;
         flex-direction: column;
         justify-content: center;
         position: fixed;
         bottom: 64px;
+        right: 15px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        display: grid;
+        row-gap: 7.5px;
+    }
+
+    .pop-up .icon-box
+    {
+        cursor: pointer;
+    }
+    .scroll-up
+    {
+        display: flex;
+        width: 5vw;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        bottom: 15px;
         right: 15px;
         list-style: none;
         padding: 0;
@@ -319,7 +341,7 @@ footer > p
         row-gap: 7.5px;
     }
 
-    .pop-up .icon-box
+    .scroll-up .icon-box
     {
         cursor: pointer;
     }
