@@ -68,7 +68,7 @@ const Experience = ({ setPageTitle }: any) => {
                         
 
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript ES6</span></div>
+                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
@@ -114,7 +114,7 @@ const Experience = ({ setPageTitle }: any) => {
                         <p>Helping students to gain a solid base of fundamental programming, computer science knowledge, and experience with languages, frameworks, and libraries.</p>
 
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript ES6</span></div>
+                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
                             <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>

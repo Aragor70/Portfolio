@@ -37,7 +37,6 @@ const App = ({ location }: any) => {
           window.removeEventListener('scroll', handleScroll);
       };
   }, []);
-    
 
   return (
     <Fragment>
@@ -74,7 +73,7 @@ const App = ({ location }: any) => {
           </Switch>
           {
             location.pathname === "/" ? <Fragment>
-              <ul className="pop-up">
+              <ul className="pop-up" style={{ opacity: '1' }}>
                 <li>
                     <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}><i className="fab fa-linkedin fa-2x"></i></div>
                 </li>
@@ -90,7 +89,6 @@ const App = ({ location }: any) => {
               </ul>
             </Fragment>
           }
-
         </main>
         <footer>
           <p>© Nicolai 2021</p>
