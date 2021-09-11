@@ -27,6 +27,7 @@ import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
 import shortnister1 from '../style/shortnister1.png';
 import webshot1 from '../style/webshot1.png';
+import nichess1 from '../style/nichess1.png';
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
@@ -104,7 +105,7 @@ const SD = ({ setPageTitle, history }: any) => {
                 
                 <Route exact path={`${path}/types`}>
                     <Project 
-                        name="NiChess"
+                        name="Types"
                         title="Real-Time TypeScript React app"
                     />
                 </Route>
@@ -112,6 +113,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={nichess1} alt="projects_image" />
+                    </div>
                     <div className="params">
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiChess</span></h3>
                         <p>Real-Time TypeScript React app</p>
@@ -146,9 +150,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>  
                 
-                <Route exact path={`${path}/types`}>
+                <Route exact path={`${path}/nichess`}>
                     <Project 
-                        name="Types"
+                        name="Nichess"
                         title="Real-Time TypeScript React app"
                     />
                 </Route>
