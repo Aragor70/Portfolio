@@ -380,14 +380,6 @@ const SD = ({ setPageTitle, history }: any) => {
                 </Route>
             </Switch>
 
-
-{/*             <ul className="scroll-up">
-                <li>
-                    <div className="icon-box" onClick={() => window.scrollTo(0, 0)}><i className="fas fa-angle-double-up fa-3x"></i></div>
-                </li>
-            </ul> */}
-            
-
             </div>
 
         </Fragment>

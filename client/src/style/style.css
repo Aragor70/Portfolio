@@ -23,6 +23,10 @@ body, html
     overflow-y: auto;
     color: #0A1248;
     
+}    
+body
+{
+    height: auto;
 }
 
 a, button, textarea, input
@@ -154,6 +158,27 @@ footer > p
     display: none;
     width: 5vw;
 }
+.scroll-up
+{
+    display: flex;
+    width: 5vw;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    list-style: none;
+    padding: 0;
+
+    display: grid;
+    row-gap: 7.5px;
+    display: none;
+}
+
+.scroll-up .icon-box
+{
+    cursor: pointer;
+}
 
 
 @media (min-width: 1023px) {
@@ -178,6 +203,10 @@ footer > p
         overflow-y: auto;
         color: #0A1248;
         
+    }
+    body
+    {
+        height: auto;
     }
     
     a, button, textarea, input
@@ -339,6 +368,9 @@ footer > p
 
         display: grid;
         row-gap: 7.5px;
+        
+        opacity: 0;
+        transition: all 1.3s ease;
     }
 
     .scroll-up .icon-box
