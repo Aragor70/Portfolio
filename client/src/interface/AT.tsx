@@ -24,8 +24,8 @@ const AT = ({ setPageTitle }: any) => {
                 <p>Text me</p>
                     mikey.prus@gmail.com
                 <p>
-                    
-                <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}><i className="fab fa-linkedin fa-2x"></i></div>
+                
+                <div className="icon-box"><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></div>
                 </p>
 
                 </div>

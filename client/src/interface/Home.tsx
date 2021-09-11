@@ -117,14 +117,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 </div>
                 
             </section>
-                <ul className="pop-up">
-                    <li>
-                        <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}><i className="fab fa-linkedin fa-2x"></i></div>
-                    </li>
-                    <li>
-                        <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70", "_blank")}><i className="fab fa-github-square fa-2x"></i></div>
-                    </li>
-                </ul>
+                
             {/* <div className="section-content">
                 
                 {

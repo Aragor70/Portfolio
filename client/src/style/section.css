@@ -46,7 +46,7 @@
     cursor: pointer;
     padding-top: 15px;
     padding-bottom: 15px;
-    width: 50%;
+    width: auto;
     margin-right: auto;
 }
 .more-about span:active
@@ -74,6 +74,17 @@
     position: relative;
     top: 2px;
     color: green;
+}
+.icon-box i:active
+{
+    position: relative;
+    top: 2px;
+    color: green;
+}
+.icon-box i
+{
+    cursor: pointer;
+    z-index: 2;
 }
 
 .more-about .icon-box:nth-last-child(1)
@@ -181,7 +192,7 @@
         cursor: pointer;
         padding-top: 15px;
         padding-bottom: 15px;
-        width: 50%;
+        width: auto;
         margin-right: auto;
     }
     .more-about .icon-box

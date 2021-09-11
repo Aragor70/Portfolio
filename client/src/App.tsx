@@ -13,7 +13,7 @@ import SD from './interface/SD';
 
 import { handleScrollToTop } from './utils/autoHandlers';
 
-const App = () => {
+const App = ({ location }: any) => {
 
   const [pageTitle, setPageTitle] = useState('')
 
@@ -72,13 +72,24 @@ const App = () => {
 
             
           </Switch>
-
-          <ul className="scroll-up" ref={scrollButton}>
-            <li>
-                <div className="icon-box" onClick={() => handleScrollToTop(window)}><i className="fas fa-angle-double-up fa-3x"></i></div>
-            </li>
-          </ul>
-          
+          {
+            location.pathname === "/" ? <Fragment>
+              <ul className="pop-up">
+                <li>
+                    <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}><i className="fab fa-linkedin fa-2x"></i></div>
+                </li>
+                <li>
+                    <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70", "_blank")}><i className="fab fa-github-square fa-2x"></i></div>
+                </li>
+              </ul>
+            </Fragment> : <Fragment>
+              <ul className="scroll-up" ref={scrollButton}>
+                <li>
+                    <div className="icon-box" onClick={() => handleScrollToTop(window)}><i className="fas fa-angle-double-up fa-3x"></i></div>
+                </li>
+              </ul>
+            </Fragment>
+          }
 
         </main>
         <footer>
