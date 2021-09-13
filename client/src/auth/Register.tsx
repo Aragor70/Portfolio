@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import '../style/auth.css'
 
 
-const Register = ({ register, history, setPageTitle }: any) => {
+const Register = ({ history, setPageTitle }: any) => {
 
     useEffect(() => {
         setPageTitle('Sign up')
@@ -27,7 +27,8 @@ const Register = ({ register, history, setPageTitle }: any) => {
     }
     const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        return await register(formData, history)
+        history.push('/')
+        return await console.log(formData)
     }
 
     const customComplete = (e: any) => {
