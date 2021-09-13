@@ -6,6 +6,7 @@ import errorHandler from './middlewares/error';
 
 import authRouter from './routes/api/auth'
 import usersRouter from './routes/api/users'
+import emailsRouter from './routes/api/emails'
 
 import path from 'path'
 
@@ -23,6 +24,7 @@ app.get('/', (req: Request, res: Response) => res.send('Server is Running...'))
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/emails', emailsRouter);
 
 
 app.use(errorHandler)

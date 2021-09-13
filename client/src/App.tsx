@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 
 import { Route, Switch, withRouter } from 'react-router-dom';
+import Login from './auth/Login';
+import Register from './auth/Register';
 import AT from './interface/AT';
 import CV from './interface/CV';
 /* import DS from './interface/DS'; */
@@ -9,6 +11,7 @@ import Education from './interface/Education';
 import Experience from './interface/Experience';
 import Header from './interface/Header';
 import Home from './interface/Home';
+import Messages from './interface/Messages';
 import SD from './interface/SD';
 
 import { handleScrollToTop } from './utils/autoHandlers';
@@ -67,6 +70,15 @@ const App = ({ location }: any) => {
             </Route>
             <Route exact path="/contact_mikolaj">
               <AT pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            </Route>
+            <Route exact path="/login">
+              <Login pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            </Route>
+            <Route exact path="/register">
+              <Register pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            </Route>
+            <Route exact path="/messages">
+              <Messages pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
 
             

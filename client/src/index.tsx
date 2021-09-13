@@ -7,6 +7,8 @@ import './style/style.css';
 import './style/front.css';
 import './style/header.css';
 import './style/section.css';
+import './style/contact.css';
+import './style/auth.css';
 
 ReactDOM.render(
   <React.StrictMode>

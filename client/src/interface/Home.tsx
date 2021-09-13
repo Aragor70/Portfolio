@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 import photo from '../style/avatar.png';
 import sdBtn from '../style/icons/pic1.png';
@@ -72,7 +72,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
     }, [currentIndex, arryImages.length])
 
-    
+    /* const [loggedIn, setLoggedIn] = useState(false) */
 
     return (
         <div className="home-content">
@@ -106,6 +106,14 @@ const Home = ({ history, setPageTitle }: any) => {
                     <img src={atBtn} alt="contact_mikolaj" style={{ borderLeft: '1.6px solid #0A1248'}} />
                     <nav>Contact</nav>
                 </div>
+                {/* {
+                    loggedIn && <Fragment>
+                        <div className="navi-button at" onClick={() => history.push('/messages')}>
+                            <img src={atBtn} alt="contact_mikolaj" style={{ borderLeft: '1.6px solid #0A1248'}} />
+                            <nav>Your Messages</nav>
+                        </div>
+                    </Fragment>
+                } */}
             </div>
             <section className="frontImage">
                 

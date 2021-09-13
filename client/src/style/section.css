@@ -86,6 +86,21 @@
     cursor: pointer;
     z-index: 2;
 }
+.icon-box button
+{
+    cursor: pointer;
+    z-index: 2;
+    border: 1px solid #0A1248;
+    padding: 7.5px;
+    font-size: 18px;
+    background-color: #fff;
+}
+.icon-box button:active
+{
+    position: relative;
+    top: 2px;
+    color: green;
+}
 
 .more-about .icon-box:nth-last-child(1)
 {

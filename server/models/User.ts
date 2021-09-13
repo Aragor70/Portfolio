@@ -6,7 +6,7 @@ interface User {
     avatar?: string;
     password: string;
     date: Date | undefined;
-  }
+}
 
 const UserSchema = new Schema<User>({
 

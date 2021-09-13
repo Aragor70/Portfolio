@@ -180,6 +180,11 @@ footer > p
     cursor: pointer;
 }
 
+.output-response
+{
+    text-align: center;
+    font-size: 24px;
+}
 
 @media (min-width: 1023px) {
 
