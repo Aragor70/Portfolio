@@ -47,7 +47,7 @@ const AT = ({ setPageTitle }: any) => {
         try {
             await setLoadingMessage(true)
 
-            const response = await axios.post('/api/emails', formData, config)
+            const response = await axios.post('https://mikolaj-collection.herokuapp.com/api/emails', formData, config)
 
             setLoadingMessage(false)
 
