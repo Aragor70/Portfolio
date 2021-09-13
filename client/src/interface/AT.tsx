@@ -25,9 +25,9 @@ const AT = ({ setPageTitle }: any) => {
     /* const [subject, setSubject] = useState('') */
 
     const [formData, setFormData] = useState<any>({
-        subject: '',
-        from: '',
-        text: '',
+        subject: "",
+        from: "",
+        text: ""
     })
 
     const handleChange = (e: any) => {
@@ -49,10 +49,13 @@ const AT = ({ setPageTitle }: any) => {
 
             const response = await axios.post('https://mikolaj-collection.herokuapp.com/api/emails', formData, config)
 
+            console.log(response)
+
             setLoadingMessage(false)
 
             setFormData({})
             setOutput('Done')
+
             console.log(response.data)
         } catch (err: any) {
             setOutput('Error')

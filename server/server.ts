@@ -8,12 +8,20 @@ import authRouter from './routes/api/auth'
 import usersRouter from './routes/api/users'
 import emailsRouter from './routes/api/emails'
 
+import cors from 'cors'
 
 const app: Application = express();
 
 
 connect();
 
+const corsOptions = {
+    origin: "*",
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json(<any>{ extended: false }))
 
