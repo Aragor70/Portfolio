@@ -9,21 +9,6 @@ import ErrorResponse from '../../utils/ErrorResponse';
 const router: Router = express.Router();
 
 
-router.post('/', asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    
-    const { from, subject, text } = req.body;
-
-
-    const message = await new Message({
-        email: 'mikey.prus@gmail.com', from, subject, text
-    });
-
-    await message.save();
-
-    res.json({ success: true, message })
-
-}))
-
 router.get('/', asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     
     const { email } = req.body;
@@ -39,6 +24,21 @@ router.get('/', asyncHandler(async (req: Request, res: Response, next: NextFunct
     await messages.save();
 
     res.json({ success: true, messages })
+
+}))
+
+router.post('/', asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+    
+    const { from, subject, text } = req.body;
+
+
+    const message = await new Message({
+        email: 'mikey.prus@gmail.com', from, subject, text
+    });
+
+    await message.save();
+
+    res.json({ success: true, message })
 
 }))
 

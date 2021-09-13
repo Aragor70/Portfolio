@@ -8,7 +8,6 @@ import authRouter from './routes/api/auth'
 import usersRouter from './routes/api/users'
 import emailsRouter from './routes/api/emails'
 
-import path from 'path'
 
 const app: Application = express();
 
