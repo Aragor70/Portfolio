@@ -85,7 +85,7 @@ const AT = ({ setPageTitle }: any) => {
                     </p>
 
                     <p className="more-about">
-                        <div className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => setOpenMessage(!openMessage)}>Contact me</button></div>
+                        <div className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button>Contact me</button></div>
 
                     </p>
 
@@ -114,7 +114,7 @@ const AT = ({ setPageTitle }: any) => {
                             
                             {
                                 loadingMessage ? <Fragment>
-                                    loading...
+                                    <p className="output-response">loading...</p>
                                 </Fragment> : <Fragment>
 
                                     {
@@ -136,30 +136,30 @@ const AT = ({ setPageTitle }: any) => {
                                                     <h6 style={{ textAlign: 'left', position: 'relative' }}>From:
                                                     
                                                     {
-                                                        formData.from && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => console.log('hi')}></i></div>
+                                                        formData.from && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, from: ''})}></i></div>
                                                     }
                                                     
 
 
                                                     </h6>
-                                                    <input type="text" name="from" onChange={ (e: any) => handleChange(e)} placeholder={'contact@anonymous.com'} />
+                                                    <input type="text" name="from" value={formData.from || ''} onChange={ (e: any) => handleChange(e)} placeholder={'contact@anonymous.com'} />
                                                 </li>
                                                 <li>
                                                     <h6 style={{ textAlign: 'left', position: 'relative' }}>Subject:
                                                     {
-                                                        formData.subject && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => console.log('hi')}></i></div>
+                                                        formData.subject && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, subject: ''})}></i></div>
                                                     }
 
                                                     </h6>
-                                                    <input type="text" name="subject" onChange={ (e: any) => handleChange(e)} placeholder={formData.subject || 'Other'} />
+                                                    <input type="text" name="subject" value={formData.subject || ''} onChange={ (e: any) => handleChange(e)} placeholder={formData.subject || 'Other'} />
                                                 </li>
                                                 <li>
                                                     <h6 style={{ textAlign: 'left', position: 'relative' }}>Message: 
                                                     {
-                                                        formData.text && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => console.log('hi')}></i></div>
+                                                        formData.text && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, text: ''})}></i></div>
                                                     }
                                                     </h6>
-                                                    <textarea ref={messageText} className="textarea" name="text" onChange={ (e: any) => handleChange(e)} contentEditable placeholder="Write your message"></textarea>    
+                                                    <textarea ref={messageText} className="textarea" value={formData.text || ''} name="text" onChange={ (e: any) => handleChange(e)} contentEditable placeholder="Write your message"></textarea>    
                                                     
                                                 </li>
                                             </ul>
