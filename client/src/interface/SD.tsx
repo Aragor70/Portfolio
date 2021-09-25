@@ -278,8 +278,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/onloud`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Niconnect.uk", "_blank")}><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box" onClick={() => window.open("https://niconnect.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Bambino", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://onloud.herokuapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
 
                         
@@ -317,8 +317,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/niconnect`)}>View project details</span>
-                            <div className="icon-box"><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box"><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Niconnect.uk", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://niconnect.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
