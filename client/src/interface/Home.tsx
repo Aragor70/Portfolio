@@ -14,6 +14,7 @@ import onloud1 from '../style/onloud1.png';
 import shortnister1 from '../style/shortnister1.png';
 import webshot1 from '../style/webshot1.png';
 import nichess1 from '../style/nichess1.png';
+import nivest1 from '../style/NiVest1.png';
 
 const Home = ({ history, setPageTitle }: any) => {
 
@@ -47,7 +48,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
     console.log(repos)
     
-    const arryImages: any[] = [types1, onloud1, nichess1, shortnister1, webshot1]
+    const arryImages: any[] = [nivest1, types1, onloud1, nichess1, shortnister1, webshot1]
     const [currentIndex, setCurrentIndex] = useState<number>(Math.floor(Math.random() * (arryImages.length || 5)))
     
     const image = useRef(null)
