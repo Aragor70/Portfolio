@@ -28,6 +28,14 @@ import onloud1 from '../style/onloud1.png';
 import shortnister1 from '../style/shortnister1.png';
 import webshot1 from '../style/webshot1.png';
 import nichess1 from '../style/nichess1.png';
+import uhelp1 from '../style/uhelp.online.png';
+import nsoftware1 from '../style/nivest-software.png';
+import nivest1 from '../style/NiVest1.png';
+import tsServerExample1 from '../style/ts-server-example1.jpg';
+
+import { ReactComponent as AngularSvg} from '../style/logo-angular.svg'
+import { ReactComponent as ReactSvg} from '../style/logo-react.svg'
+import { ReactComponent as IonicSvg} from '../style/logo-ionic.svg'
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
@@ -51,11 +59,13 @@ const SD = ({ setPageTitle, history }: any) => {
             
             <div className="section-content">
                 
+
+     
             <Switch>
                 <Route exact path={path}>
                     <div className="params">
                         
-                        <p>I especially develop applications using JavaScript, TypeScript, and Python in the environment of React Js, Redux Js, Django, Node Js, Express Js, CSS, and Jest testing libraries. 
+                        <p>I especially develop applications with JavaScript, TypeScript, and Python in the environment of React Js / Angular, Redux Js, Django, Node Js, Express Js, CSS / SCSS, and Jest testing libraries. 
                         This page is right to overview the tech development.</p>
                         
                     </div>
@@ -63,6 +73,120 @@ const SD = ({ setPageTitle, history }: any) => {
                     <h1>Current projects</h1>
                 </Route>
             </Switch>
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={uhelp1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>Hackathon Together 4 Ukraine</span></h3>
+                        <p>Together4Ukraine Hackathon is bringing together experienced volunteers who are willing to proactively help people from Ukraine affected by war.</p>
+                        <p>Hackathon 05 - 06/3/2022</p>
+                        <p>Online Hackathon 07 - 14/3/2022</p>
+                        <p>Further development 14 - 18/3/2022</p>
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={() => history.push(`${url}/uhelp`)}>View project details</span>
+                            {/* <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div> */}
+                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch>
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={nsoftware1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest Software Company</span></h3>
+                        <p>Website dedicated to the NiVest Software company</p>
+                        
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><AngularSvg /><span>Angular</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/NiVest-Software", "_blank")}><i className="fas fa-code fa"></i></div>
+                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch>           
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={nivest1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest</span></h3>
+                        <p>Financial market simulator mobile app</p>
+                        
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><ReactSvg /><span>React Js</span></div>
+                            <div className="icon"><IonicSvg /><span>Ionic</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={() => history.push(`${url}/NiVest`)}>View project details</span>
+                            {/* <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div> */}
+                            <div className="icon-box" onClick={() => window.open("https://play.google.com/store/apps/details?id=io.ionic.starter.nivest", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch>           
+
+            
+            <Switch>
+                <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={tsServerExample1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>TypeScript Server Module</span></h3>
+                        <p>NodeJS module to implement a server-side application.</p>
+                        <p>It is a reusable module with full user authentication.</p>
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={() => history.push(`${url}/TS-Server-Example`)}>View project details</span>
+                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/TS-Server-Example", "_blank")}><i className="fas fa-code fa"></i></div>
+                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch>           
+           
 
 
             <Switch>
@@ -98,7 +222,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     </div>
 
                 </Route>
-            </Switch> 
+            </Switch>
 
 
             <Switch>  
@@ -145,7 +269,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     </div>
 
                 </Route>
-            </Switch> 
+            </Switch>
 
 
             <Switch>  

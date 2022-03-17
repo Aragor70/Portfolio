@@ -33,11 +33,10 @@ const CV = ({ setPageTitle }: any) => {
                 </div>
                 <div className="params">
                 <h3>LANGUAGES</h3>
-                    <p>HTML 5, CSS 3, JavaScript, TypeScript, Python, PHP, SQL</p>
+                    <p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p>
                 
-                <h3>OTHER</h3>
                 <h3>Development</h3>
-                    <p>React, Redux, Node, Express, Django, GIT</p>
+                    <p>React, Angular, Redux, Node, Express, Django, GIT</p>
                 
                 <h3>Testing libraries</h3>
                     <p>Jest, Enzyme, Mocha, Chai</p>
