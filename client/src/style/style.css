@@ -106,6 +106,11 @@ hr
     padding: 0 5vw;
     margin-top: 11vh;
 }
+
+.output > * {
+    max-width: 1920px;
+    margin: 0 auto;
+}
 footer
 {
     width: 100%;

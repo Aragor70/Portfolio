@@ -78,6 +78,44 @@ const SD = ({ setPageTitle, history }: any) => {
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
+                        <img src={nsoftware1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest Software CMS</span></h3>
+                        <p>Website dedicated to the NiVest Software company. Project is to allow every user to manage the content of the another projects.</p>
+                        
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
+                            <div className="icon"><AngularSvg /><span>Angular</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
+                        </p>
+
+                        <p className="more-about" >
+                            <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                        </p>
+                    
+                    </div>
+
+                </Route>
+            </Switch>           
+
+
+
+
+            <Switch>
+                <Route exact path={path}>
+                    <h1>Deployed projects</h1>
+                
+                </Route>
+            </Switch>
+
+            <Switch>
+                <Route exact path={path}>
+                    <div className="section-image">
                         <img src={uhelp1} alt="projects_image" />
                     </div>
                     <div className="params">
@@ -104,34 +142,6 @@ const SD = ({ setPageTitle, history }: any) => {
                 </Route>
             </Switch>
 
-
-            <Switch>
-                <Route exact path={path}>
-                    <div className="section-image">
-                        <img src={nsoftware1} alt="projects_image" />
-                    </div>
-                    <div className="params">
-                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest Software Company</span></h3>
-                        <p>Website dedicated to the NiVest Software company</p>
-                        
-
-                        <p className="icons">
-                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
-                            <div className="icon"><AngularSvg /><span>Angular</span></div>
-                        </p>
-
-                        <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/NiVest-Software", "_blank")}><i className="fas fa-code fa"></i></div>
-                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
-                        </p>
-                    
-                    </div>
-
-                </Route>
-            </Switch>           
-
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
@@ -151,8 +161,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/NiVest`)}>View project details</span>
-                            {/* <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div> */}
-                            <div className="icon-box" onClick={() => window.open("https://play.google.com/store/apps/details?id=io.ionic.starter.nivest", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_App-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_App-Google_Play", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -167,18 +177,22 @@ const SD = ({ setPageTitle, history }: any) => {
                         <img src={tsServerExample1} alt="projects_image" />
                     </div>
                     <div className="params">
-                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>TypeScript Server Module</span></h3>
-                        <p>NodeJS module to implement a server-side application.</p>
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>TypeScript and Python Server Auth Modules</span></h3>
+                        <p>Modules to implement a server-side application.</p>
                         <p>It is a reusable module with full user authentication.</p>
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                            <div className="icon"><i className="fab fa-python fa-2x"></i><span>Django</span></div>
+                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>PostgreSQL</span></div>
+                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>MongoDB</span></div>
                         </p>
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/TS-Server-Example`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/TS-Server-Example", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Auth_Server_Module-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
                     
@@ -215,7 +229,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/types`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
                     
@@ -308,7 +322,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/webshot`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/WebShot", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/WebShot-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
 
@@ -326,12 +340,6 @@ const SD = ({ setPageTitle, history }: any) => {
                 </Route>
             </Switch> 
 
-            <Switch>
-                <Route exact path={path}>
-                    <h1>Deployed projects</h1>
-                
-                </Route>
-            </Switch> 
 
 
             <Switch>
@@ -352,6 +360,8 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
@@ -359,8 +369,8 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/shortnister`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/ShortNister", "_blank")}><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box" onClick={() => window.open("https://shortnister.herokuapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/ShortNister-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://shortnister.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -402,8 +412,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/onloud`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Bambino", "_blank")}><i className="fas fa-code fa"></i></div>
-                            <div className="icon-box" onClick={() => window.open("https://onloud.herokuapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-Lyrics_Platform", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
 
                         
@@ -478,7 +488,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="more-about" >
                             <span onClick={() => history.push(`${url}/emojis`)}>View project details</span>
-                            <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Emojis", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Emojis-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box"><i className="fab fa-chrome fa"></i></div> */}
                         </p>    
                     </div>
