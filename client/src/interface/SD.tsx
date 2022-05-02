@@ -32,6 +32,8 @@ import uhelp1 from '../style/uhelp.online.png';
 import nsoftware1 from '../style/nivest-software.png';
 import nivest1 from '../style/NiVest1.png';
 import tsServerExample1 from '../style/ts-server-example1.jpg';
+import emojis1 from '../style/emojis.png';
+import niconnect1 from '../style/niconnect.png';
 
 import { ReactComponent as AngularSvg} from '../style/logo-angular.svg'
 import { ReactComponent as ReactSvg} from '../style/logo-react.svg'
@@ -42,7 +44,7 @@ import Project from './Project';
 
 const SD = ({ setPageTitle, history }: any) => {
 
-    const { path, url } = useRouteMatch();
+    const { path } = useRouteMatch();
     useEffect(() => {
         setPageTitle('Software Projects')
 
@@ -65,16 +67,18 @@ const SD = ({ setPageTitle, history }: any) => {
                 <Route exact path={path}>
                     <div className="params">
                         
-                        <p>I especially develop applications with JavaScript, TypeScript, and Python in the environment of React Js / Angular, Redux Js, Django, Node Js, Express Js, CSS / SCSS, and Jest testing libraries. 
-                        This page is right to overview the tech development.</p>
+                        <p>
+                            I especially develop applications with TypeScript, and Python in the environment of React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS, and Jest testing libraries. 
+                            This page is right to overview the tech development.
+                        </p>
                         
                     </div>
 
-                    <h1>Current projects</h1>
+                    <h1>Ongoing development</h1>
                 </Route>
             </Switch>
 
-
+        <article className='blue'>
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
@@ -90,29 +94,29 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><AngularSvg /><span>Angular</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>SCSS</span></div>
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
-
                 </Route>
             </Switch>           
 
 
-
+        </article>
 
             <Switch>
                 <Route exact path={path}>
-                    <h1>Deployed projects</h1>
+                    <h1>Programming Events</h1>
                 
                 </Route>
             </Switch>
-
+        <article>
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
@@ -121,9 +125,18 @@ const SD = ({ setPageTitle, history }: any) => {
                     <div className="params">
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>Hackathon Together 4 Ukraine</span></h3>
                         <p>Together4Ukraine Hackathon is bringing together experienced volunteers who are willing to proactively help people from Ukraine affected by war.</p>
-                        <p>Hackathon 05 - 06/3/2022</p>
-                        <p>Online Hackathon 07 - 14/3/2022</p>
-                        <p>Further development 14 - 18/3/2022</p>
+                        <ul>
+                            <li>
+                                Hackathon 05 - 06/3/2022
+                            </li>
+                            <li>
+                                Online Hackathon 07 - 14/3/2022
+                            </li>
+                            <li>
+                                Further development 14 - 18/3/2022
+                            </li>
+                        
+                        </ul>
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
@@ -132,7 +145,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/uhelp`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/uhelp`)}>View project details</span> */}
                             {/* <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div> */}
                             {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
@@ -141,7 +154,16 @@ const SD = ({ setPageTitle, history }: any) => {
 
                 </Route>
             </Switch>
+        </article>
 
+            <Switch>
+                <Route exact path={path}>
+                    <h1>Projects Online</h1>
+                
+                </Route>
+            </Switch>
+
+        <article>
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
@@ -160,7 +182,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/NiVest`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/NiVest`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_App-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_App-Google_Play", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
@@ -183,15 +205,15 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Express</span></div>
                             <div className="icon"><i className="fab fa-python fa-2x"></i><span>Django</span></div>
-                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>PostgreSQL</span></div>
-                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>MongoDB</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>MongoDB</span></div>
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/TS-Server-Example`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/TS-Server-Example`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Auth_Server_Module-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
@@ -228,7 +250,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/types`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/types`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
@@ -259,7 +281,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p>Real-Time TypeScript React app</p>
                             <p>Play chess with anyone in any location. NiChess is a game of chess with the elements of communication between the players.
                             You can invite to play anyone with the reliability of texting and the richness of chat. </p>
-                            <p>Have a fun with friends and family.</p>
+                            <p>Have a fun with friends and family playing this game.</p>
                             
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
@@ -275,7 +297,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/nichess`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/nichess`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/NiChess", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://nichess.netlify.app/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
@@ -321,7 +343,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
                         
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/webshot`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/webshot`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/WebShot-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box" onClick={() => window.open("", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
                         </p>
@@ -361,14 +383,14 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
-                            <div className="icon"><i className="fab fa-database fa-2x"></i><span>PostgreSQL</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                             <div className="icon"><img src={imgMocha} alt="mocha" /><span>Mocha</span></div>
                         </p>
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/shortnister`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/shortnister`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/ShortNister-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://shortnister.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
@@ -411,7 +433,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/onloud`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/onloud`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-Lyrics_Platform", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
@@ -433,6 +455,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={niconnect1} alt="projects_image" />
+                    </div>
                     <div className="params">
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>niconnect.uk</span></h3>
                         <p>niconnect - JavaScript PHP app</p>
@@ -450,7 +475,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/niconnect`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/niconnect`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Niconnect.uk", "_blank")}><i className="fas fa-code fa"></i></div>
                             <div className="icon-box" onClick={() => window.open("https://niconnect.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
@@ -471,7 +496,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
-
+                    <div className="section-image">
+                        <img src={emojis1} alt="projects_image" />
+                    </div>
                     <div className="params" style={{ marginBottom: '0' }}>
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></h3>
                         <p>Emojis - JavaScript React Python Django app</p>
@@ -487,7 +514,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
 
                         <p className="more-about" >
-                            <span onClick={() => history.push(`${url}/emojis`)}>View project details</span>
+                            {/* <span onClick={() => history.push(`${url}/emojis`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Emojis-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
                             {/* <div className="icon-box"><i className="fab fa-chrome fa"></i></div> */}
                         </p>    
@@ -506,8 +533,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                 </Switch>
             </Switch> 
-
-
+        </article>
+        
             <Switch>
                 <Route exact path={path}>
                     <h1>Drafts</h1>
@@ -517,7 +544,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     </div>
                 </Route>
             </Switch>
-
+        
             </div>
 
         </Fragment>

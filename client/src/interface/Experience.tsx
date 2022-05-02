@@ -75,7 +75,9 @@ const Experience = ({ setPageTitle }: any) => {
                             <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node JS</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux JS</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
+                            <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
+                            <div className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -118,6 +120,7 @@ const Experience = ({ setPageTitle }: any) => {
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
                             <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>
+                            <div className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></div>
                             <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 

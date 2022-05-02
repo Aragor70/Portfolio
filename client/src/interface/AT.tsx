@@ -78,7 +78,9 @@ const AT = ({ setPageTitle }: any) => {
                     <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
 
                     <p>Text me</p>
+                    <p>
                         mikey.prus@gmail.com
+                    </p>
                     <p>
                     
                     <div className="icon-box"><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></div>

@@ -37,7 +37,7 @@ const Header = ({ location: { pathname}, pageTitle, history }: any) => {
                         }
                     </Fragment>
                 }
-                <span>{pageTitle}</span>
+                <span style={pageTitle === 'home' ? { cursor: 'pointer' } : {}}>{pageTitle}</span>
             </p>
                 <hr />
             </div>
