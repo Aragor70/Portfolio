@@ -30,8 +30,8 @@ import imgPhp from '../style/icons/php.png'; */
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 /* import imgMachine from '../style/icons/machine.png'; */
 
-import brikkapp1 from '../style/brikkapp1.png';
-import data4you1 from '../style/data4you1.jpg';
+import brikkapp1 from '../style/brikkapp1.svg';
+import data4you3 from '../style/data4you3.png';
 
 
 const Experience = ({ setPageTitle }: any) => {
@@ -47,24 +47,30 @@ const Experience = ({ setPageTitle }: any) => {
 
     return (
         <Fragment>
-            <div className="section-content">
+            <div className="section-content experience">
             {/* <div className="params">
             
             </div> */}
 
+        <article>
             <Switch>
                 <Route exact path={path}>
+
+
                     <div className="section-image">
-                        <img src={brikkapp1} alt="projects_image" />
+                        {/* <img src={brikkapp1} alt="projects_image" /> */}
+                        <label className="hexagon">
+                            <img src={brikkapp1} alt="projects_image" />
+                        </label>
                     </div>
                     <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Junior Full-Stack Software Engineer at BrikkApp</span></h3>
                         
-                        <p>Prague, Czech Republic 03/2021 – 09/2021</p>
+                        <p>Prague, Czech Republic 03/2021 – present</p>
 
-                        <p>Provided real estate investment data by creating an automatic scraping module with Object-Oriented Programming modules using JavaScript libraries such as Puppeteer and Cheerio. Also developed server modules such as report module to prevent outdated data.</p>
+                        <p>Developing React Web Applications with financial market processes along with the client-server infrastructure.</p>
                         
-                        <p>Developed Debian server API modules and a React Web Application to visualize data using advanced tables, graphs, filtering, and sorting capabilities.</p>
+                        <p>Providing server-side financial investments data management with Object-Oriented Programming modules with JavaScript and TypeScript. </p>
                         
 
                         <p className="icons">
@@ -105,14 +111,18 @@ const Experience = ({ setPageTitle }: any) => {
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">
-                        <img src={data4you1} alt="projects_image" />
+
+                        <label className="hexagon ">
+                            <img src={data4you3} alt="projects_image" />
+                        </label>
+                        {/* <img src={data4you1} alt="projects_image" /> */}
                     </div>
                     <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Bootcamp mentor at Data4you</span></h3>
                         
-                        <p>Prague, Czech Republic 03/2021 – 09/2021</p>
+                        <p>Prague, Czech Republic 03/2021 – present</p>
 
-                        <p>Supporting students to fully use the skills such as HTML, CSS, JavaScript, and React investing in their growth by preparing them with the skills of tomorrow.</p>
+                        <p>Supporting dozens of students to fully use the skills such as HTML, CSS, SASS, JavaScript ES6, and React investing in their growth by preparing them with the skills of tomorrow.</p>
                         <p>Helping students to gain a solid base of fundamental programming, computer science knowledge, and experience with languages, frameworks, and libraries.</p>
 
                         <p className="icons">
@@ -145,6 +155,7 @@ const Experience = ({ setPageTitle }: any) => {
                     />
                 </Route>
             </Switch> 
+        </article>
             </div>
         </Fragment>
             

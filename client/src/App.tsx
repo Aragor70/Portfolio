@@ -51,7 +51,7 @@ const App = ({ location }: any) => {
         </header>
         
         
-        <main className="output" ref={scrollTo}>
+        <main className="output" ref={scrollTo} style={ location.pathname === '/' ? { margin: 0 } : {}}>
           <Switch>
             <Route exact path="/">
               <Home pageTitle={pageTitle} setPageTitle={setPageTitle} />

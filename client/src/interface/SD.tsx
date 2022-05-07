@@ -61,10 +61,13 @@ const SD = ({ setPageTitle, history }: any) => {
             
             <div className="section-content">
                 
-
-     
+        <article>
+    
             <Switch>
                 <Route exact path={path}>
+                    <div>
+                        
+                    </div>
                     <div className="params">
                         
                         <p>
@@ -73,11 +76,27 @@ const SD = ({ setPageTitle, history }: any) => {
                         </p>
                         
                     </div>
+                    {/* <div className="params sd-nav">
+                        
+                        <label className="hexagon ">
+                            <img src={nivest1} />
+                        </label>
+                        
+                        <label className="hexagon ">
+                            <img src={nivest1} />
+                        </label>
+                        
+                    </div> */}
 
-                    <h1>Ongoing development</h1>
                 </Route>
             </Switch>
 
+            <Switch>
+                <Route exact path={path}>
+                    <h1>Ongoing development</h1>
+                </Route>
+            </Switch>
+        </article>
         <article className='blue'>
             <Switch>
                 <Route exact path={path}>
@@ -116,6 +135,7 @@ const SD = ({ setPageTitle, history }: any) => {
                 
                 </Route>
             </Switch>
+            
         <article>
             <Switch>
                 <Route exact path={path}>
