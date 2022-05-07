@@ -2,10 +2,13 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 import photo from '../style/avatar.png';
 import sdBtn from '../style/icons/pic1.png';
+import sdBtn1 from '../style/icons/puzzle-piece-solid.svg';
 import cvBtn from '../style/icons/icon_comercial_management.png';
+import cvBtn2 from '../style/icons/image-solid.svg';
 import skBtn from '../style/icons/Forma-1.png';
-import atBtn from '../style/icons/contact_icon.jpg';
+import atBtn1 from '../style/icons/envelope-regular.svg';
 import edBtn from '../style/icons/pic3.png';
+import edBtn2 from '../style/icons/chart-line-solid.svg';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
@@ -97,11 +100,11 @@ const Home = ({ history, setPageTitle }: any) => {
 
                 <div className="navi-buttons box3">
                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
-                        <img src={sdBtn} alt="software_development" />
+                        <img src={sdBtn1} alt="software_development" />
                         <nav>Work experience</nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
-                        <img src={cvBtn} alt="software_projects" />
+                        <img src={cvBtn2} alt="software_projects" />
                         <nav>Projects</nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
@@ -109,11 +112,11 @@ const Home = ({ history, setPageTitle }: any) => {
                         <nav>Software skills</nav>
                     </div>
                     <div className="navi-button ed" onClick={() => history.push('/education')}>
-                        <img src={edBtn} alt="education" />
+                        <img src={edBtn2} alt="education" />
                         <nav>Education</nav>
                     </div>
                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
-                        <img src={atBtn} alt="contact_mikolaj" style={{ borderLeft: '1.6px solid #0A1248'}} />
+                        <img src={atBtn1} alt="contact_mikolaj" />
                         <nav>Contact</nav>
                     </div>
                     {/* {
@@ -125,7 +128,7 @@ const Home = ({ history, setPageTitle }: any) => {
                         </Fragment>
                     } */}
                 </div>
-                <section className="frontImage">
+                {/* <section className="frontImage">
                     
                     <img src={arryImages[currentIndex]} alt="projects_image" ref={image} />
 
@@ -135,7 +138,7 @@ const Home = ({ history, setPageTitle }: any) => {
                         }
                     </div>
                     
-                </section>
+                </section> */}
                     
                 {/* <div className="section-content">
                     
@@ -159,11 +162,11 @@ const Home = ({ history, setPageTitle }: any) => {
                                 
                                 <div className="navi-buttons">
                                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
-                                        <img src={sdBtn} alt="software_development" />
+                                        <img src={sdBtn1} alt="software_development"/>{/* #0A1240 #4C5273 */}
                                         <nav>Work experience</nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
-                                        <img src={cvBtn} alt="software_projects" />
+                                        <img src={cvBtn2} alt="software_projects" />
                                         <nav>Projects</nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
@@ -171,16 +174,27 @@ const Home = ({ history, setPageTitle }: any) => {
                                         <nav>Software skills</nav>
                                     </div>
                                     <div className="navi-button ed" onClick={() => history.push('/education')}>
-                                        <img src={edBtn} alt="education" />
+                                        <img src={edBtn2} alt="education" />
                                         <nav>Education</nav>
                                     </div>
                                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
-                                        <img src={atBtn} alt="contact_mikolaj" style={{ borderLeft: '1.6px solid #0A1248'}} />
+                                        <img src={atBtn1} alt="contact_mikolaj" />
                                         <nav>Contact</nav>
                                     </div>
                                 </div>
                             
                             </div>
+                            {/* <div className="params left">
+                    
+                                <img src={arryImages[currentIndex]} alt="projects_image" ref={image} />
+
+                                <div className="number_of_images">
+                                    {
+                                        arryImages.map((_, index) => index === currentIndex ? <div key={index} style={{ fontWeight: 'bold' }} onClick={() => setCurrentIndex(index)}>X</div> : <div key={index} onClick={() => setCurrentIndex(index)}>O</div>)
+                                    }
+                                </div>
+                                
+                            </div> */}
 
                             {/* <div className="avatar box1" style={{ margin: '0 auto'}}>
                                 <img src={photo} alt="mikolaj_photo" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
@@ -236,7 +250,6 @@ const Home = ({ history, setPageTitle }: any) => {
                         <div className="params right">
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}>Content management</span></h3>
                             <p>Website service lets you easily manage the content in range of our services without understanding any programming code.</p>
-                            
 
                             <p className="icons">
                                 <div className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></div>

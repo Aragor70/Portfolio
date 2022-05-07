@@ -38,6 +38,8 @@ import niconnect1 from '../style/niconnect.png';
 import { ReactComponent as AngularSvg} from '../style/logo-angular.svg'
 import { ReactComponent as ReactSvg} from '../style/logo-react.svg'
 import { ReactComponent as IonicSvg} from '../style/logo-ionic.svg'
+import { ReactComponent as NestSvg} from '../style/icons/nestjs-icon.svg'
+import { ReactComponent as ExpressSvg} from '../style/icons/expressjs-icon.svg'
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
@@ -111,9 +113,9 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><AngularSvg /><span>Angular</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
-                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
+                            <div className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -160,8 +162,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -196,8 +198,9 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
                             <div className="icon"><ReactSvg /><span>React Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
                             <div className="icon"><IonicSvg /><span>Ionic</span></div>
                         </p>
 
@@ -225,8 +228,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Express</span></div>
+                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-python fa-2x"></i><span>Django</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>MongoDB</span></div>
@@ -257,22 +260,20 @@ const SD = ({ setPageTitle, history }: any) => {
                             Connect with friends and family, send photos, videos, GIFs, emoji, and more.</p>
                             <p>Intuitive and modern, Types makes conversations easy, expressive, and fun.</p>
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                             <div className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></div>
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                         </p>
 
                         <p className="more-about" >
                             {/* <span onClick={() => history.push(`${url}/types`)}>View project details</span> */}
-                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger", "_blank")}><i className="fas fa-code fa"></i></div>
-                            {/* <div className="icon-box" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")}><i className="fab fa-chrome fa"></i></div> */}
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger", "_blank")}><i className="fab fa-chrome fa"></i></div>
                         </p>
                     
                     </div>
@@ -308,10 +309,9 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                             <div className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></div>
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                         </p>
@@ -352,11 +352,10 @@ const SD = ({ setPageTitle, history }: any) => {
 
                             <p>The website allows you to generate screenshots of any website and save them into the Google Drive service.</p>
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-google-drive fa-2x"></i><span>Google Drive</span></div>
                             <div className="icon"><img src={imgMachine} alt="machine" /><span>Screenshot Machine</span></div>
                             
@@ -397,15 +396,13 @@ const SD = ({ setPageTitle, history }: any) => {
                             <p>Right now you know how many times your partners clicked your address.</p>
                         
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><img src={imgTypescript} alt="typescript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                             <div className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></div>
                             <div className="icon"><img src={imgMocha} alt="mocha" /><span>Mocha</span></div>
                         </p>
@@ -444,12 +441,11 @@ const SD = ({ setPageTitle, history }: any) => {
                         
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node Js</span></div>
+                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -490,8 +486,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-php fa-2x"></i><span>PHP</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
-                            <div className="icon"><img src={imgMysql} alt="mySql" /><span>SQL</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>MySql</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -529,8 +524,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><i className="fab fa-python fa-2x"></i><span>Python</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><img src={imgDjango} alt="django" /><span>Django</span></div>
-                            <div className="icon"><img src={imgMysql} alt="mySql" /><span>SQL</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
+                            <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -560,7 +554,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     <h1>Drafts</h1>
                 
                     <div className="params" style={{ marginBottom: '30px' }}>
-                        <i>Draft projections include projects temporarily stopped development, waiting for deployment</i>
+                        <i>Draft projections include projects temporarily stopped development, waiting for deployment.</i>
                     </div>
                 </Route>
             </Switch>
