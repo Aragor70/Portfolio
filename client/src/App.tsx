@@ -44,7 +44,7 @@ const App = ({ location }: any) => {
   return (
     <Fragment>
         
-        <header className="header-content">
+        <header className="header-content" style={location.pathname !== '/' ? { zIndex: 11 } : {} }>
 
           <Header pageTitle={pageTitle} setPageTitle={setPageTitle} />
         
