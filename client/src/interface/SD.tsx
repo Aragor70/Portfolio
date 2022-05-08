@@ -65,7 +65,7 @@ const SD = ({ setPageTitle, history }: any) => {
         try {
             setLoadingRepos(true)
 
-            const password = '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';
+            const password = '';
 
             const options = {
                 headers: {
@@ -73,8 +73,8 @@ const SD = ({ setPageTitle, history }: any) => {
                 }
             }
             
-            const repos = await axios.get('https://api.github.com/users/Aragor70/repos', options)
-
+            const repos = await axios.get('https://api.github.com/users/Aragor70/repos')
+            console.log(repos)
             let extended_repos: any[] = [];
 
             await Promise.all(repos?.data?.map(async (element: any) => {
