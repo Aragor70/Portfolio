@@ -184,6 +184,9 @@ const Home = ({ history, setPageTitle }: any) => {
                                 </div>
                             
                             </div>
+                            <div className="show">
+                                
+                            </div>
                             {/* <div className="params left">
                     
                                 <img src={arryImages[currentIndex]} alt="projects_image" ref={image} />

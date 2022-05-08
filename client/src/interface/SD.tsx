@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 /* 
 import pht from '../style/pht.jpg'; */
 import typesImg from '../style/types.png';
@@ -43,6 +43,8 @@ import { ReactComponent as ExpressSvg} from '../style/icons/expressjs-icon.svg'
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
+import axios from 'axios';
+import GithubStats from '../components/githubStats';
 
 const SD = ({ setPageTitle, history }: any) => {
 
@@ -55,8 +57,58 @@ const SD = ({ setPageTitle, history }: any) => {
         }
     }, [setPageTitle])
 
+    const [repos, setRepos] = useState<any[]>([])
+    const [loadingRepos, setLoadingRepos] = useState<boolean>(false)
 
-    
+
+    const getRepos = async () => {
+        try {
+            setLoadingRepos(true)
+
+            const password = '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';
+
+            const options = {
+                headers: {
+                    "Authorization": 'Token ' + password
+                }
+            }
+            
+            const repos = await axios.get('https://api.github.com/users/Aragor70/repos', options)
+
+            let extended_repos: any[] = [];
+
+            await Promise.all(repos?.data?.map(async (element: any) => {
+                try {
+                    
+                    const res1 = await axios.get('https://api.github.com/repos/Aragor70/' + element.name + '/commits?page=1&per_page=100', options)
+                    const res2 = await axios.get('https://api.github.com/repos/Aragor70/' + element.name + '/commits?page=2&per_page=100', options)
+
+                    const res = await res1?.data?.concat(res2?.data)
+
+                    extended_repos = [...extended_repos, {...element, commits: res}]
+
+                } catch (err: any) {
+                    console.log(err.message)
+                }
+                
+            }))
+            
+            setLoadingRepos(false)
+
+            return setRepos(extended_repos)
+
+        } catch (err: any) {
+            console.log(err.message)
+        }
+        
+    }
+
+    useEffect(() => {
+
+        getRepos()
+
+    }, [])
+
 
     return (
         <Fragment>
@@ -109,6 +161,13 @@ const SD = ({ setPageTitle, history }: any) => {
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest Software CMS</span></h3>
                         <p>Website dedicated to the NiVest Software company. Project is to allow every user to manage the content of the another projects.</p>
                         
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='NiVest-Software' />
+                                </Fragment>
+                            }
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
@@ -195,6 +254,14 @@ const SD = ({ setPageTitle, history }: any) => {
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest</span></h3>
                         <p>Financial market simulator mobile app</p>
                         
+                        
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='NiBank' />
+                                </Fragment>
+                            }
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
@@ -225,6 +292,15 @@ const SD = ({ setPageTitle, history }: any) => {
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>TypeScript and Python Server Auth Modules</span></h3>
                         <p>Modules to implement a server-side application.</p>
                         <p>It is a reusable module with full user authentication.</p>
+                        
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Auth-Server-Examples' />
+                                </Fragment>
+                            }
+
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
@@ -259,6 +335,15 @@ const SD = ({ setPageTitle, history }: any) => {
                             <p>You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
                             Connect with friends and family, send photos, videos, GIFs, emoji, and more.</p>
                             <p>Intuitive and modern, Types makes conversations easy, expressive, and fun.</p>
+
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Messages' />
+                                </Fragment>
+                            }
+
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
@@ -303,7 +388,15 @@ const SD = ({ setPageTitle, history }: any) => {
                             <p>Play chess with anyone in any location. NiChess is a game of chess with the elements of communication between the players.
                             You can invite to play anyone with the reliability of texting and the richness of chat. </p>
                             <p>Have a fun with friends and family playing this game.</p>
-                            
+                        
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='NiChess' />
+                                </Fragment>
+                            }
+
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
@@ -351,6 +444,15 @@ const SD = ({ setPageTitle, history }: any) => {
                             <p>Automated screenshot generator.</p>
 
                             <p>The website allows you to generate screenshots of any website and save them into the Google Drive service.</p>
+
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='WebShot' />
+                                </Fragment>
+                            }
+
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
@@ -394,7 +496,16 @@ const SD = ({ setPageTitle, history }: any) => {
                             <p>Take control of your URL address. Meet Shortster, to build a shortcut address. 
                             Get the quick report of the frequency.</p>
                             <p>Right now you know how many times your partners clicked your address.</p>
-                        
+
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='ShortNister' />
+                                </Fragment>
+                            }
+                            
+
+
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typescript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
@@ -439,6 +550,12 @@ const SD = ({ setPageTitle, history }: any) => {
                             Send messages to chat about the new songs.</p>
                             <p>Intuitive and modern interface, makes listening music easy, expressive, and fun.</p>
                         
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Bambino' />
+                                </Fragment>
+                            }
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
@@ -481,6 +598,13 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p>Niconnect make it easy to connect with family, friends or coworkers. Groups are dedicated spaces where you can share updates, photos or documents and message other group members.</p>
                         <p>Stay close with your favorite people using Niconnect.uk.</p>
                         
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Niconnect.uk' />
+                                </Fragment>
+                            }
                         <p className="icons">
                             <div className="icon"><i className="fab fa-html5 fa-2x"></i><span>HTML 5</span></div>
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
@@ -519,6 +643,14 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p>Emojis - JavaScript React Python Django app</p>
 
                         <p>App is currently waiting for deployment.</p>
+
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Emojis' />
+                                </Fragment>
+                            }
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-python fa-2x"></i><span>Python</span></div>
