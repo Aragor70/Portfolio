@@ -185,7 +185,14 @@ const Home = ({ history, setPageTitle }: any) => {
                             
                             </div>
                             <div className="show">
-                                
+                                <div className="in-process">
+                                    <span>
+                                        Images in process...
+                                    </span>
+                                </div>
+                                <div>
+                                    <img src={arryImages[currentIndex]} alt="projects_image" ref={image} />
+                                </div>
                             </div>
                             {/* <div className="params left">
                     

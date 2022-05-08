@@ -526,3 +526,34 @@
     margin-left: 800px;
 }
 }
+
+.show > * {
+    margin: 0 auto;
+    width: 430px;
+    height: 430px;
+    position: relative;
+}
+.show img {
+    inline-size: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 10;
+    -webkit-mask-image: url('./solutions-hexagon.svg');
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.in-process {
+    transform: rotate(35deg);
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: max-content;
+    padding: 7.5px 20px;
+    height: auto;
+}
+
+.in-process > span {
+    font-size: 16px;
+    color: #4C5273 !important;
+}
