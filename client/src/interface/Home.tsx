@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 import photo from '../style/avatar.png';
-import sdBtn from '../style/icons/pic1.png';
+/* import sdBtn from '../style/icons/pic1.png'; */
 import sdBtn1 from '../style/icons/puzzle-piece-solid.svg';
-import cvBtn from '../style/icons/icon_comercial_management.png';
+/* import cvBtn from '../style/icons/icon_comercial_management.png'; */
 import cvBtn2 from '../style/icons/image-solid.svg';
-import skBtn from '../style/icons/Forma-1.png';
+import skBtn from '../style/icons/Forma-1.svg';
 import atBtn1 from '../style/icons/envelope-regular.svg';
-import edBtn from '../style/icons/pic3.png';
+/* import edBtn from '../style/icons/pic3.png'; */
 import edBtn2 from '../style/icons/chart-line-solid.svg';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
@@ -19,13 +19,13 @@ import webshot1 from '../style/webshot1.png';
 import nichess1 from '../style/nichess1.png';
 import nivest1 from '../style/NiVest1.png';
 import nivest2 from '../style/NiVest2.png';
-import tsServerExample1 from '../style/ts-server-example1.jpg';
+/* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
 
 import {ReactComponent as Hexagon} from '../style/solutions-hexagon.svg';
 import hexagon from '../style/solutions-hexagon.svg';
-import gdansk1 from '../style/gdansk1.jpg';
+import gdansk1 from '../style/gdansk1.jpg'; */
 
 const Home = ({ history, setPageTitle }: any) => {
 

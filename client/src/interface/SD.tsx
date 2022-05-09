@@ -10,7 +10,7 @@ import imgHtml from '../style/icons/html-5.png';
 import imgJavascript from '../style/icons/javascript.png'; */
 import imgJest from '../style/icons/jest.png';
 import imgMongoDB from '../style/icons/mongodb.png';
-import imgMysql from '../style/icons/mysql.png';/* 
+/*import imgMysql from '../style/icons/mysql.png'; 
 import imgNodejs from '../style/icons/nodejs.png';
 import imgPython from '../style/icons/python.png';
 import imgReact from '../style/icons/react.png'; */
