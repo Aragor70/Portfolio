@@ -485,6 +485,21 @@ img {
     clip-path: polygon(0% 25%,0% 75%,50% 100%,100% 75%,100% 25%,50% 0%);
 }
 
+.commits span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3.5px;
+    float: left;
+}
+.commits {
+    display: flex;
+    gap: 7.5px;
+    height: auto;
+
+    flex-wrap: wrap;
+}
+
 .commits svg {
     width: 17.5px;
     height: 20px;
