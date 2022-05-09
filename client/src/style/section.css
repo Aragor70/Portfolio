@@ -214,6 +214,13 @@ img {
     border-radius: 25px;
 }
 
+@media (max-width: 550px) {
+    .icons
+    {
+        row-gap: 10px;
+    }
+}
+
 .icon
 {
     width: 30%;
@@ -232,6 +239,11 @@ img {
     text-align: center;
 }
 .icon img
+{
+    max-height: 37px;
+    border-radius: 7.5px;
+}
+.icon svg
 {
     max-height: 37px;
     border-radius: 7.5px;

@@ -22,6 +22,11 @@ import imgMocha from '../style/icons/mocha.png';/*
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 import imgMachine from '../style/icons/machine.png';
 
+import angularImg from '../style/logo-angular.svg'
+import reactImg from '../style/logo-react.svg'
+import ionicImg from '../style/logo-ionic.svg'
+import nestImg from '../style/icons/nestjs-icon.svg'
+import expressImg from '../style/icons/expressjs-icon.svg'
 
 import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
@@ -34,12 +39,6 @@ import nivest1 from '../style/NiVest1.png';
 import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
-
-import { ReactComponent as AngularSvg} from '../style/logo-angular.svg'
-import { ReactComponent as ReactSvg} from '../style/logo-react.svg'
-import { ReactComponent as IonicSvg} from '../style/logo-ionic.svg'
-import { ReactComponent as NestSvg} from '../style/icons/nestjs-icon.svg'
-import { ReactComponent as ExpressSvg} from '../style/icons/expressjs-icon.svg'
 
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
@@ -171,8 +170,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><AngularSvg /><span>Angular</span></div>
-                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
+                            <div className="icon"><img src={angularImg} alt="angular" /><span>Angular</span></div>
+                            <div className="icon"><img src={nestImg} alt="nest Js" /><span>Nest Js</span></div>
                             <div className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                         </p>
@@ -265,10 +264,10 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><ReactSvg /><span>React Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={reactImg} alt="reactjs" /><span>React Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></div>
-                            <div className="icon"><IonicSvg /><span>Ionic</span></div>
+                            <div className="icon"><img src={ionicImg} alt="ionic" /><span>Ionic</span></div>
                         </p>
 
                         <p className="more-about" >
@@ -304,8 +303,8 @@ const SD = ({ setPageTitle, history }: any) => {
 
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-python fa-2x"></i><span>Django</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>MongoDB</span></div>
@@ -347,7 +346,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
@@ -402,7 +401,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
                             <div className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></div>
@@ -456,7 +455,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-google-drive fa-2x"></i><span>Google Drive</span></div>
                             <div className="icon"><img src={imgMachine} alt="machine" /><span>Screenshot Machine</span></div>
@@ -509,8 +508,8 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p className="icons">
                             <div className="icon"><img src={imgTypescript} alt="typescript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><NestSvg /><span>Nest Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={nestImg} alt="expressjs" /><span>Nest Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
@@ -559,7 +558,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         <p className="icons">
                             <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
-                            <div className="icon"><ExpressSvg /><span>Express Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></div>
