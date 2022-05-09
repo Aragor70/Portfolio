@@ -23,7 +23,7 @@ import imgNodejs from '../style/icons/nodejs.png';
 import imgPython from '../style/icons/python.png';
 import imgReact from '../style/icons/react.png'; */
 import imgRedux from '../style/icons/redux.png';
-import imgTypescript from '../style/icons/typescript.png';
+import imgTypescript from '../style/icons/typescript-icon.svg';
 /* import imgSocketio from '../style/icons/socketio.png'; *//* 
 import imgPhp from '../style/icons/php.png'; */
 /* import imgMocha from '../style/icons/mocha.png'; *//* 

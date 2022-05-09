@@ -19,6 +19,8 @@ import webshot1 from '../style/webshot1.png';
 import nichess1 from '../style/nichess1.png';
 import nivest1 from '../style/NiVest1.png';
 import nivest2 from '../style/NiVest2.png';
+
+import nestImg from '../style/icons/nestjs-icon.svg'
 /* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
@@ -263,7 +265,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
                             <p className="icons">
                                 <div className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></div>
-                                <div className="icon"><i className="fab fa-node fa-2x"></i><span>Nest Js</span></div>
+                                <div className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></div>
                                 <div className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></div>
                             </p>
 

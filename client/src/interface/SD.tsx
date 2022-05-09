@@ -4,7 +4,7 @@ import pht from '../style/pht.jpg'; */
 import typesImg from '../style/types.png';
 /* 
 import imgCss from '../style/icons/css.png'; */
-import imgDjango from '../style/icons/django.png';/* 
+/*import imgDjango from '../style/icons/django.png'; 
 import imgGithub from '../style/icons/github.png';
 import imgHtml from '../style/icons/html-5.png';
 import imgJavascript from '../style/icons/javascript.png'; */
@@ -15,12 +15,13 @@ import imgNodejs from '../style/icons/nodejs.png';
 import imgPython from '../style/icons/python.png';
 import imgReact from '../style/icons/react.png'; */
 import imgRedux from '../style/icons/redux.png';
-import imgTypescript from '../style/icons/typescript.png';
+import imgTypescript from '../style/icons/typescript-icon.svg';
 import imgSocketio from '../style/icons/socketio.png';/* 
 import imgPhp from '../style/icons/php.png'; */
 import imgMocha from '../style/icons/mocha.png';/* 
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 import imgMachine from '../style/icons/machine.png';
+import imgJavaScript1 from '../style/icons/javascript-logo.svg';
 
 import angularImg from '../style/logo-angular.svg'
 import reactImg from '../style/logo-react.svg'
@@ -397,7 +398,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             }
 
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
                             <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
@@ -453,7 +454,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             }
 
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
                             <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
@@ -556,7 +557,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 </Fragment>
                             }
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
                             <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
                             <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux Js</span></div>
@@ -606,7 +607,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             }
                         <p className="icons">
                             <div className="icon"><i className="fab fa-html5 fa-2x"></i><span>HTML 5</span></div>
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
                             <div className="icon"><i className="fab fa-php fa-2x"></i><span>PHP</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>MySql</span></div>
@@ -651,10 +652,9 @@ const SD = ({ setPageTitle, history }: any) => {
                                 </Fragment>
                             }
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
-                            <div className="icon"><i className="fab fa-python fa-2x"></i><span>Python</span></div>
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
+                            <div className="icon"><i className="fab fa-python fa-2x"></i><span>Django</span></div>
                             <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
-                            <div className="icon"><img src={imgDjango} alt="django" /><span>Django</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                         </p>
 
