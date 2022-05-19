@@ -9,6 +9,7 @@ import './style/header.css';
 import './style/section.css';
 import './style/contact.css';
 import './style/auth.css';
+import './style/timeline.css';
 
 ReactDOM.render(
   <React.StrictMode>

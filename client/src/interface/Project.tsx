@@ -3,22 +3,18 @@ import { withRouter } from 'react-router-dom';
 
 
 
-
 const Project = ({ name, title }: any) => {
 
     
 
     return (
         <Fragment>
-            <div className="params">
+            <div >
 
                 <h1>{ name }</h1> 
                 
-                <p><span>{ title }</span></p>
+                <p><span>{ title || 'ciao' }</span></p>
                 
-                
-
-
             </div>
         </Fragment>
     );

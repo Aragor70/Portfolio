@@ -33,6 +33,7 @@ import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
 import shortnister1 from '../style/shortnister1.png';
 import webshot1 from '../style/webshot1.png';
+import efforts1 from '../style/efforts1.png';
 import nichess1 from '../style/nichess1.png';
 import uhelp1 from '../style/uhelp.online.png';
 import nsoftware1 from '../style/nivest-software.png';
@@ -44,11 +45,11 @@ import niconnect1 from '../style/niconnect.png';
 import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
 import axios from 'axios';
-import GithubStats from '../components/githubStats';
+import GithubStats from '../components/GithubStats';
 
 const SD = ({ setPageTitle, history }: any) => {
 
-    const { path } = useRouteMatch();
+    const { path, url } = useRouteMatch();
     useEffect(() => {
         setPageTitle('Software Projects')
 
@@ -108,7 +109,6 @@ const SD = ({ setPageTitle, history }: any) => {
         getRepos()
 
     }, [])
-
 
     return (
         <Fragment>
@@ -176,7 +176,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             <div className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></div>
                             <div className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></div>
                         </p>
-
+                        
                         <p className="more-about" >
                             {/* <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span> */}
                             <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
@@ -187,8 +187,19 @@ const SD = ({ setPageTitle, history }: any) => {
                 </Route>
             </Switch>           
 
+            <Switch>  
+                
+                <Route exact path={`${path}/NiVest-Software`}>
+                    <Project 
+                        name="NiVest-Software"
+                        title="NiVest Software CMS"
+                    />
+                </Route>
+            </Switch> 
 
         </article>
+
+        
 
             <Switch>
                 <Route exact path={path}>
@@ -427,6 +438,57 @@ const SD = ({ setPageTitle, history }: any) => {
                     <Project 
                         name="Nichess"
                         title="Real-Time TypeScript React app"
+                    />
+                </Route>
+            </Switch> 
+
+
+            <Switch>
+
+                <Route exact path={path}>
+                    <div className="section-image">
+                        <img src={efforts1} alt="projects_image" />
+                    </div>
+                    <div className="params">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>Efforts</span></h3>
+
+                            <p>A global platform for measuring efforts.</p>
+
+                            <p>The website allows review your tasks in a form of the list. Click on them to <b>mark as completed</b> {"("}you can update the status back{")"}. To make your efforts more efficient, we suggest you to filter the cards by status or a date of their creation.</p>
+
+                        
+                            {
+                                loadingRepos ? null : 
+                                <Fragment>
+                                    <GithubStats repos={repos} name='Efforts' />
+                                </Fragment>
+                            }
+
+                        <p className="icons">
+                            <div className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></div>
+                            <div className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></div>
+                            <div className="icon"><img src={expressImg} alt="expressjs" /><span>Express Js</span></div>
+                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
+                            <div className="icon"><img src={imgMocha} alt="mocha" /><span>Mocha</span></div>
+                            
+                        </p>
+                        
+                        <p className="more-about" >
+                            {/* <span onClick={() => history.push(`${url}/webshot`)}>View project details</span> */}
+                            <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Efforts-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
+                            <div className="icon-box" onClick={() => window.open("https://efforts.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
+                        </p>
+
+                    </div>
+                </Route>
+            </Switch> 
+
+            <Switch>  
+                
+                <Route exact path={`${path}/efforts`}>
+                    <Project 
+                        name="Efforts"
+                        title="A global platform for measuring efforts."
                     />
                 </Route>
             </Switch> 

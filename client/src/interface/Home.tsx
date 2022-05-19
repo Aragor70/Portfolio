@@ -16,11 +16,13 @@ import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
 import shortnister1 from '../style/shortnister1.png';
 import webshot1 from '../style/webshot1.png';
+import efforts1 from '../style/efforts1.png';
 import nichess1 from '../style/nichess1.png';
 import nivest1 from '../style/NiVest1.png';
 import nivest2 from '../style/NiVest2.png';
 
 import nestImg from '../style/icons/nestjs-icon.svg'
+import Timeline from '../components/Timeline';
 /* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
@@ -61,7 +63,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
     console.log(repos)
     
-    const arryImages: any[] = [nivest1, nivest2, types1, onloud1, nichess1, shortnister1, webshot1]
+    const arryImages: any[] = [nivest1, nivest2, types1, onloud1, nichess1, shortnister1, webshot1, efforts1]
     const [currentIndex, setCurrentIndex] = useState<number>(Math.floor(Math.random() * (arryImages.length || 5)))
     
     const image = useRef(null)
@@ -154,7 +156,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 <section>
 
                     <div className="section-content" style={{ padding: '15px 0', marginBottom: '70px' }}>
-                        <article style={{ padding: '0' }}>
+                        <article style={{ padding: '0', minHeight: '70vh' }} className="grid-double">
 
                             
                             <div className="params left">
@@ -234,7 +236,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
                 <section>
 
-                    <article>
+                    <article className="grid-double">
 
                         <div className="params left">
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}>Project collections</span></h3>
@@ -253,7 +255,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 </section>
 
                 <section>
-                    <article>
+                    <article className="grid-double">
 
 
                         <div className="params">
@@ -384,6 +386,22 @@ const Home = ({ history, setPageTitle }: any) => {
                         repos && repos.map((repo: any) => <p>{repo.name} </p>)
                     }
                 </div> */}
+
+
+                {/* <section className="dark-light">
+
+                    <div>
+                        
+                        <h3>My commercial experience</h3>
+                        <p>
+                            Mission is to increase the number of people doing their best work.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <Timeline /> */}
             </div>
         </Fragment>
     );

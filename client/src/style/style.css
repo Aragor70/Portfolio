@@ -1,8 +1,6 @@
 * {
     box-sizing: border-box;
     /* font-family: 'Lato', sans-serif; */
-    color: rgba(8,27,51,.8) !important;
-    background-color: #f2f2f2 !important;
     font-family: "Pontiac", Arial, Helvetica, sans-serif;
 }
 body, html
@@ -15,7 +13,6 @@ body, html
     word-wrap: break-word;
     display: block;
 
-    background-color: #fff;
     color: #5f5b5b;
     font-weight: 400;
     /* font-family: 'Lato', sans-serif; */
@@ -23,7 +20,8 @@ body, html
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
-    color: #0A1248;
+    color: rgba(8,27,51,.8);
+    background-color: #f2f2f2;
     
 }    
 body
@@ -34,7 +32,7 @@ body
 a, button, textarea, input
 {
     outline: none;
-    color: #0A1248;
+    color: rgba(8,27,51,.8);
     text-decoration: none;
 }
 
@@ -62,7 +60,7 @@ a > button
 }
 h1 
 {
-    color: #0A1248;
+    color: rgba(8,27,51,.8);
 }
 
 textarea
@@ -95,7 +93,7 @@ input
 }
 hr
 {
-    color: #0A1248;
+    color: rgba(8,27,51,.8);
     width: calc(100%);
     margin-bottom: 0;
 }
@@ -108,6 +106,7 @@ hr
     padding: 0 5vw;
     margin-top: 12vh;
     position: relative;
+    background-color: #f2f2f2;
     
 }
 
@@ -128,6 +127,7 @@ footer
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 footer > p
 {
@@ -217,7 +217,7 @@ footer > p
         word-wrap: break-word;
         display: block;
     
-        background-color: #fff;
+        background-color: #f2f2f2;
         color: #5f5b5b;
         font-weight: 400;
         /* font-family: 'Lato', sans-serif; */
@@ -225,7 +225,7 @@ footer > p
         position: relative;
         overflow-x: hidden;
         overflow-y: auto;
-        color: #0A1248;
+        color: rgba(8,27,51,.8);
         
     }
     body
@@ -236,7 +236,7 @@ footer > p
     a, button, textarea, input
     {
         outline: none;
-        color: #0A1248;
+        color: rgba(8,27,51,.8);
         text-decoration: none;
     }
     
@@ -264,7 +264,7 @@ footer > p
     }
     h1 
     {
-        color: #0A1248;
+        color: rgba(8,27,51,.8);
     }
     
     textarea
@@ -297,7 +297,7 @@ footer > p
     }
     hr
     {
-        color: #0A1248;
+        color: rgba(8,27,51,.8);
         width: calc(100%);
         margin-bottom: 0;
     }
