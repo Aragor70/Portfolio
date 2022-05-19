@@ -1,6 +1,4 @@
 export const handleScrollToTop = (scrollTo: any) => {
-        
-    console.log(scrollTo.current)
     
     if(scrollTo.current) {
         scrollTo.current.scrollIntoView({ behavior:'smooth', block:'start', inline:'nearest'})

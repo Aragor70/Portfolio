@@ -74,23 +74,23 @@ const Experience = ({ setPageTitle }: any) => {
                         
 
                         <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
-                            <div className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
-                            <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
-                            <div className="icon"><i className="fab fa-node fa-2x"></i><span>Node JS</span></div>
-                            <div className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux JS</span></div>
-                            <div className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></div>
-                            <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
-                            <div className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></div>
+                            <li className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></li>
+                            <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
+                            <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></li>
+                            <li className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></li>
+                            <li className="icon"><i className="fab fa-node fa-2x"></i><span>Node JS</span></li>
+                            <li className="icon"><img src={imgRedux} alt="reduxJs" /><span>Redux JS</span></li>
+                            <li className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>MongoDB</span></li>
+                            <li className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></li>
+                            <li className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></li>
+                            <li className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></li>
                         </p>
 
-                        <p className="more-about" >
+                        <ul className="more-about" >
                             {/* <span></span> */}
                             {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                            <div className="icon-box" onClick={() => window.open("https://brikkapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></div>
-                        </p>
+                            <li className="icon-box" onClick={() => window.open("https://brikkapp.com/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                        </ul>
                     
                     </div>
 
@@ -125,20 +125,20 @@ const Experience = ({ setPageTitle }: any) => {
                         <p>Supporting dozens of students to fully use the skills such as HTML, CSS, SASS, JavaScript ES6, and React investing in their growth by preparing them with the skills of tomorrow.</p>
                         <p>Helping students to gain a solid base of fundamental programming, computer science knowledge, and experience with languages, frameworks, and libraries.</p>
 
-                        <p className="icons">
-                            <div className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></div>
-                            <div className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></div>
-                            <div className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></div>
-                            <div className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></div>
-                            <div className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></div>
-                            <div className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></div>
-                        </p>
+                        <ul className="icons">
+                            <li className="icon"><i className="fab fa-js fa-2x"></i><span>JavaScript</span></li>
+                            <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></li>
+                            <li className="icon"><i className="fab fa-react fa-2x"></i><span>React JS</span></li>
+                            <li className="icon"><img src={imgMysql} alt="MySQL" /><span>MySQL</span></li>
+                            <li className="icon"><i className="fab fa-laravel fa-2x"></i><span>Laravel</span></li>
+                            <li className="icon"><i className="fab fa-github fa-2x"></i><span>GitHub</span></li>
+                        </ul>
 
-                        <p className="more-about" >
+                        <ul className="more-about" >
                             {/* <span></span> */}
                             {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                            <div className="icon-box" onClick={() => window.open("https://data4you.cz/", "_blank")}><i className="fab fa-chrome fa"></i></div>
-                        </p>
+                            <li className="icon-box" onClick={() => window.open("https://data4you.cz/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                        </ul>
                     
                     </div>
 

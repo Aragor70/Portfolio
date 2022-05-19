@@ -429,3 +429,34 @@ footer > p
 
     z-index: 100;
 } */
+
+ul.icons {
+    list-style-type: none;
+
+    line-height: 23pt;
+    height: auto;
+    display: flex;
+
+    margin: 7.5px 0 !important;
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+ul.more-about {
+    list-style-type: none;
+
+    line-height: 23pt;
+    height: auto;
+    display: flex;
+    
+    line-height: 23pt;
+    margin: 7.5px 0 !important;
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

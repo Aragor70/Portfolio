@@ -10,7 +10,7 @@ import atBtn1 from '../style/icons/envelope-regular.svg';
 /* import edBtn from '../style/icons/pic3.png'; */
 import edBtn2 from '../style/icons/chart-line-solid.svg';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+/* import axios from 'axios'; */
 
 import types1 from '../style/types1.png';
 import onloud1 from '../style/onloud1.png';
@@ -41,27 +41,6 @@ const Home = ({ history, setPageTitle }: any) => {
         }
     }, [setPageTitle])
     
-    const [repos, setRepos] = useState([])
-    useEffect(() => {
-        const getRepos = async() => {
-            try {
-                const res = await axios.get('https://api.github.com/users/Aragor70/repos')
-
-                setRepos(res.data)
-            } catch (err: any) {
-                console.log(err.message)
-            }
-            
-        }
-        getRepos()
-
-        return () => {
-            setRepos([])
-        }
-
-    }, [])
-
-    console.log(repos)
     
     const arryImages: any[] = [nivest1, nivest2, types1, onloud1, nichess1, shortnister1, webshot1, efforts1]
     const [currentIndex, setCurrentIndex] = useState<number>(Math.floor(Math.random() * (arryImages.length || 5)))
@@ -83,7 +62,6 @@ const Home = ({ history, setPageTitle }: any) => {
 
         return () => {
             clearInterval(timer)
-            console.log('clear')
         }
 
     }, [currentIndex, arryImages.length])
@@ -243,11 +221,11 @@ const Home = ({ history, setPageTitle }: any) => {
                             <p>I am developing software for web and mobile software services. I desire to deliver excellent, innovative digital projects completed to the highest possible standards.</p>
                             
 
-                            <p className="icons">
-                                <div className="icon"><i className="fas fa-tv fa-2x"></i><span>Front-end</span></div>
-                                <div className="icon"><i className="fas fa-server fa-2x"></i><span>Back-end</span></div>
-                                <div className="icon"><i className="fas fa-database fa-2x"></i><span>Database</span></div>
-                            </p>
+                            <ul className="icons">
+                                <li className="icon"><i className="fas fa-tv fa-2x"></i><span>Front-end</span></li>
+                                <li className="icon"><i className="fas fa-server fa-2x"></i><span>Back-end</span></li>
+                                <li className="icon"><i className="fas fa-database fa-2x"></i><span>Database</span></li>
+                            </ul>
                         
                         </div>
 
@@ -265,17 +243,17 @@ const Home = ({ history, setPageTitle }: any) => {
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}>Content management</span></h3>
                             <p>Website service lets you easily manage the content in range of our services without understanding any programming code.</p>
 
-                            <p className="icons">
-                                <div className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></div>
-                                <div className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></div>
-                                <div className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></div>
-                            </p>
+                            <ul className="icons">
+                                <li className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></li>
+                                <li className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></li>
+                                <li className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></li>
+                            </ul>
 
-                            <p className="more-about" >
+                            <ul className="more-about">
                                 {/* <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span> */}
-                                <div className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></div>
-                                <div className="icon-box" onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></div>
-                            </p>
+                                <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
+                                <li className="icon-box" onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                            </ul>
                         
                         </div>
 

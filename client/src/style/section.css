@@ -59,11 +59,11 @@
     line-height: 23pt;
     margin: 7.5px 0;
 }
-.params li
+.params li.point
 {
     line-height: 23pt;
 }
-.params ul
+.params ul.points
 {
     padding: 0 80px;
     margin: 0;
@@ -75,7 +75,7 @@
 
 @media (max-width: 1023px) {
     
-    .params ul
+    .params ul.points
     {
         padding: 20px 20px;
         margin: 0;

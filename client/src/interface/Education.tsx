@@ -82,14 +82,14 @@ const Education = ({ setPageTitle }: any) => {
                                 Data warehouse.
                             
                             */}
-                            <p className="icons">
-                            </p>
+                            <ul className="icons">
+                            </ul>
 
-                            <p className="more-about" >
+                            <ul className="more-about" >
                                 {/* <span></span> */}
                                 {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                                <div className="icon-box" onClick={() => window.open("https://en.ug.edu.pl/", "_blank")}><i className="fab fa-chrome fa"></i></div>
-                            </p>
+                                <li className="icon-box" onClick={() => window.open("https://en.ug.edu.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                            </ul>
                         
                         </div>
 
@@ -130,14 +130,14 @@ const Education = ({ setPageTitle }: any) => {
                                 business economics.
                             
                             */}
-                            <p className="icons">
-                            </p>
+                            <ul className="icons">
+                            </ul>
 
-                            <p className="more-about" >
+                            <ul className="more-about" >
                                 {/* <span></span> */}
                                 {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                                <div className="icon-box" onClick={() => window.open("https://tu.koszalin.pl/", "_blank")}><i className="fab fa-chrome fa"></i></div>
-                            </p>
+                                <li className="icon-box" onClick={() => window.open("https://tu.koszalin.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                            </ul>
                         
                         </div>
 

@@ -10,7 +10,7 @@ const GithubStats = ({ repos, name }: any) => {
     const repository : any = (repos.filter((element: any) => element?.name === name))[0] || null
     
     if (!repository) return null;
-    console.log(repository?.created_at)
+
     return (
         <Fragment>
             <p className="commits">

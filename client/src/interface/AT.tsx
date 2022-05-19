@@ -81,15 +81,15 @@ const AT = ({ setPageTitle }: any) => {
                     <p>
                         mikey.prus@gmail.com
                     </p>
-                    <p>
+                    <ul style={{ padding: '0 40px', listStyle: 'none', margin: '7.5px 0' }}>
                     
-                    <div className="icon-box"><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></div>
-                    </p>
+                        <li className="icon-box"><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></li>
+                    </ul>
 
-                    <p className="more-about">
-                        <div className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button>Contact me</button></div>
+                    <ul className="more-about">
+                        <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button>Contact me</button></li>
 
-                    </p>
+                    </ul>
 
                 </div>
 
@@ -121,7 +121,7 @@ const AT = ({ setPageTitle }: any) => {
 
                                     {
                                         output ? <Fragment>
-                                            <p className="output-response">
+                                            <ul className="output-response" style={{ padding: '0 40px', listStyle: 'none', margin: '7.5px 0' }}>
 
                                                 <div className="icon-box">
                                                     {
@@ -129,7 +129,7 @@ const AT = ({ setPageTitle }: any) => {
                                                     }
                                                 </div>
                                             
-                                            </p>
+                                            </ul>
                                         </Fragment> : <Fragment>
                                             <h3 style={{ textAlign: 'center', position: 'relative' }}>Contact me</h3>
                                         
@@ -161,13 +161,13 @@ const AT = ({ setPageTitle }: any) => {
                                                         formData.text && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, text: ''})}></i></div>
                                                     }
                                                     </h6>
-                                                    <textarea ref={messageText} className="textarea" value={formData.text || ''} name="text" onChange={ (e: any) => handleChange(e)} contentEditable placeholder="Write your message"></textarea>    
+                                                    <textarea ref={messageText} className="textarea" value={formData.text || ''} name="text" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write your message"></textarea>    
                                                     
                                                 </li>
                                             </ul>
-                                            <p className="more-about">
-                                                <div className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => handleSubmit()}>Submit</button></div>
-                                            </p>
+                                            <ul className="more-about">
+                                                <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => handleSubmit()}>Submit</button></li>
+                                            </ul>
 
                                         </Fragment>
                                     }
