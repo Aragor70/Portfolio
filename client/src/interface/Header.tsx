@@ -8,7 +8,7 @@ import sdBtn from '../style/sd.png';
 import cvBtn from '../style/cv.png';
 import atBtn from '../style/at.png';
 
-
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import { withRouter } from 'react-router-dom';
 
 const Header = ({ location: { pathname}, pageTitle, history }: any) => {
@@ -18,6 +18,7 @@ const Header = ({ location: { pathname}, pageTitle, history }: any) => {
     return (
         <Fragment>
             <div className="page-title">
+                <LanguageSwitcher />
             <p>
                 {
                     pathname === "/" ? null : <Fragment>

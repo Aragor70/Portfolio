@@ -5,6 +5,7 @@ import autosize from 'autosize';
 
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { Translate } from '../components/Translate';
 
 const AT = ({ setPageTitle }: any) => {
 
@@ -77,7 +78,7 @@ const AT = ({ setPageTitle }: any) => {
                 
                     <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
 
-                    <p>Text me</p>
+                    <p><Translate tKey="at.text" /></p>
                     <p>
                         mikey.prus@gmail.com
                     </p>
@@ -87,7 +88,7 @@ const AT = ({ setPageTitle }: any) => {
                     </ul>
 
                     <ul className="more-about">
-                        <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button>Contact me</button></li>
+                        <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button><Translate tKey="at.form.headline" /></button></li>
 
                     </ul>
 
@@ -116,7 +117,7 @@ const AT = ({ setPageTitle }: any) => {
                             
                             {
                                 loadingMessage ? <Fragment>
-                                    <p className="output-response">loading...</p>
+                                    <p className="output-response"><Translate tKey="loading" /></p>
                                 </Fragment> : <Fragment>
 
                                     {
@@ -131,11 +132,11 @@ const AT = ({ setPageTitle }: any) => {
                                             
                                             </ul>
                                         </Fragment> : <Fragment>
-                                            <h3 style={{ textAlign: 'center', position: 'relative' }}>Contact me</h3>
+                                            <h3 style={{ textAlign: 'center', position: 'relative' }}><Translate tKey="at.form.headline" /></h3>
                                         
                                             <ul className="message-form">
                                                 <li>
-                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}>From:
+                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}><Translate tKey="at.form.from" />:
                                                     
                                                     {
                                                         formData.from && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, from: ''})}></i></div>
@@ -147,7 +148,7 @@ const AT = ({ setPageTitle }: any) => {
                                                     <input type="text" name="from" value={formData.from || ''} onChange={ (e: any) => handleChange(e)} placeholder={'contact@anonymous.com'} />
                                                 </li>
                                                 <li>
-                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}>Subject:
+                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}><Translate tKey="at.form.subject" />:
                                                     {
                                                         formData.subject && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, subject: ''})}></i></div>
                                                     }
@@ -156,7 +157,7 @@ const AT = ({ setPageTitle }: any) => {
                                                     <input type="text" name="subject" value={formData.subject || ''} onChange={ (e: any) => handleChange(e)} placeholder={formData.subject || 'Other'} />
                                                 </li>
                                                 <li>
-                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}>Message: 
+                                                    <h6 style={{ textAlign: 'left', position: 'relative' }}><Translate tKey="at.form.message" />: 
                                                     {
                                                         formData.text && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, text: ''})}></i></div>
                                                     }
@@ -166,7 +167,7 @@ const AT = ({ setPageTitle }: any) => {
                                                 </li>
                                             </ul>
                                             <ul className="more-about">
-                                                <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => handleSubmit()}>Submit</button></li>
+                                                <li className="icon-box" style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => handleSubmit()}><Translate tKey="at.form.submit" /></button></li>
                                             </ul>
 
                                         </Fragment>

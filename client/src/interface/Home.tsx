@@ -23,6 +23,8 @@ import nivest2 from '../style/NiVest2.png';
 
 import nestImg from '../style/icons/nestjs-icon.svg'
 import Timeline from '../components/Timeline';
+import { Translate } from '../components/Translate';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 /* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
@@ -70,36 +72,37 @@ const Home = ({ history, setPageTitle }: any) => {
 
     return (
         <Fragment>
+            <LanguageSwitcher />
             <div className="home-content">
 
                 <div className="avatar box1">
                     <img src={photo} alt="mikolaj_photo" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
-                    <span>Mikołaj Prus</span>
+                    <span><Translate tKey="home.me.name" /></span>
                 </div>
                 <h1 className="box2">
-                    Full-Stack Software Enginner
+                    <Translate tKey="home.me.title" />
                 </h1>
 
                 <div className="navi-buttons box3">
                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                         <img src={sdBtn1} alt="software_development" />
-                        <nav>Work experience</nav>
+                        <nav><Translate tKey="home.menu.experience" /></nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
                         <img src={cvBtn2} alt="software_projects" />
-                        <nav>Projects</nav>
+                        <nav><Translate tKey="home.menu.projects" /></nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
                         <img src={skBtn} alt="skills" />
-                        <nav>Software skills</nav>
+                        <nav><Translate tKey="home.menu.skills" /></nav>
                     </div>
                     <div className="navi-button ed" onClick={() => history.push('/education')}>
                         <img src={edBtn2} alt="education" />
-                        <nav>Education</nav>
+                        <nav><Translate tKey="home.menu.education" /></nav>
                     </div>
                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
                         <img src={atBtn1} alt="contact_mikolaj" />
-                        <nav>Contact</nav>
+                        <nav><Translate tKey="home.menu.contact" /></nav>
                     </div>
                     {/* {
                         loggedIn && <Fragment>
@@ -139,29 +142,29 @@ const Home = ({ history, setPageTitle }: any) => {
                             
                             <div className="params left">
 
-                                <h3 className="content-center"><span style={{ fontSize: '2.1em' }}>Mikołaj Prus</span></h3>
-                                <p style={{ fontSize: '1.1em' }}>Full-Stack Software Enginner</p>
+                                <h3 className="content-center"><span style={{ fontSize: '2.1em' }}><Translate tKey="home.me.name" /></span></h3>
+                                <p style={{ fontSize: '1.1em' }}><Translate tKey="home.me.title" /></p>
                                 
                                 <div className="navi-buttons">
                                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                                         <img src={sdBtn1} alt="software_development"/>{/* #0A1240 #4C5273 */}
-                                        <nav>Work experience</nav>
+                                        <nav><Translate tKey="home.menu.experience" /></nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
                                         <img src={cvBtn2} alt="software_projects" />
-                                        <nav>Projects</nav>
+                                        <nav><Translate tKey="home.menu.projects" /></nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
                                         <img src={skBtn} alt="skills" />
-                                        <nav>Software skills</nav>
+                                        <nav><Translate tKey="home.menu.skills" /></nav>
                                     </div>
                                     <div className="navi-button ed" onClick={() => history.push('/education')}>
                                         <img src={edBtn2} alt="education" />
-                                        <nav>Education</nav>
+                                        <nav><Translate tKey="home.menu.education" /></nav>
                                     </div>
                                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
                                         <img src={atBtn1} alt="contact_mikolaj" />
-                                        <nav>Contact</nav>
+                                        <nav><Translate tKey="home.menu.contact" /></nav>
                                     </div>
                                 </div>
                             
@@ -169,7 +172,7 @@ const Home = ({ history, setPageTitle }: any) => {
                             <div className="show">
                                 <div className="in-process">
                                     <span>
-                                        Images in process...
+                                        <Translate tKey="home.message.dev" />
                                     </span>
                                 </div>
                                 <div>
@@ -207,7 +210,7 @@ const Home = ({ history, setPageTitle }: any) => {
                 <section>
 
                     <div className="params">
-                        Overview of my work
+                        <Translate tKey="home.sections.overview.headline" />
                     </div>
 
                 </section>
@@ -217,14 +220,14 @@ const Home = ({ history, setPageTitle }: any) => {
                     <article className="grid-double">
 
                         <div className="params left">
-                            <h3 className="content-center"><span style={{ fontSize: '45px' }}>Project collections</span></h3>
-                            <p>I am developing software for web and mobile software services. I desire to deliver excellent, innovative digital projects completed to the highest possible standards.</p>
+                            <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.collections.title" /></span></h3>
+                            <p><Translate tKey="home.sections.overview.collections.text" /></p>
                             
 
                             <ul className="icons">
-                                <li className="icon"><i className="fas fa-tv fa-2x"></i><span>Front-end</span></li>
-                                <li className="icon"><i className="fas fa-server fa-2x"></i><span>Back-end</span></li>
-                                <li className="icon"><i className="fas fa-database fa-2x"></i><span>Database</span></li>
+                                <li className="icon"><i className="fas fa-tv fa-2x"></i><span><Translate tKey="home.sections.overview.collections.client" /></span></li>
+                                <li className="icon"><i className="fas fa-server fa-2x"></i><span><Translate tKey="home.sections.overview.collections.server" /></span></li>
+                                <li className="icon"><i className="fas fa-database fa-2x"></i><span><Translate tKey="home.sections.overview.collections.database" /></span></li>
                             </ul>
                         
                         </div>
@@ -240,8 +243,8 @@ const Home = ({ history, setPageTitle }: any) => {
                             
                         </div>
                         <div className="params right">
-                            <h3 className="content-center"><span style={{ fontSize: '45px' }}>Content management</span></h3>
-                            <p>Website service lets you easily manage the content in range of our services without understanding any programming code.</p>
+                            <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.collections.title" /></span></h3>
+                            <p><Translate tKey="home.sections.overview.collections.text" /></p>
 
                             <ul className="icons">
                                 <li className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></li>

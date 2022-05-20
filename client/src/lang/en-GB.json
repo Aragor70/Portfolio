@@ -1,0 +1,52 @@
+{
+    "language-switcher.language.english-gb": "English",
+    "loading": "loading...",
+    "home": {
+        "me.name": "Mikołaj Prus",
+        "me.title": "Full-Stack Software Enginner",
+        "menu": {
+            "experience": "Work experience",
+            "projects": "Projects",
+            "skills": "Software skills",
+            "education": "Education",
+            "contact": "Contact"
+        },
+        "sections": {
+            "overview.headline": "Overview of my work",
+            "overview.collections": {
+                "title": "Project collections",
+                "text": "I am developing software for web and mobile software services. I desire to deliver excellent, innovative digital projects completed to the highest possible standards.",
+                "client": "Front-end",
+                "server": "Back-end",
+                "database": "Database"
+            },
+            "overview.project": {
+                "title": "Content management",
+                "text": "Website service lets you easily manage the content in range of our services without understanding any programming code."
+            }
+        },
+        "message.dev": "Images in process..."
+    },
+    "sd": {
+        "header.title": "Software projects",
+        "overview": "I especially develop applications with TypeScript, and Python in the environment of React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS, and Jest testing libraries. This page is right to overview the tech development.",
+        "section.ongoing.headline": "Ongoing development",
+        "section.events.headline": "Programming Events",
+        "section.online.headline": "Projects Online",
+        "section.repos.headline": "Repositories",
+        "section.drafts.headline": "Drafts",
+        "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment."
+    },
+    "at": {
+        "text": "Text me",
+        "form": {
+            "headline": "Contact me",
+            "from": "From",
+            "subject": "Subject",
+            "message": "Message",
+            "submit": "Submit"
+        }
+    }
+    
+    
+}

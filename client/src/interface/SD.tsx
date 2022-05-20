@@ -46,12 +46,13 @@ import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
 import Project from './Project';
 import axios from 'axios';
 import GithubStats from '../components/GithubStats';
+import { Translate } from '../components/Translate';
 
 const SD = ({ setPageTitle, history }: any) => {
 
     const { path } = useRouteMatch();
     useEffect(() => {
-        setPageTitle('Software Projects')
+        setPageTitle(<Translate tKey="sd.header.title" />)
 
         return () => {
             setPageTitle('')
@@ -129,8 +130,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     <div className="params">
                         
                         <p>
-                            I especially develop applications with TypeScript, and Python in the environment of React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS, and Jest testing libraries. 
-                            This page is right to overview the tech development.
+                            <Translate tKey="sd.overview" />
                         </p>
                         
                     </div>
@@ -151,7 +151,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
-                    <h1>Ongoing development</h1>
+                    <h1><Translate tKey="sd.section.ongoing.headline" /></h1>
                 </Route>
             </Switch>
         </article>
@@ -207,7 +207,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
-                    <h1>Programming Events</h1>
+                    <h1><Translate tKey="sd.section.events.headline" /></h1>
                 
                 </Route>
             </Switch>
@@ -563,7 +563,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
             <Switch>
                 <Route exact path={path}>
-                    <h1>Repositories</h1>
+                    <h1><Translate tKey="sd.section.repos.headline" /></h1>
                 </Route>
             </Switch>
         <article>
@@ -758,7 +758,7 @@ const SD = ({ setPageTitle, history }: any) => {
         
             <Switch>
                 <Route exact path={path}>
-                    <h1>Drafts</h1>
+                    <h1><Translate tKey="sd.section.drafts.headline" /></h1>
                 
                     <div className="params" style={{ marginBottom: '30px' }}>
                         <i>Draft projections include projects temporarily stopped development, waiting for deployment.</i>
