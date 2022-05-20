@@ -1,0 +1,53 @@
+{
+    "language-switcher.language.english-gb": "English",
+    "language-switcher.language.polish": "Polski",
+    "loading": "ładowanie...",
+    "home": {
+        "me.name": "Mikołaj Prus",
+        "me.title": "Rozwijam oprogramowanie",
+        "menu": {
+            "experience": "Projekty w zawodzie",
+            "projects": "Projekty własne",
+            "skills": "Umiejętności",
+            "education": "Edukacja",
+            "contact": "Kontakt"
+        },
+        "sections": {
+            "overview.headline": "Przegląd mojej pracy",
+            "overview.collections": {
+                "title": "Kolekcja projektów",
+                "text": "Tworzę oprogramowanie zarówno dla stron internetowych i urządzeń mobilnych. Zależy mi na dostarczaniu doskonałych i innowacyjnych projektów cyfrowych, realizowanych z zachowaniem najwyższych możliwych standardów.",
+                "client": "Interfejs użytkownika",
+                "server": "Serwer",
+                "database": "Baza danych"
+            },
+            "overview.project": {
+                "title": "Zarządzanie zawartością",
+                "text": "Strona internetowa, która umożliwia tobie łatwe zarządzanie treścią w zakresie naszych usług bez konieczności zrozumienia skryptu programistycznego."
+            }
+        },
+        "message.dev": "Strona w przebudowie..."
+    },
+    "sd": {
+        "header.title": "Projekty oprogramowania",
+        "overview": "W szczególności tworzę aplikacje napisane z TypeScript i Python w środowisku bibliotek React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS i Jest. Ta strona jest umożliwia przegląd rozwoju aplikacji.",
+        "section.ongoing.headline": "Projekty w rozwoju",
+        "section.events.headline": "Wydarzenia programistyczne",
+        "section.online.headline": "Projekty dostępne online",
+        "section.repos.headline": "Repozytoria",
+        "section.drafts.headline": "Wersje robocze",
+        "section.drafts.overview": "Wersje robocze obejmują projekty tymczasowo zatrzymane w fazie rozwoju, czekające na wdrożenie."
+    },
+    "at": {
+        "text": "Wyślij wiadomość",
+        "form": {
+            "headline": "Wyślij wiadomość",
+            "from": "Od",
+            "subject": "Temat",
+            "message": "Wiadomość",
+            "submit": "Wyślij"
+        }
+    }
+    
+    
+}

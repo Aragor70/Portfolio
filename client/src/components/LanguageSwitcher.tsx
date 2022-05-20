@@ -9,6 +9,7 @@ const LANGUAGE_CODE_TO_KEY: {
   [K in Language]: string;
 } = {
   'en-GB': "language-switcher.language.english-gb",
+  'pl': "language-switcher.language.polish",
 }
 
 const LanguageSwitcher = () => {
