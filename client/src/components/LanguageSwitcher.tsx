@@ -35,7 +35,7 @@ const LanguageSwitcher = () => {
           
           <Translate tKey={LANGUAGE_CODE_TO_KEY[selectedLanguageCode]} />
 
-          <img src={flag[selectedLanguageCode]} />
+          <img src={flag[selectedLanguageCode]} alt="current_flag" />
 
         </label>
 
@@ -57,7 +57,7 @@ const LanguageSwitcher = () => {
                           
                           <Translate tKey={LANGUAGE_CODE_TO_KEY[languageCode]} />
 
-                          <img src={flag[languageCode]} />
+                          <img src={flag[languageCode]} alt="flag" />
 
                         </label>
                       );
