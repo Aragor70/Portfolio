@@ -11,4 +11,6 @@ export class Experience {
   term?: string;
   status?: Status;
   website?: string;
+  created_at: Date;
+  updated_at: Date;
 }

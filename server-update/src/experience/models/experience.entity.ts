@@ -4,8 +4,11 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     OneToOne,
-    JoinColumn
+    JoinColumn,
+    CreateDateColumn,
+    UpdateDateColumn
   } from 'typeorm';
+import { Language } from './language.enum';
   
   import { Status } from './status.enum';
   
@@ -23,10 +26,10 @@ import {
     @Column({ nullable: true })
     text: string;
   
-    @Column({ nullable: true })
+    @Column('text', { array: true, nullable: true })
     icons: string[];
   
-    @Column({ nullable: true })
+    @Column('text', { array: true, nullable: true })
     images: string[];
   
     @Column({ type: 'enum', enum: Status, default: Status.CURRENT })
@@ -37,6 +40,15 @@ import {
 
     @Column({ nullable: true })
     term: string;
+    
+    @Column({ type: 'enum', enum: Language, default: Language.ENGLISH })
+    languageCode: string;
+    
+    @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+    created_at: Date;
+
+    @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+    updated_at: Date;
     
     @OneToOne(() => UserEntity)
     @JoinColumn()
