@@ -11,4 +11,6 @@ export class User {
   password?: string;
   imagePath?: string;
   role?: Role;
+  created_at: Date;
+  updated_at: Date;
 }

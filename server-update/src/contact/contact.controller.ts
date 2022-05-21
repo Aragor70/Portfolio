@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
-import { UserEntity } from 'src/auth/models/user.entity';
 import { ContactService } from './contact.service';
 import { ContactEntity } from './models/contact.entity';
 

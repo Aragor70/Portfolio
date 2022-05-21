@@ -9,12 +9,12 @@ export class ContactService {
 
     constructor(
         @InjectRepository(ContactEntity)
-        private readonly contactrRepository: Repository<ContactEntity>,
+        private readonly contactRepository: Repository<ContactEntity>,
     ) {}
     
     
     getAll(): Observable<ContactEntity[]> {
-        return from(this.contactrRepository.find())
+        return from(this.contactRepository.find())
             .pipe(
             map((message: ContactEntity[]) => {
                 return message;
@@ -24,7 +24,7 @@ export class ContactService {
     
     createMessage(contact: ContactEntity): Observable<ContactEntity> {
         return from(
-            this.contactrRepository.save({
+            this.contactRepository.save({
                 from: contact.from,
                 message: contact.message
             }),
