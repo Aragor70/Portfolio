@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Translate } from './Translate';
 
 import i18n from '../utils/i18n';
@@ -27,9 +27,38 @@ const LanguageSwitcher = () => {
     'pl': polish
   }
 
+  const saveLanguage = async (languageCode: any) => {
+    try {
+      
+      localStorage.setItem('languageCode', languageCode);
+
+      setSelectedLanguageCode(languageCode);
+      i18n.changeLanguage(languageCode);
+      setShowSelect(false);
+
+
+    } catch (err: any) {
+      console.log(err.message)
+    }
+  }
+
+  useEffect(() => {
+
+    const languageCode: Language | any = localStorage.getItem('languageCode');
+    
+    if (languageCode) {
+      setShowSelect(false);
+      setSelectedLanguageCode(languageCode);
+      i18n.changeLanguage(languageCode);
+    } else {
+      // setShowSelect(true);
+    }
+
+  }, [])
+
   return (
     <Fragment>
-      <label className="language-switcher">
+      <label className={"language-switcher"} >
 
         <label onClick={() => setShowSelect(!showSelect)}>
           
@@ -49,9 +78,7 @@ const LanguageSwitcher = () => {
                         <label 
                           key={languageCode}
                           onClick={() => {
-                            setSelectedLanguageCode(languageCode);
-                            i18n.changeLanguage(languageCode);
-                            setShowSelect(false);
+                            saveLanguage(languageCode);
                           }}
                         >
                           
