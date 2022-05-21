@@ -11,4 +11,6 @@ export class Project {
   status?: Status;
   website?: string;
   repository?: string;
+  created_at: Date;
+  updated_at: Date;
 }
