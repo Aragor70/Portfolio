@@ -460,3 +460,93 @@ ul.more-about {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+header .language-switcher {
+    margin: auto 0;
+    margin-left: auto;
+    position: absolute;
+    right: 5vw;
+    top: 9px;
+}
+
+.home-content .language-switcher {
+    margin: auto 0;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+.home-extended .language-switcher {
+    margin: auto 0;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    top: 9px;
+}
+
+.language-switcher {
+    display: flex;
+    gap: 7.5px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    
+    min-height: 55px;
+    
+    font-size: 14px;
+}
+
+.language-switcher img {
+    inline-size: 28px;
+    height: 32px;
+}
+.language-switcher label {
+    display: flex;
+    gap: 7.5px;
+    align-items: center;
+    cursor: pointer;
+    z-index: 15;
+}
+.language-switcher > ul {
+    display: flex;
+    gap: 7.5px;
+    flex-direction: column;
+
+    align-items: flex-end;
+    list-style: none;
+    padding: 7.5px 15px;
+    margin: 0 !important;
+    
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+@media (max-width: 1023px) {
+    
+    .language-switcher > ul{
+        
+        padding: 7.5px 0;
+    }
+}
+@media (min-width: 1023px) {
+    .language-switcher {
+        
+        padding: 0 15px;
+        right: calc(5vw - 15px);
+    }
+}
+
+.language-switcher .shadow-box {
+    z-index: 14;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+
+}

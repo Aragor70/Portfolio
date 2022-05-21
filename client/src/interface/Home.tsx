@@ -72,9 +72,8 @@ const Home = ({ history, setPageTitle }: any) => {
 
     return (
         <Fragment>
-            <LanguageSwitcher />
             <div className="home-content">
-
+                <LanguageSwitcher />
                 <div className="avatar box1">
                     <img src={photo} alt="mikolaj_photo" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus/", "_blank")} />
                     <span><Translate tKey="home.me.name" /></span>
@@ -133,12 +132,12 @@ const Home = ({ history, setPageTitle }: any) => {
                 </div> */}
             </div>
             <div className="home-extended">
-
+                
                 <section>
 
                     <div className="section-content" style={{ padding: '15px 0', marginBottom: '70px' }}>
                         <article style={{ padding: '0', minHeight: '70vh' }} className="grid-double">
-
+                            <LanguageSwitcher />
                             
                             <div className="params left">
 

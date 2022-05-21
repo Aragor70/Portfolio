@@ -18,7 +18,6 @@ const Header = ({ location: { pathname}, pageTitle, history }: any) => {
     return (
         <Fragment>
             <div className="page-title">
-                <LanguageSwitcher />
             <p>
                 {
                     pathname === "/" ? null : <Fragment>
@@ -39,7 +38,9 @@ const Header = ({ location: { pathname}, pageTitle, history }: any) => {
                     </Fragment>
                 }
                 <span style={pageTitle === 'home' ? { cursor: 'pointer' } : {}}>{pageTitle}</span>
+                
             </p>
+                <LanguageSwitcher />
                 <hr />
             </div>
         </Fragment>
