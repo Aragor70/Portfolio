@@ -1,4 +1,3 @@
-import { UserEntity } from 'src/auth/models/user.entity';
 import {
     Column,
     Entity,
@@ -7,7 +6,7 @@ import {
   
   
   @Entity('education')
-  export class EducationEntity {
+  export class ContactEntity {
     @PrimaryGeneratedColumn()
     id: number;
   
