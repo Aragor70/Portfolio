@@ -1,4 +1,5 @@
 import { IsEmail, IsString } from 'class-validator';
+import { Language } from './language.enum';
 import { Status } from './status.enum';
 
 export class Education {
@@ -11,6 +12,7 @@ export class Education {
   term?: string;
   status?: Status;
   website?: string;
+  languageCode?: Language;
   created_at: Date;
   updated_at: Date;
 }
