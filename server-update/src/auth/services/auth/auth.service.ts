@@ -7,7 +7,6 @@ import { from, Observable, of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { Repository } from 'typeorm';
 import { UserEntity } from '../../models/user.entity';
-import { User } from '../../models/user.class';
 
 @Injectable()
 export class AuthService {
@@ -23,13 +22,13 @@ export class AuthService {
 
   doesUserExist(email: string): Observable<boolean> {
     return from(this.userRepository.findOne({ email })).pipe(
-      switchMap((user: User) => {
+      switchMap((user: UserEntity) => {
         return of(!!user);
       }),
     );
   }
 
-  registerAccount(user: User): Observable<User> {
+  registerAccount(user: UserEntity): Observable<UserEntity> {
     const { firstName, lastName, email, password } = user;
 
     return this.doesUserExist(email).pipe(
@@ -51,7 +50,7 @@ export class AuthService {
                 password: hashedPassword,
               }),
             ).pipe(
-              map((user: User) => {
+              map((user: UserEntity) => {
                 delete user.password;
                 return user;
               }),
@@ -62,7 +61,7 @@ export class AuthService {
     );
   }
 
-  validateUser(email: string, password: string): Observable<User> {
+  validateUser(email: string, password: string): Observable<UserEntity> {
     return from(
       this.userRepository.findOne(
         { email },
@@ -71,7 +70,7 @@ export class AuthService {
         },
       ),
     ).pipe(
-      switchMap((user: User) => {
+      switchMap((user: UserEntity) => {
         if (!user) {
           throw new HttpException(
             { status: HttpStatus.FORBIDDEN, error: 'Invalid Credentials' },
@@ -90,10 +89,10 @@ export class AuthService {
     );
   }
 
-  login(user: User): Observable<string> {
+  login(user: UserEntity): Observable<string> {
     const { email, password } = user;
     return this.validateUser(email, password).pipe(
-      switchMap((user: User) => {
+      switchMap((user: UserEntity) => {
         if (user) {
           // create JWT - credentials
           return from(this.jwtService.signAsync({ user }));
@@ -102,9 +101,9 @@ export class AuthService {
     );
   }
 
-  getJwtUser(jwt: string): Observable<User | null> {
+  getJwtUser(jwt: string): Observable<UserEntity | null> {
     return from(this.jwtService.verifyAsync(jwt)).pipe(
-      map(({ user }: { user: User }) => {
+      map(({ user }: { user: UserEntity }) => {
         return user;
       }),
       catchError(() => {

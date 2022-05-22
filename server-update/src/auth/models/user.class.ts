@@ -13,4 +13,5 @@ export class User {
   role?: Role;
   created_at: Date;
   updated_at: Date;
+  educations: number[];
 }

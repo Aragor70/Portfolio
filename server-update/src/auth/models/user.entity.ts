@@ -1,3 +1,4 @@
+import { EducationEntity } from 'src/education/models/education.entity';
 import {
     Column,
     Entity,
@@ -5,7 +6,8 @@ import {
     OneToMany,
     PrimaryGeneratedColumn,
     CreateDateColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    JoinColumn
   } from 'typeorm';
   
   import { Role } from './role.enum';
@@ -38,5 +40,8 @@ import {
 
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
     updated_at: Date;
+
+    @OneToMany(() => EducationEntity, education => education.id)
+    educations: EducationEntity[];
   
 }

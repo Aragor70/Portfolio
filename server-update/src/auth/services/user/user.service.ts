@@ -14,11 +14,11 @@ export class UserService {
     private readonly userRepository: Repository<UserEntity>,
   ) {}
 
-  findUserById(id: number): Observable<User> {
+  findUserById(id: number): Observable<UserEntity> {
     return from(
       this.userRepository.findOne({ id }),
     ).pipe(
-      map((user: User) => {
+      map((user: UserEntity) => {
         if (!user) {
           throw new HttpException('User not found', HttpStatus.NOT_FOUND);
         }
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   updateUserImageById(id: number, imagePath: string): Observable<UpdateResult> {
-    const user: User = new UserEntity();
+    const user: UserEntity = new UserEntity();
     user.id = id;
     user.imagePath = imagePath;
     return from(this.userRepository.update(id, user));
@@ -37,7 +37,7 @@ export class UserService {
 
   findImageNameByUserId(id: number): Observable<string> {
     return from(this.userRepository.findOne({ id })).pipe(
-      map((user: User) => {
+      map((user: UserEntity) => {
         delete user.password;
         return user.imagePath;
       }),

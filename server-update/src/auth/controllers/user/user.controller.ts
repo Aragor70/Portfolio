@@ -8,15 +8,13 @@ import {
     Get,
     Res,
     Param,
-    Put,
-    Body,
+    Req,
   } from '@nestjs/common';
   import { FileInterceptor } from '@nestjs/platform-express';
   import { join } from 'path';
   import { Observable, of } from 'rxjs';
   import { map, switchMap } from 'rxjs/operators';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
-  import { UpdateResult } from 'typeorm';
   
   import {
     isFileExtensionSafe,
@@ -26,6 +24,7 @@ import { JwtGuard } from 'src/auth/guards/jwt.guard';
 
   import { User } from '../../models/user.class';
 import { UserService } from 'src/auth/services/user/user.service';
+import { UserEntity } from 'src/auth/models/user.entity';
 
   @Controller('user')
   export class UserController {
@@ -74,7 +73,7 @@ import { UserService } from 'src/auth/services/user/user.service';
   
     @UseGuards(JwtGuard)
     @Get('image-name')
-    findUserImageName(@Request() req): Observable<{ imageName: string }> {
+    findUserImageName(@Req() req): Observable<{ imageName: string }> {
       const userId = req.user.id;
       return this.userService.findImageNameByUserId(userId).pipe(
         switchMap((imageName: string) => {
@@ -85,7 +84,7 @@ import { UserService } from 'src/auth/services/user/user.service';
   
     @UseGuards(JwtGuard)
     @Get(':userId')
-    findUserById(@Param('userId') userStringId: string): Observable<User> {
+    findUserById(@Param('userId') userStringId: string): Observable<UserEntity> {
       const userId = parseInt(userStringId);
       return this.userService.findUserById(userId);
     }
