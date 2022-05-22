@@ -8,7 +8,6 @@ import { EducationEntity } from './models/education.entity';
 export class EducationController {
     constructor(private educationService: EducationService) {}
     
-    @UseGuards(JwtGuard)
     @Get('')
     getAll(): Observable<EducationEntity> {
         return this.educationService.getAll().pipe(map((res: any) => res));

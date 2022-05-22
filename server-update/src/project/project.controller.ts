@@ -10,7 +10,6 @@ export class ProjectController {
     
     constructor(private projectService: ProjectService) {}
 
-    @UseGuards(JwtGuard)
     @Get('')
     getAll(): Observable<ProjectEntity> {
         return this.projectService.getAll().pipe(map((res: any) => res));

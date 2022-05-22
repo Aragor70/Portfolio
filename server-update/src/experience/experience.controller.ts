@@ -9,7 +9,6 @@ import { ExperienceEntity } from './models/experience.entity';
 export class ExperienceController {
     constructor(private experienceService: ExperienceService) {}
 
-    @UseGuards(JwtGuard)
     @Get('')
     getAll(): Observable<ExperienceEntity> {
         return this.experienceService.getAll().pipe(map((res: any) => res));
