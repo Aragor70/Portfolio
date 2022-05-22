@@ -48,7 +48,7 @@ const AT = ({ setPageTitle }: any) => {
         try {
             await setLoadingMessage(true)
 
-            const response = await axios.post('api.m-prus/api/contact', formData, config)
+            const response = await axios.post('https://api.m-prus.uk/api/contact', formData, config)
 
             console.log(response)
 
