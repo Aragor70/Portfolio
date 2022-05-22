@@ -26,9 +26,8 @@ const AT = ({ setPageTitle }: any) => {
     /* const [subject, setSubject] = useState('') */
 
     const [formData, setFormData] = useState<any>({
-        subject: "",
         from: "",
-        text: ""
+        message: ""
     })
 
     const handleChange = (e: any) => {
@@ -46,7 +45,7 @@ const AT = ({ setPageTitle }: any) => {
         }
 
         try {
-            await setLoadingMessage(true)
+            setLoadingMessage(true)
 
             const response = await axios.post('https://api.m-prus.uk/api/contact', formData, config)
 
@@ -59,6 +58,7 @@ const AT = ({ setPageTitle }: any) => {
 
             console.log(response.data)
         } catch (err: any) {
+            setLoadingMessage(false)
             setOutput('Error')
             console.log(err.message)
         }
@@ -145,9 +145,9 @@ const AT = ({ setPageTitle }: any) => {
 
 
                                                     </h6>
-                                                    <input type="text" name="from" value={formData.from || ''} onChange={ (e: any) => handleChange(e)} placeholder={'contact@anonymous.com'} />
+                                                    <input type="text" name="from" value={formData.from || ''} onChange={ (e: any) => handleChange(e)} placeholder={'contact@anonymous.com (optional)'} />
                                                 </li>
-                                                <li>
+                                                {/* <li>
                                                     <h6 style={{ textAlign: 'left', position: 'relative' }}><Translate tKey="at.form.subject" />:
                                                     {
                                                         formData.subject && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, subject: ''})}></i></div>
@@ -155,14 +155,14 @@ const AT = ({ setPageTitle }: any) => {
 
                                                     </h6>
                                                     <input type="text" name="subject" value={formData.subject || ''} onChange={ (e: any) => handleChange(e)} placeholder={formData.subject || 'Other'} />
-                                                </li>
+                                                </li> */}
                                                 <li>
                                                     <h6 style={{ textAlign: 'left', position: 'relative' }}><Translate tKey="at.form.message" />: 
                                                     {
                                                         formData.text && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, text: ''})}></i></div>
                                                     }
                                                     </h6>
-                                                    <textarea ref={messageText} className="textarea" value={formData.text || ''} name="text" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write your message"></textarea>    
+                                                    <textarea ref={messageText} className="textarea" value={formData.message || ''} name="message" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="What will you write today?"></textarea>    
                                                     
                                                 </li>
                                             </ul>
