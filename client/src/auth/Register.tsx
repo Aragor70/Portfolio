@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import { register } from '../actions/auth';
 
 import '../style/auth.css'
 
@@ -15,11 +16,14 @@ const Register = ({ history, setPageTitle }: any) => {
     }, [setPageTitle])
 
     const [formData, setFormData] = useState<any>({
-        name: null,
+        firstName: null,
+        lastName: null,
         email: null,
         password: null,
         passwordConfirmation: null
     })
+    
+    const [alert, setAlert] = useState('');
 
     const handleTyping = (e: { target: HTMLInputElement }) => {
         
@@ -27,8 +31,22 @@ const Register = ({ history, setPageTitle }: any) => {
     }
     const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        history.push('/')
-        return await console.log(formData)
+        
+        if (!formData?.email) {
+            return setAlert('Please enter e-mail address.')
+        }
+        if (!formData?.password) {
+            return setAlert('Please enter password.')
+        }
+        if (formData?.password !== formData?.passwordConfirmation) {
+            return setAlert('Please enter both the same passwords.')
+        }
+
+        console.log(alert)
+
+        await register(formData)
+
+        return history.push('/login')
     }
 
     const customComplete = (e: any) => {
@@ -44,8 +62,11 @@ const Register = ({ history, setPageTitle }: any) => {
             <form className="auth-form" autoComplete="new-password" onSubmit={ e=> handleSubmit(e) }>
                 <h1>Sign up:</h1>
                 
-                <label className="input-label" htmlFor="name">Name
-                    <input type="text" autoComplete="new-password" name="name" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                <label className="input-label" htmlFor="firstName">First name
+                    <input type="text" autoComplete="new-password" name="firstName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                </label>
+                <label className="input-label" htmlFor="lastName">Last name
+                    <input type="text" autoComplete="new-password" name="lastName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
                 </label>
 
                 <label className="input-label" htmlFor="email">E-mail

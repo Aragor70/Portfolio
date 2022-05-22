@@ -10,7 +10,9 @@
             "projects": "Projects",
             "skills": "Software skills",
             "education": "Education",
-            "contact": "Contact"
+            "contact": "Contact",
+            "login": "Login",
+            "register": "Register"
         },
         "sections": {
             "overview.headline": "Overview of my work",

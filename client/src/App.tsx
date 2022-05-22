@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import AdminDashboard from './interface/AdminDashboard';
 import AT from './interface/AT';
 import CV from './interface/CV';
 /* import DS from './interface/DS'; */
@@ -15,6 +16,7 @@ import Messages from './interface/Messages';
 import SD from './interface/SD';
 
 import { handleScrollToTop } from './utils/autoHandlers';
+import setAuthToken from './utils/setAuthToken';
 
 const App = ({ location }: any) => {
 
@@ -40,6 +42,14 @@ const App = ({ location }: any) => {
           window.removeEventListener('scroll', handleScroll);
       };
   }, []);
+
+
+  
+  useEffect(() => {
+    if (localStorage?.token) {
+      setAuthToken(localStorage.token);
+    }
+  }, [])
 
   return (
     <Fragment>
@@ -71,16 +81,20 @@ const App = ({ location }: any) => {
             <Route exact path="/contact_mikolaj">
               <AT pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
+            <Route exact path="/messages">
+              <Messages pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            </Route>
+
+            <Route exact path="/admin">
+              <AdminDashboard pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            </Route>
+
             <Route exact path="/login">
               <Login pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
             <Route exact path="/register">
               <Register pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
-            <Route exact path="/messages">
-              <Messages pageTitle={pageTitle} setPageTitle={setPageTitle} />
-            </Route>
-
             
           </Switch>
           {

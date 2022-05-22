@@ -508,3 +508,7 @@ img {
     height: 20px;
     color: rgba(8,27,51,.8)
 }
+
+.admin-dashboard {
+    min-height: 88vh;
+}

@@ -38,6 +38,9 @@ const LanguageSwitcher = () => {
 
 
     } catch (err: any) {
+      setSelectedLanguageCode(defaultLanguage);
+      i18n.changeLanguage(defaultLanguage);
+      setShowSelect(false);
       console.log(err.message)
     }
   }
@@ -47,11 +50,13 @@ const LanguageSwitcher = () => {
     const languageCode: Language | any = localStorage.getItem('languageCode');
     
     if (languageCode) {
-      setShowSelect(false);
       setSelectedLanguageCode(languageCode);
       i18n.changeLanguage(languageCode);
+      setShowSelect(false);
     } else {
-      // setShowSelect(true);
+      setSelectedLanguageCode(defaultLanguage);
+      i18n.changeLanguage(defaultLanguage);
+      setShowSelect(false);
     }
 
   }, [])

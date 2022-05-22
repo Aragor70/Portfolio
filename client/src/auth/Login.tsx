@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import { login } from '../actions/auth';
 
 import '../style/auth.css'
 
@@ -42,11 +43,12 @@ const Login = ({ history, setPageTitle }: any) => {
             return setAlert('Please enter password.')
         }
         console.log(alert)
-        history.push('/')
 
-        return await console.log('hi')
+        const res: any = await login(formData)
+
+        if (res?.token) return history.push('/')
     }
-
+    
     return (
         <Fragment>
             
