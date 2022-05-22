@@ -47,6 +47,29 @@
             "message": "Wiadomość",
             "submit": "Wyślij"
         }
+    },
+    "cv": {
+        "sections": {
+            "summary": {
+                "title": "SUMMARY",
+                "text": "<p>Moje doświadczenie techniczne pochodzi z wyznaczania sobie konkretnych celów do osiągnięcia i pomagania moim przyjaciołom poprzez dostarczanie im niestandardowych narzędzi i rozwiązań programistycznych.</p><p>Rozwój dał mi doskonałą podstawę do rozwiązywania problemów i skupienia się na bieżących działaniach. Ćwiczenie kodowania i budowania projektów razem z przyjaciółmi pozwoliło mi opanować pracę zespołową. </p><p>Zawsze interesowało mnie, jak powstają nowoczesne aplikacje i ta ciekawość, wraz z moimi krokami programistycznymi, praca w Data4you &amp; BrikkApp oraz poziom studiów w zakresie nauki języków programowania w dużym stopniu wpłynął na moją obecną działalność.</p>"
+            },
+            
+            "tech": {
+                "title": "TECH SKILLS",
+                "text": "<p>W szczególności tworzę aplikacje internetowe z technologią <b>TypeScript</b> i <b>Python</b> razem w środowisku platform React Js / Angular, Redux, Django, Express / Nest Js, CSS, bibliotek do tworzenia testów. Ponadto uczestniczę w analizach Data Science, aby opisać problem biznesowy oraz doszukać się właściwego rozwiązanie.</p><p>Posiadam biegłą wiedzę, aby dopasować struktury baz danych <b>SQL</b> i <b >NoSQL</b>.</p>"
+            },
+            
+            "languages": {
+                "title": "Languages",
+                "text": "<p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p><h3>Biblioteki i struktury</h3><p>React, Angular, Redux, NestJs, Express, Django, Laravel, GIT</p><h3>Biblioteki testujące</h3><p>Jest, Enzyme, Mocha, Chai</p>"
+            },
+            
+            "services": {
+                "title": "Platformy i serwisy",
+                "text": "<p>Digitalocean, Heroku, Netlify, SocketIO, Google Drive API, ScreenshotMachine API, Amazon s3 Storage</p>"
+            }
+        }
     }
     
     
