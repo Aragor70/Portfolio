@@ -36,13 +36,14 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 
 import gdansk1 from '../style/gdansk1.jpg';
 import koszalin1 from '../style/koszalin1.jpg';
+import { Translate } from '../components/Translate';
 
 
 const Education = ({ setPageTitle }: any) => {
 
     const { path } = useRouteMatch();
     useEffect(() => {
-        setPageTitle('Education')
+        setPageTitle(<Translate tKey="home.menu.education" />)
 
         return () => {
             setPageTitle('')

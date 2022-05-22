@@ -2,11 +2,12 @@ import React, { Fragment, useEffect } from 'react';
 
 
 import { withRouter } from 'react-router-dom';
+import { Translate } from '../components/Translate';
 
 const CV = ({ setPageTitle }: any) => {
 
     useEffect(() => {
-        setPageTitle('Skills')
+        setPageTitle(<Translate tKey="home.menu.skills" />)
         return () => {
             setPageTitle('')
         }

@@ -32,13 +32,14 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 
 import brikkapp1 from '../style/brikkapp1.svg';
 import data4you3 from '../style/data4you3.png';
+import { Translate } from '../components/Translate';
 
 
 const Experience = ({ setPageTitle }: any) => {
 
     const { path } = useRouteMatch();
     useEffect(() => {
-        setPageTitle('Work Experience')
+        setPageTitle(<Translate tKey="home.menu.experience" />)
 
         return () => {
             setPageTitle('')

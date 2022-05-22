@@ -52,7 +52,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
     const { path } = useRouteMatch();
     useEffect(() => {
-        setPageTitle(<Translate tKey="sd.header.title" />)
+        setPageTitle(<Translate tKey="home.menu.projects" />)
 
         return () => {
             setPageTitle('')

@@ -10,7 +10,7 @@ import { Translate } from '../components/Translate';
 const AT = ({ setPageTitle }: any) => {
 
     useEffect(() => {
-        setPageTitle('Contact')
+        setPageTitle(<Translate tKey="home.menu.contact" />)
 
         return () => {
             setPageTitle('')
