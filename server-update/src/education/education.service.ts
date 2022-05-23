@@ -18,12 +18,84 @@ export class EducationService {
     
     
     getAll(): Observable<EducationEntity[]> {
-        return from(this.educationRepository.find())
+        return from(this.educationRepository.find({ relations: ['user'] }))
             .pipe(
-            map((message: EducationEntity[]) => {
-                return message;
+            map((element: EducationEntity[]) => {
+                return element;
             }),
         );
+    }
+    
+    getOne(id: number): Observable<EducationEntity> {
+        return from(this.educationRepository.findOneOrFail({where: {id}, relations: ['user']}))
+            .pipe(
+            map((element: EducationEntity) => {
+                return element;
+            }),
+        );
+    }
+    
+    editEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
+
+        const { id, name, title, text, icons, images, term, status, website, languageCode } = education;
+
+        return this.userService.findUserById(userId).pipe(
+            tap((element: UserEntity) => {
+                if (!element)
+                  throw new HttpException(
+                    'A user has not been found.',
+                    HttpStatus.BAD_REQUEST,
+                  );
+            }),
+            switchMap(() => {
+              return this.getOne(id).pipe(
+                tap((element: EducationEntity) => {
+                    console.log(element)
+                    if (!element)
+                      throw new HttpException(
+                        'An education has not been found.',
+                        HttpStatus.NOT_FOUND,
+                    )
+                    else if (element?.user?.id !== userId)
+                      throw new HttpException(
+                        'You need to be an author of this education.',
+                        HttpStatus.NOT_ACCEPTABLE,
+                    );
+                }),
+                switchMap(() => {
+                    
+                    const formData = new EducationEntity();
+                    formData.name = name
+                    formData.title = title
+                    formData.text = text
+                    formData.icons = icons
+                    formData.images = images
+                    formData.term = term
+                    formData.status = status
+                    formData.website = website
+                    formData.languageCode = languageCode
+
+                    return from(
+                        this.educationRepository.update(id, formData),
+                        ).pipe(
+                            switchMap(() => {
+                            return this.getOne(id).pipe(
+                                map((edu: EducationEntity) => {
+                                    return edu;
+                                }),
+                            )}
+                        )
+                    );
+                })
+              )
+            
+            }
+            ),
+
+        )
+
+
+       
     }
     
     createEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
@@ -38,8 +110,10 @@ export class EducationService {
                     HttpStatus.BAD_REQUEST,
                   );
               }),
+              
             switchMap((user: UserEntity) => {
                 return from(
+
                     this.educationRepository.save({
                         name, title, text, icons, images, term, status, website, languageCode, user
                     }),
