@@ -8,6 +8,7 @@ import { ProjectModule } from './project/project.module';
 import { ExperienceModule } from './experience/experience.module';
 import { EducationModule } from './education/education.module';
 import { ContactModule } from './contact/contact.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { ContactModule } from './contact/contact.module';
     ProjectModule,
     ExperienceModule,
     EducationModule,
-    ContactModule
+    ContactModule,
+    ImageModule
   ],
   controllers: [AppController],
   providers: [AppService],

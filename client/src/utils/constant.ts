@@ -1,1 +1,6 @@
-export const URL = 'https://api.m-prus.uk'
+export const URL = ''
+
+export enum Language {
+    ENGLISH = 'en-GB',
+    POLISH = 'pl',
+}

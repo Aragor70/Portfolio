@@ -83,10 +83,18 @@ import { UserEntity } from 'src/auth/models/user.entity';
     }
   
     @UseGuards(JwtGuard)
+    @Get('')
+    findUserLoggedIn(@Req() req): Observable<UserEntity> {
+
+      const userId = req?.user?.id
+      return this.userService.findUserById(userId);
+    }
+    @UseGuards(JwtGuard)
     @Get(':userId')
     findUserById(@Param('userId') userStringId: string): Observable<UserEntity> {
       const userId = parseInt(userStringId);
       return this.userService.findUserById(userId);
     }
+  
   
 }

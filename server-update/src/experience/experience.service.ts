@@ -18,14 +18,87 @@ export class ExperienceService {
     
     
     getAll(): Observable<ExperienceEntity[]> {
-        return from(this.experienceRepository.find())
+        return from(this.experienceRepository.find({ relations: ['user'] }))
             .pipe(
             map((elements: ExperienceEntity[]) => {
                 return elements;
             }),
         );
     }
+
     
+    getOne(id: number): Observable<ExperienceEntity> {
+        return from(this.experienceRepository.findOneOrFail({where: {id}, relations: ['user']}))
+            .pipe(
+            map((element: ExperienceEntity) => {
+                return element;
+            }),
+        );
+    }
+    
+    
+    editExperience(experience: ExperienceEntity, userId: number): Observable<ExperienceEntity> {
+
+        const { id, name, title, text, icons, images, term, status, website, languageCode } = experience;
+
+        return this.userService.findUserById(userId).pipe(
+            tap((element: UserEntity) => {
+                if (!element)
+                  throw new HttpException(
+                    'A user has not been found.',
+                    HttpStatus.BAD_REQUEST,
+                  );
+            }),
+            switchMap(() => {
+              return this.getOne(id).pipe(
+                tap((element: ExperienceEntity) => {
+                    console.log(element)
+                    if (!element)
+                      throw new HttpException(
+                        'An education has not been found.',
+                        HttpStatus.NOT_FOUND,
+                    )
+                    else if (element?.user?.id !== userId)
+                      throw new HttpException(
+                        'You need to be an author of this experience.',
+                        HttpStatus.NOT_ACCEPTABLE,
+                    );
+                }),
+                switchMap((element) => {
+
+                    const formData = new ExperienceEntity();
+                    formData.name = name || element.name
+                    formData.title = title || element.title
+                    formData.text = text || element.text
+                    formData.icons = icons || element.icons
+                    formData.images = images || element.images
+                    formData.term = term || element.term
+                    formData.status = status || element.status
+                    formData.website = website || element.website
+                    formData.languageCode = languageCode || element.languageCode
+
+                    return from(
+                        this.experienceRepository.update(id, formData),
+                        ).pipe(
+                            switchMap(() => {
+                            return this.getOne(id).pipe(
+                                map((edu: ExperienceEntity) => {
+                                    return edu;
+                                }),
+                            )}
+                        )
+                    );
+                })
+              )
+            
+            }
+            ),
+
+        )
+       
+    }
+
+
     createExperience(experience: ExperienceEntity, userId: number): Observable<ExperienceEntity> {
 
         const { name, title, text, icons, images, term, status, website, languageCode } = experience;
@@ -54,5 +127,7 @@ export class ExperienceService {
         ))
 
     }
+
+
 
 }

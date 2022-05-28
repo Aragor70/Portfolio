@@ -1,6 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
+import { UserContext } from '../context/UserContext';
 
 import '../style/auth.css'
 
@@ -20,6 +21,8 @@ const Login = ({ history, setPageTitle }: any) => {
             setPageTitle('')
         }
     }, [setPageTitle])
+
+    const { user, setUser } = useContext(UserContext);
 
     const [formData, setFormData] = useState<LoginForm>({
         email: null,
@@ -46,8 +49,14 @@ const Login = ({ history, setPageTitle }: any) => {
 
         const res: any = await login(formData)
 
+        console.log(res)
+
+        setUser(res)
+
         if (res?.token) return history.push('/')
     }
+
+    console.log(user)
     
     return (
         <Fragment>

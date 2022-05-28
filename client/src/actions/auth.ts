@@ -2,6 +2,21 @@ import axios from "axios"
 import { URL } from "../utils/constant";
 import setAuthToken from "../utils/setAuthToken";
 
+export const loadUser = async (token = "") => {
+
+    if (token || localStorage.token) {
+        setAuthToken(token || localStorage.token)
+    }
+
+    try {
+        const res = await axios.get(URL + '/api/user/');
+        console.log(res.data)
+        return res.data
+
+    } catch (err: any) {
+        console.log(err.message);
+    }
+}
 
 export const login = async (formData: any) => {
     try {
@@ -16,7 +31,7 @@ export const login = async (formData: any) => {
 
             setAuthToken(token)
 
-            return {token}
+            return loadUser(token)
         } else {
             return setAuthToken('')
         }

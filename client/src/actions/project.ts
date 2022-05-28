@@ -1,10 +1,17 @@
 import axios from "axios"
-import { URL } from "../utils/constant";
+import { Language, URL } from "../utils/constant";
 
 
 
-export const getProjects = async (languageCode: string) => {
+export const getProjects = async () => {
     try {
+
+        let languageCode = Language.ENGLISH
+        
+        if (localStorage?.languageCode) {
+            languageCode = localStorage.languageCode
+        }
+
         const options = {
             params: {
                 languageCode

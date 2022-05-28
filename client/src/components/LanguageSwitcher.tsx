@@ -59,7 +59,7 @@ const LanguageSwitcher = () => {
       setShowSelect(false);
     }
 
-  }, [])
+  }, [localStorage?.languageCode])
 
   return (
     <Fragment>

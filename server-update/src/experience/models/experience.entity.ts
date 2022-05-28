@@ -7,7 +7,8 @@ import {
     JoinColumn,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToMany
+    ManyToMany,
+    ManyToOne
   } from 'typeorm';
 import { Language } from './language.enum';
   
@@ -51,7 +52,7 @@ import { Language } from './language.enum';
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
     updated_at: Date;
     
-    @ManyToMany(() => UserEntity, user => user.id)
+    @ManyToOne(() => UserEntity, user => user.id)
     @JoinColumn()
     user: UserEntity
 }

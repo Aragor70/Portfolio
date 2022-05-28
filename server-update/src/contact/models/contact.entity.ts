@@ -17,6 +17,9 @@ import {
   
     @Column()
     message: string;
+  
+    @Column({ nullable: true })
+    ip: string;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     created_at: Date;

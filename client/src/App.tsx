@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 
 
 import { Route, Switch, withRouter } from 'react-router-dom';
+import { loadUser } from './actions/auth';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import { UserContext } from './context/UserContext';
 import AdminDashboard from './interface/AdminDashboard';
 import AT from './interface/AT';
 import CV from './interface/CV';
@@ -43,8 +45,24 @@ const App = ({ location }: any) => {
       };
   }, []);
 
-
   
+  const [ user, setUser ] = useState(null);
+
+  const value = useMemo(() => ({ user, setUser }), [user]);
+
+  const refreshUser = async () => {
+
+    const res = await loadUser()
+
+    setUser(res)
+
+  }
+  useEffect(() => {
+    
+    refreshUser()
+
+  }, [localStorage.token])
+
   useEffect(() => {
     if (localStorage?.token) {
       setAuthToken(localStorage.token);
@@ -52,7 +70,7 @@ const App = ({ location }: any) => {
   }, [])
 
   return (
-    <Fragment>
+    <UserContext.Provider value={value}>
         
         <header className="header-content" style={location.pathname !== '/' ? { zIndex: 11 } : {} }>
 
@@ -120,7 +138,7 @@ const App = ({ location }: any) => {
           <p>© Nicolai 2021</p>
         </footer>
           
-    </Fragment>
+    </UserContext.Provider>
   );
 }
 export default withRouter(App);

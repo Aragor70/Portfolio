@@ -47,6 +47,9 @@ import Project from './Project';
 import axios from 'axios';
 import GithubStats from '../components/GithubStats';
 import { Translate } from '../components/Translate';
+import { getAllRepos } from '../actions/github';
+import { getProjects } from '../actions/project';
+import ProjectLi from '../components/sd/ProjectLi';
 
 const SD = ({ setPageTitle, history }: any) => {
 
@@ -61,59 +64,45 @@ const SD = ({ setPageTitle, history }: any) => {
 
     const [repos, setRepos] = useState<any[]>([])
     const [loadingRepos, setLoadingRepos] = useState<boolean>(false)
+    const [loadingProjects, setLoadingProjects] = useState<boolean>(false)
 
+    const [projects, setProjects] = useState<any[]>([])
 
-    const getRepos = async () => {
-        try {
-            setLoadingRepos(true)
-
-            const password = '';
-
-            const options = {
-                headers: {
-                    "Authorization": 'Token ' + password
-                }
-            }
-            
-            const repos = await axios.get('https://api.github.com/users/Aragor70/repos', options)
-            
-            if (!repos?.data?.length) return;
-
-            console.log(repos)
-            let extended_repos: any[] = [];
-            
-
-            await Promise.all(repos?.data?.map(async (element: any) => {
-                try {
-                    
-                    const res1 = await axios.get('https://api.github.com/repos/Aragor70/' + element.name + '/commits?page=1&per_page=100', options)
-                    const res2 = await axios.get('https://api.github.com/repos/Aragor70/' + element.name + '/commits?page=2&per_page=100', options)
-
-                    const res = await res1?.data?.concat(res2?.data)
-
-                    extended_repos = [...extended_repos, {...element, commits: res}]
-
-                } catch (err: any) {
-                    console.log(err.message)
-                }
-                
-            }))
-            
-            setLoadingRepos(false)
-
-            return setRepos(extended_repos)
-
-        } catch (err: any) {
-            console.log(err.message)
-        }
-        
-    }
 
     useEffect(() => {
 
-        getRepos()
+        (async() => {
+            setLoadingProjects(true)
+            const res = await getProjects()
+
+            setProjects(res)
+            setLoadingProjects(false)
+        })()
+
+        return () => {
+            setProjects([])
+        }
+
+    }, [localStorage?.languageCode])
+
+    useEffect(() => {
+
+        (async() => {
+            setLoadingRepos(true)
+
+            const extended_repos = await getAllRepos();
+            
+            setLoadingRepos(false)
+
+            return setRepos(extended_repos || [])
+        })()
+
+        return () => {
+            setRepos([])
+        }
 
     }, [])
+    console.log(projects)
 
     return (
         <Fragment>
@@ -156,6 +145,18 @@ const SD = ({ setPageTitle, history }: any) => {
             </Switch>
         </article>
         <article className='blue'>
+            {
+                projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
+                    
+                    <Switch>
+                        <Route exact path={path}>
+                            <ProjectLi {...element} />
+                        </Route>
+                    </Switch>
+
+                </Fragment>)
+            }
+
             <Switch>
                 <Route exact path={path}>
                     <div className="section-image">

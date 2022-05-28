@@ -22,11 +22,12 @@ export class ContactService {
         );
     }
     
-    createMessage(contact: ContactEntity): Observable<ContactEntity> {
+    createMessage(contact: ContactEntity, ip: string): Observable<ContactEntity> {
         return from(
             this.contactRepository.save({
                 from: contact.from,
-                message: contact.message
+                message: contact.message,
+                ip
             }),
             ).pipe(
             map((message: ContactEntity) => {
