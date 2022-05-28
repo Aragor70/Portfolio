@@ -24,4 +24,10 @@ export class EducationController {
         const { id } = req.user;
         return this.educationService.editEducation(education, id).pipe(map((res: any) => res));
     }
+    @UseGuards(JwtGuard)
+    @Put(':type')
+    includeImage(@Body() formData: any, @Req() req, @Param('type') type: "education_icon" | "education_image"): Observable<EducationEntity> {
+        const { id } = req.user;
+        return this.educationService.includeImage(formData, id, type).pipe(map((res: any) => res));
+    }
 }

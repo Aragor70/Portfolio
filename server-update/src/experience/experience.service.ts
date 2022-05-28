@@ -5,6 +5,8 @@ import { ExperienceEntity } from './models/experience.entity';
 import { from, Observable, map, tap, switchMap } from 'rxjs';
 import { UserService } from 'src/auth/services/user/user.service';
 import { UserEntity } from 'src/auth/models/user.entity';
+import { ImageService } from 'src/image/image.service';
+import { ImageEntity } from 'src/image/models/image.entity';
 
 
 @Injectable()
@@ -14,11 +16,12 @@ export class ExperienceService {
         @InjectRepository(ExperienceEntity)
         private readonly experienceRepository: Repository<ExperienceEntity>,
         private readonly userService: UserService,
+        private readonly imageService: ImageService,
     ) {}
     
     
     getAll(): Observable<ExperienceEntity[]> {
-        return from(this.experienceRepository.find({ relations: ['user'] }))
+        return from(this.experienceRepository.find({ relations: ['user', 'images', 'icons'] }))
             .pipe(
             map((elements: ExperienceEntity[]) => {
                 return elements;
@@ -28,7 +31,7 @@ export class ExperienceService {
 
     
     getOne(id: number): Observable<ExperienceEntity> {
-        return from(this.experienceRepository.findOneOrFail({where: {id}, relations: ['user']}))
+        return from(this.experienceRepository.findOneOrFail({where: {id}, relations: ['user', 'images', 'icons']}))
             .pipe(
             map((element: ExperienceEntity) => {
                 return element;
@@ -97,7 +100,62 @@ export class ExperienceService {
         )
        
     }
+    
+    
+    includeImage(formData: any, userId: number, type: "experience_icon" | "experience_image" = "experience_image"): Observable<any> {
 
+        return this.userService.findUserById(userId).pipe(
+            tap((element: UserEntity) => {
+                if (!element)
+                  throw new HttpException(
+                    'A user has not been found.',
+                    HttpStatus.BAD_REQUEST,
+                  );
+            }),
+            switchMap(() => {
+                return from(this.imageService.saveImage(formData)).pipe(
+                    switchMap((image: ImageEntity) => {
+                        return this.getOne(formData.id).pipe(
+                            tap((element: ExperienceEntity) => {
+                                console.log('ciao', element)
+                                if (!element)
+                                  throw new HttpException(
+                                    'An education has not been found.',
+                                    HttpStatus.NOT_FOUND,
+                                )
+                                else if (element?.user?.id !== userId)
+                                  throw new HttpException(
+                                    'You need to be an author of this project.',
+                                    HttpStatus.NOT_ACCEPTABLE,
+                                );
+                            }),
+
+                            switchMap((element: ExperienceEntity) => {
+                                return from(
+                                    this.imageService.updateOne(image.id, 
+                                        {...image, [type]: element}).pipe(
+                                            map((img: ImageEntity) => {
+                                                return img;
+                                            }),
+                                        )
+                                )
+                                .pipe(
+                                        switchMap(() => {
+                                        return this.getOne(element.id).pipe(
+                                            map((experience: ExperienceEntity) => {
+                                                return experience;
+                                            }),
+                                        )}
+                                    )
+                                );
+                            })
+                        )
+                    })
+                )
+            })
+
+        )
+    }
 
     createExperience(experience: ExperienceEntity, userId: number): Observable<ExperienceEntity> {
 

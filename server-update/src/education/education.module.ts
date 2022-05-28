@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/auth/auth.module';
+import { ImageModule } from 'src/image/image.module';
 import { EducationController } from './education.controller';
 import { EducationService } from './education.service';
 import { EducationEntity } from './models/education.entity';
@@ -10,7 +11,8 @@ import { EducationEntity } from './models/education.entity';
     TypeOrmModule.forFeature([
         EducationEntity
     ]),
-    AuthModule
+    AuthModule,
+    ImageModule
   ],
   controllers: [EducationController],
   providers: [EducationService],

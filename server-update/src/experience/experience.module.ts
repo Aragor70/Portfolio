@@ -4,13 +4,15 @@ import { ExperienceController } from './experience.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExperienceEntity } from './models/experience.entity';
 import { AuthModule } from 'src/auth/auth.module';
+import { ImageModule } from 'src/image/image.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
         ExperienceEntity
     ]),
-    AuthModule
+    AuthModule,
+    ImageModule
   ],
   providers: [ExperienceService],
   controllers: [ExperienceController],

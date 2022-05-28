@@ -1,3 +1,5 @@
+import { EducationEntity } from 'src/education/models/education.entity';
+import { ExperienceEntity } from 'src/experience/models/experience.entity';
 import { ProjectEntity } from 'src/project/models/project.entity';
 import {
     Column,
@@ -25,5 +27,17 @@ import {
     
     @ManyToOne(() => ProjectEntity, project => project.id)
     project_icon: ProjectEntity;
+
+    @ManyToOne(() => ExperienceEntity, experience => experience.id)
+    experience_image: ExperienceEntity;
+    
+    @ManyToOne(() => ExperienceEntity, experience => experience.id)
+    experience_icon: ExperienceEntity;
+
+    @ManyToOne(() => EducationEntity, education => education.id)
+    education_image: EducationEntity;
+    
+    @ManyToOne(() => EducationEntity, education => education.id)
+    education_icon: EducationEntity;
     
 }

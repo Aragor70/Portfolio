@@ -1,4 +1,5 @@
 import { UserEntity } from 'src/auth/models/user.entity';
+import { ImageEntity } from 'src/image/models/image.entity';
 import {
     Column,
     Entity,
@@ -7,7 +8,8 @@ import {
     JoinColumn,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToOne
+    ManyToOne,
+    OneToMany
   } from 'typeorm';
 import { Language } from './language.enum';
   
@@ -26,12 +28,6 @@ import { Language } from './language.enum';
   
     @Column({ nullable: true })
     text: string;
-  
-    @Column('text', { array: true, nullable: true })
-    icons: string[];
-  
-    @Column('text', { array: true, nullable: true })
-    images: string[];
   
     @Column({ type: 'enum', enum: Status, default: Status.CURRENT })
     status: Status;
@@ -54,5 +50,11 @@ import { Language } from './language.enum';
     @ManyToOne(() => UserEntity, user => user.id)
     @JoinColumn()
     user: UserEntity
+
     
+    @OneToMany(() => ImageEntity, image => image.education_image)
+    images: ImageEntity[]
+    
+    @OneToMany(() => ImageEntity, icon => icon.education_icon)
+    icons: ImageEntity[]
 }
