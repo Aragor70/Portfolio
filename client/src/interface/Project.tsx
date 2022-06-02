@@ -3,17 +3,17 @@ import { withRouter } from 'react-router-dom';
 
 
 
-const Project = ({ name, title }: any) => {
+const Project = ({ match }: any) => {
 
-    
+    console.log(match)
 
     return (
         <Fragment>
             <div >
 
-                <h1>{ name }</h1> 
+                <h1>ciao</h1> 
                 
-                <p><span>{ title || 'ciao' }</span></p>
+                <p><span>title</span></p>
                 
             </div>
         </Fragment>

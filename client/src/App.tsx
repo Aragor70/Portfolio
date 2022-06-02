@@ -90,7 +90,7 @@ const App = ({ location }: any) => {
             <Route exact path="/education">
               <Education pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
-            <Route exact path="/software_projects">
+            <Route path="/software_projects">
               <SD pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
             <Route exact path="/skills">

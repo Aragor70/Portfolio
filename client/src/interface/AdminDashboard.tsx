@@ -22,14 +22,14 @@ const AdminDashboard = ({ history, setPageTitle }: any) => {
         <Fragment>
             <div className="admin-dashboard">
                 
-                <div className="navi-buttons">
-                    <div className="navi-button" onClick={() => history.push('/login')}>
-                        <nav style={{ width: '100%' }}><Translate tKey="home.menu.login" /></nav>
+                    <div className="navi-buttons box3">
+                        <div className="navi-button" onClick={() => history.push('/login')}>
+                            <nav><Translate tKey="home.menu.login" /></nav>
+                        </div>
+                        <div className="navi-button" onClick={() => history.push('/register')}>
+                            <nav><Translate tKey="home.menu.register" /></nav>
+                        </div>
                     </div>
-                    <div className="navi-button" onClick={() => history.push('/register')}>
-                        <nav style={{ width: '100%' }}><Translate tKey="home.menu.register" /></nav>
-                    </div>
-                </div>
 
             </div>
         </Fragment>

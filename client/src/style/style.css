@@ -454,11 +454,18 @@ ul.more-about {
     
     line-height: 23pt;
     margin: 7.5px 0 !important;
+    padding: 0;
 
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+
+@media (min-width: 1023px) {
+    ul.more-about {
+        padding: 0 40px;
+    }
 }
 
 header .language-switcher {

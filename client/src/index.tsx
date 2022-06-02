@@ -10,6 +10,7 @@ import './style/section.css';
 import './style/contact.css';
 import './style/auth.css';
 import './style/timeline.css';
+import './style/admin.css';
 import './utils/i18n';
 
 ReactDOM.render(

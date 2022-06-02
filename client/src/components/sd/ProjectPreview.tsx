@@ -5,7 +5,7 @@ import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
 
-const ProjectLi = ( props: any ) => {
+const ProjectPreview = ( props: any ) => {
 
     return (
         <Fragment>
@@ -18,17 +18,12 @@ const ProjectLi = ( props: any ) => {
             <div className="params">
                 <h3 className="content-center"><span style={{ fontSize: '45px' }}>{props?.title && HtmlParser(props?.title)}</span></h3>
                 
-                {
-                    props?.text && HtmlParser(props?.text)
-                }
-                
+                { props?.text && HtmlParser(props?.text) }
 
                 <ul className="icons">
                     {
                         props?.icons && props?.icons?.map((element: any) => <li className="icon"><img src={element} alt="typeScript" /><span>TypeScript</span></li>)
                     }
-                    
-                    
                 </ul>
                 
                 <ul className="more-about" >
@@ -41,4 +36,4 @@ const ProjectLi = ( props: any ) => {
         </Fragment>
     );
 }
-export default ProjectLi;
+export default ProjectPreview;

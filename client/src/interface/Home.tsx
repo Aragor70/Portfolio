@@ -242,8 +242,8 @@ const Home = ({ history, setPageTitle }: any) => {
                             
                         </div>
                         <div className="params right">
-                            <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.collections.title" /></span></h3>
-                            <p><Translate tKey="home.sections.overview.collections.text" /></p>
+                            <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.project.title" /></span></h3>
+                            <p><Translate tKey="home.sections.overview.project.text" /></p>
 
                             <ul className="icons">
                                 <li className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></li>

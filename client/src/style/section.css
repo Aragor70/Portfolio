@@ -15,6 +15,7 @@
 }
 
 .section-content article {
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -112,6 +113,15 @@
     width: auto;
     margin-right: auto;
 }
+.more-about a
+{
+    color: rgba(8,27,51,.8);
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: auto;
+    margin-right: auto;
+}
 .more-about span:active
 {
     position: relative;
@@ -166,6 +176,10 @@
 }
 
 .more-about .icon-box:nth-last-child(1)
+{
+    margin-left: 30px;
+}
+.more-about .icon-box:nth-last-child(2)
 {
     margin-left: 30px;
 }
@@ -292,6 +306,15 @@ img {
         text-align: left;
     }
     .more-about span
+    {
+        color: #0A1248;
+        cursor: pointer;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: auto;
+        margin-right: auto;
+    }
+    .more-about a
     {
         color: #0A1248;
         cursor: pointer;

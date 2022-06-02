@@ -26,6 +26,17 @@ export const getProjects = async () => {
     }
 }
 
+export const getProject = async (id: number) => {
+    try {
+        
+        const res = await axios.get(URL + '/api/project/' + id);
+
+        return res.data;
+
+    } catch (err: any) {
+        console.log(err.message)
+    }
+}
 export const editProject = async (id: number, formData: any) => {
     try {
         

@@ -42,18 +42,18 @@ import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
 
-import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
 import Project from './Project';
 import axios from 'axios';
 import GithubStats from '../components/GithubStats';
 import { Translate } from '../components/Translate';
 import { getAllRepos } from '../actions/github';
 import { getProjects } from '../actions/project';
-import ProjectLi from '../components/sd/ProjectLi';
+import ProjectPreview from '../components/sd/ProjectPreview';
 
 const SD = ({ setPageTitle, history }: any) => {
 
-    const { path } = useRouteMatch();
+    const { path,url } = useRouteMatch();
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.projects" />)
 
@@ -105,57 +105,133 @@ const SD = ({ setPageTitle, history }: any) => {
     console.log(projects)
 
     return (
-        <Fragment>
+        <Router>
             
+
+            <Switch>
+                
+                
+                <Route path={`${url}/:project_name`}>
+                    <Project />
+                </Route>
+
+                <Route exact path={path}>
+
+                    <div className="section-content">
+                    
+                        <article>
+
+                            <div>
+                            
+                            </div>
+                            <div className="params">
+                                
+                                <p>
+                                    <Translate tKey="sd.overview" />
+                                </p>
+                                
+                            </div>
+
+                            <h1><Translate tKey="sd.section.ongoing.headline" /></h1>
+
+                        </article>
+
+                        {
+                            projects.length ? 
+                            
+                            <article className='blue'>
+                                {
+                                    projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
+                            
+                                            <ProjectPreview {...element} />
+                
+                                    </Fragment>)
+                                }
+                            </article>
+
+                            : null
+                        }
+
+                        <h1><Translate tKey="sd.section.events.headline" /></h1>
+
+
+                        {
+                            projects.length ? 
+                            
+                            <article>
+                                {
+                                    projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
+                            
+                                            <ProjectPreview {...element} />
+                
+                                    </Fragment>)
+                                }
+                            </article>
+
+                            : null
+                        }
+
+                        <h1><Translate tKey="sd.section.online.headline" /></h1>
+
+
+                        {
+                            projects.length ? 
+                            
+                            <article>
+                                {
+                                    projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
+                            
+                                            <ProjectPreview {...element} />
+                
+                                    </Fragment>)
+                                }
+                            </article>
+
+                            : null
+                        }
+
+                        <h1><Translate tKey="sd.section.repos.headline" /></h1>
+
+
+
+                        {
+                            projects.length ? 
+                            
+                            <article>
+                                {
+                                    projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
+                            
+                                            <ProjectPreview {...element} />
+                
+                                    </Fragment>)
+                                }
+                            </article>
+
+                            : null
+                        }
+
+
+                        <h1><Translate tKey="sd.section.drafts.headline" /></h1>
+                
+                        <div className="params" style={{ marginBottom: '30px' }}>
+                            <i><Translate tKey="sd.section.drafts.overview" /></i>
+                        </div>
+
+
+
+                    </div>
+
+                </Route>
+
+            </Switch>
+
+
+
             <div className="section-content">
                 
-        <article>
     
-            <Switch>
-                <Route exact path={path}>
-                    <div>
-                        
-                    </div>
-                    <div className="params">
-                        
-                        <p>
-                            <Translate tKey="sd.overview" />
-                        </p>
-                        
-                    </div>
-                    {/* <div className="params sd-nav">
-                        
-                        <label className="hexagon ">
-                            <img src={nivest1} />
-                        </label>
-                        
-                        <label className="hexagon ">
-                            <img src={nivest1} />
-                        </label>
-                        
-                    </div> */}
-
-                </Route>
-            </Switch>
-
-            <Switch>
-                <Route exact path={path}>
-                    <h1><Translate tKey="sd.section.ongoing.headline" /></h1>
-                </Route>
-            </Switch>
-        </article>
+            
         <article className='blue'>
-            {
-                projects.filter((element: any) => element).map((element: any) => <Fragment key={element.id}>
-                    
-                    <Switch>
-                        <Route exact path={path}>
-                            <ProjectLi {...element} />
-                        </Route>
-                    </Switch>
-
-                </Fragment>)
-            }
 
             <Switch>
                 <Route exact path={path}>
@@ -183,7 +259,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </ul>
                         
                         <ul className="more-about" >
-                            {/* <span onClick={() => history.push(`${url}/NiVest-Software`)}>View project details</span> */}
+                            <Link to={`${path}/NiVest-Software`}>View project details</Link>
                             <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
                             <li className="icon-box" onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></li>
                         </ul>
@@ -192,19 +268,19 @@ const SD = ({ setPageTitle, history }: any) => {
                 </Route>
             </Switch>           
 
+
+        </article>
+
+        
             <Switch>  
                 
-                <Route exact path={`${path}/NiVest-Software`}>
+                <Route path={`${url}/:name`}>
                     <Project 
                         name="NiVest-Software"
                         title="NiVest Software CMS"
                     />
                 </Route>
             </Switch> 
-
-        </article>
-
-        
 
             <Switch>
                 <Route exact path={path}>
@@ -762,14 +838,14 @@ const SD = ({ setPageTitle, history }: any) => {
                     <h1><Translate tKey="sd.section.drafts.headline" /></h1>
                 
                     <div className="params" style={{ marginBottom: '30px' }}>
-                        <i>Draft projections include projects temporarily stopped development, waiting for deployment.</i>
+                        <i><Translate tKey="sd.section.drafts.overview" /></i>
                     </div>
                 </Route>
             </Switch>
         
             </div>
 
-        </Fragment>
+        </Router>
             
     );
 }
