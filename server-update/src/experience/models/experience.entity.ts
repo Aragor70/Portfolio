@@ -52,6 +52,8 @@ import { Language } from './language.enum';
     @JoinColumn()
     user: UserEntity
 
+    @Column({ default: 0 })
+    order: number;
     
     @OneToMany(() => ImageEntity, image => image.experience_image)
     images: ImageEntity[]

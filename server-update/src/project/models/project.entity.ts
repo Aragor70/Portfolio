@@ -13,7 +13,8 @@ import {
   } from 'typeorm';
 import { Language } from './language.enum';
   
-  import { Status } from './status.enum';
+import { ProjectStatusEntity } from './projectStatus.entity';
+import { ProjectRepositoryEntity } from './projectRepository.entity';
   
   @Entity('project')
   export class ProjectEntity {
@@ -28,15 +29,9 @@ import { Language } from './language.enum';
   
     @Column({ nullable: true })
     text: string;
-  
-    @Column({ type: 'enum', enum: Status, default: Status.ONGOING })
-    status: Status;
     
     @Column({ nullable: true })
     website: string;
-
-    @Column({ nullable: true })
-    repository: string;
     
     @Column({ type: 'enum', enum: Language, default: Language.ENGLISH })
     languageCode: string;
@@ -51,6 +46,12 @@ import { Language } from './language.enum';
     @JoinColumn()
     user: UserEntity
     
+    @OneToMany(() => ProjectRepositoryEntity, repository => repository.id)
+    repositories: ProjectRepositoryEntity[]
+
+    @OneToOne(() => ProjectStatusEntity, status => status.id)
+    @JoinColumn()
+    status: ProjectStatusEntity
 
     @OneToMany(() => ImageEntity, image => image.project_image)
     images: ImageEntity[]

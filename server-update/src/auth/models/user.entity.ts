@@ -1,4 +1,6 @@
 import { EducationEntity } from 'src/education/models/education.entity';
+import { ExperienceEntity } from 'src/experience/models/experience.entity';
+import { ProjectEntity } from 'src/project/models/project.entity';
 import {
     Column,
     Entity,
@@ -43,5 +45,11 @@ import {
 
     @OneToMany(() => EducationEntity, education => education.id)
     educations: EducationEntity[];
+
+    @OneToMany(() => ProjectEntity, project => project.id)
+    projects: ProjectEntity[];
+
+    @OneToMany(() => ExperienceEntity, experience => experience.id)
+    experiences: ExperienceEntity[];
   
 }

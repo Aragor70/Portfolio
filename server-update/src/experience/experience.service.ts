@@ -42,7 +42,7 @@ export class ExperienceService {
     
     editExperience(experience: ExperienceEntity, userId: number): Observable<ExperienceEntity> {
 
-        const { id, name, title, text, icons, images, term, status, website, languageCode } = experience;
+        const { id, name, title, text, icons, images, term, status, order, website, languageCode } = experience;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -67,7 +67,7 @@ export class ExperienceService {
                         HttpStatus.NOT_ACCEPTABLE,
                     );
                 }),
-                switchMap((element) => {
+                switchMap((element: ExperienceEntity) => {
 
                     const formData = new ExperienceEntity();
                     formData.name = name || element.name
@@ -77,6 +77,7 @@ export class ExperienceService {
                     formData.images = images || element.images
                     formData.term = term || element.term
                     formData.status = status || element.status
+                    formData.order = order || element.order
                     formData.website = website || element.website
                     formData.languageCode = languageCode || element.languageCode
 
@@ -159,7 +160,7 @@ export class ExperienceService {
 
     createExperience(experience: ExperienceEntity, userId: number): Observable<ExperienceEntity> {
 
-        const { name, title, text, icons, images, term, status, website, languageCode } = experience;
+        const { name, title, text, icons, images, term, status, order, website, languageCode } = experience;
 
         
         return this.userService.findUserById(userId).pipe(
@@ -173,7 +174,7 @@ export class ExperienceService {
             switchMap((user: UserEntity) => {
                 return from(
                     this.experienceRepository.save({
-                        name, title, text, icons, images, term, status, website, languageCode, user
+                        name, title, text, icons, images, term, status, order, website, languageCode, user
                     }),
                     ).pipe(
                     map((element: ExperienceEntity) => {

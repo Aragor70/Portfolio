@@ -11,6 +11,7 @@ export class Experience {
   images?: string[];
   term?: string;
   status?: Status;
+  order?: number;
   website?: string;
   languageCode?: Language;
   created_at: Date;

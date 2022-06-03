@@ -13,6 +13,10 @@ export class ExperienceController {
     getAll(): Observable<ExperienceEntity> {
         return this.experienceService.getAll().pipe(map((res: any) => res));
     }
+    @Get(':id')
+    getOne(@Param('id') id: number): Observable<ExperienceEntity> {
+        return this.experienceService.getOne(id).pipe(map((res: any) => res));
+    }
     @UseGuards(JwtGuard)
     @Post('')
     create(@Body() experience: ExperienceEntity, @Req() req): Observable<ExperienceEntity> {

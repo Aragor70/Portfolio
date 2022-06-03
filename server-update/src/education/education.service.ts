@@ -40,7 +40,7 @@ export class EducationService {
     
     editEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
 
-        const { id, name, title, text, icons, images, term, status, website, languageCode } = education;
+        const { id, name, title, text, icons, images, term, status, order, website, languageCode } = education;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -65,18 +65,19 @@ export class EducationService {
                         HttpStatus.NOT_ACCEPTABLE,
                     );
                 }),
-                switchMap(() => {
+                switchMap((element: EducationEntity) => {
                     
                     const formData = new EducationEntity();
-                    formData.name = name
-                    formData.title = title
-                    formData.text = text
-                    formData.icons = icons
-                    formData.images = images
-                    formData.term = term
-                    formData.status = status
-                    formData.website = website
-                    formData.languageCode = languageCode
+                    formData.name = name || element.name
+                    formData.title = title || element.title
+                    formData.text = text || element.text
+                    formData.icons = icons || element.icons
+                    formData.images = images || element.images
+                    formData.term = term || element.term
+                    formData.status = status || element.status
+                    formData.order = order || element.order
+                    formData.website = website || element.website
+                    formData.languageCode = languageCode || element.languageCode
 
                     return from(
                         this.educationRepository.update(id, formData),
@@ -158,7 +159,7 @@ export class EducationService {
     
     createEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
 
-        const { name, title, text, icons, images, term, status, website, languageCode } = education;
+        const { name, title, text, icons, images, term, status, order, website, languageCode } = education;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -173,7 +174,7 @@ export class EducationService {
                 return from(
 
                     this.educationRepository.save({
-                        name, title, text, icons, images, term, status, website, languageCode, user
+                        name, title, text, icons, images, term, status, order, website, languageCode, user
                     }),
                     ).pipe(
                     map((edu: EducationEntity) => {

@@ -12,6 +12,10 @@ export class EducationController {
     getAll(): Observable<EducationEntity> {
         return this.educationService.getAll().pipe(map((res: any) => res));
     }
+    @Get(':id')
+    getOne(@Param('id') id: number): Observable<EducationEntity> {
+        return this.educationService.getOne(id).pipe(map((res: any) => res));
+    }
     @UseGuards(JwtGuard)
     @Post('')
     create(@Body() education: EducationEntity, @Req() req): Observable<EducationEntity> {

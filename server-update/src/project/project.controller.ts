@@ -32,10 +32,16 @@ export class ProjectController {
         return this.projectService.editProject(project, id).pipe(map((res: ProjectEntity) => res));
     }
     @UseGuards(JwtGuard)
-    @Put(':type')
+    @Put('image/:type')
     includeImage(@Body() formData: any, @Req() req, @Param('type') type: "project_icon" | "project_image"): Observable<ProjectEntity> {
         const { id } = req.user;
         return this.projectService.includeImage(formData, id, type).pipe(map((res: ProjectEntity) => res));
+    }
+    @UseGuards(JwtGuard)
+    @Put('repository/:type')
+    includeRepository(@Body() formData: any, @Req() req, @Param('type') type: "include" | "exclude"): Observable<ProjectEntity> {
+        const { id } = req.user;
+        return this.projectService.includeRepository(formData, id, type).pipe(map((res: ProjectEntity) => res));
     }
 
 }
