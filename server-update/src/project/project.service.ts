@@ -8,6 +8,7 @@ import { UserService } from 'src/auth/services/user/user.service';
 import { ImageService } from 'src/image/image.service';
 import { ImageEntity } from 'src/image/models/image.entity';
 import { ProjectRepositoryEntity } from './models/projectRepository.entity';
+import { ProjectStatusEntity } from './models/projectStatus.entity';
 
 @Injectable()
 export class ProjectService {
@@ -17,6 +18,8 @@ export class ProjectService {
         private readonly projectRepository: Repository<ProjectEntity>,
         @InjectRepository(ProjectRepositoryEntity)
         private readonly reposRepository: Repository<ProjectRepositoryEntity>,
+        @InjectRepository(ProjectStatusEntity)
+        private readonly statusRepository: Repository<ProjectStatusEntity>,
         private readonly userService: UserService,
         private readonly imageService: ImageService,
     ) {}
@@ -224,6 +227,61 @@ export class ProjectService {
                                     ).pipe(
                                     map(() => {
                                         return project
+                                    }),
+                                );
+                            } else {
+                                throw new HttpException(
+                                    'Please specify the type.',
+                                    HttpStatus.BAD_REQUEST,
+                                );
+                            }
+                        })
+                    );
+                })
+
+        )
+
+    }
+    
+    includeStatus(formData: any, userId: number, type: 'include' | 'exclude'): Observable<ProjectEntity> {
+
+        const { status, order, id } = formData;
+        
+        return this.userService.findUserById(userId).pipe(
+            tap((element: UserEntity) => {
+                if (!element)
+                  throw new HttpException(
+                    'A user has not been found.',
+                    HttpStatus.BAD_REQUEST,
+                  );
+              }),
+            
+                switchMap((user: UserEntity) => {
+                    return from(
+                        this.getOne(id)).pipe(
+                        tap((element: ProjectEntity) => {
+                            if (!element) {
+                                throw new HttpException(
+                                'A user has not been found.',
+                                HttpStatus.BAD_REQUEST,
+                                );
+                            } else if (!(element?.user?.id === user?.id)) {
+                                throw new HttpException(
+                                    'You need to be an author of this project.',
+                                    HttpStatus.NOT_ACCEPTABLE,
+                                );
+                            }}),
+
+                        switchMap((project: ProjectEntity) => {
+
+                            if (type === 'include') {
+                                return from(
+                                    this.statusRepository.save({
+                                        status, order
+                                    }),
+                                    ).pipe(
+                                    switchMap((status: ProjectStatusEntity) => {
+                                        return this.editProject({status, ...project}, userId)
                                     }),
                                 );
                             } else {

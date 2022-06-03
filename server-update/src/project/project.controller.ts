@@ -43,5 +43,11 @@ export class ProjectController {
         const { id } = req.user;
         return this.projectService.includeRepository(formData, id, type).pipe(map((res: ProjectEntity) => res));
     }
+    @UseGuards(JwtGuard)
+    @Put('status/:type')
+    includeStatus(@Body() formData: any, @Req() req, @Param('type') type: "include" | "exclude"): Observable<ProjectEntity> {
+        const { id } = req.user;
+        return this.projectService.includeStatus(formData, id, type).pipe(map((res: ProjectEntity) => res));
+    }
 
 }
