@@ -58,7 +58,7 @@ export class ProjectService {
                     switchMap((image: ImageEntity) => {
                         return this.getOne(formData.id).pipe(
                             tap((element: ProjectEntity) => {
-                                console.log('ciao', element)
+
                                 if (!element)
                                   throw new HttpException(
                                     'An education has not been found.',
@@ -102,7 +102,7 @@ export class ProjectService {
     editProject(project: ProjectEntity, userId: number): Observable<ProjectEntity> {
 
         const { id, name, title, text, status, website, languageCode } = project;
-        console.log(status)
+
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
                 if (!element)
@@ -126,7 +126,7 @@ export class ProjectService {
                     );
                 }),
                 switchMap((element: ProjectEntity) => {
-                    console.log('status', element)
+
                     const formData = new ProjectEntity();
                     formData.name = name || element.name
                     formData.title = title || element.title
@@ -134,7 +134,7 @@ export class ProjectService {
                     formData.status = status || element.status
                     formData.website = website || element.website
                     formData.languageCode = languageCode || element.languageCode
-                    console.log(formData)
+
                     return from(
                         this.projectRepository.update(id, formData),
                         ).pipe(
@@ -278,7 +278,7 @@ export class ProjectService {
                                     }),
                                     ).pipe(
                                         switchMap((status: ProjectStatusEntity) => {
-                                            console.log(project)
+
                                             return this.editProject({...project, status}, userId)
                                         }),
                                 );
