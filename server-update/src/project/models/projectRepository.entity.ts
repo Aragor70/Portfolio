@@ -17,7 +17,7 @@ import {
     @Column({ nullable: true })
     url: string;
 
-    @Column()
+    @Column({ nullable: true })
     name: string;
     
     @ManyToOne(() => ProjectEntity, project => project.id)

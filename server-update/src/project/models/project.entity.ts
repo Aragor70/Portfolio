@@ -46,10 +46,10 @@ import { ProjectRepositoryEntity } from './projectRepository.entity';
     @JoinColumn()
     user: UserEntity
     
-    @OneToMany(() => ProjectRepositoryEntity, repository => repository.id)
+    @OneToMany(() => ProjectRepositoryEntity, repository => repository.project)
     repositories: ProjectRepositoryEntity[]
 
-    @OneToOne(() => ProjectStatusEntity, status => status.id)
+    @OneToOne(() => ProjectStatusEntity)
     @JoinColumn()
     status: ProjectStatusEntity
 

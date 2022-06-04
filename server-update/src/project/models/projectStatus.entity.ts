@@ -21,7 +21,7 @@ import {
     @Column({ default: 0 })
     order: number;
     
-    @OneToOne(() => ProjectEntity, project => project.id)
+    @OneToOne(() => ProjectEntity)
     @JoinColumn()
     project: ProjectEntity
 

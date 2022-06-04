@@ -26,7 +26,7 @@ export class ProjectService {
     
     
     getAll(): Observable<ProjectEntity[]> {
-        return from(this.projectRepository.find({ relations: ['user', 'images', 'icons', 'repository', 'status'] }))
+        return from(this.projectRepository.find({ relations: ['user', 'images', 'icons', 'repositories', 'status'] }))
             .pipe(
             map((elements: ProjectEntity[]) => {
                 return elements;
@@ -35,7 +35,7 @@ export class ProjectService {
     }
     
     getOne(id: number): Observable<ProjectEntity> {
-        return from(this.projectRepository.findOneOrFail({ where: {id}, relations: ['user', 'images', 'icons', 'repository', 'status'] }))
+        return from(this.projectRepository.findOneOrFail({ where: {id}, relations: ['user', 'images', 'icons', 'repositories', 'status'] }))
             .pipe(
             map((element: ProjectEntity) => {
                 return element;
@@ -101,8 +101,8 @@ export class ProjectService {
     
     editProject(project: ProjectEntity, userId: number): Observable<ProjectEntity> {
 
-        const { id, name, title, text, icons, images, repositories, status, website, languageCode } = project;
-
+        const { id, name, title, text, status, website, languageCode } = project;
+        console.log(status)
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
                 if (!element)
@@ -126,18 +126,15 @@ export class ProjectService {
                     );
                 }),
                 switchMap((element: ProjectEntity) => {
-
+                    console.log('status', element)
                     const formData = new ProjectEntity();
                     formData.name = name || element.name
                     formData.title = title || element.title
                     formData.text = text || element.text
-                    formData.icons = icons || element.icons
-                    formData.images = images || element.images
                     formData.status = status || element.status
                     formData.website = website || element.website
-                    formData.repositories = repositories || element.repositories
                     formData.languageCode = languageCode || element.languageCode
-
+                    console.log(formData)
                     return from(
                         this.projectRepository.update(id, formData),
                         ).pipe(
@@ -225,8 +222,8 @@ export class ProjectService {
                                         name, url, project
                                     }),
                                     ).pipe(
-                                    map(() => {
-                                        return project
+                                    switchMap(() => {
+                                        return this.getOne(project.id)
                                     }),
                                 );
                             } else {
@@ -280,9 +277,10 @@ export class ProjectService {
                                         status, order
                                     }),
                                     ).pipe(
-                                    switchMap((status: ProjectStatusEntity) => {
-                                        return this.editProject({status, ...project}, userId)
-                                    }),
+                                        switchMap((status: ProjectStatusEntity) => {
+                                            console.log(project)
+                                            return this.editProject({...project, status}, userId)
+                                        }),
                                 );
                             } else {
                                 throw new HttpException(
