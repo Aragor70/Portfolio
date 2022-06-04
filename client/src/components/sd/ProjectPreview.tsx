@@ -16,13 +16,12 @@ const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH )
 
     useEffect(() => {
 
-        const value = props?.languageVersions?.filter((element: any) => element.languageCode === languageCode)[0];
-        console.log(props)
+        const value = props?.languageVersions?.filter((element: any) => element.languageCode === 'en-GB')[0];
+
         setText(value?.text || '')
         setTitle(value?.title || '')
 
     }, [languageCode])
-    console.log(props)
 
     return (
         <Fragment>
