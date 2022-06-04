@@ -41,6 +41,7 @@ export class ImageService {
         const image: ImageEntity = new ImageEntity();
         image.name = formData.name;
         image.label = formData.label;
+        image.isFile = formData.isFile;
         
         
         return from(this.imageRepository.save(image)).pipe(
