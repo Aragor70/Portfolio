@@ -11,8 +11,8 @@ export class ImageController {
 
 
     @UseGuards(JwtGuard)
-    @Put('id')
+    @Put(':id')
     includeImage(@Body() formData: any, @Param('id') id: number): Observable<ImageEntity> {
-        return this.imageService.updateOne(formData, id).pipe(map((res: ImageEntity) => res));
+        return this.imageService.updateOne(id, formData).pipe(map((res: ImageEntity) => res));
     }
 }
