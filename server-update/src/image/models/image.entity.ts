@@ -22,6 +22,9 @@ import {
     @Column()
     label: string;
 
+    @Column({ default: false })
+    isFile: boolean;
+
     @ManyToOne(() => ProjectEntity, project => project.id)
     project_image: ProjectEntity;
     
