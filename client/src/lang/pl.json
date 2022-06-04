@@ -38,7 +38,10 @@
         "section.online.headline": "Projekty dostępne online",
         "section.repos.headline": "Repozytoria",
         "section.drafts.headline": "Wersje robocze",
-        "section.drafts.overview": "Wersje robocze obejmują projekty tymczasowo zatrzymane w fazie rozwoju, czekające na wdrożenie."
+        "section.drafts.overview": "Wersje robocze obejmują projekty tymczasowo zatrzymane w fazie rozwoju, czekające na wdrożenie.",
+        "project": {
+            "link.show.details": "Pokaż szczegóły"
+        }
     },
     "at": {
         "text": "Napisz do mnie",

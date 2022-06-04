@@ -38,7 +38,10 @@
         "section.online.headline": "Projects Online",
         "section.repos.headline": "Repositories",
         "section.drafts.headline": "Drafts",
-        "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment."
+        "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment.",
+        "project": {
+            "link.show.details": "View project details"
+        }
     },
     "at": {
         "text": "Text me",

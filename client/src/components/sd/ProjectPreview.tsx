@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
+import { Translate } from '../Translate';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
@@ -15,13 +16,13 @@ const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH )
 
     useEffect(() => {
 
-        const value = props?.languagesVersions?.filter((element: any) => element.languageCode === languageCode)[0];
-
+        const value = props?.languageVersions?.filter((element: any) => element.languageCode === languageCode)[0];
+        console.log(props)
         setText(value?.text || '')
         setTitle(value?.title || '')
 
     }, [languageCode])
-
+    console.log(props)
 
     return (
         <Fragment>
@@ -40,13 +41,13 @@ const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH )
                 
                 <ul className="icons">
                     {
-                        !!props.icons?.length && props?.icons?.map((element: any) => element.isFile ? <li className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"><i className={element.name}></i><span>{element.label}</span></li>)
+                        !!props.icons?.length && props?.icons?.map((element: any) => element.isFile ? <li key={element.id} className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"  key={element.id}><i className={element.name}></i><span>{element.label}</span></li>)
                     }
                 </ul>
                 
                 <ul className="more-about" >
                     {
-                        !!props.name && <Link to={`/software_projects/${props.name}`}>View project details</Link>
+                        !!props.name && <Link to={`/software_projects/${props.name}`}><Translate tKey='sd.project.link.show.details' /></Link>
                     }
                     {
                         !!props.repositories?.length && <li className="icon-box" onClick={() => window.open(props?.repositories[0]?.url, "_blank")}><i className="fas fa-code fa"></i></li>

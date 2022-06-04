@@ -10,7 +10,6 @@ import { ImageEntity } from 'src/image/models/image.entity';
 import { ProjectRepositoryEntity } from './models/projectRepository.entity';
 import { ProjectStatusEntity } from './models/projectStatus.entity';
 import { ProjectLanguageVersionEntity } from './models/projectLanguageVersion.entity';
-import { Language } from './models/language.enum';
 
 @Injectable()
 export class ProjectService {
