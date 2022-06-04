@@ -1,12 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
+import { Language } from '../../utils/constant';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
 
-const ProjectPreview = ( props: any ) => {
+const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH ) => {
+
+    const [ text, setText ] = useState('')
+    const [ title, setTitle ] = useState('')
+
+
+    useEffect(() => {
+
+        const value = props?.languagesVersions?.filter((element: any) => element.languageCode === languageCode)[0];
+
+        setText(value?.text || '')
+        setTitle(value?.title || '')
+
+    }, [languageCode])
+
 
     return (
         <Fragment>
@@ -17,9 +32,11 @@ const ProjectPreview = ( props: any ) => {
                 
             </div>
             <div className="params">
-                <h3 className="content-center"><span style={{ fontSize: '45px' }}>{props?.title && HtmlParser(props?.title)}</span></h3>
+
+                <h3 className="content-center"><span style={{ fontSize: '45px' }}>{title}</span></h3>
                 
-                { props?.text && HtmlParser(props?.text) }
+                
+                { HtmlParser(text) }
                 
                 <ul className="icons">
                     {

@@ -9,6 +9,8 @@ import { ImageService } from 'src/image/image.service';
 import { ImageEntity } from 'src/image/models/image.entity';
 import { ProjectRepositoryEntity } from './models/projectRepository.entity';
 import { ProjectStatusEntity } from './models/projectStatus.entity';
+import { ProjectLanguageVersionEntity } from './models/projectLanguageVersion.entity';
+import { Language } from './models/language.enum';
 
 @Injectable()
 export class ProjectService {
@@ -20,13 +22,16 @@ export class ProjectService {
         private readonly reposRepository: Repository<ProjectRepositoryEntity>,
         @InjectRepository(ProjectStatusEntity)
         private readonly statusRepository: Repository<ProjectStatusEntity>,
+        @InjectRepository(ProjectLanguageVersionEntity)
+        private readonly languageRepository: Repository<ProjectLanguageVersionEntity>,
+
         private readonly userService: UserService,
         private readonly imageService: ImageService,
     ) {}
     
     
     getAll(): Observable<ProjectEntity[]> {
-        return from(this.projectRepository.find({ relations: ['user', 'images', 'icons', 'repositories', 'status'] }))
+        return from(this.projectRepository.find({ relations: ['user', 'images', 'icons', 'repositories', 'status', 'languageVersions'] }))
             .pipe(
             map((elements: ProjectEntity[]) => {
                 return elements;
@@ -35,10 +40,39 @@ export class ProjectService {
     }
     
     getOne(id: number): Observable<ProjectEntity> {
-        return from(this.projectRepository.findOneOrFail({ where: {id}, relations: ['user', 'images', 'icons', 'repositories', 'status'] }))
+        return from(this.projectRepository.findOneOrFail({ where: {id}, relations: ['user', 'images', 'icons', 'repositories', 'status', 'languageVersions'] }))
             .pipe(
             map((element: ProjectEntity) => {
                 return element;
+            }),
+        );
+    }
+    
+    updateOrCreateLanguageVersion(project: ProjectEntity, formData: ProjectLanguageVersionEntity): Observable<ProjectEntity> {
+        return from(this.languageRepository.findOne({ where: { project: { id: project.id }, languageCode: formData.languageCode }, relations: ['project'] }))
+            .pipe(
+            switchMap((element: ProjectLanguageVersionEntity) => {
+
+                if (element?.id) {
+
+                    const version = new ProjectLanguageVersionEntity();
+                    version.text = formData?.text || element.text
+                    version.title = formData?.title || element.title
+                    version.languageCode = element.languageCode
+                    version.project = project;
+
+                    return from(this.languageRepository.update(element.id, version)).pipe(
+                        switchMap(() => {
+                            return this.getOne(project.id)
+                        })
+                    )
+                } else {
+                    return from(this.languageRepository.save({...formData, project})).pipe(
+                        switchMap(() => {
+                            return this.getOne(project.id)
+                        })
+                    )
+                }
             }),
         );
     }
@@ -99,7 +133,7 @@ export class ProjectService {
     }
     
     
-    editProject(project: ProjectEntity, userId: number): Observable<ProjectEntity> {
+    editProject(project: any, userId: number): Observable<ProjectEntity> {
 
         const { id, name, title, text, status, website, languageCode } = project;
 
@@ -129,19 +163,22 @@ export class ProjectService {
 
                     const formData = new ProjectEntity();
                     formData.name = name || element.name
-                    formData.title = title || element.title
-                    formData.text = text || element.text
                     formData.status = status || element.status
                     formData.website = website || element.website
-                    formData.languageCode = languageCode || element.languageCode
+
+                    const languageVersion = new ProjectLanguageVersionEntity();
+                    languageVersion.languageCode = languageCode
+                    languageVersion.text = text
+                    languageVersion.title = title
+
 
                     return from(
                         this.projectRepository.update(id, formData),
                         ).pipe(
                             switchMap(() => {
                             return this.getOne(id).pipe(
-                                map((project: ProjectEntity) => {
-                                    return project;
+                                switchMap((project: ProjectEntity) => {
+                                    return this.updateOrCreateLanguageVersion(project, languageVersion)
                                 }),
                             )}
                         )
@@ -156,7 +193,7 @@ export class ProjectService {
        
     }
     
-    createProject(project: ProjectEntity, userId: number): Observable<ProjectEntity> {
+    createProject(project: any, userId: number): Observable<ProjectEntity> {
 
         const { name, title, text, status, website, repositories, languageCode } = project;
 
@@ -172,12 +209,16 @@ export class ProjectService {
             switchMap((user: UserEntity) => {
                 return from(
                     this.projectRepository.save({
-                        name, title, text, status, website, repositories, languageCode, user
+                        name, status, website, repositories, user
                     }),
                     ).pipe(
-                    map((element: ProjectEntity) => {
-                        return element;
-                    }),
+                        switchMap((element: ProjectEntity) => {
+                            return from(this.languageRepository.save({ title, text, languageCode, project: element })).pipe(
+                                switchMap(() => {
+                                    return this.getOne(element.id)
+                                })
+                            )
+                        }),
                 );
             }
 

@@ -15,6 +15,7 @@ import { Language } from './language.enum';
   
 import { ProjectStatusEntity } from './projectStatus.entity';
 import { ProjectRepositoryEntity } from './projectRepository.entity';
+import { ProjectLanguageVersionEntity } from './projectLanguageVersion.entity';
   
   @Entity('project')
   export class ProjectEntity {
@@ -23,12 +24,6 @@ import { ProjectRepositoryEntity } from './projectRepository.entity';
   
     @Column({ nullable: true })
     name: string;
-  
-    @Column({ nullable: true })
-    title: string;
-  
-    @Column({ nullable: true })
-    text: string;
     
     @Column({ nullable: true })
     website: string;
@@ -52,6 +47,9 @@ import { ProjectRepositoryEntity } from './projectRepository.entity';
     @OneToOne(() => ProjectStatusEntity)
     @JoinColumn()
     status: ProjectStatusEntity
+
+    @OneToMany(() => ProjectLanguageVersionEntity, languageVersion => languageVersion.project)
+    languageVersions: ProjectLanguageVersionEntity[]
 
     @OneToMany(() => ImageEntity, image => image.project_image)
     images: ImageEntity[]
