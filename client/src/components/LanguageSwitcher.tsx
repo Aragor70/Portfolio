@@ -77,7 +77,7 @@ const LanguageSwitcher = () => {
             showSelect && 
               <Fragment>
                 <div onClick={() => setShowSelect(false)} className="shadow-box"></div>
-                <ul>
+                <ul style={{ zIndex: 15 }}>
                     {availableLanguages.filter((element: any) => element !== selectedLanguageCode).map((languageCode) => {
                       return (
                         <label 

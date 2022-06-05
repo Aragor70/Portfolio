@@ -3,6 +3,7 @@ import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
 import GithubStats from '../GithubStats';
+import LanguageSwitcher from '../LanguageSwitcher';
 import { Translate } from '../Translate';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
@@ -15,6 +16,7 @@ const ProjectPreview = ( props: any ) => {
 
     const [ text, setText ] = useState('')
     const [ title, setTitle ] = useState('')
+    const [ otherLngVersion, setOtherLngVersion ] = useState(false)
 
 
     useEffect(() => {
@@ -23,6 +25,12 @@ const ProjectPreview = ( props: any ) => {
 
         setText(value?.text || '')
         setTitle(value?.title || '')
+
+        if (!value && props.languageVersions?.length) {
+            setOtherLngVersion(true)
+        } else {
+            setOtherLngVersion(false)
+        }
 
     }, [languageCode])
 
@@ -36,13 +44,20 @@ const ProjectPreview = ( props: any ) => {
             </div>
             <div className="params">
 
-                <h3 className="content-center"><span style={{ fontSize: '45px' }}>{title}</span></h3>
-                
-                
-                { HtmlParser(text) }
+                {
+                    title && <h3 className="content-center"><span style={{ fontSize: '45px' }}>{title}</span></h3>
+                }
+                {
+                    text && HtmlParser(text)
+                }
                 
                 {
                     (props.loadingRepos || !props.repositories[0]) ? null : <GithubStats repos={props?.repos} name={props.repositories[0]?.name} />
+                }
+
+                
+                {
+                    otherLngVersion && <p style={{ color: 'orange' }}><Translate tKey='wrong.language.version' /></p>
                 }
 
 

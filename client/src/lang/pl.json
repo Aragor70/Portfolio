@@ -2,6 +2,8 @@
     "language-switcher.language.english-gb": "English",
     "language-switcher.language.polish": "Polski",
     "loading": "ładowanie...",
+    "wrong.language.version": "Proszę wybrać inną wersję językową. Nie mamy obecnie treści w wybranym języku.",
+    "content.not.available": "Nie ma obecnie dostepnej zawartości.",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Rozwijam oprogramowanie",

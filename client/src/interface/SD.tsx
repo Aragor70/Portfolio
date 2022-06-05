@@ -141,7 +141,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             
                             <article className='blue'>
                                 {
-                                    projects.filter((element: any) => element?.status?.status === 'ongoing').map((element: any) => <Fragment key={element.id}>
+                                    projects.filter((element: any) => element?.status?.status === 'ongoing' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
@@ -160,7 +160,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             
                             <article>
                                 {
-                                    projects.filter((element: any) => element?.status?.status === 'event').map((element: any) => <Fragment key={element.id}>
+                                    projects.filter((element: any) => element?.status?.status === 'event' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
@@ -179,7 +179,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             
                             <article>
                                 {
-                                    projects.filter((element: any) => element?.status?.status === 'online').map((element: any) => <Fragment key={element.id}>
+                                    projects.filter((element: any) => element?.status?.status === 'online' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
@@ -199,7 +199,7 @@ const SD = ({ setPageTitle, history }: any) => {
                             
                             <article>
                                 {
-                                    projects.filter((element: any) => element?.status?.status === 'repository').map((element: any) => <Fragment key={element.id}>
+                                    projects.filter((element: any) => element?.status?.status === 'repository' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 

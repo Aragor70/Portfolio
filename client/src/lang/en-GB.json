@@ -2,6 +2,8 @@
     "language-switcher.language.english-gb": "English",
     "language-switcher.language.polish": "Polski",
     "loading": "loading...",
+    "wrong.language.version": "Please select a different language version. We do not have a chosen language version.",
+    "content.not.available": "There is currently no content available.",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",

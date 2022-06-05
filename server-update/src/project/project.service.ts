@@ -66,6 +66,7 @@ export class ProjectService {
                         })
                     )
                 } else {
+                    if (!formData.languageCode) return this.getOne(project.id);
                     return from(this.languageRepository.save({...formData, project})).pipe(
                         switchMap(() => {
                             return this.getOne(project.id)
@@ -134,7 +135,7 @@ export class ProjectService {
     
     editProject(project: any, userId: number): Observable<ProjectEntity> {
 
-        const { id, name, title, text, status, website, languageCode } = project;
+        const { id, name, title, text, status, website, languageCode, isVisible } = project;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -164,6 +165,7 @@ export class ProjectService {
                     formData.name = name || element.name
                     formData.status = status || element.status
                     formData.website = website || element.website
+                    formData.isVisible = isVisible || element.isVisible
 
                     const languageVersion = new ProjectLanguageVersionEntity();
                     languageVersion.languageCode = languageCode
@@ -194,7 +196,7 @@ export class ProjectService {
     
     createProject(project: any, userId: number): Observable<ProjectEntity> {
 
-        const { name, title, text, status, website, repositories, languageCode } = project;
+        const { name, title, text, status, website, repositories, languageCode, isVisible } = project;
 
         
         return this.userService.findUserById(userId).pipe(
@@ -208,7 +210,7 @@ export class ProjectService {
             switchMap((user: UserEntity) => {
                 return from(
                     this.projectRepository.save({
-                        name, status, website, repositories, user
+                        name, status, website, repositories, user, isVisible
                     }),
                     ).pipe(
                         switchMap((element: ProjectEntity) => {

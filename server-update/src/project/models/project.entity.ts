@@ -28,6 +28,9 @@ import { ProjectLanguageVersionEntity } from './projectLanguageVersion.entity';
     @Column({ nullable: true })
     website: string;
     
+    @Column({ default: false })
+    isVisible: boolean;
+    
     @Column({ type: 'enum', enum: Language, default: Language.ENGLISH })
     languageCode: string;
     
