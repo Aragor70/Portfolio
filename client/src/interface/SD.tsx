@@ -143,15 +143,14 @@ const SD = ({ setPageTitle, history }: any) => {
                         {
                             projects.length ? 
                             
-                            <article className='blue'>
-                                {
+                                
+                                
                                     projects.filter((element: any) => element?.status?.status === 'ongoing' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} style={{ className: 'blue' }} />
                 
                                     </Fragment>)
-                                }
-                            </article>
+                                
 
                             : null
                         }
@@ -162,15 +161,11 @@ const SD = ({ setPageTitle, history }: any) => {
                         {
                             projects.length ? 
                             
-                            <article>
-                                {
                                     projects.filter((element: any) => element?.status?.status === 'event' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
-                                }
-                            </article>
 
                             : null
                         }
@@ -181,15 +176,11 @@ const SD = ({ setPageTitle, history }: any) => {
                         {
                             projects.length ? 
                             
-                            <article>
-                                {
                                     projects.filter((element: any) => element?.status?.status === 'online' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
-                                }
-                            </article>
 
                             : null
                         }
@@ -201,15 +192,11 @@ const SD = ({ setPageTitle, history }: any) => {
                         {
                             projects.length ? 
                             
-                            <article>
-                                {
                                     projects.filter((element: any) => element?.status?.status === 'repository' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
                                             <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
-                                }
-                            </article>
 
                             : null
                         }
