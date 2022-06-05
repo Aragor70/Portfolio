@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 /* 
 import pht from '../style/pht.jpg'; */
 import typesImg from '../style/types.png';
@@ -50,6 +50,7 @@ import { Translate } from '../components/Translate';
 import { getAllRepos } from '../actions/github';
 import { getProjects } from '../actions/project';
 import ProjectPreview from '../components/sd/ProjectPreview';
+import { LanguageContext } from '../context/LanguageContext';
 
 const SD = ({ setPageTitle, history }: any) => {
 
@@ -61,6 +62,9 @@ const SD = ({ setPageTitle, history }: any) => {
             setPageTitle('')
         }
     }, [setPageTitle])
+
+    
+    const { languageCode } = useContext<any>(LanguageContext);
 
     const [repos, setRepos] = useState<any[]>([])
     const [loadingRepos, setLoadingRepos] = useState<boolean>(false)
@@ -83,7 +87,7 @@ const SD = ({ setPageTitle, history }: any) => {
             setProjects([])
         }
 
-    }, [localStorage?.languageCode])
+    }, [languageCode])
 
     useEffect(() => {
 
@@ -143,7 +147,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'ongoing' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
                                 }
@@ -162,7 +166,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'event' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
                                 }
@@ -181,7 +185,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'online' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
                                 }
@@ -201,7 +205,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'repository' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
                 
                                     </Fragment>)
                                 }

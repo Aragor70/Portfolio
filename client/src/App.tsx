@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { loadUser } from './actions/auth';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import { LanguageContext } from './context/LanguageContext';
 import { UserContext } from './context/UserContext';
 import AdminDashboard from './interface/AdminDashboard';
 import AT from './interface/AT';
@@ -18,6 +19,7 @@ import Messages from './interface/Messages';
 import SD from './interface/SD';
 
 import { handleScrollToTop } from './utils/autoHandlers';
+import { Language } from './utils/constant';
 import setAuthToken from './utils/setAuthToken';
 
 const App = ({ location }: any) => {
@@ -47,8 +49,11 @@ const App = ({ location }: any) => {
 
   
   const [ user, setUser ] = useState(null);
+  const [ languageCode, setLanguageCode ] = useState(Language.ENGLISH)
 
   const value = useMemo(() => ({ user, setUser }), [user]);
+
+  const languageValue = useMemo(() => ({ languageCode, setLanguageCode }), [languageCode]);
 
   const refreshUser = async () => {
 
@@ -69,8 +74,11 @@ const App = ({ location }: any) => {
     }
   }, [])
 
+
+
   return (
     <UserContext.Provider value={value}>
+    <LanguageContext.Provider value={languageValue}>
         
         <header className="header-content" style={location.pathname !== '/' ? { zIndex: 11 } : {} }>
 
@@ -137,7 +145,8 @@ const App = ({ location }: any) => {
         <footer>
           <p>© Nicolai 2021</p>
         </footer>
-          
+
+    </LanguageContext.Provider>
     </UserContext.Provider>
   );
 }

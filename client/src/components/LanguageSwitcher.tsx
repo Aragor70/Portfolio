@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Translate } from './Translate';
 
 import i18n from '../utils/i18n';
@@ -9,6 +9,7 @@ import {ReactComponent as english} from '../style/icons/united-kingdom.svg'; */
 
 import polish from '../style/icons/poland.svg';
 import english from '../style/icons/united-kingdom.svg';
+import { LanguageContext } from '../context/LanguageContext';
 
 const LANGUAGE_CODE_TO_KEY: {
   [K in Language]: string;
@@ -22,6 +23,8 @@ const LanguageSwitcher = () => {
   const [selectedLanguageCode, setSelectedLanguageCode] = useState<Language>(defaultLanguage);
   const [showSelect, setShowSelect] = useState(false)
 
+  const languageContext = useContext<any>(LanguageContext);
+
   const flag: any = {
     'en-GB': english,
     'pl': polish
@@ -34,12 +37,13 @@ const LanguageSwitcher = () => {
 
       setSelectedLanguageCode(languageCode);
       i18n.changeLanguage(languageCode);
+      languageContext.setLanguageCode(languageCode)
       setShowSelect(false);
-
 
     } catch (err: any) {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
+      languageContext.setLanguageCode(defaultLanguage)
       setShowSelect(false);
       console.log(err.message)
     }
@@ -52,10 +56,12 @@ const LanguageSwitcher = () => {
     if (languageCode) {
       setSelectedLanguageCode(languageCode);
       i18n.changeLanguage(languageCode);
+      languageContext.setLanguageCode(languageCode)
       setShowSelect(false);
     } else {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
+      languageContext.setLanguageCode(defaultLanguage)
       setShowSelect(false);
     }
 
