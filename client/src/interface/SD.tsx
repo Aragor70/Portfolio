@@ -106,7 +106,6 @@ const SD = ({ setPageTitle, history }: any) => {
         }
 
     }, [])
-    console.log(projects)
 
     return (
         <Router>
@@ -141,7 +140,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         </article>
 
                         {
-                            projects.length ? 
+                            loadingProjects ? <span>loading...</span> : projects.length ? 
                             
                                 
                                 
@@ -159,7 +158,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
 
                         {
-                            projects.length ? 
+                            loadingProjects ? <span>loading...</span> : projects.length ? 
                             
                                     projects.filter((element: any) => element?.status?.status === 'event' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
@@ -174,7 +173,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
 
                         {
-                            projects.length ? 
+                            loadingProjects ? <span>loading...</span> : projects.length ? 
                             
                                     projects.filter((element: any) => element?.status?.status === 'online' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
@@ -190,7 +189,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
 
                         {
-                            projects.length ? 
+                            loadingProjects ? <span>loading...</span> : projects.length ? 
                             
                                     projects.filter((element: any) => element?.status?.status === 'repository' && element.isVisible).map((element: any) => <Fragment key={element.id}>
                             
@@ -233,6 +232,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         <h3 className="content-center"><span style={{ fontSize: '45px' }}>NiVest Software CMS</span></h3>
                         <p>Website dedicated to the NiVest Software company. Project is to allow every user to manage the content of the another projects.</p>
                         
+                        <p>Przedsięwzięcie NiVest Software. Zarządzaj swoją treścią z pomocą interfejsu użytkownika w pozostałych projektach NiVest.</p>
                         
                             {
                                 loadingRepos ? null : 
