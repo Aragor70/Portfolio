@@ -143,7 +143,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'ongoing').map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
                                     </Fragment>)
                                 }
@@ -162,7 +162,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'event').map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
                                     </Fragment>)
                                 }
@@ -181,7 +181,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'online').map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
                                     </Fragment>)
                                 }
@@ -201,7 +201,7 @@ const SD = ({ setPageTitle, history }: any) => {
                                 {
                                     projects.filter((element: any) => element?.status?.status === 'repository').map((element: any) => <Fragment key={element.id}>
                             
-                                            <ProjectPreview {...element} />
+                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} />
                 
                                     </Fragment>)
                                 }

@@ -2,13 +2,16 @@ import React, { Fragment, useEffect, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
+import GithubStats from '../GithubStats';
 import { Translate } from '../Translate';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
 
-const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH ) => {
+const ProjectPreview = ( props: any ) => {
+
+    const { languageCode = Language.ENGLISH } = props;
 
     const [ text, setText ] = useState('')
     const [ title, setTitle ] = useState('')
@@ -16,7 +19,7 @@ const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH )
 
     useEffect(() => {
 
-        const value = props?.languageVersions?.filter((element: any) => element.languageCode === 'en-GB')[0];
+        const value = props?.languageVersions?.filter((element: any) => element.languageCode === languageCode)[0];
 
         setText(value?.text || '')
         setTitle(value?.title || '')
@@ -38,6 +41,11 @@ const ProjectPreview = ( props: any, languageCode: Language = Language.ENGLISH )
                 
                 { HtmlParser(text) }
                 
+                {
+                    (props.loadingRepos || !props.repositories[0]) ? null : <GithubStats repos={props?.repos} name={props.repositories[0]?.name} />
+                }
+
+
                 <ul className="icons">
                     {
                         !!props.icons?.length && props?.icons?.map((element: any) => element.isFile ? <li key={element.id} className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"  key={element.id}><i className={element.name}></i><span>{element.label}</span></li>)
