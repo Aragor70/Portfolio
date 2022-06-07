@@ -51,6 +51,8 @@ import { getAllRepos } from '../actions/github';
 import { getProjects } from '../actions/project';
 import ProjectPreview from '../components/sd/ProjectPreview';
 import { LanguageContext } from '../context/LanguageContext';
+import ListPreview from '../components/ListPreview';
+import Loading from '../components/Loading';
 
 const SD = ({ setPageTitle, history }: any) => {
 
@@ -72,6 +74,7 @@ const SD = ({ setPageTitle, history }: any) => {
 
     const [projects, setProjects] = useState<any[]>([])
 
+    
 
     useEffect(() => {
 
@@ -135,77 +138,28 @@ const SD = ({ setPageTitle, history }: any) => {
                                 
                             </div>
 
-                            <h1><Translate tKey="sd.section.ongoing.headline" /></h1>
-
                         </article>
-
                         {
-                            loadingProjects ? <span>loading...</span> : projects.length ? 
+                            loadingProjects ? <Loading /> : <Fragment>
+
+                                <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
+
+                                <ListPreview status="event" title={<Translate tKey="sd.section.events.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
+
+                                <ListPreview status="online" title={<Translate tKey="sd.section.online.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
                             
+                                <ListPreview status="repository" title={<Translate tKey="sd.section.repos.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
                                 
-                                
-                                    projects.filter((element: any) => element?.status?.status === 'ongoing' && element.isVisible).map((element: any) => <Fragment key={element.id}>
-                            
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} style={{ className: 'blue' }} />
+                                <ListPreview status="draft" title={<Translate tKey="sd.section.drafts.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
+
                 
-                                    </Fragment>)
                                 
 
-                            : null
+                            </Fragment>
                         }
-
-                        <h1><Translate tKey="sd.section.events.headline" /></h1>
-
-
-                        {
-                            loadingProjects ? <span>loading...</span> : projects.length ? 
                             
-                                    projects.filter((element: any) => element?.status?.status === 'event' && element.isVisible).map((element: any) => <Fragment key={element.id}>
-                            
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
-                
-                                    </Fragment>)
 
-                            : null
-                        }
-
-                        <h1><Translate tKey="sd.section.online.headline" /></h1>
-
-
-                        {
-                            loadingProjects ? <span>loading...</span> : projects.length ? 
-                            
-                                    projects.filter((element: any) => element?.status?.status === 'online' && element.isVisible).map((element: any) => <Fragment key={element.id}>
-                            
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
-                
-                                    </Fragment>)
-
-                            : null
-                        }
-
-                        <h1><Translate tKey="sd.section.repos.headline" /></h1>
-
-
-
-                        {
-                            loadingProjects ? <span>loading...</span> : projects.length ? 
-                            
-                                    projects.filter((element: any) => element?.status?.status === 'repository' && element.isVisible).map((element: any) => <Fragment key={element.id}>
-                            
-                                            <ProjectPreview {...element} repos={repos} loadingRepos={loadingRepos} languageCode={languageCode} />
-                
-                                    </Fragment>)
-
-                            : null
-                        }
-
-
-                        <h1><Translate tKey="sd.section.drafts.headline" /></h1>
-                
-                        <div className="params" style={{ marginBottom: '30px' }}>
-                            <i><Translate tKey="sd.section.drafts.overview" /></i>
-                        </div>
+                        
 
 
 
