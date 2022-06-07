@@ -21,7 +21,7 @@ const ListPreview = ( props: any ) => {
             setLoadingList(true)
 
             let values = await props?.list?.filter((element: any) => props?.status ? element.status?.status === props.status : true)
-                            .filter((element: any) => props.isVisible ? element.isVisible === props.isVisible : element.isVisible);
+                            .filter((element: any) => props.isVisible ? element.isVisible === props.isVisible : element?.isVisible);
         
             if (props?.sortBy && props?.length) {
                 const sortBy = await props?.sortBy
@@ -43,7 +43,7 @@ const ListPreview = ( props: any ) => {
 
 
             {
-                props.status === 'draft' && <Fragment>
+                props?.status === 'draft' && <Fragment>
                     <div className="params" style={{ marginBottom: '30px' }}>
                         <i><Translate tKey="sd.section.drafts.overview" /></i>
                     </div>
@@ -51,7 +51,7 @@ const ListPreview = ( props: any ) => {
             }
 
             {
-                list.length ? list?.map((element: any, index: number) => <Component key={index} {...props} element={element} languageCode={languageContext?.languageCode || Language.ENGLISH} />) : null
+                list?.length ? list?.map((element: any, index: number) => <Component key={index} {...props} {...element} languageCode={languageContext?.languageCode || Language.ENGLISH} />) : null
             }
 
 
