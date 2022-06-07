@@ -142,7 +142,7 @@ const SD = ({ setPageTitle, history }: any) => {
                         {
                             loadingProjects ? <Loading /> : <Fragment>
 
-                                <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
+                                <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} style={{ className: 'blue' }} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 
                                 <ListPreview status="event" title={<Translate tKey="sd.section.events.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 
@@ -326,10 +326,7 @@ const SD = ({ setPageTitle, history }: any) => {
                     </div>
                     <div className="params">
                         <h3 className="content-center"><img src={ typesImg } alt="types" /></h3>
-                        <p>Real-Time TypeScript React app</p>
-                            <p>You can communicate with anyone in any location with the reliability of texting and the richness of chat. 
-                            Connect with friends and family, send photos, videos, GIFs, emoji, and more.</p>
-                            <p>Intuitive and modern, Types makes conversations easy, expressive, and fun.</p>
+                        <p>Real-Time TypeScript React app</p><p>You can communicate with anyone in any location with the reliability of texting and the richness of chat. Connect with friends and family, send photos, videos, GIFs, emoji, and more.</p><p>Intuitive and modern, Types makes conversations easy, expressive, and fun.</p>
 
                         
                             {
