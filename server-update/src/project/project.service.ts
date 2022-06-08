@@ -10,6 +10,8 @@ import { ImageEntity } from 'src/image/models/image.entity';
 import { ProjectRepositoryEntity } from './models/projectRepository.entity';
 import { ProjectStatusEntity } from './models/projectStatus.entity';
 import { ProjectLanguageVersionEntity } from './models/projectLanguageVersion.entity';
+import * as moment from 'moment';
+import {searchPattern} from 'src/utils/constant';
 
 @Injectable()
 export class ProjectService {
@@ -26,11 +28,49 @@ export class ProjectService {
 
         private readonly userService: UserService,
         private readonly imageService: ImageService,
+
     ) {}
     
-    
-    getAll(): Observable<ProjectEntity[]> {
-        return from(this.projectRepository.find({ relations: ['user', 'images', 'icons', 'repositories', 'status', 'languageVersions'] }))
+    getAll(payload: any): Observable<ProjectEntity[]> {
+
+        const { phrase = null, startDate = null, endDate = null } = payload;
+        
+        if (phrase && (typeof phrase !== 'string' || !phrase.match(searchPattern))) {
+            throw new HttpException(
+                'Search with letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).',
+                HttpStatus.BAD_REQUEST)
+        }
+
+        const request = this.projectRepository.createQueryBuilder('project')
+        .leftJoinAndSelect('project.user', 'user')
+        .leftJoinAndSelect('project.images', 'images')
+        .leftJoinAndSelect('project.icons', 'icons')
+        .leftJoinAndSelect('project.repositories', 'repositories')
+        .leftJoinAndSelect('project.status', 'status')
+        .leftJoinAndSelect('project.languageVersions', 'languageVersions')
+        .orderBy('status.status', 'ASC')
+        .orderBy('status.order', 'ASC')
+
+        if (phrase) {
+            request.where("project.name like :name", { name: `%${phrase}%` })
+        }
+        if (startDate) {
+            
+            request.andWhere('started_at >= :after')
+            .setParameter("after", moment(startDate).startOf('day').format())
+        }
+        if (endDate) {
+
+            request
+            .andWhere('started_at <= :before')
+            .setParameter("before", moment(endDate).endOf('day').format())
+        }
+
+
+        return from(
+
+            request.getMany()
+            )
             .pipe(
             map((elements: ProjectEntity[]) => {
                 return elements;
@@ -135,7 +175,7 @@ export class ProjectService {
     
     editProject(project: any, userId: number): Observable<ProjectEntity> {
 
-        const { id, name, title, text, status, website, languageCode, isVisible } = project;
+        const { id, name, title, text, status, website, languageCode, isVisible, started_at } = project;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -166,6 +206,7 @@ export class ProjectService {
                     formData.status = status || element.status
                     formData.website = website || element.website
                     formData.isVisible = isVisible || element.isVisible
+                    formData.started_at = started_at || element.started_at
 
                     const languageVersion = new ProjectLanguageVersionEntity();
                     languageVersion.languageCode = languageCode
@@ -196,7 +237,7 @@ export class ProjectService {
     
     createProject(project: any, userId: number): Observable<ProjectEntity> {
 
-        const { name, title, text, status, website, repositories, languageCode, isVisible } = project;
+        const { name, title, text, status, website, repositories, languageCode, isVisible, started_at } = project;
 
         
         return this.userService.findUserById(userId).pipe(
@@ -210,7 +251,7 @@ export class ProjectService {
             switchMap((user: UserEntity) => {
                 return from(
                     this.projectRepository.save({
-                        name, status, website, repositories, user, isVisible
+                        name, status, website, repositories, user, isVisible, started_at
                     }),
                     ).pipe(
                         switchMap((element: ProjectEntity) => {

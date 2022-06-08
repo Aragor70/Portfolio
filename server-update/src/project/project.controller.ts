@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
 import { ProjectService } from './project.service';
 import { ProjectEntity } from './models/project.entity';
@@ -11,8 +11,8 @@ export class ProjectController {
     constructor(private projectService: ProjectService) {}
 
     @Get('')
-    getAll(): Observable<ProjectEntity> {
-        return this.projectService.getAll().pipe(map((res: any) => res));
+    getAll(@Query() query): Observable<ProjectEntity> {
+        return this.projectService.getAll(query).pipe(map((res: any) => res));
     }
     @Get(':id')
     getOne(@Param('id') id: number): Observable<ProjectEntity> {
