@@ -53,6 +53,7 @@ import ProjectPreview from '../components/sd/ProjectPreview';
 import { LanguageContext } from '../context/LanguageContext';
 import ListPreview from '../components/ListPreview';
 import Loading from '../components/Loading';
+import FilterElement from '../components/FilterElement';
 
 const SD = ({ setPageTitle, history }: any) => {
 
@@ -139,6 +140,10 @@ const SD = ({ setPageTitle, history }: any) => {
                             </div>
 
                         </article>
+
+                        <FilterElement />
+
+                        
                         {
                             loadingProjects ? <Loading /> : <Fragment>
 

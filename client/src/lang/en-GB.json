@@ -4,6 +4,7 @@
     "loading": "loading...",
     "wrong.language.version": "Please select a different language version. We do not have a chosen language version.",
     "content.not.available": "There is currently no content available.",
+    "list.search.headline": "Search here",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",
