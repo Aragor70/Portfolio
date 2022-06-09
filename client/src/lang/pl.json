@@ -5,6 +5,9 @@
     "wrong.language.version": "Proszę wybrać inną wersję językową. Nie mamy obecnie treści w wybranym języku.",
     "content.not.available": "Nie ma obecnie dostepnej zawartości.",
     "list.search.headline": "Wyszukaj na stronie",
+    "today": "Dzisiaj",
+    "from": "Od",
+    "until": "Do",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Rozwijam oprogramowanie",
@@ -42,6 +45,7 @@
         "section.repos.headline": "Repozytoria",
         "section.drafts.headline": "Wersje robocze",
         "section.drafts.overview": "Wersje robocze obejmują projekty tymczasowo zatrzymane w fazie rozwoju, czekające na wdrożenie.",
+        "input.search.placeholder": "Wpisz nazwę",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }

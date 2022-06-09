@@ -44,6 +44,8 @@ const FilterElement = () => {
         
     }
 
+
+
     return (
         <Fragment>
 
@@ -53,7 +55,7 @@ const FilterElement = () => {
                     <div>
                         <label>
                             <TextSvg />
-                            <input placeholder="Project name" value={phrase || ''} type="search" onChange={(e: any) => handleChange(e)} />
+                            <input placeholder={Translate({ tKey:'sd.input.search.placeholder', isString: true })} value={phrase || ''} type="search" onChange={(e: any) => handleChange(e)} />
                         </label>
 
                         <DateRangePicker formData={formData} setFormData={setFormData} />

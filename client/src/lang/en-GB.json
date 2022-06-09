@@ -5,6 +5,9 @@
     "wrong.language.version": "Please select a different language version. We do not have a chosen language version.",
     "content.not.available": "There is currently no content available.",
     "list.search.headline": "Search here",
+    "today": "Today",
+    "from": "From",
+    "until": "Until",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",
@@ -42,6 +45,7 @@
         "section.repos.headline": "Repositories",
         "section.drafts.headline": "Drafts",
         "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment.",
+        "input.search.placeholder": "Project name",
         "project": {
             "link.show.details": "View project details"
         }

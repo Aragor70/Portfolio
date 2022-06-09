@@ -6,6 +6,7 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import moment from 'moment'
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
+import { Translate } from './Translate'
 
 const DateRangePicker = ({ formData, setFormData }: any) => {
 
@@ -44,9 +45,9 @@ const DateRangePicker = ({ formData, setFormData }: any) => {
       <CalendarSvg />
       <input
         value={`${formData.startDate ? 
-          isToday(formData.startDate) ? 'today' : moment(formData.startDate).format('DD.MM.YYYY') : '...'} 
+          isToday(formData.startDate) ? Translate({ tKey:'today', isString: true }) : moment(formData.startDate).format('DD.MM.YYYY') : Translate({ tKey:'from', isString: true })} 
            ${formData.endDate ? 
-            isToday(formData.endDate) ? 'today' : moment(formData.endDate).format('DD.MM.YYYY') : '...'}`
+            isToday(formData.endDate) ? Translate({ tKey:'today', isString: true }) : moment(formData.endDate).format('DD.MM.YYYY') : Translate({ tKey:'until', isString: true })}`
         }
         className="calendar-input"
         readOnly
