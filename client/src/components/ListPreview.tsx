@@ -23,7 +23,7 @@ const ListPreview = ( props: any ) => {
             let values = await props?.list?.filter((element: any) => props?.status ? element.status?.status === props.status : true)
                             .filter((element: any) => props.isVisible ? element.isVisible === props.isVisible : element?.isVisible);
         
-            if (props?.sortBy && props?.length) {
+            if (props?.sortBy && props?.list?.length) {
                 const sortBy = await props?.sortBy
                 values = await values.sort((a: any, b: any) => a[sortBy] - b[sortBy])
             }
@@ -32,7 +32,7 @@ const ListPreview = ( props: any ) => {
             setLoadingList(false)
         })()
 
-    }, [props?.sortBy, props?.status])
+    }, [props?.sortBy, props?.status, props.isVisible, props?.list])
 
     if (loadingList) return <Loading />
     

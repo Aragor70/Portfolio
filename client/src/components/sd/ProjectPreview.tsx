@@ -3,7 +3,6 @@ import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
 import GithubStats from '../GithubStats';
-import LanguageSwitcher from '../LanguageSwitcher';
 import { Translate } from '../Translate';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
@@ -33,7 +32,7 @@ const ProjectPreview = ( props: any ) => {
             setOtherLngVersion(false)
         }
 
-    }, [languageCode])
+    }, [languageCode, props.languageVersions])
 
     return (
         <Fragment>

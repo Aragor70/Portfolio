@@ -1,14 +1,18 @@
 import React, { Fragment, useState } from 'react';
+import DateRangePicker from './DateRangePicker';
 import { Translate } from './Translate';
+
+import { ReactComponent as SearchSvg } from '../style/search.svg';
+import { ReactComponent as TextSvg } from '../style/icons/text.svg';
 
 
 
 const FilterElement = () => {
 
-    const [ formData, setFormData ] = useState({
+    const [ formData, setFormData ] = useState<any>({
         phrase: null,
         startDate: null,
-        endDate: null
+        endDate: new Date
     })
 
     const { phrase, startDate, endDate } = formData;
@@ -18,6 +22,7 @@ const FilterElement = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
         
     }
+
     const handleSubmit = async (e: any) => {
 
         try {
@@ -45,17 +50,16 @@ const FilterElement = () => {
             <article>
                 <h1><Translate tKey="list.search.headline" /></h1>
                 <form className="filter" onSubmit={(e: any) => handleSubmit(e)}>
-                    <label className="phrase">
-                        <input value={phrase || ''} type="text" onChange={(e: any) => handleChange(e)} />
-                    </label>
-                    <label className="startDate">
-                        <input value={startDate || ''} type="date" onChange={(e: any) => handleChange(e)} />
-                    </label>
-                    <label className="endDate">
-                        <input value={endDate || ''} type="date" onChange={(e: any) => handleChange(e)} />
-                    </label>
+                    <div>
+                        <label>
+                            <TextSvg />
+                            <input placeholder="Project name" value={phrase || ''} type="search" onChange={(e: any) => handleChange(e)} />
+                        </label>
+
+                        <DateRangePicker formData={formData} setFormData={setFormData} />
+                    </div>
                     <button className="searchButton">
-                        Search
+                        <SearchSvg />
                     </button>
                 </form>
             </article>

@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
-import LanguageSwitcher from '../components/LanguageSwitcher';
 import { Translate } from '../components/Translate';
 
 

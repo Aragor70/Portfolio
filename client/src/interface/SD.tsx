@@ -44,7 +44,6 @@ import niconnect1 from '../style/niconnect.png';
 
 import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
 import Project from './Project';
-import axios from 'axios';
 import GithubStats from '../components/GithubStats';
 import { Translate } from '../components/Translate';
 import { getAllRepos } from '../actions/github';
@@ -55,7 +54,7 @@ import ListPreview from '../components/ListPreview';
 import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
 
-const SD = ({ setPageTitle, history }: any) => {
+const SD = ({ setPageTitle }: any) => {
 
     const { path,url } = useRouteMatch();
     useEffect(() => {

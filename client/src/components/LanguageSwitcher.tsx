@@ -58,6 +58,7 @@ const LanguageSwitcher = () => {
       i18n.changeLanguage(languageCode);
       languageContext.setLanguageCode(languageCode)
       setShowSelect(false);
+      
     } else {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
@@ -65,7 +66,7 @@ const LanguageSwitcher = () => {
       setShowSelect(false);
     }
 
-  }, [localStorage?.languageCode])
+  }, [languageContext])
 
   return (
     <Fragment>
