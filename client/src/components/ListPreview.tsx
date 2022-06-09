@@ -31,8 +31,11 @@ const ListPreview = ( props: any ) => {
             setList(values)
             setLoadingList(false)
         })()
+        return () => {
+            setList([])
+        }
 
-    }, [props?.sortBy, props?.status, props.isVisible, props?.list])
+    }, [props?.sortBy, props?.status, props?.isVisible, props?.list])
 
     if (loadingList) return <Loading />
     
