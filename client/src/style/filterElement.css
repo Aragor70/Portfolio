@@ -3,10 +3,11 @@
     width: 100%;
     display: flex;
     gap: 20px;
+    padding: 20px 0;
     align-items: center;
+    position: relative;
+    flex-direction: column;
 }
-
-
 
 .filter label
 {
@@ -25,30 +26,48 @@
     padding: 0 15.5px;
 } */
 
-.calendar {
-    width: 100%;
+.calendar-box {
     position: absolute;
-    top: 100%;
     left: 0;
-    z-index: 10;
     right: 0;
+    z-index: 10;
+    top: 100%;
+    padding: 20px 0;
+}
+
+.calendar-box > .calendar {
+    width: 100%;
+    padding: 20px;
 }
 
 @media (min-width: 1023px) {
 
-    .calendar {
-        width: 100%;
+    .calendar-box {
         position: absolute;
-        top: 100%;
+        left: 100%;
         left: 0;
         right: 0;
         z-index: 10;
     }
     
 }
+.rdrDateDisplay {
+    margin: 0;
+    display: flex;
+    gap: 7.5px;
+}
+.rdrDateDisplay span {
+    margin: 0 !important;
+}
+.calendar-box > div {
+    display: flex;
+    gap: 7.5px;
+    background-color: #f2f2f2;
+    box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+}
 
 .calendar > div:nth-last-child(1) {
-    padding: 10px 30px;
+    padding: 0;
 }
 
 
@@ -67,35 +86,47 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 !important;
 }
 
-
-@media (max-width: 1023px) {
+.filter > div {
+    flex-direction: column;
+    
+}
+/* @media (max-width: 1023px) {
 
     
-    .filter > div {
-        flex-direction: column;
-        
-    }
-}
-
-
-input[type=search] {
+    
+} */
+.phrase {
     border: solid 3px #fff;
     box-sizing: border-box;
-    font-size: 2em;
+    font-size: 18px;
     height: 2em;
     padding: 0.3em;
     transition: all 2s ease-in;
     width: 100%;
 }
 
+input[type=search] {
+    border: solid 3px #fff;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: auto;
+    padding: 0.3em;
+    transition: all 2s ease-in;
+    width: 100%;
+
+    display: none;
+    visibility: hidden;
+}
+
 .calendar-input {
 
     cursor: pointer;
-    text-align: center;
+    text-align: left;
     height: 2em;
-    font-size: 2em;
+    font-size: 18px;
     padding: 0.3em;
     border: solid 3px #fff;
     width: 100%;
@@ -104,20 +135,21 @@ input[type=search] {
 .filter .searchButton
 {
     height: 2em;
-    border: none;
+    border: solid 3px #fff;
     cursor: pointer;
+    width: auto;
     text-align: center;
-    font-size: 2em;
+    font-size: 18px;
     display: flex;
 }
 
 .searchButton svg {
-    height: 2em;
-    inline-size: 2em;
-    margin: auto;
+    height: 30px;
+    inline-size: 30px;
+    font-size: 30px;
 }
 
-.filter > div
+.filter > *
 {
     width: 100%;
     display: flex;
@@ -125,9 +157,10 @@ input[type=search] {
     align-items: center;
 }
 
-.filter > div > label > svg
+.filter > label > svg
 {
     height: 2em;
     inline-size: 2em;
+    width: 2em;
     margin: auto;
 }

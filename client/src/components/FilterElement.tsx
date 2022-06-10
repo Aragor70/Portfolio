@@ -2,12 +2,12 @@ import React, { Fragment, useState } from 'react';
 import DateRangePicker from './DateRangePicker';
 import { Translate } from './Translate';
 
-import { ReactComponent as SearchSvg } from '../style/search.svg';
-import { ReactComponent as TextSvg } from '../style/icons/text.svg';
+import { Language, json } from '../utils/constant';
+import SearchInput from './SearchInput';
 
 
 
-const FilterElement = () => {
+const FilterElement = ({ languageCode = Language.ENGLISH }: any) => {
 
     const [ formData, setFormData ] = useState<any>({
         phrase: null,
@@ -15,13 +15,6 @@ const FilterElement = () => {
         endDate: new Date
     })
 
-    const { phrase, startDate, endDate } = formData;
-
-    const handleChange = (e: any) => {
-        
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-        
-    }
 
     const handleSubmit = async (e: any) => {
 
@@ -44,6 +37,7 @@ const FilterElement = () => {
         
     }
 
+    
 
 
     return (
@@ -52,17 +46,11 @@ const FilterElement = () => {
             <article>
                 <h1><Translate tKey="list.search.headline" /></h1>
                 <form className="filter" onSubmit={(e: any) => handleSubmit(e)}>
-                    <div>
-                        <label>
-                            <TextSvg />
-                            <input placeholder={Translate({ tKey:'sd.input.search.placeholder', isString: true })} value={phrase || ''} type="search" onChange={(e: any) => handleChange(e)} />
-                        </label>
+                        
+                    <SearchInput formData={formData} setFormData={setFormData} languageCode={languageCode} />
 
-                        <DateRangePicker formData={formData} setFormData={setFormData} />
-                    </div>
-                    <button className="searchButton">
-                        <SearchSvg />
-                    </button>
+                    <DateRangePicker formData={formData} setFormData={setFormData} languageCode={languageCode} />
+                        
                 </form>
             </article>
 

@@ -140,7 +140,7 @@ const SD = ({ setPageTitle }: any) => {
 
                         </article>
 
-                        <FilterElement />
+                        <FilterElement languageCode={languageCode} />
 
                         
                         {
