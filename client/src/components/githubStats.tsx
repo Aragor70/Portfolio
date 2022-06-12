@@ -7,10 +7,10 @@ import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg'
 
 const GithubStats = ({ repos, name }: any) => {
 
-    const repository : any = (repos.filter((element: any) => element?.name === name))[0] || null
+    const repository : any = (repos.filter((element: any) => element?.name?.toLowerCase() === name?.toLowerCase()))[0] || null
     
     if (!repository) return null;
-
+    
     return (
         <Fragment>
             <p className="commits">
