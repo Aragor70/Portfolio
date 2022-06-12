@@ -38,12 +38,12 @@ const ListPreview = ( props: any ) => {
     }, [props?.sortBy, props?.status, props?.isVisible, props?.list])
 
     if (loadingList) return <Loading />
+    if (!list.length) return null
     
     return (
         <Fragment>
 
             {props?.title &&  <h1>{ props?.title }</h1>}
-
 
             {
                 props?.status === 'draft' && <Fragment>

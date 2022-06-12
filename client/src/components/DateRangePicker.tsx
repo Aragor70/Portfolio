@@ -8,32 +8,7 @@ import moment from 'moment'
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
 import { Language, json } from '../utils/constant'
 
-const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLISH }: any) => {
-
-  const [open, setOpen] = useState(false)
-
-  const refOne = useRef<any>(null)
-
-  useEffect(() => {
-    document.addEventListener("keydown", hideOnEscape, true)
-    document.addEventListener("click", hideOnClickOutside, true)
-  }, [])
-
-  // handle ESC press key
-  const hideOnEscape = (e: any) => {
-
-    if( e.key === "Escape" ) {
-      setOpen(false)
-    }
-  }
-
-  // Hide on outside click
-  const hideOnClickOutside = (e: any) => {
-
-    if( refOne.current && !refOne.current.contains(e.target) ) {
-      setOpen(false)
-    }
-  }
+const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLISH, refOne = null }: any) => {
 
 
   const isToday = async (date: Date) => moment(date).format('DD.MM.YYYY') === moment().format('DD.MM.YYYY')
@@ -89,7 +64,7 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
     
       const value: any = await loadValue(range)
 
-      setFormData({ ...formData, ...range })
+      setFormData({ ...range })
 
       setInputValue(value)
       
@@ -101,20 +76,9 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
 
   return (
     <Fragment>
-      <label>
-
-        <CalendarSvg />
-        <span
-          className="calendar-input"
-          onClick={() => setOpen(!open) }
-        >
-          {inputValue}
-        </span>
-
-        {open &&
           <div className="calendar-box" ref={refOne}>
             <DateRange
-              onChange={(item: any) => handleChange(item.range1)}
+              onChange={(item: any) => handleChange({ ...formData, ...item.range1})}
               editableDateInputs={true}
               moveRangeOnFirstSelection={false}
               ranges={[formData]}
@@ -123,8 +87,6 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
               className="calendar"
             />
           </div>
-        }
-      </label>
       
     </Fragment>
   )

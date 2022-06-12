@@ -45,7 +45,7 @@
         "section.repos.headline": "Repositories",
         "section.drafts.headline": "Drafts",
         "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment.",
-        "input.search.placeholder": "Project name",
+        "input.search.placeholder": "Search by name",
         "project": {
             "link.show.details": "View project details"
         }

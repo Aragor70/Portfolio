@@ -6,7 +6,7 @@ export enum Language {
 }
 
 export const json: any = { 'en-GB': {
-    "sd.input.search.placeholder": "Project name",
+    "sd.input.search.placeholder": "Search by name",
     "today": "Today",
     "from": "From",
     "until": "Until",

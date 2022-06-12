@@ -3,18 +3,16 @@ import { Language, URL } from "../utils/constant";
 
 
 
-export const getProjects = async () => {
+export const getProjects = async (payload: any = { languageCode: Language.ENGLISH }) => {
     try {
-
-        let languageCode = Language.ENGLISH
         
         if (localStorage?.languageCode) {
-            languageCode = localStorage.languageCode
+            payload.languageCode = localStorage.languageCode
         }
 
         const options = {
             params: {
-                languageCode
+                ...payload
             }
         }
         const res = await axios.get(URL + '/api/project/', options);

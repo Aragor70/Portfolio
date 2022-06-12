@@ -5,12 +5,12 @@ import { ReactComponent as TextSvg } from '../style/icons/text.svg';
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { Language, json } from '../utils/constant'
+import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
+import { ReactComponent as SearchSvg } from '../style/search.svg';
 
 const SearchInput = ({ formData, setFormData, languageCode = Language.ENGLISH }: any) => {
 
   const [open, setOpen] = useState(false)
-
-  const { phrase } = formData;
 
 
   const refOne = useRef<any>(null)
@@ -43,27 +43,15 @@ const SearchInput = ({ formData, setFormData, languageCode = Language.ENGLISH }:
 
   }
 
-  const handleClick = () => {
-    
-    if ( refInput.current ) {
-      
-      refInput.current.focus()
 
-    }
-
-  }
-
-
+{/* <input placeholder={json[languageCode]['sd.input.search.placeholder']} value={phrase || ''} ref={refInput} name="phrase" type="search" onChange={(e: any) => handleChange(e)} /> */}
   return (
     <Fragment>
 
             <label>
-                <TextSvg />
-
-                <span className="phrase" onClick={() => handleClick()}>
-                    {phrase || json[languageCode]['sd.input.search.placeholder']}
+                <span>
+                  <SearchSvg />
                 </span>
-                <input value={phrase || ''} ref={refInput} name="phrase" type="search" onChange={(e: any) => handleChange(e)} />
             </label>
 
     </Fragment>

@@ -140,11 +140,11 @@ const SD = ({ setPageTitle }: any) => {
 
                         </article>
 
-                        <FilterElement languageCode={languageCode} />
+                        <FilterElement languageCode={languageCode} setProjects={setProjects} />
 
                         
                         {
-                            loadingProjects ? <Loading /> : <Fragment>
+                            loadingProjects ? <Loading /> : projects.length ? <Fragment>
 
                                 <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} style={{ className: 'blue' }} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 
@@ -156,15 +156,8 @@ const SD = ({ setPageTitle }: any) => {
                                 
                                 <ListPreview status="draft" title={<Translate tKey="sd.section.drafts.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 
-                
-                                
-
-                            </Fragment>
+                            </Fragment> : "Projects not found."
                         }
-                            
-
-                        
-
 
 
                     </div>
