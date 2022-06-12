@@ -88,7 +88,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
                 <div className={"search-wrapper " + (openSearch ? 'active' : '')} ref={refOne}>
                     <div className="input-holder">
-                        <input type="text" className="search-input" name="phrase" value={ formData.phrase || '' } placeholder={json[languageCode]['sd.input.search.placeholder']} onChange={(e: any) => setFormData({ ...formData, phrase: e.target.value })} />
+                        <input type="text" autoComplete="off" className="search-input" name="phrase" value={ formData.phrase || '' } placeholder={json[languageCode]['sd.input.search.placeholder']} onChange={(e: any) => setFormData({ ...formData, phrase: e.target.value })} />
                         <button className="search-icon" type="button" onClick={() => handleSubmit()}><span></span></button>
                     </div>
                     <span className="calendar-icon" onClick={() => setOpenDatePicker(!openDatePicker)}><CalendarSvg /></span>
