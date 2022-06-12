@@ -52,7 +52,7 @@ export class ProjectService {
         .orderBy('status.order', 'ASC')
 
         if (phrase) {
-            request.where("project.name like :name", { name: `%${phrase}%` })
+            request.where("project.name ILIKE :name", { name: `%${phrase}%` })
         }
         if (startDate) {
             
