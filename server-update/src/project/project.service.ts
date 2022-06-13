@@ -275,7 +275,7 @@ export class ProjectService {
     
     includeRepository(formData: any, userId: number, type: 'include' | 'exclude'): Observable<ProjectEntity> {
 
-        const { name, url, id } = formData;
+        const { name, url, id, repos_id } = formData;
         
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -315,9 +315,12 @@ export class ProjectService {
                                     }),
                                 );
                             } else {
-                                throw new HttpException(
-                                    'Please specify the type.',
-                                    HttpStatus.BAD_REQUEST,
+                                return from(
+                                    this.reposRepository.delete({ id: repos_id }),
+                                    ).pipe(
+                                    switchMap(() => {
+                                        return this.getOne(project.id)
+                                    }),
                                 );
                             }
                         })
