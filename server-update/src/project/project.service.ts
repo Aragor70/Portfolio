@@ -33,7 +33,7 @@ export class ProjectService {
     
     getAll(payload: any): Observable<ProjectEntity[]> {
 
-        const { phrase = null, startDate = null, endDate = null } = payload;
+        const { phrase = null, startDate = null, endDate = null, isVisible = null } = payload;
         
         if (phrase && (typeof phrase !== 'string' || !phrase.match(searchPattern))) {
             throw new HttpException(
@@ -51,9 +51,14 @@ export class ProjectService {
         .orderBy('status.status', 'ASC')
         .orderBy('status.order', 'ASC')
 
-        if (phrase) {
-            request.where("project.name ILIKE :name", { name: `%${phrase}%` })
+        if ((isVisible === 'true') || (isVisible === 'false')) {
+            request.where("project.isVisible", { isVisible })
         }
+
+        if (phrase) {
+            request.andWhere("project.name ILIKE :name", { name: `%${phrase}%` })
+        }
+
         if (startDate) {
             
             request.andWhere('started_at >= :after')
@@ -205,7 +210,7 @@ export class ProjectService {
                     formData.name = name || element.name
                     formData.status = status || element.status
                     formData.website = website || element.website
-                    formData.isVisible = isVisible || element.isVisible
+                    formData.isVisible = ((isVisible === true) || (isVisible === false)) ? isVisible : element.isVisible
                     formData.started_at = started_at || element.started_at
 
                     const languageVersion = new ProjectLanguageVersionEntity();
