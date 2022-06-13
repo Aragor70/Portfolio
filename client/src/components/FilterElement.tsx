@@ -6,6 +6,7 @@ import { Language, json } from '../utils/constant';
 import { getProjects } from '../actions/project';
 
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
+import { ReactComponent as ArrowSvg } from '../style/icons/play-outline.svg';
 
 
 const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) => {
@@ -63,6 +64,25 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
         }
         
     }
+
+    const handleSelect = async (element: any = null) => {
+
+        const value = await { ...formData, phrase: element.name }
+        
+        setFormData(value)
+        
+        await handleSearch(value)
+
+        const res = await getProjects(value)
+            
+        await setProjects(res)
+
+        const article: any = document.querySelector('.section-content > h1')
+        
+        await article.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+
+    }
+    
 
 
     const hideOnEscape = (e: any) => {
@@ -129,11 +149,11 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
                     
                     {
                         formData.phrase && <Fragment>
-                            <div className="search-list">
+                            <ul className="search-list">
                                 {
-                                    loadingSearch ? "loading..." : searchList.length ? searchList.map((element: any) => <li>{element.name}</li>) : "No projects found."
+                                    loadingSearch ? "loading..." : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : "No projects found."
                                 }
-                            </div>
+                            </ul>
                         </Fragment>
                     }
                     

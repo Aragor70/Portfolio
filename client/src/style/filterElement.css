@@ -1,8 +1,4 @@
 
-
-
-
-
 .calendar-box {
     position: absolute;
     left: 0;
@@ -10,7 +6,6 @@
     top: calc(100% + 20px);
     padding: 0;
     z-index: 10;
-
 }
 
 .calendar-box > .calendar {
@@ -394,51 +389,78 @@
  {
      min-height: calc(260px + 60px);
  }
- @media (max-width: 1023px) {
-    
-    .search-wrapper {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top:50%;
-        left:50%;
-    }
-    .search-wrapper.active {
-        position: absolute;
-        transform: unset;
-        top:unset;
-        left:0;
-        right: unset;
-        width: 100%;
-    }
 
-    .search-wrapper.active .input-holder {
-        width:calc(100vw - 60px);
-        border-radius: 50px;
-        background: rgba(8,27,51,.8);
-        transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
-    }
 
-    .search-wrapper.active .input-holder {
-        width: 100%;
-    }
 
-    .search-wrapper.active .close {
-        right: 0;
-        top: -45px;
-        transform: rotate(45deg);
-        transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
-        transition-delay: 0.5s;
-    }
-    .search-wrapper.active .calendar-icon {
-        left: 20px;
-        right: unset;
-        top: 80px;
-        transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
-        transition-delay: 0.5s;
-    }
 
-    .calendar-box {
-        top: calc(100% + 35px + 20px);
-    }
+.search-list {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0 20px;
+}
+.search-list li {
+    list-style-type: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
 
- }
+.search-list li svg {
+    height: 18px;
+}
+
+
+@media (max-width: 1023px) {
+
+.search-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+}
+.search-wrapper.active {
+    position: absolute;
+    transform: unset;
+    top:unset;
+    left:0;
+    right: unset;
+    width: 100%;
+}
+
+.search-wrapper.active .input-holder {
+    width:calc(100vw - 60px);
+    border-radius: 50px;
+    background: rgba(8,27,51,.8);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+}
+
+.search-wrapper.active .input-holder {
+    width: 100%;
+}
+
+.search-wrapper.active .close {
+    right: 0;
+    top: -45px;
+    transform: rotate(45deg);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+.search-wrapper.active .calendar-icon {
+    left: 20px;
+    right: unset;
+    top: 80px;
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+
+.calendar-box {
+    top: calc(100% + 35px + 20px);
+}
+
+.search-list {
+    top: calc(100% + 35px);
+}
+}
