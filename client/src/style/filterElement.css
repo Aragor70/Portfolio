@@ -411,6 +411,7 @@
     column-gap: 10px;
     border-radius: 7.5px;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .search-list li:hover {
