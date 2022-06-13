@@ -21,6 +21,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
     const [ openSearch, setOpenSearch ] = useState(false)
     const [ openDatePicker, setOpenDatePicker ] = useState(false)
+    const [ openSelect, setOpenSelect ] = useState(false)
     const [ searchList, setSearchList ] = useState([])
 
     const [ loadingSearch, setLoadingSearch ] = useState(false)
@@ -35,6 +36,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
             
             const res = await getProjects(payload)
             
+            setOpenSelect(true)
             setSearchList(res)
 
             setLoadingSearch(false)
@@ -77,7 +79,9 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
             
         await setProjects(res)
 
-        const article: any = document.querySelector('.section-content > h1')
+        setOpenSelect(false)
+
+        const article: any = await document.querySelector('.section-content h1')
         
         await article.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 
@@ -91,6 +95,8 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
             setOpenSearch(!!formData.phrase && openSearch)
             
+            setOpenSelect(false)
+
             setOpenDatePicker(false)
 
         }
@@ -101,6 +107,9 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
         if( refOne.current && !refOne.current.contains(e.target) ) {
 
             setOpenSearch(!!formData.phrase && openSearch)
+
+            setOpenSelect(false)
+
             setOpenDatePicker(false)
 
         }
@@ -129,7 +138,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
                 <div className={"search-wrapper " + (openSearch ? 'active' : '')} ref={refOne}>
                     <div className="input-holder">
-                        <input type="text" autoComplete="off" className="search-input" name="phrase" value={ formData.phrase || '' } placeholder={json[languageCode]['sd.input.search.placeholder']} onChange={(e: any) => {setFormData({ ...formData, phrase: e.target.value }); handleSearch({ ...formData, phrase: e.target.value })}} />
+                        <input type="text" autoComplete="off" className="search-input" name="phrase" value={ formData.phrase || '' } placeholder={json[languageCode]['sd.input.search.placeholder']} onClick={() => formData.phrase ? setOpenSelect(true) : setOpenSelect(false) } onChange={(e: any) => {setFormData({ ...formData, phrase: e.target.value }); handleSearch({ ...formData, phrase: e.target.value })}} />
                         <button className="search-icon" type="button" onClick={() => handleSubmit()}><span></span></button>
                     </div>
                     <span className="calendar-icon" onClick={() => setOpenDatePicker(!openDatePicker)}><CalendarSvg /></span>
@@ -148,10 +157,10 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
                     }
                     
                     {
-                        formData.phrase && <Fragment>
+                        (openSelect && formData.phrase) && <Fragment>
                             <ul className="search-list">
                                 {
-                                    loadingSearch ? "loading..." : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : "No projects found."
+                                    loadingSearch ? "loading..." : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : <li>No projects found.</li>
                                 }
                             </ul>
                         </Fragment>

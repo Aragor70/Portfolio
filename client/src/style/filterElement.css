@@ -398,14 +398,27 @@
     position: absolute;
     top: 100%;
     left: 0;
-    padding: 0 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+    border-radius: 7.5px;
 }
 .search-list li {
     list-style-type: none;
     height: 50px;
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 10px;
+    border-radius: 7.5px;
+    padding: 0 10px;
+}
+
+.search-list li:hover {
+    background-color: #fff;
+}
+
+.search-list li:active {
+    background-color: #fff;
 }
 
 .search-list li svg {
