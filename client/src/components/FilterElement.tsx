@@ -159,6 +159,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
                             });
                             setOpenDatePicker(false);
                             handleSelect({ name: '' });
+                            setOpenSearch(false)
                         }}>
                     </span>
                     
