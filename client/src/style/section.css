@@ -16,7 +16,7 @@
 
 .section-content article {
     width: 100%;
-    display: flex;
+    display: grid;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
@@ -422,7 +422,7 @@ img {
 
     article {
         width: 100%;
-        display: grid !important;
+        display: grid;
         grid-template-columns: calc(30% - 40px) calc(70% - 40px);
         gap: 40px;
         width: 100%;

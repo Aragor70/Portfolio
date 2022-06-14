@@ -7,6 +7,7 @@ import { getProjects } from '../actions/project';
 
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
 import { ReactComponent as ArrowSvg } from '../style/icons/play-outline.svg';
+import ErrorResponse from './ErrorResponse';
 
 
 const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) => {
@@ -26,44 +27,53 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
     const [ loadingSearch, setLoadingSearch ] = useState(false)
 
+    const [errorResponse, setErrorResponse] = useState('')
+
     const refOne = useRef<any>(null)
     const refTwo = useRef<any>(null)
 
     const handleSearch = async (payload: any) => {
 
-        try {
-            setLoadingSearch(true)
-            
-            const res = await getProjects(payload)
-            
-            setOpenSelect(true)
-            setSearchList(res)
-
+        setLoadingSearch(true)
+        
+        const res = await getProjects(payload)
+        
+        if (typeof res === 'string') {
+                
             setLoadingSearch(false)
-
-        } catch (err: any) {
-            console.log(err.message)
+            return setErrorResponse('search.error.message')
+            
         }
+
+        setOpenSelect(true)
+        setSearchList(res)
+        setErrorResponse('')
+
+        setLoadingSearch(false)
         
     }
 
     const handleSubmit = async (e: any = null) => {
 
-        try {
 
-            if (!openSearch) {
-                return setOpenSearch(true)
-            }
-
-            if (e) e.preventDefault()
-            
-            const res = await getProjects(formData)
-            
-            setProjects(res)
-
-        } catch (err: any) {
-            console.log(err.message)
+        if (!openSearch) {
+            return setOpenSearch(true)
         }
+
+        if (e) e.preventDefault()
+        
+        const res = await getProjects(formData)
+        
+        
+        if (typeof res === 'string') {
+                
+            setLoadingSearch(false)
+            return setErrorResponse('search.error.message')
+            
+        }
+
+        setProjects(res)
+        setErrorResponse('')
         
     }
 
@@ -160,7 +170,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
                         (openSelect && formData.phrase) && <Fragment>
                             <ul className="search-list">
                                 {
-                                    loadingSearch ? "loading..." : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : <li>No projects found.</li>
+                                    loadingSearch ? "loading..." : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red', display: 'flex' }}} /> : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : <li>No projects found.</li>
                                 }
                             </ul>
                         </Fragment>

@@ -19,7 +19,7 @@ const ErrorResponse = ( props: any ) => {
     return (
         <Fragment>
             <article className={ style?.className || '' } style={{ ...style?.css }}>
-                <div></div>
+                
                 <div className="params" style={{ textAlign: 'center' }}>
                     <Translate tKey={message} />
                 </div>
