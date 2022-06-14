@@ -53,6 +53,7 @@ import { LanguageContext } from '../context/LanguageContext';
 import ListPreview from '../components/ListPreview';
 import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
+import ErrorResponse from '../components/ErrorResponse';
 
 const SD = ({ setPageTitle }: any) => {
 
@@ -74,6 +75,8 @@ const SD = ({ setPageTitle }: any) => {
 
     const [projects, setProjects] = useState<any[]>([])
 
+    const [errorResponse, setErrorResponse] = useState('')
+
     
 
     useEffect(() => {
@@ -81,7 +84,13 @@ const SD = ({ setPageTitle }: any) => {
         (async() => {
             setLoadingProjects(true)
             const res = await getProjects()
-
+            if (typeof res === 'string') {
+                
+                setLoadingProjects(false)
+                return setErrorResponse(res)
+                
+            }
+            setErrorResponse('')
             setProjects(res)
             setLoadingProjects(false)
         })()
@@ -144,7 +153,7 @@ const SD = ({ setPageTitle }: any) => {
 
                         
                         {
-                            loadingProjects ? <Loading /> : projects.length ? <Fragment>
+                            loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
 
                                 <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} style={{ className: 'blue' }} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 

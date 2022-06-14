@@ -8,6 +8,7 @@
     "today": "Dzisiaj",
     "from": "Od",
     "until": "Do",
+    "error.message": "<p>Zauważyliśmy notifikację o błędzie.</p><p>Proszę sprawdź swój aktualny dostep do internetu.</p>",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Rozwijam oprogramowanie",

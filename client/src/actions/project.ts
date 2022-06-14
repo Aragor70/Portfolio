@@ -20,7 +20,7 @@ export const getProjects = async (payload: any = { languageCode: Language.ENGLIS
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return 'error.message'
     }
 }
 
@@ -32,7 +32,7 @@ export const getProject = async (id: number) => {
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return 'error.message'
     }
 }
 export const editProject = async (id: number, formData: any) => {
@@ -43,6 +43,6 @@ export const editProject = async (id: number, formData: any) => {
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return 'error.message'
     }
 }

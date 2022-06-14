@@ -6,6 +6,7 @@ import autosize from 'autosize';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Translate } from '../components/Translate';
+import ErrorResponse from '../components/ErrorResponse';
 
 const AT = ({ setPageTitle }: any) => {
 
@@ -22,6 +23,7 @@ const AT = ({ setPageTitle }: any) => {
     const [openMessage, setOpenMessage] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(false)
     const [output, setOutput] = useState('')
+    const [errorResponse, setErrorResponse] = useState('')
 
     /* const [subject, setSubject] = useState('') */
 
@@ -55,17 +57,17 @@ const AT = ({ setPageTitle }: any) => {
 
             setFormData({})
             setOutput('Done')
+            setErrorResponse('')
 
-            console.log(response.data)
         } catch (err: any) {
+            setErrorResponse('error.message')
             setLoadingMessage(false)
-            setOutput('Error')
-            console.log(err.message)
         }
         
     }
     useEffect(() => {
         
+        setErrorResponse('')
         setOutput('')
 
     }, [openMessage])
@@ -118,7 +120,7 @@ const AT = ({ setPageTitle }: any) => {
                             {
                                 loadingMessage ? <Fragment>
                                     <p className="output-response"><Translate tKey="loading" /></p>
-                                </Fragment> : <Fragment>
+                                </Fragment> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : <Fragment>
 
                                     {
                                         output ? <Fragment>

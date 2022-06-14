@@ -8,6 +8,7 @@
     "today": "Today",
     "from": "From",
     "until": "Until",
+    "error.message": "<p>We have received an error.</p><p>Please check the internet connection.</p>",
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",
