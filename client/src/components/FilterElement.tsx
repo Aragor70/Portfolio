@@ -96,8 +96,6 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
         await article.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 
     }
-    
-
 
     const hideOnEscape = (e: any) => {
         
@@ -158,8 +156,10 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
                                 startDate: null,
                                 endDate: new Date,
                                 languageCode: Language.ENGLISH
-                        });
-                        setOpenDatePicker(false)}}>
+                            });
+                            setOpenDatePicker(false);
+                            handleSelect({ name: '' });
+                        }}>
                     </span>
                     
                     {
