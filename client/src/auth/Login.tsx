@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
+import ErrorResponse from '../components/ErrorResponse';
+import { Translate } from '../components/Translate';
 import { UserContext } from '../context/UserContext';
 
 import '../style/auth.css'
@@ -15,7 +17,7 @@ const Login = ({ history, setPageTitle }: any) => {
 
 
     useEffect(() => {
-        setPageTitle('Login')
+        setPageTitle(<Translate tKey="auth.login.headline" />)
 
         return () => {
             setPageTitle('')
@@ -40,42 +42,42 @@ const Login = ({ history, setPageTitle }: any) => {
         e.preventDefault()
 
         if (!email) {
-            return setAlert('Please enter e-mail address.')
+            return setAlert('auth.error.login.email')
         }
         if (!password) {
-            return setAlert('Please enter password.')
+            return setAlert('auth.error.login.password')
         }
-        console.log(alert)
+        
 
         const res: any = await login(formData)
 
-        console.log(res)
-
         setUser(res)
+
+        setAlert('')
 
         if (res?.token) return history.push('/')
     }
 
-    console.log(user)
-    
     return (
         <Fragment>
             
             <form className="auth-form" autoComplete="off" onSubmit={e=> handleSubmit(e)}>
-                <h1>Login:</h1>
+                <h1><Translate tKey="auth.login.headline" />:</h1>
                 
-                <label className="input-label" htmlFor="email">E-mail
-                    <input type="text" autoComplete="off" name="email" onChange={e=> handleTyping(e)} placeholder="E-mail address" />
+                <label className="input-label" htmlFor="email"><Translate tKey="auth.form.email" />
+                    <input type="text" autoComplete="off" name="email" onChange={e=> handleTyping(e)} />
                 </label>
                 
-                <label className="input-label" htmlFor="password">Password
+                <label className="input-label" htmlFor="password"><Translate tKey="auth.form.password" />
                     <input type="password" autoComplete="off" name="password" onChange={e=> handleTyping(e)} />
                 </label>
                 <div className="auth-bottom">
-                    <button type="submit" className="submit-button right-button">Log in</button>
+                    <button type="submit" className="submit-button right-button"><Translate tKey="auth.login.login" /></button>
                 </div>
-                
 
+                {
+                    !!alert && <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} />
+                }
             </form>
         </Fragment>
     );

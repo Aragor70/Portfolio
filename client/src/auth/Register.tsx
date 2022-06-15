@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { register } from '../actions/auth';
+import ErrorResponse from '../components/ErrorResponse';
+import { Translate } from '../components/Translate';
 
 import '../style/auth.css'
 
@@ -8,7 +10,7 @@ import '../style/auth.css'
 const Register = ({ history, setPageTitle }: any) => {
 
     useEffect(() => {
-        setPageTitle('Sign up')
+        setPageTitle(<Translate tKey="auth.register.headline" />)
 
         return () => {
             setPageTitle('')
@@ -33,16 +35,14 @@ const Register = ({ history, setPageTitle }: any) => {
         e.preventDefault()
         
         if (!formData?.email) {
-            return setAlert('Please enter e-mail address.')
+            return setAlert('auth.error.login.email')
         }
         if (!formData?.password) {
-            return setAlert('Please enter password.')
+            return setAlert('auth.error.login.password')
         }
         if (formData?.password !== formData?.passwordConfirmation) {
-            return setAlert('Please enter both the same passwords.')
+            return setAlert('auth.error.login.passwordConfirmation')
         }
-
-        console.log(alert)
 
         await register(formData)
 
@@ -51,7 +51,6 @@ const Register = ({ history, setPageTitle }: any) => {
 
     const customComplete = (e: any) => {
         
-        console.log(e)
         if(e.target.autocomplete) {
             e.target.autocomplete ='none'
         }
@@ -59,31 +58,35 @@ const Register = ({ history, setPageTitle }: any) => {
 
     return (
         <Fragment>
-            <form className="auth-form" autoComplete="new-password" onSubmit={ e=> handleSubmit(e) }>
-                <h1>Sign up:</h1>
+            <form className="auth-form" autoComplete="off" onSubmit={ e=> handleSubmit(e) }>
+                <h1><Translate tKey="auth.register.headline" />:</h1>
                 
-                <label className="input-label" htmlFor="firstName">First name
-                    <input type="text" autoComplete="new-password" name="firstName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                <label className="input-label" htmlFor="firstName"><Translate tKey="auth.form.firstName" />
+                    <input type="text" autoComplete="off" name="firstName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
                 </label>
-                <label className="input-label" htmlFor="lastName">Last name
-                    <input type="text" autoComplete="new-password" name="lastName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
-                </label>
-
-                <label className="input-label" htmlFor="email">E-mail
-                    <input type="text" autoComplete="new-password" name="email" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                <label className="input-label" htmlFor="lastName"><Translate tKey="auth.form.lastName" />
+                    <input type="text" autoComplete="off" name="lastName" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
                 </label>
 
-                <label className="input-label" htmlFor="password">Password
-                    <input type="password" autoComplete="new-password" name="password" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                <label className="input-label" htmlFor="email"><Translate tKey="auth.form.email" />
+                    <input type="text" autoComplete="off" name="email" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
                 </label>
 
-                <label className="input-label" htmlFor="passwordConfirmation">Confirm your password
-                    <input type="password" autoComplete="new-password" name="passwordConfirmation" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                <label className="input-label" htmlFor="password"><Translate tKey="auth.form.password" />
+                    <input type="password" autoComplete="off" name="password" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
+                </label>
+
+                <label className="input-label" htmlFor="passwordConfirmation"><Translate tKey="auth.form.passwordConfirmation" />
+                    <input type="password" autoComplete="off" name="passwordConfirmation" onChange={ e=> handleTyping(e) } onFocus={e=> customComplete(e)} />
                 </label>
                 <div className="auth-bottom">
-                    <button type="submit" className="submit-button right-button">Sign up</button>
+                    <button type="submit" className="submit-button right-button"><Translate tKey="auth.register.register" /></button>
                 </div>
 
+                
+                {
+                    !!alert && <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} />
+                }
             </form>
         </Fragment>
     );

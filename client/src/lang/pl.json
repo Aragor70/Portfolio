@@ -10,6 +10,32 @@
     "until": "Do",
     "error.message": "<p>Zauważyliśmy notifikację o błędzie.</p><p>Proszę sprawdź swój aktualny dostep do internetu.</p>",
     "search.error.message": "<p>Proszę używać liter, cyfr, spacji, przecinków (,) kropek (.) myślników (-) lub podkreśleń (_).</p>",
+    "auth": {
+        "login": {
+            "headline": "Logowanie",
+            "login": "Zaloguj"
+        },
+        "register": {
+            "headline": "Rejestracja",
+            "register": "Zapisz"
+        },
+        "form": {
+            "email": "E-mail",
+            "password": "Hasło",
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "passwordConfirmation": "Potwierdź hasło"
+        },
+        "error": {
+            "login": {
+                "email": "Wprowadź adres email.",
+                "password": "Wprowadź hasło."
+            },
+            "register": {
+                "passwordConfirmation": "Potwierdzenie hasła potrzebuje być indentyczne jak hasło."
+            }
+        }
+    },
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Rozwijam oprogramowanie",

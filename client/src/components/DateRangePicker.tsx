@@ -62,11 +62,11 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
       
   const handleChange = async(range: any) => {
     
-      const value: any = await loadValue(range)
+      //const value: any = await loadValue(range)
 
       setFormData({ ...range })
 
-      setInputValue(value)
+      //setInputValue(value)
       
   }
 

@@ -10,6 +10,32 @@
     "until": "Until",
     "error.message": "<p>We have received an error.</p><p>Please check the internet connection.</p>",
     "search.error.message": "<p>Please use letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).</p>",
+    "auth": {
+        "login": {
+            "headline": "Login",
+            "login": "Log in"
+        },
+        "register": {
+            "headline": "Register",
+            "register": "Register"
+        },
+        "form": {
+            "email": "E-mail",
+            "password": "Password",
+            "firstName": "First name",
+            "lastName": "Last name",
+            "passwordConfirmation": "Confirm your password"
+        },
+        "error": {
+            "login": {
+                "email": "Please enter e-mail address.",
+                "password": "Please enter password."
+            },
+            "register": {
+                "passwordConfirmation": "Please enter both the same passwords."
+            }
+        }
+    },
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",

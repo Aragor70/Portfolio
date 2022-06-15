@@ -48,11 +48,11 @@ const SearchInput = ({ formData, setFormData, languageCode = Language.ENGLISH }:
   return (
     <Fragment>
 
-            <label>
-                <span>
-                  <SearchSvg />
-                </span>
-            </label>
+      <label>
+          <span>
+            <SearchSvg />
+          </span>
+      </label>
 
     </Fragment>
   )
