@@ -149,7 +149,7 @@ const SD = ({ setPageTitle }: any) => {
 
                         </article>
 
-                        <FilterElement languageCode={languageCode} setProjects={setProjects} />
+                        <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getProjects} />
 
                         
                         {

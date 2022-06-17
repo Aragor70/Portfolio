@@ -10,22 +10,22 @@ export const getEducations = async (languageCode: string) => {
                 languageCode
             }
         }
-        const res = await axios.get(URL + '/api/educations/', options);
+        const res = await axios.get(URL + '/api/education/', options);
 
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return err.message;
     }
 }
 export const editEducation = async (id: number, formData: any) => {
     try {
         
-        const res = await axios.put(URL + 'https://api.m-prus.uk/api/educations/' + id, formData);
+        const res = await axios.put(URL + '/api/education/' + id, formData);
 
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return err.message;
     }
 }

@@ -1,8 +1,8 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 
 
 
-import { Route, Switch, withRouter, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
 import Project from './Project';
 
 
@@ -37,6 +37,13 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 import gdansk1 from '../style/gdansk1.jpg';
 import koszalin1 from '../style/koszalin1.jpg';
 import { Translate } from '../components/Translate';
+import FilterElement from '../components/FilterElement';
+import { LanguageContext } from '../context/LanguageContext';
+import ErrorResponse from '../components/ErrorResponse';
+import Loading from '../components/Loading';
+import ListPreview from '../components/ListPreview';
+import { getEducations } from '../actions/education';
+import ProjectPreview from '../components/sd/ProjectPreview';
 
 
 const Education = ({ setPageTitle }: any) => {
@@ -50,114 +57,141 @@ const Education = ({ setPageTitle }: any) => {
         }
     }, [setPageTitle])
 
-    return (
-        <Fragment>
-            <div className="section-content">
 
-            <article>
-                {/* <div className="params">
+    
+    const { languageCode } = useContext<any>(LanguageContext);
+
+    
+    const [loadingProjects, setLoadingProjects] = useState<boolean>(false)
+
+    const [projects, setProjects] = useState<any[]>([])
+
+    const [errorResponse, setErrorResponse] = useState('')
+
+
+    
+    useEffect(() => {
+
+        (async() => {
+            setLoadingProjects(true)
+            const res = await getEducations(languageCode)
+            if (typeof res === 'string') {
                 
-                </div> */}
+                setLoadingProjects(false)
+                return setErrorResponse(res)
+                
+            }
+            setErrorResponse('')
+            setProjects(res)
+            setLoadingProjects(false)
+        })()
 
-                <Switch>
-                    <Route exact path={path}>
-                        <div className="section-image">
-                            <img src={gdansk1} alt="projects_image" />
-                        </div>
-                        <div className="params">
-                        <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Computer science and econometrics, Master's degree </span></h3>
+        return () => {
+            setProjects([])
+        }
+
+    }, [languageCode])
+
+    return (
+        <Router>
+            <Switch>
+
+                <Route exact path={`${path}/:project_name`}>
+                    <Project />
+                </Route>
+
+                <Route exact path={path}>
+                    <div className="section-content">
+
+
+                        <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getEducations} />
+
                             
-                            <p>University of Gdansk, Poland 03/2017 – 09/2021</p>
+                        {
+                            loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
 
-                            <p>A combination of solid theoretical foundations in terms of mathematics and computer science. The study program is constantly consulted with employers from the IT industry.</p>
+                                <ListPreview status="completed" title={<Translate tKey="sd.section.ongoing.headline" />} list={projects} Component={ProjectPreview} />
+
+                            </Fragment> : "Educations not found."
+                        }
+
+
+                        <article>
+                            {/* <div className="params">
                             
-                            {/* 
+                            </div> */}
 
-                                Software engineering, 
-                                Database technology, 
-                                Designing human-computer interactions, 
-                                Enterprise Resource Planning, 
-                                IT project management, 
-                                System security, 
-                                Computer network, 
-                                Data warehouse.
-                            
-                            */}
-                            <ul className="icons">
-                            </ul>
+                                    <div className="section-image">
+                                        <img src={gdansk1} alt="projects_image" />
+                                    </div>
+                                    <div className="params">
+                                    <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Computer science and econometrics, Master's degree </span></h3>
+                                        
+                                        <p>University of Gdansk, Poland 03/2017 – 09/2021</p>
 
-                            <ul className="more-about" >
-                                {/* <span></span> */}
-                                {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                                <li className="icon-box" onClick={() => window.open("https://en.ug.edu.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
-                            </ul>
-                        
-                        </div>
+                                        <p>A combination of solid theoretical foundations in terms of mathematics and computer science. The study program is constantly consulted with employers from the IT industry.</p>
+                                        
+                                        {/* 
 
-                    </Route>
-                </Switch> 
+                                            Software engineering, 
+                                            Database technology, 
+                                            Designing human-computer interactions, 
+                                            Enterprise Resource Planning, 
+                                            IT project management, 
+                                            System security, 
+                                            Computer network, 
+                                            Data warehouse.
+                                        
+                                        */}
+                                        <ul className="icons">
+                                        </ul>
 
+                                        <ul className="more-about" >
+                                            {/* <span></span> */}
+                                            {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
+                                            <li className="icon-box" onClick={() => window.open("https://en.ug.edu.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                                        </ul>
+                                    
+                                    </div>
 
-                <Switch>  
-                    
-                    <Route exact path={`${path}/gdansk`}>
-                        <Project
-                            name="University of Gdansk (Poland)"
-                            title="Computer science and econometrics, Master's degree"
-                        />
-                    </Route>
-                </Switch>
+                                
+                                    <div className="section-image">
+                                        <img src={koszalin1} alt="projects_image" />
+                                    </div>
+                                    <div className="params">
+                                    <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Economy and real estate management, Bachelor's degree</span></h3>
+                                        
+                                        <p>University of Technology Koszalin, Poland 03/2013 – 09/2017</p>
 
-                <Switch>
-                    <Route exact path={path}>
-                        <div className="section-image">
-                            <img src={koszalin1} alt="projects_image" />
-                        </div>
-                        <div className="params">
-                        <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Economy and real estate management, Bachelor's degree</span></h3>
-                            
-                            <p>University of Technology Koszalin, Poland 03/2013 – 09/2017</p>
+                                        <p>Economics and mathematics science, Real estate appraisal, consultancy, trading and brokerage, and management.</p>
+                                        
+                                        {/* 
 
-                            <p>Economics and mathematics science, Real estate appraisal, consultancy, trading and brokerage, and management.</p>
-                            
-                            {/* 
+                                            Investing in real estate, 
+                                            Architecture and exploitation, 
+                                            Real estate appraisal, 
+                                            Real estate agency, 
+                                            Real estate law, 
+                                            Real estate management, 
+                                            business economics.
+                                        
+                                        */}
+                                        <ul className="icons">
+                                        </ul>
 
-                                Investing in real estate, 
-                                Architecture and exploitation, 
-                                Real estate appraisal, 
-                                Real estate agency, 
-                                Real estate law, 
-                                Real estate management, 
-                                business economics.
-                            
-                            */}
-                            <ul className="icons">
-                            </ul>
+                                        <ul className="more-about" >
+                                            {/* <span></span> */}
+                                            {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
+                                            <li className="icon-box" onClick={() => window.open("https://tu.koszalin.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
+                                        </ul>
+                                    
+                                    </div>
 
-                            <ul className="more-about" >
-                                {/* <span></span> */}
-                                {/* <div className="icon-box"><i className="fas fa-code fa"></i></div> */}
-                                <li className="icon-box" onClick={() => window.open("https://tu.koszalin.pl/", "_blank")}><i className="fab fa-chrome fa"></i></li>
-                            </ul>
-                        
-                        </div>
-
-                    </Route>
-                </Switch> 
-
-
-                <Switch>  
-                    
-                    <Route exact path={`${path}/koszalin`}>
-                        <Project
-                            name="University of Technology Koszalin (Poland)"
-                            title="Economy and real estate management, Bachelor's degree"
-                        />
-                    </Route>
-                </Switch>
-                </article>
-            </div>
-        </Fragment>
+                        </article>
+                    </div>
+                </Route>
+            </Switch>
+        </Router>
             
     );
 }

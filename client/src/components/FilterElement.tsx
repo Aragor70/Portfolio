@@ -1,16 +1,15 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, memo, useEffect, useRef, useState } from 'react';
 import DateRangePicker from './DateRangePicker';
 import { Translate } from './Translate';
 
 import { Language, json } from '../utils/constant';
-import { getProjects } from '../actions/project';
 
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
 import { ReactComponent as ArrowSvg } from '../style/icons/play-outline.svg';
 import ErrorResponse from './ErrorResponse';
 
 
-const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) => {
+const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
 
     const [ formData, setFormData ] = useState<any>({
         phrase: null,
@@ -36,7 +35,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
         setLoadingSearch(true)
         
-        const res = await getProjects(payload)
+        const res = await loadValues(payload)
         
         if (typeof res === 'string') {
                 
@@ -44,7 +43,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
             return setErrorResponse('search.error.message')
             
         }
-
+        console.log(res)
         setOpenSelect(true)
         setSearchList(res)
         setErrorResponse('')
@@ -62,7 +61,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
         if (e) e.preventDefault()
         
-        const res = await getProjects(formData)
+        const res = await loadValues(formData)
         
         
         if (typeof res === 'string') {
@@ -85,7 +84,7 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
         
         await handleSearch(value)
 
-        const res = await getProjects(value)
+        const res = await loadValues(value)
             
         await setProjects(res)
 
@@ -184,6 +183,6 @@ const FilterElement = ({ languageCode = Language.ENGLISH, setProjects }: any) =>
 
         </Fragment>
     );
-}
+})
 
 export default FilterElement;

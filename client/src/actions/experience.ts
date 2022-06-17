@@ -16,7 +16,7 @@ export const getExperiences = async (languageCode: string) => {
         return res.data;
 
     } catch (err: any) {
-        console.log(err.message)
+        return err.message
     }
 }
 
