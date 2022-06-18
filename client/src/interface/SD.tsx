@@ -83,7 +83,7 @@ const SD = ({ setPageTitle }: any) => {
 
         (async() => {
             setLoadingProjects(true)
-            const res = await getProjects()
+            const res = await getProjects({ isVisible: true })
             if (typeof res === 'string') {
                 
                 setLoadingProjects(false)

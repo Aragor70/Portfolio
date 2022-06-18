@@ -74,7 +74,7 @@ const Education = ({ setPageTitle }: any) => {
 
         (async() => {
             setLoadingProjects(true)
-            const res = await getEducations()
+            const res = await getEducations({ isVisible: true })
             if (typeof res === 'string') {
                 
                 setLoadingProjects(false)

@@ -66,7 +66,7 @@ const Experience = ({ setPageTitle }: any) => {
 
         (async() => {
             setLoadingProjects(true)
-            const res = await getExperiences()
+            const res = await getExperiences({ isVisible: true })
             if (typeof res === 'string') {
                 
                 setLoadingProjects(false)
