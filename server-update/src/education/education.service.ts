@@ -8,7 +8,7 @@ import { UserService } from 'src/auth/services/user/user.service';
 import { ImageEntity } from 'src/image/models/image.entity';
 import { ImageService } from 'src/image/image.service';
 import { searchPattern } from 'src/utils/constant';
-import moment from 'moment';
+import * as moment from 'moment';
 import { EducationLanguageVersionEntity } from './models/educationLanguageVersion.entity';
 
 @Injectable()

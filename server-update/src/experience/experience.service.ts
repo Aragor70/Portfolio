@@ -8,7 +8,7 @@ import { UserEntity } from 'src/auth/models/user.entity';
 import { ImageService } from 'src/image/image.service';
 import { ImageEntity } from 'src/image/models/image.entity';
 import { searchPattern } from 'src/utils/constant';
-import moment from 'moment';
+import * as moment from 'moment';
 import { ExperienceLanguageVersionEntity } from './models/experienceLanguageVersion.entity';
 
 
