@@ -5,7 +5,7 @@ import { ImageModule } from 'src/image/image.module';
 import { EducationController } from './education.controller';
 import { EducationService } from './education.service';
 import { EducationEntity } from './models/education.entity';
-import { EducationLanguageVersionEntity } from './models/EducationLanguageVersion.entity';
+import { EducationLanguageVersionEntity } from './models/educationLanguageVersion.entity';
 
 @Module({
   imports: [
