@@ -66,7 +66,7 @@ const Experience = ({ setPageTitle }: any) => {
 
         (async() => {
             setLoadingProjects(true)
-            const res = await getExperiences(languageCode)
+            const res = await getExperiences()
             if (typeof res === 'string') {
                 
                 setLoadingProjects(false)

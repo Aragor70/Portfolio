@@ -74,7 +74,7 @@ const Education = ({ setPageTitle }: any) => {
 
         (async() => {
             setLoadingProjects(true)
-            const res = await getEducations(languageCode)
+            const res = await getEducations()
             if (typeof res === 'string') {
                 
                 setLoadingProjects(false)

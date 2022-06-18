@@ -1,14 +1,19 @@
 import axios from "axios"
-import { URL } from "../utils/constant";
+import { Language, URL } from "../utils/constant";
 
 
 
-export const getExperiences = async (languageCode: string) => {
+export const getExperiences = async (payload: any = { languageCode: Language.ENGLISH }) => {
     try {
+
+        
+        if (localStorage?.languageCode) {
+            payload.languageCode = localStorage.languageCode
+        }
         
         const options = {
             params: {
-                languageCode
+                ...payload
             }
         }
         const res = await axios.get(URL + '/api/experience/', options);
