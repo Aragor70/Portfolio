@@ -7,6 +7,9 @@ import { UserEntity } from 'src/auth/models/user.entity';
 import { UserService } from 'src/auth/services/user/user.service';
 import { ImageEntity } from 'src/image/models/image.entity';
 import { ImageService } from 'src/image/image.service';
+import { searchPattern } from 'src/utils/constant';
+import moment from 'moment';
+import { EducationLanguageVersionEntity } from './models/EducationLanguageVersion.entity';
 
 @Injectable()
 export class EducationService {
@@ -15,32 +18,104 @@ export class EducationService {
     constructor(
         @InjectRepository(EducationEntity)
         private readonly educationRepository: Repository<EducationEntity>,
+        @InjectRepository(EducationLanguageVersionEntity)
+        private readonly languageRepository: Repository<EducationLanguageVersionEntity>,
         private readonly userService: UserService,
         private readonly imageService: ImageService,
     ) {}
     
     
-    getAll(): Observable<EducationEntity[]> {
-        return from(this.educationRepository.find({ relations: ['user', 'images', 'icons'] }))
+    getAll(payload: any): Observable<EducationEntity[]> {
+
+        
+        const { phrase = null, startDate = null, endDate = null, isVisible = null } = payload;
+        
+        if (phrase && (typeof phrase !== 'string' || !phrase.match(searchPattern))) {
+            throw new HttpException(
+                'Search with letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).',
+                HttpStatus.BAD_REQUEST)
+        }
+
+        const request = this.educationRepository.createQueryBuilder('education')
+        .leftJoinAndSelect('education.user', 'user')
+        .leftJoinAndSelect('education.images', 'images')
+        .leftJoinAndSelect('education.icons', 'icons')
+        .leftJoinAndSelect('education.languageVersions', 'languageVersions')
+        .orderBy('education.status', 'ASC')
+        .orderBy('education.order', 'ASC')
+
+        if ((isVisible === 'true') || (isVisible === 'false')) {
+            request.where("education.isVisible", { isVisible })
+        }
+
+        if (phrase) {
+            request.andWhere("education.name ILIKE :name", { name: `%${phrase}%` })
+        }
+
+        if (startDate) {
+            
+            request.andWhere('started_at >= :after')
+            .setParameter("after", moment(startDate).startOf('day').format())
+        }
+        if (endDate) {
+
+            request
+            .andWhere('started_at <= :before')
+            .setParameter("before", moment(endDate).endOf('day').format())
+        }
+
+        return from(
+            request.getMany()
+        )
             .pipe(
             map((element: EducationEntity[]) => {
+                console.log(element)
                 return element;
             }),
         );
     }
     
     getOne(id: number): Observable<EducationEntity> {
-        return from(this.educationRepository.findOneOrFail({where: {id}, relations: ['user', 'images', 'icons']}))
+        return from(this.educationRepository.findOneOrFail({where: {id}, relations: ['user', 'images', 'icons', 'languageVersions']}))
             .pipe(
             map((element: EducationEntity) => {
                 return element;
             }),
         );
     }
-    
-    editEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
+    updateOrCreateLanguageVersion(education: EducationEntity, formData: EducationLanguageVersionEntity): Observable<EducationEntity> {
+        return from(this.languageRepository.findOne({ where: { project: { id: education.id }, languageCode: formData.languageCode }, relations: ['education'] }))
+            .pipe(
+            switchMap((element: EducationLanguageVersionEntity) => {
 
-        const { id, name, title, text, icons, images, term, status, order, website, languageCode } = education;
+                if (element?.id) {
+
+                    const version = new EducationLanguageVersionEntity();
+                    version.text = formData?.text || element.text
+                    version.title = formData?.title || element.title
+                    version.languageCode = element.languageCode
+                    version.education = education;
+
+                    return from(this.languageRepository.update(element.id, version)).pipe(
+                        switchMap(() => {
+                            return this.getOne(education.id)
+                        })
+                    )
+                } else {
+                    if (!formData.languageCode) return this.getOne(education.id);
+                    return from(this.languageRepository.save({...formData, education})).pipe(
+                        switchMap(() => {
+                            return this.getOne(education.id)
+                        })
+                    )
+                }
+            }),
+        );
+    }
+    
+    editEducation(education: any, userId: number): Observable<EducationEntity> {
+
+        const { id, name, title, text, term, status, order, website, languageCode, started_at, isVisible } = education;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -69,23 +144,25 @@ export class EducationService {
                     
                     const formData = new EducationEntity();
                     formData.name = name || element.name
-                    formData.title = title || element.title
-                    formData.text = text || element.text
-                    formData.icons = icons || element.icons
-                    formData.images = images || element.images
                     formData.term = term || element.term
                     formData.status = status || element.status
                     formData.order = order || element.order
                     formData.website = website || element.website
-                    formData.languageCode = languageCode || element.languageCode
+                    formData.started_at = started_at || element.started_at
+                    formData.isVisible = ((isVisible === true) || (isVisible === false)) ? isVisible : element.isVisible
+
+                    const languageVersion = new EducationLanguageVersionEntity();
+                    languageVersion.languageCode = languageCode
+                    languageVersion.text = text
+                    languageVersion.title = title
 
                     return from(
                         this.educationRepository.update(id, formData),
                         ).pipe(
                             switchMap(() => {
                             return this.getOne(id).pipe(
-                                map((edu: EducationEntity) => {
-                                    return edu;
+                                switchMap((edu: EducationEntity) => {
+                                    return this.updateOrCreateLanguageVersion(edu, languageVersion)
                                 }),
                             )}
                         )
@@ -157,9 +234,9 @@ export class EducationService {
         )
     }
     
-    createEducation(education: EducationEntity, userId: number): Observable<EducationEntity> {
+    createEducation(education: any, userId: number): Observable<EducationEntity> {
 
-        const { name, title, text, icons, images, term, status, order, website, languageCode } = education;
+        const { name, title, text, icons, images, term, status, order, website, languageCode, isVisible } = education;
 
         return this.userService.findUserById(userId).pipe(
             tap((element: UserEntity) => {
@@ -174,12 +251,16 @@ export class EducationService {
                 return from(
 
                     this.educationRepository.save({
-                        name, title, text, icons, images, term, status, order, website, languageCode, user
+                        name, icons, images, term, status, order, website, user, isVisible
                     }),
                     ).pipe(
-                    map((edu: EducationEntity) => {
-                        return edu;
-                    }),
+                        switchMap((element: EducationEntity) => {
+                            return from(this.languageRepository.save({ title, text, languageCode, education: element })).pipe(
+                                switchMap(() => {
+                                    return this.getOne(element.id)
+                                })
+                            )
+                        }),
                 );
             }
 

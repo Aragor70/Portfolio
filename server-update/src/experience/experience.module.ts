@@ -5,11 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExperienceEntity } from './models/experience.entity';
 import { AuthModule } from 'src/auth/auth.module';
 import { ImageModule } from 'src/image/image.module';
+import { ExperienceLanguageVersionEntity } from './models/experienceLanguageVersion.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-        ExperienceEntity
+        ExperienceEntity,
+        ExperienceLanguageVersionEntity
     ]),
     AuthModule,
     ImageModule

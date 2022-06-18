@@ -11,6 +11,7 @@ import {
     ManyToOne,
     OneToMany
   } from 'typeorm';
+import { EducationLanguageVersionEntity } from './EducationLanguageVersion.entity';
 import { Language } from './language.enum';
   
   import { Status } from './status.enum';
@@ -23,17 +24,14 @@ import { Language } from './language.enum';
     @Column({ nullable: true })
     name: string;
   
-    @Column({ nullable: true })
-    title: string;
-  
-    @Column({ nullable: true })
-    text: string;
-  
     @Column({ type: 'enum', enum: Status, default: Status.CURRENT })
     status: Status;
     
     @Column({ nullable: true })
     website: string;
+    
+    @Column({ default: false })
+    isVisible: boolean;
 
     @Column({ nullable: true })
     term: string;
@@ -42,10 +40,16 @@ import { Language } from './language.enum';
     languageCode: string;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+    started_at: Date;
+
+    @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     created_at: Date;
 
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
     updated_at: Date;
+    
+    @OneToMany(() => EducationLanguageVersionEntity, languageVersion => languageVersion.education)
+    languageVersions: EducationLanguageVersionEntity[]
   
     @ManyToOne(() => UserEntity, user => user.id)
     @JoinColumn()

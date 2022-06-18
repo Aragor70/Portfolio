@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { EducationService } from './education.service';
@@ -9,8 +9,8 @@ export class EducationController {
     constructor(private educationService: EducationService) {}
     
     @Get('')
-    getAll(): Observable<EducationEntity> {
-        return this.educationService.getAll().pipe(map((res: any) => res));
+    getAll(@Query() query): Observable<EducationEntity> {
+        return this.educationService.getAll(query).pipe(map((res: any) => res));
     }
     @Get(':id')
     getOne(@Param('id') id: number): Observable<EducationEntity> {

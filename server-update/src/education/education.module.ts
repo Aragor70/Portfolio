@@ -5,11 +5,13 @@ import { ImageModule } from 'src/image/image.module';
 import { EducationController } from './education.controller';
 import { EducationService } from './education.service';
 import { EducationEntity } from './models/education.entity';
+import { EducationLanguageVersionEntity } from './models/EducationLanguageVersion.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-        EducationEntity
+        EducationEntity,
+        EducationLanguageVersionEntity
     ]),
     AuthModule,
     ImageModule

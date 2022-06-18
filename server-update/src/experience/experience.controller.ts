@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { ExperienceService } from './experience.service';
@@ -10,8 +10,8 @@ export class ExperienceController {
     constructor(private experienceService: ExperienceService) {}
 
     @Get('')
-    getAll(): Observable<ExperienceEntity> {
-        return this.experienceService.getAll().pipe(map((res: any) => res));
+    getAll(@Query() query): Observable<ExperienceEntity> {
+        return this.experienceService.getAll(query).pipe(map((res: any) => res));
     }
     @Get(':id')
     getOne(@Param('id') id: number): Observable<ExperienceEntity> {

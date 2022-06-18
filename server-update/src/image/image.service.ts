@@ -13,7 +13,7 @@ export class ImageService {
     ) {}
     
     getOne(id: number): Observable<ImageEntity> {
-        return from(this.imageRepository.findOneOrFail({where: {id}, relations: ['project_image', 'project_icon']}))
+        return from(this.imageRepository.findOneOrFail({where: {id}, relations: ['project_image', 'project_icon', 'education_image', 'education_icon', 'experience_image', 'experience_icon', ]}))
             .pipe(
             map((element: ImageEntity) => {
                 return element;
