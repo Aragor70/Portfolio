@@ -11,7 +11,7 @@ import {
     ManyToOne,
     OneToMany
   } from 'typeorm';
-import { EducationLanguageVersionEntity } from './EducationLanguageVersion.entity';
+import { EducationLanguageVersionEntity } from './educationLanguageVersion.entity';
 import { Language } from './language.enum';
   
   import { Status } from './status.enum';
