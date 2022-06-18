@@ -78,6 +78,26 @@
             "link.show.details": "View project details"
         }
     },
+    "experience": {
+        "header.title": "Work experience",
+        "overview": "W szczególności tworzę aplikacje napisane z TypeScript i Python w środowisku bibliotek React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS i Jest. Ta strona jest umożliwia przegląd rozwoju aplikacji.",
+        "section.current.headline": "Actual projects",
+        "section.completed.headline": "Completed projects",
+        "input.search.placeholder": "Wpisz nazwę",
+        "project": {
+            "link.show.details": "Pokaż szczegóły"
+        }
+    },
+    "education": {
+        "header.title": "Education",
+        "overview": "W szczególności tworzę aplikacje napisane z TypeScript i Python w środowisku bibliotek React Js / Angular, Redux Js, Django, Express / Nest Js, CSS / SCSS i Jest. Ta strona jest umożliwia przegląd rozwoju aplikacji.",
+        "section.current.headline": "Actual projects",
+        "section.completed.headline": "Completed projects",
+        "input.search.placeholder": "Wpisz nazwę",
+        "project": {
+            "link.show.details": "Pokaż szczegóły"
+        }
+    },
     "at": {
         "text": "Text me",
         "form": {

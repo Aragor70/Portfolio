@@ -20,8 +20,7 @@ const ListPreview = ( props: any ) => {
 
             setLoadingList(true)
 
-            let values = await props?.list?.filter((element: any) => props?.status ? element.status?.status === props.status : true)
-                            .filter((element: any) => props.isVisible ? element.isVisible === props.isVisible : element?.isVisible);
+            let values = await props?.list?.filter((element: any) => props?.status ? ( element.status?.status ? (element.status?.status === props.status) : element.status ? (element.status === props.status) : false ) : true);
         
             if (props?.sortBy && props?.list?.length) {
                 const sortBy = await props?.sortBy

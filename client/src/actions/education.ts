@@ -15,7 +15,7 @@ export const getEducations = async (payload: any = { languageCode: Language.ENGL
             }
         }
         const res = await axios.get(URL + '/api/education/', options);
-
+        console.log(res.data)
         return res.data;
 
     } catch (err: any) {

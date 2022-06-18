@@ -54,7 +54,7 @@ const ProjectPreview = ( props: any ) => {
                     }
                     
                     {
-                        (props.loadingRepos || !props.repositories[0]) ? null : <GithubStats repos={props?.repos} name={props.repositories[0]?.name} />
+                        (!props?.repos || (props?.loadingRepos || !props?.repositories[0])) ? null : <GithubStats repos={props?.repos} name={props.repositories[0]?.name} />
                     }
 
                     

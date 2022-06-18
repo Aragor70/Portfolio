@@ -106,7 +106,9 @@ const Experience = ({ setPageTitle }: any) => {
                         {
                             loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
 
-                                <ListPreview status="completed" title={<Translate tKey="sd.section.ongoing.headline" />} list={projects} Component={ProjectPreview} />
+                                <ListPreview status="current" title={<Translate tKey="experience.section.current.headline" />} list={projects} Component={ProjectPreview} />
+
+                                <ListPreview status="completed" title={<Translate tKey="experience.section.completed.headline" />} list={projects} Component={ProjectPreview} />
 
                             </Fragment> : "Experiences not found."
                         }

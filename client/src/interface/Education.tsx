@@ -110,7 +110,10 @@ const Education = ({ setPageTitle }: any) => {
                         {
                             loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
 
-                                <ListPreview status="completed" title={<Translate tKey="sd.section.ongoing.headline" />} list={projects} Component={ProjectPreview} />
+                                <ListPreview status="current" title={<Translate tKey="education.section.current.headline" />} list={projects} Component={ProjectPreview} />
+
+                                <ListPreview status="completed" title={<Translate tKey="education.section.completed.headline" />} list={projects} Component={ProjectPreview} />
+                                
 
                             </Fragment> : "Educations not found."
                         }
