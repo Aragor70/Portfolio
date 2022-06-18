@@ -9,7 +9,7 @@ import { ImageEntity } from 'src/image/models/image.entity';
 import { ImageService } from 'src/image/image.service';
 import { searchPattern } from 'src/utils/constant';
 import moment from 'moment';
-import { EducationLanguageVersionEntity } from './models/EducationLanguageVersion.entity';
+import { EducationLanguageVersionEntity } from './models/educationLanguageVersion.entity';
 
 @Injectable()
 export class EducationService {
