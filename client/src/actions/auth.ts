@@ -10,11 +10,11 @@ export const loadUser = async (token = "") => {
 
     try {
         const res = await axios.get(URL + '/api/user/');
-        console.log(res.data)
+        
         return res.data
 
     } catch (err: any) {
-        console.log(err.message);
+        return err.message;
     }
 }
 
@@ -37,7 +37,7 @@ export const login = async (formData: any) => {
         }
 
     } catch (err: any) {
-        console.log(err.message);
+        return err.message
     }
 }
 
@@ -48,6 +48,6 @@ export const register = async (formData: any) => {
         return res;
         
     } catch (err: any) {
-        console.log(err.message);
+        return err.message
     }
 }

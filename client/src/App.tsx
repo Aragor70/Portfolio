@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { loadUser } from './actions/auth';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import { ErrorContext } from './context/ErrorContext';
 import { LanguageContext } from './context/LanguageContext';
 import { UserContext } from './context/UserContext';
 import AdminDashboard from './interface/AdminDashboard';
@@ -49,17 +50,31 @@ const App = ({ location }: any) => {
 
   
   const [ user, setUser ] = useState(null);
+
+  const [loadingUser, setLoadingUser ] = useState(false)
+  
+  const [errorResponse, setErrorResponse] = useState('')
+
   const [ languageCode, setLanguageCode ] = useState(Language.ENGLISH)
 
   const value = useMemo(() => ({ user, setUser }), [user]);
 
   const languageValue = useMemo(() => ({ languageCode, setLanguageCode }), [languageCode]);
+  const errorValue = useMemo(() => ({ errorResponse, setErrorResponse }), [errorResponse]);
 
   const refreshUser = async () => {
 
+    setLoadingUser(true);
     const res = await loadUser()
-
+    if (typeof res === 'string') {
+                
+      setLoadingUser(false)
+      return setErrorResponse(res)
+      
+  }
+    setErrorResponse('')
     setUser(res)
+    setLoadingUser(false)
 
   }
   useEffect(() => {
@@ -75,10 +90,10 @@ const App = ({ location }: any) => {
   }, [])
 
 
-
   return (
     <UserContext.Provider value={value}>
     <LanguageContext.Provider value={languageValue}>
+    <ErrorContext.Provider value={errorValue}>
         
         <header className="header-content" style={location.pathname !== '/' ? { zIndex: 11 } : {} }>
 
@@ -146,6 +161,7 @@ const App = ({ location }: any) => {
           <p>© Nicolai 2021</p>
         </footer>
 
+    </ErrorContext.Provider>
     </LanguageContext.Provider>
     </UserContext.Provider>
   );

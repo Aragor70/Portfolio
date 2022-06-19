@@ -535,3 +535,76 @@ img {
 .admin-dashboard {
     min-height: 88vh;
 }
+
+.edit-toggle {
+    font-weight: 600;
+    font-size: 14px;
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    height: 50px;
+    align-items: center;
+    display: flex;
+}
+
+.edit-toggle:hover {
+    font-weight: 900;
+    
+}
+
+.edit-menu {
+    display: flex;
+    flex-direction: column;
+    left: 15px;
+    top: 30px;
+    position: absolute;
+    z-index: 100;
+    padding: 0;
+    list-style: none;
+    gap: 2.5px;
+    min-width: 300px;
+    background-color: #5cb0bd;
+    border-radius: 7.5px;
+    box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+    padding: 7.5px;
+    margin: 0;
+}
+
+.edit-menu li {
+    min-width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 7.5px;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 18px;
+    color: #f2f2f2;
+    font-weight: 500;
+}
+
+.edit-menu li:hover {
+    background-color: #fff;
+    border-radius: 7.5px;
+    color: rgba(8,27,51,.8);
+    font-weight: 900;
+}
+
+.edit-menu li > * {
+    margin: auto 0;
+}
+
+article
+{
+    position: relative;
+}
+
+.params textarea {
+    width: 100%;
+    padding: 7.5px;
+    font-size: 18px;
+}

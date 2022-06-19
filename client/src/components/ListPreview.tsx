@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
+import { UserContext } from '../context/UserContext';
 import { Language } from '../utils/constant';
 import Loading from './Loading';
 import { Translate } from './Translate';
@@ -13,6 +14,8 @@ const ListPreview = ( props: any ) => {
     const [ list, setList ] = useState([])
 
     const [ loadingList, setLoadingList ] = useState(false)
+    
+    const [ isEditable, setIsEditable ] = useState(false)
 
     useEffect(() => {
 
@@ -36,12 +39,21 @@ const ListPreview = ( props: any ) => {
 
     }, [props?.sortBy, props?.status, props?.isVisible, props?.list])
 
+    
+    const { user } = useContext(UserContext)
+
+    useEffect(() => {
+        
+        setIsEditable(!!user)
+
+    }, [ user ])
+
     if (loadingList) return <Loading />
     if (!list.length) return null
+
     
     return (
         <Fragment>
-
             {props?.title &&  <h1>{ props?.title }</h1>}
 
             {
@@ -53,7 +65,7 @@ const ListPreview = ( props: any ) => {
             }
 
             {
-                list?.length ? list?.map((element: any, index: number) => <Component key={index} {...props} {...element} languageCode={languageContext?.languageCode || Language.ENGLISH} />) : null
+                list?.length ? list?.map((element: any, index: number) => <Component key={index} {...props} {...element} languageCode={languageContext?.languageCode || Language.ENGLISH} isEditable={isEditable} />) : null
             }
 
 

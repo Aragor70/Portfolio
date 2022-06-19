@@ -77,8 +77,6 @@ const SD = ({ setPageTitle }: any) => {
 
     const [errorResponse, setErrorResponse] = useState('')
 
-    
-
     useEffect(() => {
 
         (async() => {
