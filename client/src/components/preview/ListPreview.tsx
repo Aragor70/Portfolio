@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
-import { UserContext } from '../context/UserContext';
-import { Language } from '../utils/constant';
-import Loading from './Loading';
-import { Translate } from './Translate';
+import { LanguageContext } from '../../context/LanguageContext';
+import { UserContext } from '../../context/UserContext';
+import { Language } from '../../utils/constant';
+import Loading from '../Loading';
+import { Translate } from '../Translate';
 
 const ListPreview = ( props: any ) => {
 

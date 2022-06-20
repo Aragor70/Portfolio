@@ -36,8 +36,8 @@ import { LanguageContext } from '../context/LanguageContext';
 import FilterElement from '../components/FilterElement';
 import Loading from '../components/Loading';
 import ErrorResponse from '../components/ErrorResponse';
-import ListPreview from '../components/ListPreview';
-import ProjectPreview from '../components/sd/ProjectPreview';
+import ListPreview from '../components/preview/ListPreview';
+import ProjectPreview from '../components/preview/ProjectPreview';
 
 
 const Experience = ({ setPageTitle }: any) => {

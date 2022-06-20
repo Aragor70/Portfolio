@@ -84,7 +84,7 @@ const ProjectPreview = ( props: any ) => {
                         <li onClick={() => toggleEdit('title')}>Title</li>
                         <li onClick={() => toggleEdit('text')}>Content</li>
                         <li onClick={() => toggleEdit('website')}>Website</li>
-                        <li>Status</li>
+                        <li onClick={() => toggleEdit('status')}>Status</li>
                         <li>Repository</li>
 
                         <li>Add icon</li>

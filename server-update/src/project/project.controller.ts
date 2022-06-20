@@ -14,10 +14,10 @@ export class ProjectController {
     getAll(@Query() query): Observable<ProjectEntity> {
         return this.projectService.getAll(query).pipe(map((res: any) => res));
     }
-    @Get(':id')
-    getOne(@Param('id') id: number): Observable<ProjectEntity> {
+    @Get(':value')
+    getOne(@Param('value') value: string | number): Observable<ProjectEntity> {
 
-        return this.projectService.getOne(id).pipe(map((res: ProjectEntity) => res));
+        return this.projectService.getOne(value).pipe(map((res: ProjectEntity) => res));
     }
     @UseGuards(JwtGuard)
     @Post('')

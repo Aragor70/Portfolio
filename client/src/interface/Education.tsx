@@ -41,9 +41,9 @@ import FilterElement from '../components/FilterElement';
 import { LanguageContext } from '../context/LanguageContext';
 import ErrorResponse from '../components/ErrorResponse';
 import Loading from '../components/Loading';
-import ListPreview from '../components/ListPreview';
+import ListPreview from '../components/preview/ListPreview';
 import { getEducations } from '../actions/education';
-import ProjectPreview from '../components/sd/ProjectPreview';
+import ProjectPreview from '../components/preview/ProjectPreview';
 
 
 const Education = ({ setPageTitle }: any) => {

@@ -24,10 +24,10 @@ export const getProjects = async (payload: any = { languageCode: Language.ENGLIS
     }
 }
 
-export const getProject = async (id: number) => {
+export const getProject = async (value: string | number) => {
     try {
         
-        const res = await axios.get(URL + '/api/project/' + id);
+        const res = await axios.get(URL + '/api/project/' + value);
 
         return res.data;
 

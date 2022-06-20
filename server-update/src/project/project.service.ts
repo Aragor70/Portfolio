@@ -83,9 +83,26 @@ export class ProjectService {
         );
     }
     
-    getOne(id: number): Observable<ProjectEntity> {
-        return from(this.projectRepository.findOneOrFail({ where: {id}, relations: ['user', 'images', 'icons', 'repositories', 'status', 'languageVersions'] }))
-            .pipe(
+    getOne(value: string | number | any): Observable<ProjectEntity> {
+            
+        const request = this.projectRepository.createQueryBuilder('project')
+        .leftJoinAndSelect('project.user', 'user')
+        .leftJoinAndSelect('project.images', 'images')
+        .leftJoinAndSelect('project.icons', 'icons')
+        .leftJoinAndSelect('project.repositories', 'repositories')
+        .leftJoinAndSelect('project.status', 'status')
+        .leftJoinAndSelect('project.languageVersions', 'languageVersions')
+        
+        if (isNaN(value)) {
+            request.where("LOWER(project.name) = LOWER(:value)", { value })
+        } else {
+            request.where("project.id = :value", { value })
+        }
+    
+        return from( 
+            request.getOne()
+        )
+        .pipe(
             map((element: ProjectEntity) => {
                 return element;
             }),
