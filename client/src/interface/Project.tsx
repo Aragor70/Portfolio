@@ -1,8 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
+import HtmlParser from 'react-html-parser';
+import { Link, withRouter } from 'react-router-dom';
 import { getProject } from '../actions/project';
 import ErrorResponse from '../components/ErrorResponse';
+import GithubStats from '../components/GithubStats';
 import Loading from '../components/Loading';
+import { Translate } from '../components/Translate';
+import { LanguageContext } from '../context/LanguageContext';
+import { Language } from '../utils/constant';
 
 
 
@@ -14,13 +19,23 @@ const Project = ({ match }: any) => {
 
     const [errorResponse, setErrorResponse] = useState('')
 
+    const { languageCode } = useContext(LanguageContext);
+
+    const [ title, setTitle ] = useState<string | null>(null);
+    const [ text, setText ] = useState<string | null>(null);
+
+    const [ otherLngVersion, setOtherLngVersion ] = useState(false)
+
+    let header: any = useRef(null)
+
+
     useEffect(() => {
 
         (async() => {
             
             setLoadingProject(true)
 
-            const project_name: string = match.params.name
+            const project_name: string = match.params.project_name
 
             if (project_name) {
                 const res = await getProject(project_name)
@@ -31,9 +46,20 @@ const Project = ({ match }: any) => {
                     return setErrorResponse(res)
                     
                 }
+
+                const value = await res?.languageVersions?.filter((element: any) => element.languageCode === languageCode)[0];
+
+                setText(value?.text || '')
+                setTitle(value?.title || '')
+
+                if (!value && res?.languageVersions?.length) {
+                    setOtherLngVersion(true)
+                } else {
+                    setOtherLngVersion(false)
+                }
+
                 setErrorResponse('')
                 setProject(res)
-
 
             }
             
@@ -41,7 +67,13 @@ const Project = ({ match }: any) => {
             
         })()
 
-    }, [match.params.name])
+    }, [match.params.first_name, languageCode])
+
+    useEffect(() => {
+        
+        if (header?.current) header?.current?.scrollIntoView({ block: "start", inline: "nearest" })
+
+    }, [header?.current, match.params.first_name, loadingProject])
 
     if (loadingProject) return <Loading />;
 
@@ -51,17 +83,94 @@ const Project = ({ match }: any) => {
 
     return (
         <Fragment>
-            <article>
 
-                <h1>{project.name}</h1>
-                <h1>{project.name}</h1>
-                <h1>{project.name}</h1>
-                <h1>{project.name}</h1>
-                <h1>{project.name}</h1>
+            {/* 
+            
+            <article className="single-title">
+
+                <h3><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
+
+            </article> */}
+            
+            {
+                    !!project?.images?.length && <div className="main-image" >{
+                    
+                        project.images.map((element: any, index: number) => <Fragment key={index}>
+                                <img className="grid-one" src={ '/assets/images/' + element?.name } />
+                                <img className="grid-two" src={ '/assets/images/' + element?.name } />
+                                <img className="grid-three" src={ '/assets/images/' + element?.name } />
+                        </Fragment>)
+                        
+                    }</div>
+            }
+
+            <article className="single-content">
+                <div className="section-image">
                 
-                <p><span>{project.title}</span></p>
+                    <label style={{ width: '100%', alignItems: 'center', display: 'flex' }}>
+                        <img style={{ borderRadius: '25px', width: '50%', margin: '134px auto' }} src={ '/assets/images/' + project?.images[0]?.name } />
+                    </label>
+                
+                </div>
+                <div>
+
+                    <h3>Name</h3>
+                    
+                    <h3><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
+
+                    <hr />
+                    <h3>Description</h3>
+                    {
+                        text && HtmlParser(text)
+                    }
+                    <hr />
+
+                    {
+                        project?.loadingRepos ? <Fragment><h3>Repository</h3><Loading /></Fragment> : (!project?.repos || !project?.repositories[0]) ? null : <Fragment>
+                            
+                        <h3>Repository</h3>
+                        {
+                            <GithubStats repos={project?.repos} name={project.repositories[0]?.name} />
+                        }
+
+                        <hr />
+
+                        </Fragment>
+                    }
+
+                    
+                    {
+                        otherLngVersion && <p style={{ color: 'orange' }}><Translate tKey='wrong.language.version' /></p>
+                    }
+
+                    
+                    <h3>Tech stack</h3>
+                    <ul className="icons">
+                        {
+                            !!project.icons?.length && project?.icons?.map((element: any) => element.isFile ? <li key={element.id} className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"  key={element.id}><i className={element.name}></i><span>{element.label}</span></li>)
+                        }
+                    </ul>
+                    
+                    
+                    <ul className="more-about">
+
+
+                        {
+                            !!project.repositories?.length && <li className="icon-box" onClick={() => window.open(project?.repositories[0]?.url, "_blank")}><i className="fas fa-code fa"></i></li>
+                        }
+
+                        {
+                            !!project.website && <li className="icon-box" onClick={() => window.open(project.website, "_blank")}><i className="fab fa-chrome fa"></i></li>
+                        }
+                        
+                    </ul>
+
+                </div>
                 
             </article>
+                        
+            
+
         </Fragment>
     );
 }

@@ -95,7 +95,7 @@ const App = ({ location }: any) => {
     <LanguageContext.Provider value={languageValue}>
     <ErrorContext.Provider value={errorValue}>
         
-        <header className="header-content" style={location.pathname !== '/' ? { zIndex: 11 } : {} }>
+        <header className="header-content" style={location.pathname === '/' ? { display: 'none' } : {} }>
 
           <Header pageTitle={pageTitle} setPageTitle={setPageTitle} />
         
