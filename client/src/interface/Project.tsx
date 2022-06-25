@@ -15,9 +15,9 @@ const Project = ({ match }: any) => {
 
     const [ project, setProject ] = useState<any>(null)
     
-    const [loadingProject, setLoadingProject] = useState<boolean>(false)
+    const [ loadingProject, setLoadingProject ] = useState<boolean>(false)
 
-    const [errorResponse, setErrorResponse] = useState('')
+    const [ errorResponse, setErrorResponse ] = useState('')
 
     const { languageCode } = useContext(LanguageContext);
 
@@ -93,15 +93,15 @@ const Project = ({ match }: any) => {
             </article> */}
             
             {
-                    !!project?.images?.length && <div className="main-image" >{
+                !!project?.images?.length && <div className="main-image" >{
+                
+                    project.images.map((element: any, index: number) => <Fragment key={index}>
+                            <img className="grid-one" src={ '/assets/images/' + element?.name } />
+                            <img className="grid-two" src={ '/assets/images/' + element?.name } />
+                            <img className="grid-three" src={ '/assets/images/' + element?.name } />
+                    </Fragment>)
                     
-                        project.images.map((element: any, index: number) => <Fragment key={index}>
-                                <img className="grid-one" src={ '/assets/images/' + element?.name } />
-                                <img className="grid-two" src={ '/assets/images/' + element?.name } />
-                                <img className="grid-three" src={ '/assets/images/' + element?.name } />
-                        </Fragment>)
-                        
-                    }</div>
+                }</div>
             }
 
             <article className="single-content">
@@ -145,6 +145,7 @@ const Project = ({ match }: any) => {
 
                     
                     <h3>Tech stack</h3>
+                    
                     <ul className="icons">
                         {
                             !!project.icons?.length && project?.icons?.map((element: any) => element.isFile ? <li key={element.id} className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"  key={element.id}><i className={element.name}></i><span>{element.label}</span></li>)

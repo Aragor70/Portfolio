@@ -7,6 +7,7 @@ import { Language, json } from '../utils/constant';
 import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
 import { ReactComponent as ArrowSvg } from '../style/icons/play-outline.svg';
 import ErrorResponse from './ErrorResponse';
+import { getProject } from '../actions/project';
 
 
 const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
@@ -31,11 +32,11 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
     const refOne = useRef<any>(null)
     const refTwo = useRef<any>(null)
 
-    const handleSearch = async (payload: any) => {
+    const handleSearch = async (payload: any, isExact: boolean = false) => {
 
         setLoadingSearch(true)
         
-        const res = await loadValues(payload)
+        const res = await loadValues(payload, isExact)
         
         if (typeof res === 'string') {
                 
@@ -63,7 +64,6 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         
         const res = await loadValues(formData)
         
-        
         if (typeof res === 'string') {
                 
             setLoadingSearch(false)
@@ -71,7 +71,13 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
             
         }
 
-        setProjects(res)
+        const values = res?.filter((element: any) => element?.name?.toLowerCase() === formData?.phrase?.toLowerCase() )
+
+        if (values[0]) {
+            setProjects(values)
+        } else {
+            setProjects(res)
+        }
         setErrorResponse('')
         
     }
@@ -82,11 +88,11 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         
         setFormData(value)
         
-        await handleSearch(value)
+        await handleSearch(value, true)
 
-        const res = await loadValues(value)
+        const res = await getProject(element.name)
             
-        await setProjects(res)
+        await setProjects([res])
 
         setOpenSelect(false)
 

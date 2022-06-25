@@ -3,7 +3,7 @@ import { Language, URL } from "../utils/constant";
 
 
 
-export const getProjects = async (payload: any = { languageCode: Language.ENGLISH }) => {
+export const getProjects = async (payload: any = { languageCode: Language.ENGLISH }, isExact: boolean = false) => {
     try {
         
         if (localStorage?.languageCode) {
