@@ -21,21 +21,19 @@ const ProjectPreview = ( props: any ) => {
 
     const [ openEdit, setOpenEdit ] = useState<any>({
         text: false,
-        title: false
+        title: false,
+        status: false
     })
     const [ editMenu, setEditMenu ] = useState(false)
 
-    const [ formData, setFormData ] = useState<any>({
-        text: '',
-        title: ''
-    })
+    const [ formData, setFormData ] = useState<any>(null)
 
     const toggleEdit = (selector: string | null = null) => {
 
         if (selector) {
             
             setOpenEdit({ ...openEdit, [selector]: !openEdit[selector] })
-
+            setFormData(null)
         }
         
         setEditMenu(!editMenu)
@@ -148,6 +146,33 @@ const ProjectPreview = ( props: any ) => {
                     </ul>
                 
                 </div>
+
+                {
+                    openEdit['status'] && <div className="update-window">
+                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>{'Status'}</span></h3>
+                    <span>status name</span>
+                        <ul>
+                            
+                            {
+                                ['ongoing', 'event', 'online', 'repository', 'draft'].map((element: any, index: number) => <li key={index}>{element}</li>)
+                            }
+                            
+                        </ul>
+                        
+                        {
+                            props.location.pathname.includes('project') && <Fragment>
+                                        
+                                <div>
+                                    <span>order</span>
+
+                                    <input type='text' name="order" value={formData?.order || ''} placeholder="Enter an order by status (default 0)" />
+                                </div>
+                            </Fragment>
+                        }
+                        <button type='button' onClick={() => toggleEdit('status')}>Cancel</button>
+                        <button type='button'>Submit</button>
+                    </div>
+                }
                 
             </article>
         </Fragment>

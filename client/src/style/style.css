@@ -105,7 +105,6 @@ hr
     z-index: 2;
     padding: 0 5vw;
     margin-top: 0;
-    position: relative;
     background-color: #f2f2f2;
     
 }
@@ -413,7 +412,6 @@ footer > p
     margin-left: auto;
 }
 .output {
-    position: relative;
     z-index: 10;
 }
 /* .output::before {

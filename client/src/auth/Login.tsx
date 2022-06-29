@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
 import ErrorResponse from '../components/ErrorResponse';
+import Loading from '../components/Loading';
 import { Translate } from '../components/Translate';
 import { UserContext } from '../context/UserContext';
 
@@ -24,7 +25,7 @@ const Login = ({ history, setPageTitle }: any) => {
         }
     }, [setPageTitle])
 
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser, loadingUser, setLoadingUser } = useContext(UserContext);
 
     const [formData, setFormData] = useState<LoginForm>({
         email: null,
@@ -47,20 +48,21 @@ const Login = ({ history, setPageTitle }: any) => {
         if (!password) {
             return setAlert('auth.error.login.password')
         }
-        
+        setLoadingUser(true)
 
         const res: any = await login(formData)
 
         setUser(res)
 
         setAlert('')
+        
+        setLoadingUser(false)
 
         if (res?.token) return history.push('/')
     }
 
     return (
         <Fragment>
-            
             <form className="auth-form" autoComplete="off" onSubmit={e=> handleSubmit(e)}>
                 <h1><Translate tKey="auth.login.headline" />:</h1>
                 
@@ -76,7 +78,7 @@ const Login = ({ history, setPageTitle }: any) => {
                 </div>
 
                 {
-                    !!alert && <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} />
+                    alert ? <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} /> : loadingUser ? <Loading /> : null
                 }
             </form>
         </Fragment>

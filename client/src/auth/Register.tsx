@@ -1,8 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { register } from '../actions/auth';
 import ErrorResponse from '../components/ErrorResponse';
+import Loading from '../components/Loading';
 import { Translate } from '../components/Translate';
+import { UserContext } from '../context/UserContext';
 
 import '../style/auth.css'
 
@@ -24,6 +26,8 @@ const Register = ({ history, setPageTitle }: any) => {
         password: null,
         passwordConfirmation: null
     })
+    
+    const { loadingUser, setLoadingUser } = useContext(UserContext);
     
     const [alert, setAlert] = useState('');
 
@@ -83,9 +87,8 @@ const Register = ({ history, setPageTitle }: any) => {
                     <button type="submit" className="submit-button right-button"><Translate tKey="auth.register.register" /></button>
                 </div>
 
-                
                 {
-                    !!alert && <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} />
+                    alert ? <ErrorResponse message={alert} style={{ css: { color: 'orange' }}} /> : loadingUser ? <Loading /> : null
                 }
             </form>
         </Fragment>

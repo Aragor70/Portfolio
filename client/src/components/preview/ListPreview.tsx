@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { LanguageContext } from '../../context/LanguageContext';
 import { UserContext } from '../../context/UserContext';
 import { Language } from '../../utils/constant';
@@ -72,4 +73,4 @@ const ListPreview = ( props: any ) => {
         </Fragment>
     );
 }
-export default ListPreview;
+export default withRouter(ListPreview);

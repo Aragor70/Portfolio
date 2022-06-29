@@ -51,13 +51,13 @@ const App = ({ location }: any) => {
   
   const [ user, setUser ] = useState(null);
 
-  const [loadingUser, setLoadingUser ] = useState(false)
+  const [loadingUser, setLoadingUser ] = useState(false);
   
-  const [errorResponse, setErrorResponse] = useState('')
+  const [errorResponse, setErrorResponse] = useState('');
 
-  const [ languageCode, setLanguageCode ] = useState(Language.ENGLISH)
+  const [ languageCode, setLanguageCode ] = useState(Language.ENGLISH);
 
-  const value = useMemo(() => ({ user, setUser }), [user]);
+  const value = useMemo(() => ({ user, setUser, loadingUser, setLoadingUser }), [user, loadingUser]);
 
   const languageValue = useMemo(() => ({ languageCode, setLanguageCode }), [languageCode]);
   const errorValue = useMemo(() => ({ errorResponse, setErrorResponse }), [errorResponse]);
@@ -95,14 +95,23 @@ const App = ({ location }: any) => {
     <LanguageContext.Provider value={languageValue}>
     <ErrorContext.Provider value={errorValue}>
         
-        <header className="header-content" style={location.pathname === '/' ? { display: 'none' } : {} }>
-
-          <Header pageTitle={pageTitle} setPageTitle={setPageTitle} />
+        {
+          location.pathname !== '/' && <Fragment>
+            <div className='header-element'></div>
+            
+            <header className='header-content'>
+    
+                <Header pageTitle={pageTitle} setPageTitle={setPageTitle} />
+            
+            </header>
+          </Fragment>
+        }
         
-        </header>
-        
-        
+      
         <main className="output" ref={scrollTo} style={ location.pathname === '/' ? { margin: 0 } : {}}>
+          {
+            user && <div style={{ position: 'fixed', top: 0, left: '30px', zIndex: 1000 }}>YOU ARE LOGGED IN</div>
+          }
           <Switch>
             <Route exact path="/">
               <Home pageTitle={pageTitle} setPageTitle={setPageTitle} />
@@ -125,7 +134,7 @@ const App = ({ location }: any) => {
             <Route exact path="/messages">
               <Messages pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
-
+            
             <Route exact path="/admin">
               <AdminDashboard pageTitle={pageTitle} setPageTitle={setPageTitle} />
             </Route>
