@@ -5,6 +5,8 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { loadUser } from './actions/auth';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import ContactMe from './components/ContactMe';
+import Footer from './components/Footer';
 import { ErrorContext } from './context/ErrorContext';
 import { LanguageContext } from './context/LanguageContext';
 import { UserContext } from './context/UserContext';
@@ -167,7 +169,7 @@ const App = ({ location }: any) => {
           }
         </main>
         <footer>
-          <p>© Nicolai 2021</p>
+          <Footer location={location} />
         </footer>
 
     </ErrorContext.Provider>

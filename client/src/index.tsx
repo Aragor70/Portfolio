@@ -12,6 +12,7 @@ import './style/auth.css';
 import './style/timeline.css';
 import './style/filterElement.css';
 import './style/admin.css';
+import './style/contact-me.css';
 import './utils/i18n';
 
 ReactDOM.render(

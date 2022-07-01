@@ -26,14 +26,16 @@ const ProjectPreview = ( props: any ) => {
     })
     const [ editMenu, setEditMenu ] = useState(false)
 
-    const [ formData, setFormData ] = useState<any>(null)
+    const [ formData, setFormData ] = useState<any>({})
+
+    console.log(formData)
 
     const toggleEdit = (selector: string | null = null) => {
 
         if (selector) {
             
             setOpenEdit({ ...openEdit, [selector]: !openEdit[selector] })
-            setFormData(null)
+            setFormData({ id: props.id })
         }
         
         setEditMenu(!editMenu)
@@ -50,6 +52,15 @@ const ProjectPreview = ( props: any ) => {
         
         setFormData({ ...formData, [e.target.name]: e.target.value })
         
+    }
+
+    const updateProject = async () => {
+
+        try {
+
+        } catch (err: any) {
+            console.log(err.message )
+        }
     }
 
     useEffect(() => {
@@ -154,7 +165,7 @@ const ProjectPreview = ( props: any ) => {
                         <ul>
                             
                             {
-                                ['ongoing', 'event', 'online', 'repository', 'draft'].map((element: any, index: number) => <li key={index}>{element}</li>)
+                                ['ongoing', 'event', 'online', 'repository', 'draft'].map((element: any, index: number) => <li style={formData?.status === element ? { color: 'green', fontWeight: 900 } : {}} key={index} onClick={() => setFormData({ ...formData, status: element })}>{element}</li>)
                             }
                             
                         </ul>
@@ -165,12 +176,12 @@ const ProjectPreview = ( props: any ) => {
                                 <div>
                                     <span>order</span>
 
-                                    <input type='text' name="order" value={formData?.order || ''} placeholder="Enter an order by status (default 0)" />
-                                </div>
+                                    <input type='text' name="order" value={formData?.order || ''} placeholder="Enter an order by status (default 0)" onChange={(e: any) => handleChange(e)} />
+                                </div> 
                             </Fragment>
                         }
                         <button type='button' onClick={() => toggleEdit('status')}>Cancel</button>
-                        <button type='button'>Submit</button>
+                        <button type='button' >Submit</button>
                     </div>
                 }
                 

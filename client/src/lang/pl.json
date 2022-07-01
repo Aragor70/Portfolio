@@ -10,6 +10,7 @@
     "until": "Do",
     "error.message": "<p>Zauważyliśmy notifikację o błędzie.</p><p>Proszę sprawdź swój aktualny dostep do internetu.</p>",
     "search.error.message": "<p>Proszę używać liter, cyfr, spacji, przecinków (,) kropek (.) myślników (-) lub podkreśleń (_).</p>",
+    "contact.me": "Napisz do mnie",
     "auth": {
         "login": {
             "headline": "Logowanie",

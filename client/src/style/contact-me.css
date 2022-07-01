@@ -1,0 +1,53 @@
+.contactMe {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    font-size: 18px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 7.5px;
+    transition: 0.15s ease;
+    margin: 0 auto;
+}
+.contactMe:hover {
+    font-weight: 900;
+}
+
+.contactMe label {
+    padding: 10px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(92, 176, 189, 0.5);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactMe label img {
+    height: 100%;
+    inline-size: 100%;
+}
+
+footer .contactMe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 15px;
+}
+footer .contactMe label {
+    height: 35px;
+    inline-size: 35px;
+}
+
+@media (max-width: 1023px) {
+    
+    footer .contactMe {
+        display: none;
+    }
+}

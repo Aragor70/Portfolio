@@ -54,6 +54,7 @@ import ListPreview from '../components/preview/ListPreview';
 import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
 import ErrorResponse from '../components/ErrorResponse';
+import ContactMe from '../components/ContactMe';
 
 const SD = ({ setPageTitle }: any) => {
 
@@ -165,6 +166,7 @@ const SD = ({ setPageTitle }: any) => {
 
                             </Fragment> : "Projects not found."
                         }
+
 
 
                     </div>

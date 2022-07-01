@@ -76,7 +76,7 @@ const AT = ({ setPageTitle }: any) => {
     return (
         <Fragment>
             <div className="section-content">
-                <div className="params">
+                <div className="params" style={{ margin: 'auto'}}>
                 
                     <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
 

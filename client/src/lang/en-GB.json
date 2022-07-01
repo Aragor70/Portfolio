@@ -10,6 +10,7 @@
     "until": "Until",
     "error.message": "<p>We have received an error.</p><p>Please check the internet connection.</p>",
     "search.error.message": "<p>Please use letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).</p>",
+    "contact.me": "Contact Me",
     "auth": {
         "login": {
             "headline": "Login",

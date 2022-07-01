@@ -46,3 +46,15 @@ export const editProject = async (id: number, formData: any) => {
         return 'error.message'
     }
 }
+
+export const updateProjectStatus = async (action: 'include' | 'exclude', formData: any) => {
+    try {
+        
+        const res = await axios.put(URL + '/api/project/status/' + action, formData);
+
+        return res.data;
+
+    } catch (err: any) {
+        return 'error.message'
+    }
+}
