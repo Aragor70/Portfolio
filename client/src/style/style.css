@@ -124,6 +124,11 @@ footer
     padding: 0 5vw;
     margin: 0!important;
 }
+
+footer > * {
+    max-width: 1920px;
+}
+
 footer > div {
     width: 100%;
     height: 100%;
