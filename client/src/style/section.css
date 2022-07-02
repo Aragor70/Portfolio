@@ -815,7 +815,7 @@ article
     bottom: calc(100% + 15px);
     left: 70%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     z-index: 10;
     background-color: #f2f2f2;
     column-gap: 20px;
@@ -838,7 +838,6 @@ article
     row-gap: 7.5px;
     min-width: max-content;
 }
-
 
 .tech-preview label span {
     cursor: default;
@@ -864,4 +863,28 @@ article
 
 .tech-with-popup {
     position: relative;
+}
+
+.tech-with-popup li > span > svg
+{
+    height: 2em;
+    inline-size: 2em;
+    width: 2em;
+    margin: auto;
+}
+
+.tech-with-popup li {
+    display: flex;
+    align-items: center;
+}
+
+.tech-with-popup li > span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tech-with-popup li > span:hover {
+    color:rgba(92, 176, 189, 1);
 }

@@ -21,7 +21,7 @@ const CV = ({ setPageTitle }: any) => {
     const mapWithComma = (list: string[]) => {
         return list.map((element: string, index: number) => [
             index > 0 && ", ",
-            <TechWithPopup element={element} isHover={isHover} setIsHover={setIsHover} />])
+            <TechWithPopup key={index} element={element} isHover={isHover} setIsHover={setIsHover} />])
     }
         
 

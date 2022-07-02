@@ -8,6 +8,7 @@ import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
 import { ReactComponent as ArrowSvg } from '../style/icons/play-outline.svg';
 import ErrorResponse from './ErrorResponse';
 import { getProject } from '../actions/project';
+import Loading from './Loading';
 
 
 const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
@@ -176,7 +177,7 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
                         (openSelect && formData.phrase) && <Fragment>
                             <ul className="search-list">
                                 {
-                                    loadingSearch ? "loading..." : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red', display: 'flex' }}} /> : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : <li>No projects found.</li>
+                                    loadingSearch ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red', display: 'flex' }}} /> : searchList.length ? searchList.map((element: any) => <li key={element.id} onClick={() => handleSelect(element)}><span><ArrowSvg /></span><span>{element.name}</span></li>) : <li>No projects found.</li>
                                 }
                             </ul>
                         </Fragment>

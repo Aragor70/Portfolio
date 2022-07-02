@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { from, map, Observable, switchMap } from 'rxjs';
+import { searchPattern } from 'src/utils/constant';
 import { Repository } from 'typeorm';
 import { ImageEntity } from './models/image.entity';
 
@@ -23,7 +24,13 @@ export class ImageService {
 
     getImages(payload: any): Observable<ImageEntity[]> {
 
-        const { project_image = null, project_icon = null, education_image = null, education_icon = null, experience_image = null, experience_icon = null } = payload;
+        const { phrase = null, project_image = null, project_icon = null, education_image = null, education_icon = null, experience_image = null, experience_icon = null } = payload;
+
+        if (phrase && (typeof phrase !== 'string' || !phrase.match(searchPattern))) {
+            throw new HttpException(
+                'Search with letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).',
+                HttpStatus.BAD_REQUEST)
+        }
 
         const request = this.imageRepository.createQueryBuilder('image')
         .leftJoinAndSelect('image.project_image', 'project_image')
@@ -31,47 +38,45 @@ export class ImageService {
         .leftJoinAndSelect('image.education_image', 'education_image')
         .leftJoinAndSelect('image.education_icon', 'education_icon')
         .leftJoinAndSelect('image.experience_image', 'experience_image')
-        .leftJoinAndSelect('image.experience_icon', 'experience_icon');
+        .leftJoinAndSelect('image.experience_icon', 'experience_icon')
+        
+        .leftJoinAndSelect('project_image.status', 'project_image_status')
+        
+        .leftJoinAndSelect('project_icon.status', 'project_icon_status')
+        
+
 
         if (project_image) {
-            request.where('image.project_image is not null')
-                .leftJoinAndSelect('project_image.languageVersions', 'languageVersions')
-                .leftJoinAndSelect('project_image.status', 'status')
-                .andWhere('project_image.isVisible = :isVisible', { isVisible: true })
-                .orderBy('status.status', 'ASC')
-                .orderBy('status.order', 'ASC')
+            request
+                .orderBy('project_image_status.status', 'ASC')
+                .orderBy('project_image_status.order', 'ASC')
         } if (project_icon) {
-            request.where('image.project_icon is not null')
-                .leftJoinAndSelect('project_icon.languageVersions', 'languageVersions')
-                .leftJoinAndSelect('project_icon.status', 'status')
-                .andWhere('project_icon.isVisible = :isVisible', { isVisible: true })
-                .orderBy('status.status', 'ASC')
-                .orderBy('status.order', 'ASC')
+            request
+                .orderBy('project_icon_status.status', 'ASC')
+                .orderBy('project_icon_status.order', 'ASC')
         } if (education_image) {
-            request.where('image.education_image is not null')
-                .leftJoinAndSelect('education_image.languageVersions', 'languageVersions')
-                .andWhere('education_image.isVisible = :isVisible', { isVisible: true })
-                .orderBy('image.status', 'ASC')
-                .orderBy('image.order', 'ASC')
+            request
+                .orderBy('education_image.status', 'ASC')
+                .orderBy('education_image.order', 'ASC')
         } if (education_icon) {
-            request.where('image.education_icon is not null')
-                .leftJoinAndSelect('education_icon.languageVersions', 'languageVersions')
-                .andWhere('education_icon.isVisible = :isVisible', { isVisible: true })
-                .orderBy('image.status', 'ASC')
-                .orderBy('image.order', 'ASC')
+            request
+                .orderBy('education_icon.status', 'ASC')
+                .orderBy('education_icon.order', 'ASC')
         } if (experience_image) {
-            request.where('image.experience_image is not null')
-                .leftJoinAndSelect('experience_image.languageVersions', 'languageVersions')
-                .andWhere('experience_image.isVisible = :isVisible', { isVisible: true })
-                .orderBy('image.status', 'ASC')
-                .orderBy('image.order', 'ASC')
+            request
+                .orderBy('experience_image.status', 'ASC')
+                .orderBy('experience_image.order', 'ASC')
         } if (experience_icon) {
-            request.where('image.experience_icon is not null')
-                .leftJoinAndSelect('experience_icon.languageVersions', 'languageVersions')
-                .andWhere('experience_icon.isVisible = :isVisible', { isVisible: true })
-                .orderBy('image.status', 'ASC')
-                .orderBy('image.order', 'ASC')
+            request
+                .orderBy('experience_icon.status', 'ASC')
+                .orderBy('experience_icon.order', 'ASC')
         }
+
+        if (phrase) {
+            request.andWhere("LOWER(image.label) ILIKE LOWER(:label)", { label: `%${phrase}%` })
+        }
+        
+        
 
         return from(
             request.getMany()
