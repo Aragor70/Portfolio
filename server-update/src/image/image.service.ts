@@ -31,7 +31,47 @@ export class ImageService {
         .leftJoinAndSelect('image.education_image', 'education_image')
         .leftJoinAndSelect('image.education_icon', 'education_icon')
         .leftJoinAndSelect('image.experience_image', 'experience_image')
-        .leftJoinAndSelect('image.experience_icon', 'experience_icon')
+        .leftJoinAndSelect('image.experience_icon', 'experience_icon');
+
+        if (project_image) {
+            request.where('image.project_image is not null')
+                .leftJoinAndSelect('project_image.languageVersions', 'languageVersions')
+                .leftJoinAndSelect('project_image.status', 'status')
+                .andWhere('project_image.isVisible = :isVisible', { isVisible: true })
+                .orderBy('status.status', 'ASC')
+                .orderBy('status.order', 'ASC')
+        } if (project_icon) {
+            request.where('image.project_icon is not null')
+                .leftJoinAndSelect('project_icon.languageVersions', 'languageVersions')
+                .leftJoinAndSelect('project_icon.status', 'status')
+                .andWhere('project_icon.isVisible = :isVisible', { isVisible: true })
+                .orderBy('status.status', 'ASC')
+                .orderBy('status.order', 'ASC')
+        } if (education_image) {
+            request.where('image.education_image is not null')
+                .leftJoinAndSelect('education_image.languageVersions', 'languageVersions')
+                .andWhere('education_image.isVisible = :isVisible', { isVisible: true })
+                .orderBy('image.status', 'ASC')
+                .orderBy('image.order', 'ASC')
+        } if (education_icon) {
+            request.where('image.education_icon is not null')
+                .leftJoinAndSelect('education_icon.languageVersions', 'languageVersions')
+                .andWhere('education_icon.isVisible = :isVisible', { isVisible: true })
+                .orderBy('image.status', 'ASC')
+                .orderBy('image.order', 'ASC')
+        } if (experience_image) {
+            request.where('image.experience_image is not null')
+                .leftJoinAndSelect('experience_image.languageVersions', 'languageVersions')
+                .andWhere('experience_image.isVisible = :isVisible', { isVisible: true })
+                .orderBy('image.status', 'ASC')
+                .orderBy('image.order', 'ASC')
+        } if (experience_icon) {
+            request.where('image.experience_icon is not null')
+                .leftJoinAndSelect('experience_icon.languageVersions', 'languageVersions')
+                .andWhere('experience_icon.isVisible = :isVisible', { isVisible: true })
+                .orderBy('image.status', 'ASC')
+                .orderBy('image.order', 'ASC')
+        }
 
         return from(
             request.getMany()
