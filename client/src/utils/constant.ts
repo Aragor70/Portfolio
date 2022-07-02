@@ -18,3 +18,21 @@ export const json: any = { 'en-GB': {
   },
   
 }
+
+export const skills = {
+  languages: [
+    'HTML 5', 'CSS 3', 'SCSS', 'JavaScript', 'TypeScript', 'Python', 'PHP', 'SQL'
+  ],
+  frameworks: [
+    'React', 'Angular', 'Redux', 'NestJs', 'Express', 'Django', 'Laravel', 'GIT'
+  ],
+  testing: [
+    'Jest', 'Enzyme', 'Mocha', 'Chai'
+  ],
+  databases: [
+    'MySQL', 'PostgreSQL', 'MongoDB'
+  ],
+  services: [
+    'Digitalocean', 'Heroku', 'Netlify', 'SocketIO', 'Google Drive API', 'ScreenshotMachine API', 'Amazon s3 Storage'
+  ]
+}

@@ -123,7 +123,22 @@
             
             "languages": {
                 "title": "Języki",
-                "text": "<p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p><h3>Biblioteki i struktury</h3><p>React, Angular, Redux, NestJs, Express, Django, Laravel, GIT</p><h3>Biblioteki testujące</h3><p>Jest, Enzyme, Mocha, Chai</p>"
+                "text": "<p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p>"
+            },
+            
+            "frameworks": {
+                "title": "Biblioteki i struktury",
+                "text": "<p>React, Angular, Redux, NestJs, Express, Django, Laravel, GIT</p>"
+            },
+            
+            "testing": {
+                "title": "Biblioteki testujące",
+                "text": "<p>Jest, Enzyme, Mocha, Chai</p>"
+            },
+            
+            "databases": {
+                "title": "Bazy danych",
+                "text": "<p>MySQL, PostgreSQL, MongoDB</p>"
             },
             
             "services": {

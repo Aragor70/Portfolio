@@ -20,6 +20,28 @@ export class ImageService {
             }),
         );
     }
+
+    getImages(payload: any): Observable<ImageEntity[]> {
+
+        const { project_image = null, project_icon = null, education_image = null, education_icon = null, experience_image = null, experience_icon = null } = payload;
+
+        const request = this.imageRepository.createQueryBuilder('image')
+        .leftJoinAndSelect('image.project_image', 'project_image')
+        .leftJoinAndSelect('image.project_icon', 'project_icon')
+        .leftJoinAndSelect('image.education_image', 'education_image')
+        .leftJoinAndSelect('image.education_icon', 'education_icon')
+        .leftJoinAndSelect('image.experience_image', 'experience_image')
+        .leftJoinAndSelect('image.experience_icon', 'experience_icon')
+
+        return from(
+            request.getMany()
+        )
+            .pipe(
+            map((element: ImageEntity[]) => {
+                return element;
+            }),
+        );
+    }
     
     updateOne(id: number, value: any): Observable<ImageEntity> {
         return from(this.imageRepository.update(id, value))

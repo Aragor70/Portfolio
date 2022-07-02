@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { ImageService } from './image.service';
@@ -9,6 +9,10 @@ export class ImageController {
     
     constructor(private imageService: ImageService) {}
 
+    @Get('')
+    getIcons(@Query() query): Observable<ImageEntity[]> {
+        return this.imageService.getImages(query).pipe(map((res: ImageEntity[]) => res))
+    }
 
     @UseGuards(JwtGuard)
     @Put(':id')

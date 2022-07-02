@@ -124,7 +124,22 @@
             
             "languages": {
                 "title": "Languages",
-                "text": "<p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p><h3>Development</h3><p>React, Angular, Redux, NestJs, Express, Django, Laravel, GIT</p><h3>Testing libraries</h3><p>Jest, Enzyme, Mocha, Chai</p>"
+                "text": "<p>HTML 5, CSS 3, SCSS, JavaScript, TypeScript, Python, PHP, SQL</p>"
+            },
+            
+            "frameworks": {
+                "title": "Development",
+                "text": "<p>React, Angular, Redux, NestJs, Express, Django, Laravel, GIT</p>"
+            },
+            
+            "testing": {
+                "title": "Testing libraries",
+                "text": "<p>Jest, Enzyme, Mocha, Chai</p>"
+            },
+            
+            "databases": {
+                "title": "Databases",
+                "text": "<p>MySQL, PostgreSQL, MongoDB</p>"
             },
             
             "services": {
