@@ -888,3 +888,6 @@ article
 .tech-with-popup li > span:hover {
     color:rgba(92, 176, 189, 1);
 }
+.tech-with-popup > span:hover {
+    color:rgba(92, 176, 189, 1);
+}

@@ -44,7 +44,7 @@ const TechPreview = ({ element, setIsHover }: any) => {
 
 
     return (
-        <section className="tech-preview" onClick={() => setIsHover(null)} style={ loadingPreview ? { gridTemplateColumns: '1fr' } : preview?.length ? { gridTemplateColumns: '1fr 1fr' } : { gridTemplateColumns: '1fr' } }>
+        <section className="tech-preview" onClick={() => setIsHover(null)} style={ errorResponse ? { gridTemplateColumns: '1fr 1fr' } : loadingPreview ? { gridTemplateColumns: '1fr' } : preview?.length ? { gridTemplateColumns: '1fr 1fr' } : { gridTemplateColumns: '1fr' } }>
 
             <label>
                 <i className="fas fa-code fa"></i>
@@ -52,7 +52,7 @@ const TechPreview = ({ element, setIsHover }: any) => {
             </label>
             
                 {
-                    loadingPreview ? null : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : preview.length ? <ul>
+                    loadingPreview ? null : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red', display: 'flex' }}} /> : preview.length ? <ul>
 
                         {
                             preview.map((elem: any) => <TechListElement key={elem.id} element={elem} />)
