@@ -19,7 +19,7 @@ const TechListElement = ({ element, history }: any) => {
 
         setProject(value)
 
-        if (value.name) {
+        if (value?.name) {
 
             if (element.project_icon) {
                 setPath('/software_projects/' + value.name)
@@ -36,6 +36,8 @@ const TechListElement = ({ element, history }: any) => {
 
     }, [element])
 
+    console.log(project)
+
 
     if (!icon || !project) return <Loading />;
 
@@ -44,7 +46,7 @@ const TechListElement = ({ element, history }: any) => {
             <span><ArrowSvg /></span>
             <span>
                 {
-                    project?.name
+                    project?.name || null
                 }
             </span>
         </li>
