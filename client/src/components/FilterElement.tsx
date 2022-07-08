@@ -135,7 +135,6 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         document.addEventListener("click", hideOnClickOutside, true)
 
         return () => {
-            
             window.removeEventListener('keydown', hideOnEscape)
             window.removeEventListener('click', hideOnClickOutside)
         }

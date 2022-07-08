@@ -1,8 +1,7 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
+import { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
-import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router } from 'react-router-dom';
 import Project from './Project';
-
 
 
 /* 
@@ -38,6 +37,7 @@ import Loading from '../components/Loading';
 import ErrorResponse from '../components/ErrorResponse';
 import ListPreview from '../components/preview/ListPreview';
 import ProjectPreview from '../components/preview/ProjectPreview';
+import { ScrollContext } from '../context/ScrollContext';
 
 
 const Experience = ({ setPageTitle }: any) => {
@@ -103,10 +103,25 @@ const Experience = ({ setPageTitle }: any) => {
 
     }, [fadeInUpElement])
 
+    
+    const [scrollPosition, setScrollPosition] = useState<number | null>(null);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+    
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            setScrollPosition(null);
+        };
+    }, []);
 
     return (
         <Router>
-
+        <ScrollContext.Provider value={{scrollPosition, setScrollPosition}}>
             <Switch>
 
                 <Route exact path={`${path}/:project_name`}>
@@ -114,10 +129,26 @@ const Experience = ({ setPageTitle }: any) => {
                 </Route>
 
                 <Route exact path={path}>
-                    <div className="section-content experience no-opacity" ref={fadeInUpElement}>
+                    <div className="section-content experience">
                     {/* <div className="params">
                     
                     </div> */}
+
+                    
+                        <article>
+
+                            <div>
+                            
+                            </div>
+                            <div className="params no-opacity" ref={fadeInUpElement}>
+                                
+                                <p>
+                                    <Translate tKey="sd.overview" />
+                                </p>
+                                
+                            </div>
+
+                        </article>
 
                     <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getExperiences} />
 
@@ -209,6 +240,7 @@ const Experience = ({ setPageTitle }: any) => {
                     </div>
                 </Route>
             </Switch>
+        </ScrollContext.Provider>
         </Router>
             
     );

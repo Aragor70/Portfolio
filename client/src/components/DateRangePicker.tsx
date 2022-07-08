@@ -1,28 +1,18 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect } from 'react'
 import { DateRange } from 'react-date-range'
 
 
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import moment from 'moment'
-import { ReactComponent as CalendarSvg } from '../style/calendar.svg';
-import { Language, json } from '../utils/constant'
+/* import { ReactComponent as CalendarSvg } from '../style/calendar.svg'; */
+import { Language } from '../utils/constant'
 
 const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLISH, refOne = null }: any) => {
 
 
-  const isToday = async (date: Date) => moment(date).format('DD.MM.YYYY') === moment().format('DD.MM.YYYY')
-
-  const [inputValue, setInputValue] = useState<string | null>(null)
-
-  /* 
-    `${formData.startDate ? 
-      isToday(formData.startDate) ? Translate({ tKey:'today', isString: true }) : moment(formData.startDate).format('DD.MM.YYYY') : Translate({ tKey:'from', isString: true })} 
-      ${formData.endDate ? 
-        isToday(formData.endDate) ? Translate({ tKey:'today', isString: true }) : moment(formData.endDate).format('DD.MM.YYYY') : Translate({ tKey:'until', isString: true })}`
-  */
+  /* const isToday = async (date: Date) => moment(date).format('DD.MM.YYYY') === moment().format('DD.MM.YYYY') */
  
-  const loadValue = async (range: any) => {
+/*   const loadValue = async (range: any) => {
 
     let value = ''
 
@@ -58,7 +48,7 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
     }
 
     return value
-  }
+  } */
       
   const handleChange = async(range: any) => {
     

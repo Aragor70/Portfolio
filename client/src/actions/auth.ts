@@ -33,7 +33,8 @@ export const login = async (formData: any) => {
 
             return loadUser(token)
         } else {
-            return setAuthToken('')
+            setAuthToken('')
+            return "Not authorized request."
         }
 
     } catch (err: any) {

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Loading from '../Loading';
+import { useEffect, useState } from 'react';
 import { ReactComponent as ArrowSvg } from '../../style/icons/play-outline.svg';
 import { withRouter } from 'react-router-dom';
 
@@ -31,15 +30,19 @@ const TechListElement = ({ element, history }: any) => {
                 setPath(null)
             }
 
+        } else {
+            setPath(null)
         }
         
+        return () => {
+            setIcon(null)
+            setProject(null)
+        }
 
     }, [element])
 
-    console.log(project)
 
-
-    if (!icon || !project) return <Loading />;
+    if (!icon || !project) return null;
 
     return (
         <li onClick={() => history.push(path)}>

@@ -81,7 +81,6 @@ const AT = ({ setPageTitle }: any) => {
             
             if (fadeInUpElement.current) {
                 
-    
                 fadeInUpElement.current.classList.add('animated')
                 fadeInUpElement.current.classList.add('fadeInUp')
                 fadeInUpElement.current.classList.remove('no-opacity')
@@ -93,8 +92,8 @@ const AT = ({ setPageTitle }: any) => {
 
     return (
         <Fragment>
-            <div className="section-content no-opacity" ref={fadeInUpElement}>
-                <div className="params" style={{ margin: 'auto'}}>
+            <div className="section-content">
+                <div className="params no-opacity" style={{ margin: 'auto'}} ref={fadeInUpElement}>
                 
                     <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
 

@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 
 
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { loadUser } from './actions/auth';
 import Login from './auth/Login';
 import Register from './auth/Register';
-import ContactMe from './components/ContactMe';
 import Footer from './components/Footer';
 import { ErrorContext } from './context/ErrorContext';
 import { LanguageContext } from './context/LanguageContext';

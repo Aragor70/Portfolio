@@ -1,7 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import HtmlParser from 'react-html-parser';
-import { Link } from 'react-router-dom';
-import { Language } from '../utils/constant';
+import { Fragment } from 'react';
 import { Translate } from './Translate';
 
 /* 
@@ -11,7 +8,6 @@ import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' *
 
 const ErrorResponse = ( props: any ) => {
 
-    const { languageCode = Language.ENGLISH } = props;
     const { style } = props;
     const { message } = props;
 

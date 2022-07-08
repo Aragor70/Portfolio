@@ -119,7 +119,7 @@ const SD = ({ setPageTitle }: any) => {
 
     }, [])
 
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState<number | null>(null);
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
@@ -130,6 +130,7 @@ const SD = ({ setPageTitle }: any) => {
     
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            setScrollPosition(null);
         };
     }, []);
 

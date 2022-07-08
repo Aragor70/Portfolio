@@ -855,6 +855,8 @@ article
 }
 .skills-list {
     width: 100%;
+    line-height: 23pt;
+    margin: 7.5px 0;
 }
 
 .tech-with-popup > span {
@@ -902,9 +904,7 @@ article
   }
   
 .fade-in {
-    font-family: Arial;
-    font-size: 150px;
-    animation: fadeIn 5s;
+    animation: fadeIn 1.5s;
   }
 
 @keyframes fadeIn {

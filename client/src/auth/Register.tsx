@@ -27,7 +27,7 @@ const Register = ({ history, setPageTitle }: any) => {
         passwordConfirmation: null
     })
     
-    const { loadingUser, setLoadingUser } = useContext(UserContext);
+    const { loadingUser } = useContext(UserContext);
     
     const [alert, setAlert] = useState('');
 
@@ -48,7 +48,13 @@ const Register = ({ history, setPageTitle }: any) => {
             return setAlert('auth.error.login.passwordConfirmation')
         }
 
-        await register(formData)
+        const res: any = await register(formData);
+
+        if (typeof res === 'string') {
+                
+            return setAlert(res)
+            
+        }
 
         return history.push('/login')
     }

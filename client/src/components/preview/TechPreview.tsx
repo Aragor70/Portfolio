@@ -1,7 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getImages } from '../../actions/skills';
 import ErrorResponse from '../ErrorResponse';
-import Loading from '../Loading';
 import TechListElement from './TechListElement';
 
 

@@ -1,13 +1,12 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
+import { Fragment, useContext, useEffect, useRef, useState } from 'react';
 import HtmlParser from 'react-html-parser';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { getProject } from '../actions/project';
 import ErrorResponse from '../components/ErrorResponse';
 import GithubStats from '../components/GithubStats';
 import Loading from '../components/Loading';
 import { Translate } from '../components/Translate';
 import { LanguageContext } from '../context/LanguageContext';
-import { Language } from '../utils/constant';
 
 
 
@@ -71,13 +70,15 @@ const Project = ({ match }: any) => {
             
         })()
 
-    }, [match.params.first_name, languageCode])
+    }, [match.params.project_name, languageCode])
     
     useEffect(() => {
 
         (() => {
             if (!loadingProject && fadeInUpElement.current) {
-                fadeInUpElement.current.className = "animated fadeInUp"
+                fadeInUpElement.current.classList.add("animated");
+                fadeInUpElement.current.classList.add("fadeInUp");
+                fadeInUpElement.current.classList.remove("no-opacity");
             }
         })()
 
@@ -87,7 +88,7 @@ const Project = ({ match }: any) => {
         
         if (header?.current) header?.current?.scrollIntoView({ block: "start", inline: "nearest" })
 
-    }, [header?.current, match.params.first_name, loadingProject])
+    }, [header, match.params.project_name, loadingProject])
 
     if (loadingProject) return <Loading />;
 
@@ -110,9 +111,9 @@ const Project = ({ match }: any) => {
                 !!project?.images?.length && <div className="main-image" >{
                 
                     project.images.map((element: any, index: number) => <Fragment key={index}>
-                            <img className="grid-one" src={ '/assets/images/' + element?.name } />
-                            <img className="grid-two" src={ '/assets/images/' + element?.name } />
-                            <img className="grid-three" src={ '/assets/images/' + element?.name } />
+                        <img className="grid-one" src={ '/assets/images/' + element?.name } alt={element?.name || "project-image 1"} />
+                        <img className="grid-two" src={ '/assets/images/' + element?.name } alt={element?.name || "project-image 2" } />
+                        <img className="grid-three" src={ '/assets/images/' + element?.name } alt={element?.name || "project-image 3"} />
                     </Fragment>)
                     
                 }</div>
@@ -122,7 +123,7 @@ const Project = ({ match }: any) => {
                 <div className="section-image">
                 
                     <label style={{ width: '100%', alignItems: 'center', display: 'flex' }}>
-                        <img style={{ borderRadius: '25px', width: '50%', margin: '134px auto' }} src={ '/assets/images/' + project?.images[0]?.name } />
+                        <img style={{ borderRadius: '25px', width: '50%', margin: '134px auto' }} src={ '/assets/images/' + project?.images[0]?.name } alt={project?.images[0]?.name || "project-logo 3"} />
                     </label>
                 
                 </div>

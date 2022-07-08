@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useContext, useEffect, useRef, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
@@ -55,14 +55,14 @@ const ProjectPreview = ( props: any ) => {
         
     }
 
-    const updateProject = async () => {
+/*     const updateProject = async () => {
 
         try {
 
         } catch (err: any) {
             console.log(err.message )
         }
-    }
+    } */
 
     useEffect(() => {
 

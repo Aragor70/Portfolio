@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useEffect, useMemo, useState } from 'react';
+import { Fragment } from 'react';
 import TechPreview from './TechPreview';
 
 

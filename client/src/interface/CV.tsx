@@ -26,14 +26,12 @@ const CV = ({ setPageTitle }: any) => {
 
     useEffect(() => {
 
-        (() => {
+        (async () => {
             
             if (fadeInUpElement.current) {
-                
-    
-                fadeInUpElement.current.classList.add('animated')
-                fadeInUpElement.current.classList.add('fadeInUp')
-                fadeInUpElement.current.classList.remove('no-opacity')
+                await fadeInUpElement.current.classList.add('animated')
+                await fadeInUpElement.current.classList.add('fadeInUp')
+                await fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
@@ -43,7 +41,7 @@ const CV = ({ setPageTitle }: any) => {
 
     return (
         <Fragment>
-            <div className="section-content no-opacity" ref={fadeInUpElement}>
+            <div className="section-content fade-in">
                 <div className="params">
                 <h3><Translate tKey="cv.sections.summary.title" /></h3>
                     <Translate tKey="cv.sections.summary.text" />
@@ -56,40 +54,40 @@ const CV = ({ setPageTitle }: any) => {
                 </div>
                 <div className="params">
                 <h3><Translate tKey="cv.sections.languages.title" /></h3>
-                <p className="skills-list">
+                <div className="skills-list">
                 {
                     mapWithComma(skills.languages)
                 }
-                </p>
+                </div>
 
 
                 <h3><Translate tKey="cv.sections.frameworks.title" /></h3>
-                <p className="skills-list">
+                <div className="skills-list">
                 {
                     mapWithComma(skills.frameworks)
                 }
-                </p>
+                </div>
                 
                 <h3><Translate tKey="cv.sections.testing.title" /></h3>
-                <p className="skills-list">
+                <div className="skills-list">
                 {
                     mapWithComma(skills.testing)
                 }
-                </p>
+                </div>
                 
                 <h3><Translate tKey="cv.sections.databases.title" /></h3>
-                <p className="skills-list">
+                <div className="skills-list">
                 {
                     mapWithComma(skills.databases)
                 }
-                </p>
+                </div>
                     
                 <h3><Translate tKey="cv.sections.services.title" /></h3>
-                <p className="skills-list">
+                <div className="skills-list">
                 {
                     mapWithComma(skills.services)
                 }
-                </p>
+                </div>
 
                 </div>
             </div>

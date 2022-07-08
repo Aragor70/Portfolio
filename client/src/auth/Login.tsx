@@ -25,7 +25,7 @@ const Login = ({ history, setPageTitle }: any) => {
         }
     }, [setPageTitle])
 
-    const { user, setUser, loadingUser, setLoadingUser } = useContext(UserContext);
+    const { setUser, loadingUser, setLoadingUser } = useContext(UserContext);
 
     const [formData, setFormData] = useState<LoginForm>({
         email: null,
@@ -48,15 +48,22 @@ const Login = ({ history, setPageTitle }: any) => {
         if (!password) {
             return setAlert('auth.error.login.password')
         }
-        setLoadingUser(true)
+        await setLoadingUser(true)
 
         const res: any = await login(formData)
 
-        setUser(res)
+        if (typeof res === 'string') {
+                
+            setLoadingUser(false)
+            return setAlert(res)
+            
+        }
+
+        await setUser(res)
 
         setAlert('')
         
-        setLoadingUser(false)
+        await setLoadingUser(false)
 
         if (res?.token) return history.push('/')
     }
