@@ -55,6 +55,7 @@ import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
 import ErrorResponse from '../components/ErrorResponse';
 import ContactMe from '../components/ContactMe';
+import { ScrollContext } from '../context/ScrollContext';
 
 const SD = ({ setPageTitle }: any) => {
 
@@ -118,8 +119,41 @@ const SD = ({ setPageTitle }: any) => {
 
     }, [])
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+    
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    
+    useEffect(() => {
+
+        (async () => {
+            
+            const content: any = document.querySelectorAll('.section-content');
+
+            if (!content?.length) return 
+
+            for await (const element of content) {
+                element.className = "section-content animated fadeInUp"
+            }
+
+        })()
+
+    }, [])
+
     return (
         <Router>
+        <ScrollContext.Provider value={{scrollPosition, setScrollPosition}}>
             
 
             <Switch>
@@ -131,7 +165,7 @@ const SD = ({ setPageTitle }: any) => {
 
                 <Route exact path={path}>
 
-                    <div className="section-content">
+                    <div className="section-content no-opacity">
                     
                         <article>
 
@@ -792,7 +826,7 @@ const SD = ({ setPageTitle }: any) => {
 
             </Switch>
 
-
+        </ScrollContext.Provider>
         </Router>
             
     );

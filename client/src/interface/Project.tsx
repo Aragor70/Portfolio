@@ -27,7 +27,8 @@ const Project = ({ match }: any) => {
     const [ otherLngVersion, setOtherLngVersion ] = useState(false)
 
     let header: any = useRef(null)
-
+    
+    const fadeInUpElement: any = useRef(null)
 
     useEffect(() => {
 
@@ -64,10 +65,23 @@ const Project = ({ match }: any) => {
             }
             
             setLoadingProject(false)
+
+            
+            
             
         })()
 
     }, [match.params.first_name, languageCode])
+    
+    useEffect(() => {
+
+        (() => {
+            if (!loadingProject && fadeInUpElement.current) {
+                fadeInUpElement.current.className = "animated fadeInUp"
+            }
+        })()
+
+    }, [loadingProject, fadeInUpElement])
 
     useEffect(() => {
         
@@ -112,7 +126,7 @@ const Project = ({ match }: any) => {
                     </label>
                 
                 </div>
-                <div>
+                <div ref={fadeInUpElement} className="no-opacity">
 
                     <h3>Name</h3>
                     

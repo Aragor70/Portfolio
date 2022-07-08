@@ -85,6 +85,26 @@ const Experience = ({ setPageTitle }: any) => {
     }, [languageCode])
 
 
+    
+    useEffect(() => {
+
+        (async () => {
+            
+            const content: any = document.querySelectorAll('.section-content');
+
+            if (!content?.length) return 
+
+            for await (const element of content) {
+                element.classList.add('animated')
+                element.classList.add('fadeInUp')
+                element.classList.remove('no-opacity')
+            }
+
+        })()
+
+    }, [])
+
+
     return (
         <Router>
 
@@ -95,7 +115,7 @@ const Experience = ({ setPageTitle }: any) => {
                 </Route>
 
                 <Route exact path={path}>
-                    <div className="section-content experience">
+                    <div className="section-content experience no-opacity">
                     {/* <div className="params">
                     
                     </div> */}

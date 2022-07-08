@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { Language } from '../../utils/constant';
 import GithubStats from '../GithubStats';
 import { Translate } from '../Translate';
 import autosize from 'autosize';
+import { ScrollContext } from '../../context/ScrollContext';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
@@ -28,7 +29,7 @@ const ProjectPreview = ( props: any ) => {
 
     const [ formData, setFormData ] = useState<any>({})
 
-    console.log(formData)
+    // console.log(formData)
 
     const toggleEdit = (selector: string | null = null) => {
 
@@ -80,6 +81,33 @@ const ProjectPreview = ( props: any ) => {
 
     }, [languageCode, props.languageVersions])
 
+    
+    const fadeInUpElement: any = useRef(null)
+
+    const { scrollPosition } = useContext(ScrollContext);
+
+    useEffect(() => {
+
+        (() => {
+            
+            if (fadeInUpElement.current) {
+                const element = fadeInUpElement.current
+                const element_size = element.getBoundingClientRect()
+                const element_position = Math.round(element_size.y) - 100
+                const screen_size = window.innerHeight * 0.80
+                
+                if (element_position <= (screen_size)) {
+    
+                    element.className = 'params animated fadeInUp'
+                } else if (scrollPosition >= 100) {
+                    element.className = 'params no-opacity'
+                }
+            }
+
+        })()
+
+    }, [scrollPosition])
+
     return (
         <Fragment>
             <article className={ style?.className || ''}>
@@ -112,7 +140,7 @@ const ProjectPreview = ( props: any ) => {
                     }
                     
                 </div>
-                <div className="params">
+                <div className="params no-opacity" ref={fadeInUpElement}>
                     {
                         openEdit['title'] ? <textarea className="textarea" value={formData?.title || ''} name="title" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write a new title"></textarea> : <h3 className="content-center"><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
                     }

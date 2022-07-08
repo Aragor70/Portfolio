@@ -891,3 +891,62 @@ article
 .tech-with-popup > span:hover {
     color:rgba(92, 176, 189, 1);
 }
+
+@keyframes movingTopToBottom {
+    0% {
+      bottom: -25px;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  
+.fade-in {
+    font-family: Arial;
+    font-size: 150px;
+    animation: fadeIn 5s;
+  }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,100px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,100px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1.3s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1.3s;
+    -webkit-animation-fill-mode: both
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+.no-opacity {
+    opacity: 0;
+}

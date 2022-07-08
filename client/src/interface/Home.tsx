@@ -70,6 +70,7 @@ const Home = ({ history, setPageTitle }: any) => {
 
     /* const [loggedIn, setLoggedIn] = useState(false) */
 
+
     return (
         <Fragment>
             <div className="home-content">

@@ -92,6 +92,26 @@ const Education = ({ setPageTitle }: any) => {
 
     }, [languageCode])
 
+    
+    
+    useEffect(() => {
+
+        (async () => {
+            
+            const content: any = document.querySelectorAll('.section-content');
+
+            if (!content?.length) return 
+
+            for await (const element of content) {
+                element.classList.add('animated')
+                element.classList.add('fadeInUp')
+                element.classList.remove('no-opacity')
+            }
+
+        })()
+
+    }, [])
+
     return (
         <Router>
             <Switch>
@@ -101,7 +121,7 @@ const Education = ({ setPageTitle }: any) => {
                 </Route>
 
                 <Route exact path={path}>
-                    <div className="section-content">
+                    <div className="section-content no-opacity">
 
 
                         <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getEducations} />

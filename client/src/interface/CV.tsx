@@ -1,6 +1,4 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
-import HtmlParser from 'react-html-parser';
-
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { withRouter } from 'react-router-dom';
 import TechWithPopup from '../components/preview/TechWithPopup';
@@ -17,17 +15,35 @@ const CV = ({ setPageTitle }: any) => {
     }, [setPageTitle])
 
     const [ isHover, setIsHover ] = useState(false)
-
+    
     const mapWithComma = (list: string[]) => {
         return list.map((element: string, index: number) => [
             index > 0 && ", ",
             <TechWithPopup key={index} element={element} isHover={isHover} setIsHover={setIsHover} />])
     }
+    
+    useEffect(() => {
+
+        (async () => {
+            
+            const content: any = document.querySelectorAll('.section-content');
+
+            if (!content?.length) return 
+
+            for await (const element of content) {
+                element.classList.add('animated')
+                element.classList.add('fadeInUp')
+                element.classList.remove('no-opacity')
+            }
+
+        })()
+
+    }, [])
         
 
     return (
         <Fragment>
-            <div className="section-content">
+            <div className="section-content no-opacity">
                 <div className="params">
                 <h3><Translate tKey="cv.sections.summary.title" /></h3>
                     <Translate tKey="cv.sections.summary.text" />
