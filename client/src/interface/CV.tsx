@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 import { withRouter } from 'react-router-dom';
 import TechWithPopup from '../components/preview/TechWithPopup';
@@ -21,29 +21,29 @@ const CV = ({ setPageTitle }: any) => {
             index > 0 && ", ",
             <TechWithPopup key={index} element={element} isHover={isHover} setIsHover={setIsHover} />])
     }
-    
+
+    const fadeInUpElement: any = useRef(null)
+
     useEffect(() => {
 
-        (async () => {
+        (() => {
             
-            const content: any = document.querySelectorAll('.section-content');
-
-            if (!content?.length) return 
-
-            for await (const element of content) {
-                element.classList.add('animated')
-                element.classList.add('fadeInUp')
-                element.classList.remove('no-opacity')
+            if (fadeInUpElement.current) {
+                
+    
+                fadeInUpElement.current.classList.add('animated')
+                fadeInUpElement.current.classList.add('fadeInUp')
+                fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
 
-    }, [])
+    }, [fadeInUpElement])
         
 
     return (
         <Fragment>
-            <div className="section-content no-opacity">
+            <div className="section-content no-opacity" ref={fadeInUpElement}>
                 <div className="params">
                 <h3><Translate tKey="cv.sections.summary.title" /></h3>
                     <Translate tKey="cv.sections.summary.text" />

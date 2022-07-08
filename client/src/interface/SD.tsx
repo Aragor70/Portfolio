@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 /* 
 import pht from '../style/pht.jpg'; */
 import typesImg from '../style/types.png';
@@ -134,22 +134,23 @@ const SD = ({ setPageTitle }: any) => {
     }, []);
 
 
-    
+    const fadeInUpElement: any = useRef(null)
+
     useEffect(() => {
 
-        (async () => {
+        (() => {
             
-            const content: any = document.querySelectorAll('.section-content');
-
-            if (!content?.length) return 
-
-            for await (const element of content) {
-                element.className = "section-content animated fadeInUp"
+            if (fadeInUpElement.current) {
+                
+    
+                fadeInUpElement.current.classList.add('animated')
+                fadeInUpElement.current.classList.add('fadeInUp')
+                fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
 
-    }, [])
+    }, [fadeInUpElement])
 
     return (
         <Router>
@@ -165,14 +166,14 @@ const SD = ({ setPageTitle }: any) => {
 
                 <Route exact path={path}>
 
-                    <div className="section-content no-opacity">
+                    <div className="section-content">
                     
                         <article>
 
                             <div>
                             
                             </div>
-                            <div className="params">
+                            <div className="params no-opacity" ref={fadeInUpElement}>
                                 
                                 <p>
                                     <Translate tKey="sd.overview" />

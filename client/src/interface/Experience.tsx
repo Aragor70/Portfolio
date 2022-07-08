@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
 import Project from './Project';
@@ -85,24 +85,23 @@ const Experience = ({ setPageTitle }: any) => {
     }, [languageCode])
 
 
-    
+    const fadeInUpElement: any = useRef(null)
+
     useEffect(() => {
 
-        (async () => {
+        (() => {
             
-            const content: any = document.querySelectorAll('.section-content');
-
-            if (!content?.length) return 
-
-            for await (const element of content) {
-                element.classList.add('animated')
-                element.classList.add('fadeInUp')
-                element.classList.remove('no-opacity')
+            if (fadeInUpElement.current) {
+                
+    
+                fadeInUpElement.current.classList.add('animated')
+                fadeInUpElement.current.classList.add('fadeInUp')
+                fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
 
-    }, [])
+    }, [fadeInUpElement])
 
 
     return (
@@ -115,7 +114,7 @@ const Experience = ({ setPageTitle }: any) => {
                 </Route>
 
                 <Route exact path={path}>
-                    <div className="section-content experience no-opacity">
+                    <div className="section-content experience no-opacity" ref={fadeInUpElement}>
                     {/* <div className="params">
                     
                     </div> */}

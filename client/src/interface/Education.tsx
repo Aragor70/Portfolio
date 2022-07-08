@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 
 
@@ -93,24 +93,23 @@ const Education = ({ setPageTitle }: any) => {
     }, [languageCode])
 
     
-    
+    const fadeInUpElement: any = useRef(null)
+
     useEffect(() => {
 
-        (async () => {
+        (() => {
             
-            const content: any = document.querySelectorAll('.section-content');
-
-            if (!content?.length) return 
-
-            for await (const element of content) {
-                element.classList.add('animated')
-                element.classList.add('fadeInUp')
-                element.classList.remove('no-opacity')
+            if (fadeInUpElement.current) {
+                
+    
+                fadeInUpElement.current.classList.add('animated')
+                fadeInUpElement.current.classList.add('fadeInUp')
+                fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
 
-    }, [])
+    }, [fadeInUpElement])
 
     return (
         <Router>
@@ -121,7 +120,7 @@ const Education = ({ setPageTitle }: any) => {
                 </Route>
 
                 <Route exact path={path}>
-                    <div className="section-content no-opacity">
+                    <div className="section-content no-opacity" ref={fadeInUpElement}>
 
 
                         <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getEducations} />

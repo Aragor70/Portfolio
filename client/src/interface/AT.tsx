@@ -72,28 +72,28 @@ const AT = ({ setPageTitle }: any) => {
 
     }, [openMessage])
 
-    
+
+    const fadeInUpElement: any = useRef(null)
+
     useEffect(() => {
 
-        (async () => {
+        (() => {
             
-            const content: any = document.querySelectorAll('.section-content');
-
-            if (!content?.length) return 
-
-            for await (const element of content) {
-                element.classList.add('animated')
-                element.classList.add('fadeInUp')
-                element.classList.remove('no-opacity')
+            if (fadeInUpElement.current) {
+                
+    
+                fadeInUpElement.current.classList.add('animated')
+                fadeInUpElement.current.classList.add('fadeInUp')
+                fadeInUpElement.current.classList.remove('no-opacity')
             }
 
         })()
 
-    }, [])
+    }, [fadeInUpElement])
 
     return (
         <Fragment>
-            <div className="section-content no-opacity">
+            <div className="section-content no-opacity" ref={fadeInUpElement}>
                 <div className="params" style={{ margin: 'auto'}}>
                 
                     <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
