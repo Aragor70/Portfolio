@@ -129,21 +129,21 @@ const Project = ({ match }: any) => {
                 </div>
                 <div ref={fadeInUpElement} className="no-opacity">
 
-                    <h3>Name</h3>
+                    <h3><Translate tKey="project.section.project.name" /></h3>
                     
                     <h3><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
 
                     <hr />
-                    <h3>Description</h3>
+                    <h3><Translate tKey="project.section.project.description" /></h3>
                     {
                         text && HtmlParser(text)
                     }
                     <hr />
 
                     {
-                        project?.loadingRepos ? <Fragment><h3>Repository</h3><Loading /></Fragment> : (!project?.repos || !project?.repositories[0]) ? null : <Fragment>
+                        project?.loadingRepos ? <Fragment><h3><Translate tKey="project.section.project.repository" /></h3><Loading /></Fragment> : (!project?.repos || !project?.repositories[0]) ? null : <Fragment>
                             
-                        <h3>Repository</h3>
+                        <h3><Translate tKey="project.section.project.repository" /></h3>
                         {
                             <GithubStats repos={project?.repos} name={project.repositories[0]?.name} />
                         }
@@ -159,7 +159,7 @@ const Project = ({ match }: any) => {
                     }
 
                     
-                    <h3>Tech stack</h3>
+                    <h3><Translate tKey="project.section.project.icons" /></h3>
                     
                     <ul className="icons">
                         {

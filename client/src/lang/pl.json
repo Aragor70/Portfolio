@@ -1,7 +1,7 @@
 {
     "language-switcher.language.english-gb": "English",
     "language-switcher.language.polish": "Polski",
-    "loading": "ładowanie...",
+    "loading": "Ładowanie...",
     "wrong.language.version": "Proszę wybrać inną wersję językową. Nie mamy obecnie treści w wybranym języku.",
     "content.not.available": "Nie ma obecnie dostepnej zawartości.",
     "list.search.headline": "Wyszukaj na stronie",
@@ -146,7 +146,12 @@
                 "text": "<p>Digitalocean, Heroku, Netlify, SocketIO, Google Drive API, ScreenshotMachine API, Amazon s3 Storage</p>"
             }
         }
+    },
+    "project": {
+        "header.title": "Projekt",
+        "section.project.name": "Nazwa",
+        "section.project.description": "Opis",
+        "section.project.repository": "Repozytorium",
+        "section.project.icons": "Narzedzia"
     }
-    
-    
 }

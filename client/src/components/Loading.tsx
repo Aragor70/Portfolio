@@ -1,16 +1,14 @@
-import React, { Fragment } from 'react';
+import { Translate } from "./Translate";
 
 
-const Loading = () => {
+const Loading = () => 
 
+    <div className="loading">
 
+        <h2>
+            <Translate tKey="loading" />
+        </h2>
+        
+    </div>
 
-    return (
-        <Fragment>
-
-            loading...
-
-        </Fragment>
-    )
-}
 export default Loading;
