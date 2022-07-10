@@ -109,6 +109,8 @@ hr
     
 }
 
+
+
 .output > * {
     max-width: 1920px;
     margin: 0 auto;
@@ -574,3 +576,12 @@ header .language-switcher {
     text-align: center;
     font-style: italic;
 }
+
+/* @media (min-width: 1023px) {
+    .output {
+        margin-left: 97px;
+    }
+    header {
+        margin-left: 97px;
+    }
+} */

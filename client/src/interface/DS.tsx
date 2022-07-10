@@ -1,9 +1,13 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 
 
 import { withRouter } from 'react-router-dom';
+import { PageTitleContext } from '../context/PageTitleContext';
 
-const DS = ({ setPageTitle }: any) => {
+const DS = () => {
+
+    
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle('data science')

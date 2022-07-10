@@ -1,8 +1,12 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 
 import { withRouter } from 'react-router-dom';
+import { PageTitleContext } from '../context/PageTitleContext';
 
-const AT = ({ setPageTitle }: any) => {
+const AT = () => {
+
+    
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle('Messages')

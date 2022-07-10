@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 import photo from '../style/avatar.png';
 /* import sdBtn from '../style/icons/pic1.png'; */
@@ -25,6 +25,7 @@ import nestImg from '../style/icons/nestjs-icon.svg'
 import Timeline from '../components/Timeline';
 import { Translate } from '../components/Translate';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import { PageTitleContext } from '../context/PageTitleContext';
 /* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
@@ -33,7 +34,9 @@ import {ReactComponent as Hexagon} from '../style/solutions-hexagon.svg';
 import hexagon from '../style/solutions-hexagon.svg';
 import gdansk1 from '../style/gdansk1.jpg'; */
 
-const Home = ({ history, setPageTitle }: any) => {
+const Home = ({ history }: any) => {
+
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle('home')

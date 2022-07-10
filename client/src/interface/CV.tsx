@@ -1,11 +1,14 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 import { withRouter } from 'react-router-dom';
 import TechWithPopup from '../components/preview/TechWithPopup';
 import { Translate } from '../components/Translate';
+import { PageTitleContext } from '../context/PageTitleContext';
 import { skills } from '../utils/constant';
 
-const CV = ({ setPageTitle }: any) => {
+const CV = () => {
+
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.skills" />)

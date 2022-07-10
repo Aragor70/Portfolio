@@ -38,9 +38,13 @@ import ErrorResponse from '../components/ErrorResponse';
 import ListPreview from '../components/preview/ListPreview';
 import ProjectPreview from '../components/preview/ProjectPreview';
 import { ScrollContext } from '../context/ScrollContext';
+import { PageTitleContext } from '../context/PageTitleContext';
 
 
-const Experience = ({ setPageTitle }: any) => {
+const Experience = () => {
+
+    
+    const { setPageTitle } = useContext(PageTitleContext);
 
     const { path } = useRouteMatch();
     useEffect(() => {
@@ -175,7 +179,7 @@ const Experience = ({ setPageTitle }: any) => {
                             <div className="params">
                             <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Junior Full-Stack Software Engineer at BrikkApp</span></h3>
                                 
-                                <p>Prague, Czech Republic 03/2021 – present</p>
+                                <p>Prague, Czech Republic 03/2021 – 07/2022</p>
 
                                 <p>Developing React Web Applications with financial market processes along with the client-server infrastructure.</p>
                                 
@@ -214,7 +218,7 @@ const Experience = ({ setPageTitle }: any) => {
                             <div className="params">
                             <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Bootcamp mentor at Data4you</span></h3>
                                 
-                                <p>Prague, Czech Republic 03/2021 – present</p>
+                                <p>Prague, Czech Republic 03/2021 – 07/2022</p>
 
                                 <p>Supporting dozens of students to fully use the skills such as HTML, CSS, SASS, JavaScript ES6, and React investing in their growth by preparing them with the skills of tomorrow.</p>
                                 <p>Helping students to gain a solid base of fundamental programming, computer science knowledge, and experience with languages, frameworks, and libraries.</p>

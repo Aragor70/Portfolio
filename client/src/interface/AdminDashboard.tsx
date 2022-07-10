@@ -1,11 +1,14 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
 import { Translate } from '../components/Translate';
+import { PageTitleContext } from '../context/PageTitleContext';
 
 
-const AdminDashboard = ({ history, setPageTitle }: any) => {
+const AdminDashboard = ({ history }: any) => {
+
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle('Admin Dashboard')

@@ -44,10 +44,13 @@ import Loading from '../components/Loading';
 import ListPreview from '../components/preview/ListPreview';
 import { getEducations } from '../actions/education';
 import ProjectPreview from '../components/preview/ProjectPreview';
-import { ScrollContext } from '../context/ScrollContext';
+import { PageTitleContext } from '../context/PageTitleContext';
 
 
-const Education = ({ setPageTitle }: any) => {
+const Education = () => {
+
+    
+    const { setPageTitle } = useContext(PageTitleContext);
 
     const { path } = useRouteMatch();
     useEffect(() => {
@@ -113,26 +116,10 @@ const Education = ({ setPageTitle }: any) => {
     }, [fadeInUpElement])
 
 
-    
-    const [scrollPosition, setScrollPosition] = useState<number | null>(null);
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
-    
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-    
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            setScrollPosition(null);
-        };
-    }, []);
 
 
     return (
         <Router>
-            <ScrollContext.Provider value={{scrollPosition, setScrollPosition}}>
             <Switch>
 
                 <Route exact path={`${path}/:project_name`}>
@@ -185,7 +172,7 @@ const Education = ({ setPageTitle }: any) => {
                                     <div className="params">
                                     <h3 className="content-center"><span style={{ fontSize: '45px', textAlign: 'left' }}>Computer science and econometrics, Master's degree </span></h3>
                                         
-                                        <p>University of Gdansk, Poland 03/2017 – 09/2021</p>
+                                        <p>University of Gdansk, Poland 09/2017 – 03/2022</p>
 
                                         <p>A combination of solid theoretical foundations in terms of mathematics and computer science. The study program is constantly consulted with employers from the IT industry.</p>
                                         
@@ -249,7 +236,6 @@ const Education = ({ setPageTitle }: any) => {
                     </div>
                 </Route>
             </Switch>
-        </ScrollContext.Provider>
         </Router>
             
     );

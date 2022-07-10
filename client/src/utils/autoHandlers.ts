@@ -8,6 +8,4 @@ export const handleScrollToTop = (scrollTo: any) => {
         console.log('Error: Not able to scroll.')
     }
     
-    
-             
 }

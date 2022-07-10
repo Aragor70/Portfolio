@@ -54,12 +54,15 @@ import ListPreview from '../components/preview/ListPreview';
 import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
 import ErrorResponse from '../components/ErrorResponse';
-import ContactMe from '../components/ContactMe';
-import { ScrollContext } from '../context/ScrollContext';
+import { PageTitleContext } from '../context/PageTitleContext';
 
-const SD = ({ setPageTitle }: any) => {
+const SD = () => {
 
-    const { path,url } = useRouteMatch();
+    
+    const { setPageTitle } = useContext(PageTitleContext);
+
+    const { path, url } = useRouteMatch();
+
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.projects" />)
 
@@ -119,20 +122,6 @@ const SD = ({ setPageTitle }: any) => {
 
     }, [])
 
-    const [scrollPosition, setScrollPosition] = useState<number | null>(null);
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
-    
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-    
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            setScrollPosition(null);
-        };
-    }, []);
 
 
     const fadeInUpElement: any = useRef(null)
@@ -155,9 +144,7 @@ const SD = ({ setPageTitle }: any) => {
 
     return (
         <Router>
-        <ScrollContext.Provider value={{scrollPosition, setScrollPosition}}>
-            
-
+        
             <Switch>
                 
                 
@@ -828,7 +815,6 @@ const SD = ({ setPageTitle }: any) => {
 
             </Switch>
 
-        </ScrollContext.Provider>
         </Router>
             
     );

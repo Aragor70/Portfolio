@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 import imgEngineers from '../style/icons/engineers.png';
 import autosize from 'autosize';
@@ -7,8 +7,11 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Translate } from '../components/Translate';
 import ErrorResponse from '../components/ErrorResponse';
+import { PageTitleContext } from '../context/PageTitleContext';
 
-const AT = ({ setPageTitle }: any) => {
+const AT = () => {
+
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.contact" />)
