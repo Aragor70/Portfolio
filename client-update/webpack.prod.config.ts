@@ -7,6 +7,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 
 interface Configuration extends WebpackConfiguration {
@@ -17,11 +18,8 @@ interface Configuration extends WebpackConfiguration {
 const config: Configuration = {
   mode: "production",
   entry: "./src/index.tsx",
-  output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "[name].[contenthash].js",
-    publicPath: "",
-  },
+  output: {     filename: 'bundle.js',     path: path.resolve(__dirname, 'build')   },
+  performance: {     hints: 'warning',     maxEntrypointSize: 2000000,     maxAssetSize: 2000000 },
   module: {
     rules: [
           {
@@ -46,6 +44,9 @@ const config: Configuration = {
                     loader: 'style-loader',
                 },
                 {
+                    loader: 'vue-style-loader',
+                },
+                {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true,
@@ -68,10 +69,11 @@ const config: Configuration = {
               },
             },
           },
-          {
-            test: /\.svg$/,
-            use: ['@svgr/webpack', 'url-loader'],
-          }
+          {         
+            test: /\.svg$/,         
+            use: ['@svgr/webpack', 'url-loader'],       
+          },
+
     ]
   },
   resolve: {
@@ -89,6 +91,7 @@ const config: Configuration = {
     new ESLintPlugin({
         extensions: ["js", "jsx", "ts", "tsx"],
     }),
+    new MiniCssExtractPlugin({       filename: "[name].[contenthash].css",     }),
   ],
 };
 
