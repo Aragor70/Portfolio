@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getImages } from '../../actions/skills';
+import { getImages, ImageType } from '../../actions/skills';
 import ErrorResponse from '../ErrorResponse';
 import TechListElement from './TechListElement';
 
@@ -15,7 +15,7 @@ const TechPreview = ({ element, setIsHover }: any) => {
         (async () => {
             setLoadingPreview(true)
 
-            const payload = {
+            const payload: ImageType = {
                 project_icon: true,
                 education_icon: true,
                 experience_icon: true,

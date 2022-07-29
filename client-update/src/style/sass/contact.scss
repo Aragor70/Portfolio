@@ -1,0 +1,63 @@
+.subjects
+{
+    width: 100%;
+    list-style: none;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+}
+.subjects li
+{
+    width: 50%;
+    list-style: none;
+    padding: 64px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.20) -1px 7.5px 7.5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.subjects li:active
+{
+    box-shadow: green -1px 7.5px 7.5px 0px;
+    color: green;
+    position: relative;
+    top: 2px;
+}
+
+.message-form
+{
+    padding: 0 15px;
+}
+.message-form input, .textarea
+{
+    width: 100%;
+    line-height: 25px;
+    padding: 3px 0;
+    color: rgba(8,27,51,.8);
+    border: 1px solid rgb(118, 118, 118);
+    font-size: 18px;
+    background-color:rgba(232, 240, 254, 0.7);
+}
+.textarea 
+{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 90px;
+    line-height: 25px;
+    font-size: 18px;
+    border: 1px solid rgb(118, 118, 118);
+}
+.textarea[contenteditable]:empty::before {
+    content: "Write your message";
+    color: rgba(8,27,51,.8);
+    width: 300px;
+    height: 100%;
+    text-align: center;
+}

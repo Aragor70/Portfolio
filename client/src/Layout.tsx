@@ -3,6 +3,7 @@ import { Fragment, useContext, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Footer from './components/Footer';
+import Uploader from './components/Uploader';
 import { UserContext } from './context/UserContext';
 
 import Header from './interface/Header';

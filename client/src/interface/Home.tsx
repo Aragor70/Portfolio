@@ -26,6 +26,7 @@ import Timeline from '../components/Timeline';
 import { Translate } from '../components/Translate';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { PageTitleContext } from '../context/PageTitleContext';
+import Uploader from '../components/Uploader';
 /* import tsServerExample1 from '../style/ts-server-example1.jpg';
 import emojis1 from '../style/emojis.png';
 import niconnect1 from '../style/niconnect.png';
@@ -265,6 +266,23 @@ const Home = ({ history }: any) => {
 
                     </article>
                 </section>
+
+                <section>
+                    <article className="grid-double">
+
+
+                        <div className="params">
+                            <Uploader />
+                        </div>
+                        <div className="params right">
+                            
+                        
+                        </div>
+
+                    </article>
+                </section>
+
+
 
                 {/* <section className="vertical">
                     <div className="hexagon-list snaps-inline">

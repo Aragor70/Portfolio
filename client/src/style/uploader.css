@@ -1,0 +1,57 @@
+
+.uploader-list
+{
+    padding: 0 7.5px;
+    list-style: none;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.uploader-list li {
+    gap: 7.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 7.5px;
+}
+
+.uploader-list li h2 {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.uploader-list li h2 > span {
+    width: 230px;
+}
+
+.uploader-list li > * {
+    padding: 2.5px;
+    font-size: 18px;
+}
+.uploader-list li h2 > label {
+    display: flex;
+    align-items: center;
+    column-gap: 2.5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.uploader-list li img {
+    inline-size: 35px;
+}
+
+.uploader-list li label:hover img {
+    transform: scale(1.1);
+}
+
+
+.uploader-list li label:hover span {
+    position: relative;
+    top: 2px;
+    font-weight: 600;
+}

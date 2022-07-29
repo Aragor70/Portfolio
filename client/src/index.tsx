@@ -14,6 +14,7 @@ import './style/filterElement.css';
 import './style/admin.css';
 import './style/contact-me.css';
 import './style/aside.css';
+import './style/uploader.css';
 import './utils/i18n';
 
 ReactDOM.render(

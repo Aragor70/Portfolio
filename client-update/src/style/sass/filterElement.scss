@@ -1,0 +1,484 @@
+
+.calendar-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 20px);
+    padding: 0;
+    z-index: 10;
+}
+
+.calendar-box > .calendar {
+    width: 100%;
+    padding: 20px;
+}
+
+@media (min-width: 1023px) {
+
+    .calendar-box {
+        position: absolute;
+        left: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+}
+.rdrDateDisplay {
+    margin: 0;
+    display: flex;
+    gap: 7.5px;
+}
+.rdrDateDisplay span {
+    margin: 0 !important;
+}
+.calendar-box > div {
+    display: flex;
+    gap: 7.5px;
+    background-color: #f2f2f2;
+    box-shadow: rgba(0, 0, 0, 0.20) -1px 7.5px 7.5px 0px;
+}
+
+.calendar > div:nth-last-child(1) {
+    padding: 0;
+}
+
+
+.calendar > div:nth-last-child(1) > div {
+    margin: 0 auto;
+    width: 100%;
+    
+}
+.rdrMonthName {
+    font-size: 14px;
+    text-align: center;
+
+}
+
+.rdrMonth {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 !important;
+}
+
+
+.calendar-input {
+
+    cursor: pointer;
+    text-align: left;
+    height: 2em;
+    font-size: 18px;
+    padding: 0.3em;
+    border: solid 3px #f2f2f2;
+    width: 100%;
+}
+
+
+
+
+.filter
+{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+
+}
+
+.filter > .form-inputs {
+    width: 0;
+    outline: 0;
+}
+
+.filter > .form-inputs {
+    display: none;
+    width: 100%;
+    z-index: 10;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    top: 0;
+}
+
+.filter .true {
+    display: block;
+}
+
+.filter > label
+{
+    width: auto;
+    position: relative;
+    display: flex;
+    gap: 20px;
+
+    padding: 28px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    border: 1px solid #4C5273;
+    z-index: 10000;
+}
+
+.filter label
+{
+    z-index: 10000;
+}
+
+.filter label > span
+{
+    height: 35px;
+    width: 35px;
+}
+
+
+.filter > label > svg
+{
+    height: 2em;
+    inline-size: 2em;
+    width: 2em;
+    margin: auto;
+}
+
+.searchIcon
+{
+    width: auto;
+    position: relative;
+    display: flex;
+    gap: 20px;
+
+    padding: 28px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    border: 1px solid #4C5273;
+}
+
+.searchIcon svg
+{
+    
+    height: 2em;
+    inline-size: 2em;
+    width: 2em;
+    margin: auto;
+}
+
+.searchIcon span {
+    height: 35px;
+    width: 35px;
+}
+
+
+.filter-article {
+    
+    position: relative;
+    z-index: 1000000 !important;
+    
+}
+
+
+.filter-article::before {
+    content: '';
+    position: absolute;
+
+    top: -30px;
+    right: -500%;
+    left: -500%;
+    height: calc(100% + 60px);
+
+    transform: rotate(-5deg);
+    background-color: rgba(8,27,51,.8);
+    
+    z-index: 1000;
+}
+
+
+::selection {
+background: rgba(8,27,51,.8);;
+}
+
+.search-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    z-index: 10;
+}
+.search-wrapper.active {}
+
+.search-wrapper .input-holder {    
+    height: 70px;
+    width:70px;
+    overflow: hidden;
+    background: rgba(255,255,255,0);
+    border-radius:6px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+}
+.search-wrapper.active .input-holder {
+    width:450px;
+    border-radius: 50px;
+    background: rgba(8,27,51,.8);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+}
+
+.search-wrapper .input-holder .search-input {
+    width:100%;
+    height: 50px;
+    padding:0px 70px 0 20px;
+    opacity: 0;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background: transparent;
+    box-sizing: border-box;
+    border:none;
+    outline:none;
+    font-family:"Open Sans", Arial, Verdana;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color:#f2f2f2;
+    transform: translate(0, 60px);
+    transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.3s;
+    font-size: 1.5em;
+
+}
+.search-input::-webkit-input-placeholder {
+    color: #f2f2f2;
+}
+
+.search-wrapper.active .input-holder .search-input {
+    opacity: 1;
+    transform: translate(0, 10px);
+}
+
+ 
+.search-wrapper .input-holder .search-icon {
+    width: 70px;
+    height: 70px;
+    border: 3px solid rgba(8,27,51,.8);
+    border-radius: 50%;
+    background: #fff;
+    padding: 0px;
+    outline: none;
+    
+    position: relative;
+    z-index: 2;
+    float:right;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.search-wrapper.active .input-holder .search-icon {
+    width: 50px;
+    height:50px;
+    margin: 10px;
+    border-radius: 30px;
+}
+.search-wrapper .input-holder .search-icon span {
+    width:22px;
+    height:22px;
+    display: inline-block;
+    vertical-align: middle;
+    position:relative;
+    transform: rotate(45deg);
+    transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+}
+.search-wrapper.active .input-holder .search-icon span {
+    transform: rotate(-45deg);
+}
+.search-wrapper .input-holder .search-icon span::before, .search-wrapper .input-holder .search-icon span::after {
+    position: absolute; 
+    content:'';
+}
+.search-wrapper .input-holder .search-icon span::before {
+    width: 4px;
+    height: 11px;
+    left: 9px;
+    top: 18px;
+    border-radius: 2px;
+    background: rgba(8,27,51,.8);
+}
+.search-wrapper .input-holder .search-icon span::after {
+    width: 14px;
+    height: 14px;
+    left: 0px;
+    top: 0px;
+    border-radius: 16px;
+    border: 4px solid rgba(8,27,51,.8);
+}
+.search-wrapper .close {
+    position: absolute;
+    z-index: 1;
+    top:19px;
+    right:20px;
+    width:35px;
+    height:35px;
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    transition-delay: 0.2s;
+}
+.search-wrapper .calendar-icon {
+    position: absolute;
+    z-index: 1;
+    top:19px;
+    right:20px;
+    width:35px;
+    height:35px;
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    transition-delay: 0.2s;
+}
+.search-wrapper.active .close {
+    right:-100px;
+    transform: rotate(45deg);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+.search-wrapper.active .calendar-icon {
+    right:-50px;
+    transform: rotate(0);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+
+.search-wrapper .close::before, .search-wrapper .close::after {
+    position:absolute;
+    content:'';
+    background: #C8102E;
+    border-radius: 2px;
+}
+.search-wrapper .close::before {
+    width: 5px;
+    height: 35px;
+    left: 15px;
+    top: 0px;
+}
+.search-wrapper .calendar-icon::before {
+    width: 5px;
+    height: 35px;
+    left: 5px;
+    top: 0px;
+}
+.search-wrapper .close::after {
+    width: 35px;
+    height: 5px;
+    left: 0px;
+    top: 15px;
+}
+.search-wrapper .calendar-icon::after {
+    width: 35px;
+    height: 5px;
+    left: 0px;
+    top: 10px;
+}
+
+
+
+.search-content
+{
+    min-height: calc(260px + 60px);
+    display: grid;
+
+}
+
+.search-list {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-shadow: rgba(0, 0, 0, 0.20) -1px 7.5px 7.5px 0px;
+    border-radius: 7.5px;
+}
+.search-list li {
+    list-style-type: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    border-radius: 7.5px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.search-list li:hover {
+    background-color: #fff;
+}
+
+.search-list li:active {
+    background-color: #fff;
+}
+
+.search-list li svg {
+    height: 18px;
+}
+
+
+@media (max-width: 1023px) {
+
+    .search-wrapper {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top:50%;
+        left:50%;
+    }
+    .search-wrapper.active {
+        position: absolute;
+        transform: unset;
+        top:unset;
+        left:0;
+        right: unset;
+        width: 100%;
+    }
+
+    .search-wrapper.active .input-holder {
+        width:calc(100vw - 60px);
+        border-radius: 50px;
+        background: rgba(8,27,51,.8);
+        transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    }
+
+    .search-wrapper.active .input-holder {
+        width: 100%;
+    }
+
+    .search-wrapper.active .close {
+        right: 0;
+        top: -45px;
+        transform: rotate(45deg);
+        transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+        transition-delay: 0.5s;
+    }
+    .search-wrapper.active .calendar-icon {
+        left: 20px;
+        right: unset;
+        top: 80px;
+        transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+        transition-delay: 0.5s;
+    }
+
+    .calendar-box {
+        top: calc(100% + 35px + 20px);
+    }
+
+    .search-list {
+        top: calc(100% + 35px);
+    }
+
+    article.search-content
+    {
+        display: flex;
+    }
+}
