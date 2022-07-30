@@ -93,12 +93,12 @@ const Home = ({ history }: HomeTypes) => {
 
             <div className="home-extended">
                 
-                <section>
+                <section className="section-content">
 
-                    <div className="section-content" style={{ padding: '15px 0', marginBottom: '70px' }}>
-                        <article style={{ padding: '0', minHeight: '70vh' }} className="grid-double">
-                            <LanguageSwitcher />
-                            
+                        <LanguageSwitcher />
+
+                        <article className="grid-double">
+
                             <div className="params left">
 
                                 <h3 className="content-center"><span style={{ fontSize: '2.1em' }}><Translate tKey="home.me.name" /></span></h3>
@@ -140,8 +140,6 @@ const Home = ({ history }: HomeTypes) => {
                             </div>
                             
                         </article>
-
-                    </div>
 
                 </section>
 
