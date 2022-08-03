@@ -7,12 +7,12 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "allowJs": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "paths": {
-      "*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "lib": [
       "esnext",
@@ -26,5 +26,5 @@
   "exclude": ["node_modules", "build"],
   "include": [
     "./src",
-    "webpack.config.ts" ]
+    "webpack.dev.config.ts" ]
 }
