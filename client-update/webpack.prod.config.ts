@@ -69,9 +69,10 @@ const config: Configuration = {
               },
             },
           },
-          {         
-            test: /\.svg$/,         
-            use: ['@svgr/webpack', 'url-loader'],       
+          {
+            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            issuer: /\.[jt]sx?$/,
+            use: ['babel-loader', '@svgr/webpack', 'file-loader'],
           },
 
     ]

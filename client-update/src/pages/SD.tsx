@@ -55,7 +55,10 @@ import Loading from '../components/Loading';
 import FilterElement from '../components/FilterElement';
 import ErrorResponse from '../components/ErrorResponse';
 import { PageTitleContext } from '../context/PageTitleContext';
-import { Language } from '../components/LanguageConfig';
+import { Language } from '../utils/LanguageConfig';
+import Attacher from '../components/Attacher';
+import ProjectsTemplate from '../documents/ProjectsTemplate';
+import ReactDOM from 'react-dom/server';
 
 const SD = () => {
 
@@ -158,6 +161,8 @@ const SD = () => {
 
                     <div className="section-content">
                     
+                        
+                        <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Software_Development-Mikolaj_Prus.pdf" />
                         <article>
 
                             <div>

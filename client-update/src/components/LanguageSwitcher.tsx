@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Translate } from './Translate';
 
 import i18n from '../utils/i18n';
-import { Language, availableLanguages, defaultLanguage } from './LanguageConfig';
+import { Language, availableLanguages, defaultLanguage } from '../utils/LanguageConfig';
 
 
 import polish from '/assets/icons/poland.svg';
@@ -66,7 +66,7 @@ const LanguageSwitcher = () => {
     }
 
   }, [languageContext])
-  console.log(selectedLanguageCode)
+
   return (
     <Fragment>
       <label className={"language-switcher"} >

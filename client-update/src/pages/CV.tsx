@@ -1,3 +1,4 @@
+import Attacher from '@/components/Attacher';
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 import { withRouter } from 'react-router-dom';
@@ -45,6 +46,10 @@ const CV = () => {
     return (
         <Fragment>
             <div className="section-content fade-in">
+                
+            <Attacher filePath={"/assets/attachments/Mikolaj_Prus.pdf"} />
+
+            
                 <div className="params">
                 <h3><Translate tKey="cv.sections.summary.title" /></h3>
                     <Translate tKey="cv.sections.summary.text" />

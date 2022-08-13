@@ -4,8 +4,7 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 
 import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router } from 'react-router-dom';
 import Project from './Project';
-
-
+import ReactDOM from 'react-dom/server';
 
 /* 
 import pht from '../style/pht.jpg'; */
@@ -45,7 +44,9 @@ import ListPreview from '../components/preview/ListPreview';
 import { getEducations } from '../actions/education';
 import ProjectPreview from '../components/preview/ProjectPreview';
 import { PageTitleContext } from '../context/PageTitleContext';
-import { Language } from '../components/LanguageConfig';
+import { Language } from '../utils/LanguageConfig';
+import Attacher from '@/components/Attacher';
+import ProjectsTemplate from '@/documents/ProjectsTemplate';
 
 
 const Education = () => {
@@ -130,6 +131,7 @@ const Education = () => {
                 <Route exact path={path}>
                     <div className="section-content">
 
+                        <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Education-Mikolaj_Prus.pdf" />
                         
                         <article>
 

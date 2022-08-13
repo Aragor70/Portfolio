@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
-import { Language } from '../components/LanguageConfig';
+import { Language } from '../utils/LanguageConfig';
 import HtmlParser from 'react-html-parser';
 import { withRouter } from 'react-router-dom';
 import { getProject } from '../actions/project';
@@ -8,6 +8,8 @@ import GithubStats from '../components/GithubStats';
 import Loading from '../components/Loading';
 import { Translate } from '../components/Translate';
 import { LanguageContext } from '../context/LanguageContext';
+import Attacher from '../components/Attacher';
+  
 
 type SingleRepository = {
     id?: number,
@@ -117,11 +119,14 @@ const Project = ({ match }: any) => {
 
     }, [header, match.params.project_name, loadingProject])
 
+
     if (loadingProject) return <Loading />;
 
     if (!project) return null;
 
     if (errorResponse) return <ErrorResponse message={errorResponse} />
+
+
 
     return (
         <Fragment>
@@ -133,6 +138,8 @@ const Project = ({ match }: any) => {
                 <h3><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
 
             </article> */}
+
+            
             
             {
                 !!project?.images?.length && <div className="main-image" >{
@@ -146,7 +153,11 @@ const Project = ({ match }: any) => {
                 }</div>
             }
 
+            <Attacher filePath={"/assets/attachments/Mikolaj_Prus.pdf"} />
+
+
             <article className="single-content">
+                
                 <div className="section-image">
                 
                     <label style={{ width: '100%', alignItems: 'center', display: 'flex' }}>

@@ -7,6 +7,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 
 interface Configuration extends WebpackConfiguration {
@@ -36,22 +37,27 @@ const config: Configuration = {
         test: /\.s?css$/,
         exclude: /node_modules/,
         use: [
-            {
-                loader: 'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            // This is required for asset imports in CSS, such as url()
+            // options: { publicPath: "" },
+            options: { publicPath: "" },
+          },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
+              debug: true,
             },
-            {
-                loader: 'css-loader',
-                options: {
-                    sourceMap: true,
-                },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
             },
-            {
-                loader: 'sass-loader',
-                options: {
-                    sourceMap: true,
-                },
-            },
-        ],
+          },
+      ],
       },
       {
         test: /\.(png|jpe?g|ico|gif)$/,
@@ -59,13 +65,31 @@ const config: Configuration = {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
+            useRelativePaths: true,
+            type: "asset",
           },
         },
       },
       {
-        test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader'],
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: /\.[jt]sx?$/,
+        use: ['babel-loader', '@svgr/webpack', 'file-loader'],
       },
+      /* 
+      {
+        test: /\.(png|jpe?g|ico|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            context: path.resolve(__dirname, "/"),
+            outputPath: '/',
+            publicPath: '/',
+            useRelativePaths: true
+        }
+        },
+      },
+      */
       /* {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
@@ -91,6 +115,7 @@ const config: Configuration = {
     new ESLintPlugin({
         extensions: ["js", "jsx", "ts", "tsx"],
     }),
+    new MiniCssExtractPlugin(),
     
   ],
   devtool: "inline-source-map",

@@ -21,7 +21,6 @@ import nestImg from '/assets/icons/nestjs-icon.svg'
 import { Translate } from '../components/Translate';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 
-
 interface HomeTypes extends RouteComponentProps {}
 
 
@@ -148,7 +147,6 @@ const Home = ({ history }: HomeTypes) => {
                     <div className="params">
                         <Translate tKey="home.sections.overview.headline" />
                     </div>
-
                 </section>
 
                 <section>
