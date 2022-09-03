@@ -46,7 +46,7 @@ import ProjectPreview from '../components/preview/ProjectPreview';
 import { PageTitleContext } from '../context/PageTitleContext';
 import { Language } from '../utils/LanguageConfig';
 import Attacher from '@/components/Attacher';
-import ProjectsTemplate from '@/documents/ProjectsTemplate';
+import EducationsTemplate from '@/documents/EducationsTemplate';
 
 
 const Education = () => {
@@ -131,7 +131,7 @@ const Education = () => {
                 <Route exact path={path}>
                     <div className="section-content">
 
-                        <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Education-Mikolaj_Prus.pdf" />
+                        <Attacher htmlFile={ReactDOM.renderToString(<EducationsTemplate projects={projects} />)} fileName="Education-Mikolaj_Prus.pdf" />
                         
                         <article>
 

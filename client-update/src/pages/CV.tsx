@@ -6,6 +6,8 @@ import TechWithPopup from '../components/preview/TechWithPopup';
 import { Translate } from '../components/Translate';
 import { PageTitleContext } from '../context/PageTitleContext';
 import { skills } from '../utils/constant';
+import ReactDOM from 'react-dom/server';
+import CVTemplate from '../documents/CVTemplate';
 
 const CV = () => {
 
@@ -47,7 +49,7 @@ const CV = () => {
         <Fragment>
             <div className="section-content fade-in">
                 
-            <Attacher filePath={"/assets/attachments/Mikolaj_Prus.pdf"} />
+            <Attacher htmlFile={ReactDOM.renderToString(<CVTemplate projects={[]} />)} fileName="Curriculum_Vitae-Mikolaj_Prus.pdf" />
 
             
                 <div className="params">

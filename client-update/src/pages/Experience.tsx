@@ -42,7 +42,7 @@ import { ScrollContext } from '../context/ScrollContext';
 import { PageTitleContext } from '../context/PageTitleContext';
 import { Language } from '../utils/LanguageConfig';
 import Attacher from '@/components/Attacher';
-import ProjectsTemplate from '@/documents/ProjectsTemplate';
+import ExperiencesTemplate from '@/documents/ExperiencesTemplate';
 
 
 const Experience = () => {
@@ -142,7 +142,7 @@ const Experience = () => {
                     
                     </div> */}
 
-                        <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Work_Experience-Mikolaj_Prus.pdf" />
+                        <Attacher htmlFile={ReactDOM.renderToString(<ExperiencesTemplate projects={projects} />)} fileName="Work_Experience-Mikolaj_Prus.pdf" />
                     
                         <article>
 

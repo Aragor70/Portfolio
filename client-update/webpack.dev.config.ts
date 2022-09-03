@@ -8,6 +8,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+// import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 
 interface Configuration extends WebpackConfiguration {
@@ -116,8 +117,24 @@ const config: Configuration = {
         extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new MiniCssExtractPlugin(),
-    
+
   ],
+  /* optimization: {
+    minimize: true,
+    minimizer: [
+      // @ts-ignore:next-line
+    	new UglifyJsPlugin({
+      		uglifyOptions: {
+        		compress: {
+          		// remove warnings
+          		
+          		// remove console.logs
+          		drop_console: true,
+        		},
+      		},
+    	}),
+    ],
+  }, */
   devtool: "inline-source-map",
   devServer: {
     static: path.join(__dirname, "."),
