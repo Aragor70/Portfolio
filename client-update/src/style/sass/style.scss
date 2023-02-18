@@ -106,7 +106,7 @@ hr
     padding: 0 5vw;
     margin-top: 0;
     background-color: #f2f2f2;
-    
+    position: relative;
 }
 
 .output > * {
@@ -114,16 +114,14 @@ hr
     margin: 0 auto;
 }
 
-
 footer
 {
-    width: 100%;
+    width: 100vw;
     height: 12vh;
-    padding: 0 5vw;
-    margin: 0!important;
-
-
-
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    position: static;
 }
 
 footer > * {
@@ -209,6 +207,13 @@ p
 .vertical {
     display: flex;
     flex-direction: column;
+}
+
+.small-center {
+    @media screen and (max-width: 1023px) {
+        width: 100%;
+        text-align: center;   
+    }
 }
 
 @media (min-width: 1023px) {
@@ -320,14 +325,9 @@ p
     }
     footer
     {
-        width: 100%;
-        height: 12vh;
-        padding: 0 5vw;
-        margin: 0!important;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
     }
     footer > div > p
     {
@@ -424,6 +424,7 @@ p
 .output {
     z-index: 10;
 }
+
 /* .output::before {
     content: "";
     position: absolute;
@@ -480,8 +481,19 @@ header .language-switcher {
     margin: auto 0;
     margin-left: auto;
     position: absolute;
-    right: 5vw;
-    top: 9px;
+    right: calc(30px + 15px + 5.5px);
+    margin-top: 9px;
+
+    @media screen and (max-width: 1023px) {
+        
+        right: calc(15px + 5.5px);
+    }
+    @media screen and (max-width: 768px) {
+        
+        span {
+            display: none;
+        }
+    }
 }
 
 .home-content .language-switcher {
@@ -503,23 +515,23 @@ header .language-switcher {
 
 .language-switcher {
     display: flex;
-    gap: 7.5px;
+    gap: 20px;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     
     min-height: 55px;
     
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .language-switcher img {
-    inline-size: 28px;
-    height: 32px;
+    inline-size: 30px;
+    height: 35px;
 }
 .language-switcher label {
     display: flex;
-    gap: 7.5px;
+    gap: 20px;
     align-items: center;
     cursor: pointer;
     z-index: 15;
@@ -551,7 +563,7 @@ header .language-switcher {
     .language-switcher {
         
         padding: 0 15px;
-        right: calc(5vw - 15px);
+        // right: calc(5vw - 15px);
     }
 }
 

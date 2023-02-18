@@ -148,9 +148,7 @@ const Education = () => {
 
                         </article>
 
-
                         <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getEducations} />
-
                             
                         {
                             loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
@@ -158,9 +156,12 @@ const Education = () => {
                                 <ListPreview status="current" title={<Translate tKey="education.section.current.headline" />} list={projects} Component={ProjectPreview} />
 
                                 <ListPreview status="completed" title={<Translate tKey="education.section.completed.headline" />} list={projects} Component={ProjectPreview} />
-                                
 
-                            </Fragment> : "Educations not found."
+                            </Fragment> : (
+                                <p className="small-center">
+                                    <Translate tKey="education.notfound" />
+                                </p>
+                            )
                         }
 
 

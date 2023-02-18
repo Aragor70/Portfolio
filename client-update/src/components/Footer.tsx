@@ -11,7 +11,7 @@ const Footer = () => {
                 <Route render={({ location }) => location.pathname !== '/contact_mikolaj' && <ContactMe />} />
             </Switch>
 
-            <p>&#169; Nicolai 2021</p>
+            <p>&#169; Nicolai 2023</p>
         </div>
     );
 }

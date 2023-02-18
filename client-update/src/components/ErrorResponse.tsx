@@ -14,7 +14,7 @@ const ErrorResponse = ( props: any ) => {
 
     return (
         <Fragment>
-            <article className={ style?.className || '' } style={{ ...style?.css }}>
+            <article className={ style?.className || '' } style={{ ...style?.css, display: 'flex' }}>
                 
                 <div className="params" style={{ textAlign: 'center' }}>
                     <Translate tKey={message} />

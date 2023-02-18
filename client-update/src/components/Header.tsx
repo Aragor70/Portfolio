@@ -12,7 +12,6 @@ import { PageTitleContext } from '../context/PageTitleContext';
 
 interface HeaderTypes extends RouteComponentProps {}
 
-
 const Header = ({ location: { pathname }, history }: HeaderTypes) => {
 
     const { pageTitle } = useContext(PageTitleContext);
@@ -22,7 +21,6 @@ const Header = ({ location: { pathname }, history }: HeaderTypes) => {
             <div className='header-element'></div>
                         
                 <header className='header-content'>
-
 
                     <div className="page-title">
                     <p>
@@ -45,10 +43,8 @@ const Header = ({ location: { pathname }, history }: HeaderTypes) => {
                             </Fragment>
                         }
                         <span style={pageTitle === 'home' ? { cursor: 'pointer' } : {}}>{pageTitle}</span>
-                        
                     </p>
                         <LanguageSwitcher />
-                        <hr />
                     </div>
             </header>
         </Fragment>

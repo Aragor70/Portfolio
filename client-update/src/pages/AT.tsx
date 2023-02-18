@@ -10,6 +10,8 @@ import ErrorResponse from '../components/ErrorResponse';
 import { PageTitleContext } from '../context/PageTitleContext';
 import Attacher from '@/components/Attacher';
 
+import "../style/sass/timeline.scss"
+
 const AT = () => {
 
     const { setPageTitle } = useContext(PageTitleContext);
@@ -111,7 +113,7 @@ const AT = () => {
                     <p>
                         mikey.prus@gmail.com
                     </p>
-                    <ul style={{ padding: '0 40px', listStyle: 'none', margin: '7.5px 0' }}>
+                    <ul className="big-side-padding" style={{ listStyle: 'none', margin: '7.5px 0' }}>
                     
                         <li className="icon-box"><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></li>
                     </ul>
@@ -211,6 +213,7 @@ const AT = () => {
                     </Fragment>
                 }
             </div>
+            
         </Fragment>
             
     );

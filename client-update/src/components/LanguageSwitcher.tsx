@@ -73,7 +73,9 @@ const LanguageSwitcher = () => {
 
         <label onClick={() => setShowSelect(!showSelect)}>
           
-          <Translate tKey={LANGUAGE_CODE_TO_KEY[selectedLanguageCode]} />
+          <span>
+            <Translate tKey={LANGUAGE_CODE_TO_KEY[selectedLanguageCode]} />
+          </span>
 
           <img src={flag[selectedLanguageCode]} alt="current_flag" />
 
@@ -92,8 +94,9 @@ const LanguageSwitcher = () => {
                             saveLanguage(languageCode);
                           }}
                         >
-                          
-                          <Translate tKey={LANGUAGE_CODE_TO_KEY[languageCode]} />
+                          <span>
+                            <Translate tKey={LANGUAGE_CODE_TO_KEY[languageCode]} />
+                          </span>
 
                           <img src={flag[languageCode]} alt="flag" />
 

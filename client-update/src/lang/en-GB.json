@@ -11,6 +11,10 @@
     "error.message": "<p>We have received an error.</p><p>Please check the internet connection.</p>",
     "search.error.message": "<p>Please use letters, numbers, spaces, commas (,) dots (.) dashes (-), or underlines (_).</p>",
     "contact.me": "Contact Me",
+    "attacher": {
+        "download": "Download",
+        "share": "Share"
+    },
     "auth": {
         "login": {
             "headline": "Login",
@@ -75,6 +79,7 @@
         "section.drafts.headline": "Drafts",
         "section.drafts.overview": "Draft projections include projects temporarily stopped development, waiting for deployment.",
         "input.search.placeholder": "Search by name",
+        "notfound": "Projects not found.",
         "project": {
             "link.show.details": "View project details"
         }
@@ -85,6 +90,7 @@
         "section.current.headline": "Actual projects",
         "section.completed.headline": "Completed projects",
         "input.search.placeholder": "Wpisz nazwę",
+        "notfound": "Experience not found.",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }
@@ -95,6 +101,7 @@
         "section.current.headline": "Actual projects",
         "section.completed.headline": "Completed projects",
         "input.search.placeholder": "Wpisz nazwę",
+        "notfound": "Educations not found.",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }

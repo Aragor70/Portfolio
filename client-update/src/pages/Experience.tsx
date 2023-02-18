@@ -169,7 +169,11 @@ const Experience = () => {
 
                                 <ListPreview status="completed" title={<Translate tKey="experience.section.completed.headline" />} list={projects} Component={ProjectPreview} />
 
-                            </Fragment> : "Experiences not found."
+                            </Fragment> : (
+                                <p className="small-center">
+                                    <Translate tKey="experience.notfound" />
+                                </p>
+                            )
                         }
 
                         <article>

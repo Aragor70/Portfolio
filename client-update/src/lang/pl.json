@@ -11,6 +11,10 @@
     "error.message": "<p>Zauważyliśmy notifikację o błędzie.</p><p>Proszę sprawdź swój aktualny dostep do internetu.</p>",
     "search.error.message": "<p>Proszę używać liter, cyfr, spacji, przecinków (,) kropek (.) myślników (-) lub podkreśleń (_).</p>",
     "contact.me": "Napisz do mnie",
+    "attacher": {
+        "download": "Pobierz",
+        "share": "Podziel się"
+    },
     "auth": {
         "login": {
             "headline": "Logowanie",
@@ -75,6 +79,7 @@
         "section.drafts.headline": "Wersje robocze",
         "section.drafts.overview": "Wersje robocze obejmują projekty tymczasowo zatrzymane w fazie rozwoju, czekające na wdrożenie.",
         "input.search.placeholder": "Wpisz nazwę",
+        "notfound": "Nie znaleziono iformacji.",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }
@@ -85,6 +90,7 @@
         "section.current.headline": "Aktualne projekty",
         "section.completed.headline": "Wykonane projekty",
         "input.search.placeholder": "Wpisz nazwę",
+        "notfound": "Nie znaleziono iformacji.",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }
@@ -95,6 +101,7 @@
         "section.current.headline": "Aktualne kursy",
         "section.completed.headline": "Wykonane kursy",
         "input.search.placeholder": "Wpisz nazwę",
+        "notfound": "Nie znaleziono iformacji.",
         "project": {
             "link.show.details": "Pokaż szczegóły"
         }

@@ -8,7 +8,7 @@ const ScrollTopButton = () => {
     
     const scrollButton = useRef<any>(null)
 
-    const { scrollPosition } = useContext(ScrollContext)
+    const { scrollPosition } = useContext<any>(ScrollContext)
     
 
     

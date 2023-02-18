@@ -6,6 +6,7 @@ import cvBtn2 from '/assets/icons/image-solid.svg';
 import skBtn from '/assets/icons/Forma-1.svg';
 import atBtn1 from '/assets/icons/envelope-regular.svg';
 import edBtn2 from '/assets/icons/chart-line-solid.svg';
+import circle from '/assets/components/circle.svg';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import types1 from '/assets/images/types1.png';
@@ -20,6 +21,7 @@ import nivest2 from '/assets/images/NiVest2.png';
 import nestImg from '/assets/icons/nestjs-icon.svg'
 import { Translate } from '../components/Translate';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import CustomLine from '@/components/CustomLine';
 
 interface HomeTypes extends RouteComponentProps {}
 
@@ -87,6 +89,10 @@ const Home = ({ history }: HomeTypes) => {
                     </div>
                     
                 </div>
+
+                {/* <CustomLine /> */}
+                <img src={circle} alt="circle" />
+
                 
             </div>
 
@@ -196,7 +202,16 @@ const Home = ({ history }: HomeTypes) => {
 
                     </article>
                 </section>
+                <section>
+                    
+                    <CustomLine />
+                
+                </section>
+                <section>
+                    
 
+                
+                </section>
             </div>
         </Fragment>
     );

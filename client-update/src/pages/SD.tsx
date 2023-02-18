@@ -161,7 +161,6 @@ const SD = () => {
 
                     <div className="section-content">
                     
-                        
                         <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Software_Development-Mikolaj_Prus.pdf" />
                         <article>
 
@@ -180,7 +179,6 @@ const SD = () => {
 
                         <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getProjects} />
 
-                        
                         {
                             loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
 
@@ -194,7 +192,11 @@ const SD = () => {
                                 
                                 <ListPreview status="draft" title={<Translate tKey="sd.section.drafts.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} />
 
-                            </Fragment> : "Projects not found."
+                            </Fragment> : (
+                                <p className="small-center">
+                                    <Translate tKey="sd.notfound" />
+                                </p>
+                            )
                         }
 
 

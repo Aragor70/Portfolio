@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+
+    <circle r="149" cx="150" cy="150" fill="none" stroke="#4C5273" stroke-width="1"/>
+
+    <line x1="0" y1="150" x2="125" y2="150" style="stroke:#4C5273;stroke-width:1" />
+
+    <line x1="260" y1="254" x2="175" y2="175" style="stroke:#4C5273;stroke-width:1" />
+    
+    <line x1="250" y1="40" x2="175" y2="125" style="stroke:#4C5273;stroke-width:1" />
+
+</svg>

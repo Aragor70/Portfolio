@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import downloadIcon from '/assets/icons/download-outline.svg';
 import emailIcon from '/assets/icons/share-social-outline.svg';
 import jsPDF from "jspdf";
+import { Translate } from "./Translate";
 
 const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { filePath?: string | null | any , htmlFile?: string | null | any, fileName?: null | string }) => {
 
@@ -85,14 +86,14 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
                     <a onClick={() => handlePdf()}>
                         <img src={downloadIcon} alt="get-cv" />
                         <span>
-                            Download
+                            <Translate tKey="attacher.download" />
                         </span>
                     </a>
                     :
                     <Link to={filePath} target="_blank" download>
                         <img src={downloadIcon} alt="get-cv" />
                         <span>
-                            Download
+                            <Translate tKey="attacher.download" />
                         </span>
                     </Link>
                 }
@@ -102,7 +103,7 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
                 <label onClick={() => handleShare('email')}>
                     <img src={emailIcon} alt="email-cv" />
                     <span>
-                        Share
+                        <Translate tKey="attacher.share" />
                     </span>
                 </label>
             </li>

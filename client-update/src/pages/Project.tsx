@@ -156,7 +156,7 @@ const Project = ({ match }: any) => {
             <Attacher filePath={"/assets/attachments/Mikolaj_Prus.pdf"} />
 
 
-            <article className="single-content">
+            <article className="single-content gap-single">
                 
                 <div className="section-image">
                 
