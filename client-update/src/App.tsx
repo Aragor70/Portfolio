@@ -12,11 +12,8 @@ import Layout from './Layout';
 import { PageTitleContext } from './context/PageTitleContext';
 import { ScrollContext } from './context/ScrollContext';
 
-
-
 const App = () => {
 
-    
   const [ user, setUser ] = useState(null);
   const [ loadingUser, setLoadingUser ] = useState(false);
   const [ errorResponse, setErrorResponse ] = useState('');

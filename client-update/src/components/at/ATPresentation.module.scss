@@ -1,0 +1,76 @@
+@import "src/styles/common.scss";
+
+.sectionContent {
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    
+    @media (min-width: 1023px) {
+        
+        width: 100%;
+        min-height: 88vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        background-color: #f2f2f2;
+        padding: 30px;
+    }
+    .param {
+        width: 100%;
+        row-gap: 10px;
+
+        h3 {
+            justify-content: flex-start;
+        }
+        &.center {
+            @media (min-width: 1023px) {
+                margin-block: auto;
+            }
+        }
+    }
+}
+
+.messageForm
+{
+    padding: 0 15px;
+
+    input, 
+    .textarea {
+        width: 100%;
+        line-height: 25px;
+        padding: 3px 0;
+        color: rgba(8,27,51,.8);
+        border: 1px solid rgb(118, 118, 118);
+        font-size: 18px;
+        background-color:rgba(232, 240, 254, 0.7);
+    }
+}
+.textarea 
+{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 90px;
+    line-height: 25px;
+    font-size: 18px;
+    border: 1px solid rgb(118, 118, 118);
+}
+.textarea[contenteditable]:empty::before {
+    content: "Write your message";
+    color: rgba(8,27,51,.8);
+    width: 300px;
+    height: 100%;
+    text-align: center;
+}
+
+.outputResponse
+{
+    text-align: center;
+    font-size: 24px;
+}

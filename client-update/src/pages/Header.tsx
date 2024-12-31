@@ -8,7 +8,7 @@ import sdBtn from '../style/sd.png';
 import cvBtn from '../style/cv.png';
 import atBtn from '../style/at.png';
 
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher';
 import { withRouter } from 'react-router-dom';
 import { PageTitleContext } from '../context/PageTitleContext';
 

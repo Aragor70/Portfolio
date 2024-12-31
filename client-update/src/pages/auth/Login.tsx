@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { login } from '../../actions/auth';
-import ErrorResponse from '../../components/ErrorResponse';
-import Loading from '../../components/Loading';
-import { Translate } from '../../components/Translate';
+import ErrorResponse from '../../components/ErrorResponse/ErrorResponse';
+import Loading from '../../components/Loading/Loading';
+import { Translate } from '../../components/Translate/Translate';
 import { UserContext } from '../../context/UserContext';
 
 import '/src/style/sass/auth.scss'

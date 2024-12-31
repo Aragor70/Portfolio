@@ -1,0 +1,69 @@
+.languageSwitcher {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 55px;
+    font-size: 15px;
+
+    margin-bottom: auto;
+    margin-top: 9px;
+    margin-left: auto;
+    position: absolute;
+    right: calc(30px + 15px + 5.5px);
+
+    @media screen and (max-width: 1023px) {
+        
+        right: calc(15px + 5.5px);
+    }
+    @media (min-width: 1023px) {
+        padding: 0 15px;
+    }
+    @media screen and (max-width: 768px) {
+        span {
+            display: none !important;
+        }
+    }
+
+    img {
+        inline-size: 30px;
+        height: 35px;
+    }
+    label {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        cursor: pointer;
+        z-index: 15;
+    }
+    > ul {
+        display: flex;
+        gap: 7.5px;
+        flex-direction: column;
+    
+        align-items: flex-end;
+        list-style: none;
+        padding: 7.5px 15px;
+        margin: 0 !important;
+        
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+                
+        @media (max-width: 1023px) {
+            padding: 7.5px 0;
+        }
+    }
+
+    .shadowBox {
+        z-index: 14;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+}

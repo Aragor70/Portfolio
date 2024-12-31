@@ -1,16 +1,16 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
-import { Language } from '../utils/LanguageConfig';
-import HtmlParser from 'react-html-parser';
 import { withRouter } from 'react-router-dom';
-import { getProject } from '../actions/project';
-import ErrorResponse from '../components/ErrorResponse';
-import GithubStats from '../components/GithubStats';
-import Loading from '../components/Loading';
-import { Translate } from '../components/Translate';
-import { LanguageContext } from '../context/LanguageContext';
-import Attacher from '../components/Attacher';
-  
+import HtmlParser from 'react-html-parser';
 
+import { Language } from '../utils/LanguageConfig';
+import { getProject } from '../actions/project';
+import ErrorResponse from '../components/ErrorResponse/ErrorResponse';
+import GithubStats from '../components/GithubStats/GithubStats';
+import Loading from '../components/Loading/Loading';
+import { Translate } from '../components/Translate/Translate';
+import { LanguageContext } from '../context/LanguageContext';
+import Attacher from '../components/Attacher/Attacher';
+  
 type SingleRepository = {
     id?: number,
     name?: string,
@@ -35,7 +35,6 @@ export type ProjectType = {
     repos?: SingleRepository[] | null,
     icons?: SingleImage[] | null,
     loadingRepos?: false | true
-
 }
 
 // eslint-disable-next-line

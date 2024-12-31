@@ -1,0 +1,132 @@
+@import "./common.scss";
+
+* {
+    box-sizing: border-box;
+    font-family: "Pontiac", Arial, Helvetica, sans-serif;
+}
+body, html
+{
+    width: 100vw;
+    height: 100vh;
+    margin: 0!important;
+    padding: 0!important;
+    text-align: justify;
+    word-wrap: break-word;
+    display: block;
+
+    font-weight: 400;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: rgba(8,27,51,.8);
+    background-color: #f2f2f2;
+}
+
+body
+{
+    height: auto;
+}
+
+a, button, textarea, input
+{
+    outline: none;
+    color: rgba(8,27,51,.8);
+    text-decoration: none;
+}
+
+a, button
+{
+    font-weight: 400;
+    overflow: hidden;
+}
+a:hover, button:hover
+{
+    color: lightblue;
+}
+a:focus, button:focus
+{
+    color: #49c500;
+}
+a > button
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    
+}
+h1 
+{
+    color: rgba(8,27,51,.8);
+}
+
+textarea
+{
+    resize: none;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: rgba(232, 240, 254, 0.7);
+}
+
+input
+{
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: rgba(232, 240, 254, 0.7);
+}
+
+hr
+{
+    color: rgba(8,27,51,.8);
+    width: calc(100%);
+    margin-bottom: 0;
+}
+
+.output
+{
+    height: auto;
+    overflow-x: hidden;
+    z-index: 2;
+    padding: 0 5vw;
+    margin-top: 0;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.output > * {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+footer
+{
+    width: 100vw;
+    height: 12vh;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    position: static;
+
+    > * {
+        max-width: 1920px;
+    }
+}
+
+footer > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div > p
+    {
+        width: auto;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+    }
+}

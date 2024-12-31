@@ -1,0 +1,45 @@
+@import "src/styles/common.scss";
+
+.sectionContent {
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    
+    @media (min-width: 1023px) {
+        padding: 30px;
+        
+        width: 100%;
+        min-height: 88vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        background-color: #f2f2f2;
+    }
+
+    .param {
+        row-gap: 10px;
+        margin-bottom: 30px;
+        padding: 30px;
+
+        h3 {
+            justify-content: flex-start;
+            margin-block: 20px;
+        }
+        p,
+        h3 {
+            text-align: justify;
+        }
+    }
+
+}
+
+.skillsList {
+    width: 100%;
+    line-height: 23pt;
+    margin: 7.5px 0;
+}

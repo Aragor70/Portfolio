@@ -1,0 +1,74 @@
+
+.techPreview {
+    width: auto;
+    padding: 20px;
+    border-radius: 7.5px;
+    min-height: 96px;
+    box-shadow: rgba(0, 0, 0, 0.20) -1px 7.5px 7.5px 0px;
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 10;
+    background-color: #f2f2f2;
+    column-gap: 20px;
+    
+    > label {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 20px;
+        row-gap: 7.5px;
+        min-width: max-content;
+    }
+    label span {
+        cursor: default;
+    }
+
+    > ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 7.5px;
+        list-style: none;
+        padding: 0;
+
+        > li {
+            width: max-content;
+        }
+    }
+}
+
+.techWithPopup {
+    position: relative;
+
+    > span {
+        cursor: pointer;
+    }
+    li > span > svg
+    {
+        height: 2em;
+        inline-size: 2em;
+        width: 2em;
+        margin: auto;
+    }
+    li {
+        display: flex;
+        align-items: center;
+
+        > span {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+
+            &:hover {
+                color:rgba(92, 176, 189, 1);
+            }
+            &:hover {
+                color:rgba(92, 176, 189, 1);
+            }
+        }
+    }
+}

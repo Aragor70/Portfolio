@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
-import { Translate } from '../components/Translate';
+import { Translate } from '../components/Translate/Translate';
 import { PageTitleContext } from '../context/PageTitleContext';
 
 

@@ -1,11 +1,11 @@
 import React, { Fragment, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Loading from './components/Loading';
+import Loading from './components/Loading/Loading';
 const Login = React.lazy(() => import('./pages/auth/Login'));
 const Register = React.lazy(() => import('./pages/auth/Register'));
-const ScrollTopButton = React.lazy(() => import('./components/ScrollTopButton'));
-const SocialMediaGroup = React.lazy(() => import('./components/SocialMediaGroup'));
+const ScrollTopButton = React.lazy(() => import('./components/ScrollTopButton/ScrollTopButton'));
+const SocialMediaGroup = React.lazy(() => import('./components/SocialMediaGroup/SocialMediaGroup'));
 
 const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
 const AT = React.lazy(() => import('./pages/AT'));

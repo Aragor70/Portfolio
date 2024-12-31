@@ -30,18 +30,18 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 
 import brikkapp1 from '/assets/images/brikkapp1.svg';
 import data4you3 from '/assets/images/data4you3.png';
-import { Translate } from '../components/Translate';
+import { Translate } from '../components/Translate/Translate';
 import { getExperiences } from '../actions/experience';
 import { LanguageContext } from '../context/LanguageContext';
-import FilterElement from '../components/FilterElement';
-import Loading from '../components/Loading';
-import ErrorResponse from '../components/ErrorResponse';
-import ListPreview from '../components/preview/ListPreview';
-import ProjectPreview from '../components/preview/ProjectPreview';
+import FilterElement from '../components/FilterElement/FilterElement';
+import Loading from '../components/Loading/Loading';
+import ErrorResponse from '../components/ErrorResponse/ErrorResponse';
+import ListPreview from '../components/preview/ListPreview/ListPreview';
+import ProjectPreview from '../components/preview/ProjectPreview/ProjectPreview';
 import { ScrollContext } from '../context/ScrollContext';
 import { PageTitleContext } from '../context/PageTitleContext';
 import { Language } from '../utils/LanguageConfig';
-import Attacher from '@/components/Attacher';
+import Attacher from '@/components/Attacher/Attacher';
 import ExperiencesTemplate from '@/documents/ExperiencesTemplate';
 
 
