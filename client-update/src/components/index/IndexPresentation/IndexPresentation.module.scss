@@ -1,4 +1,4 @@
-@import "src/styles/common.scss";
+@use "src/styles/common.scss" as *;
 
 :global {
   * {
@@ -82,8 +82,8 @@
       padding: 0 7.5px;
     }
 
-    &img:nth-last-child(2),
-    &img:nth-last-child(1) {
+    img:nth-last-child(2),
+    img:nth-last-child(1) {
         height: auto !important;
     }
   }
