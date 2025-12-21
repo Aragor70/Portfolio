@@ -1,4 +1,4 @@
-@import "src/styles/common.scss";
+@use "src/styles/common.scss" as *;
 
 .calendarBox {
     position: absolute;
@@ -410,8 +410,6 @@
     left: 0px;
     top: 10px;
 }
-
-
 
 .searchContent
 {

@@ -1,15 +1,19 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
 import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
-import { Language } from '../../../utils/constant';
+import autosize from 'autosize';
+import clsx from 'clsx';
+
+import { ScrollContext } from '../../../context/ScrollContext';
 import GithubStats from '../../GithubStats/GithubStats';
 import { Translate } from '../../Translate/Translate';
-import autosize from 'autosize';
-import { ScrollContext } from '../../../context/ScrollContext';
+import { Language } from '../../../utils/constant';
 /* 
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
+
+import styles from "../../sd/Presentation/SDPresentation.module.scss";
 
 const ProjectPreview = ( props: any ) => {
 
@@ -42,7 +46,6 @@ const ProjectPreview = ( props: any ) => {
         setEditMenu(!editMenu)
 
     }
-
 
     const handleChange = (e: any) => {
         const element = e.target
@@ -98,9 +101,9 @@ const ProjectPreview = ( props: any ) => {
                 
                 if (element_position <= (screen_size)) {
     
-                    element.className = 'params animated fadeInUp'
+                    element.className = clsx(styles.param, "animated", "fadeInUp")
                 } else if (scrollPosition >= 100) {
-                    element.className = 'params no-opacity'
+                    element.className = clsx(styles.param, styles.noOpacity) 
                 }
             }
 
@@ -134,15 +137,15 @@ const ProjectPreview = ( props: any ) => {
                 }
 
 
-                <div className="section-image">
+                <div className={styles.sectionImage}>
                     {
                         !!props.images?.length && <img src={props?.images[0]?.name} alt={props.images[0]?.label} onError={(e: any) => {e.target.style.display = 'none'}} />
                     }
                     
                 </div>
-                <div className="params no-opacity" ref={fadeInUpElement}>
+                <div className={clsx(styles.param, styles.noOpacity)} ref={fadeInUpElement}>
                     {
-                        openEdit['title'] ? <textarea className="textarea" value={formData?.title || ''} name="title" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write a new title"></textarea> : <h3 className="content-center"><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
+                        openEdit['title'] ? <textarea className="textarea" value={formData?.title || ''} name="title" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write a new title"></textarea> : <h3 className={styles.textCenter}><span style={{ fontSize: '45px' }}>{title || 'Title'}</span></h3>
                     }
                     {
                         openEdit['text'] ? <textarea className="textarea" value={formData?.text || ''} name="text" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="Write a new content html"></textarea> : <Fragment>
@@ -162,13 +165,13 @@ const ProjectPreview = ( props: any ) => {
                     }
 
 
-                    <ul className="icons">
+                    <ul className={styles.icons}>
                         {
                             !!props.icons?.length && props?.icons?.map((element: any) => element.isFile ? <li key={element.id} className="icon"><img src={`/assets/icons/${element.name}`} alt={element.label} /><span>{element.label}</span></li> : <li className="icon"  key={element.id}><i className={element.name}></i><span>{element.label}</span></li>)
                         }
                     </ul>
                     
-                    <ul className="more-about">
+                    <ul className={styles.moreAbout}>
 
                         {
                             !!props.name && <Link to={`/software_projects/${props.name}`}><Translate tKey='sd.project.link.show.details' /></Link>
@@ -188,7 +191,7 @@ const ProjectPreview = ( props: any ) => {
 
                 {
                     openEdit['status'] && <div className="update-window">
-                        <h3 className="content-center"><span style={{ fontSize: '45px' }}>{'Status'}</span></h3>
+                        <h3 className={styles.textCenter}><span style={{ fontSize: '45px' }}>{'Status'}</span></h3>
                     <span>status name</span>
                         <ul>
                             

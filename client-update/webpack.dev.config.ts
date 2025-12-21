@@ -51,11 +51,15 @@ const config: Configuration = {
             },
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true,
-            },
-          },
+              sassOptions: {
+                api: "modern",
+                quietDeps: true
+              }
+            }
+          }
       ],
       },
       {
@@ -114,7 +118,10 @@ const config: Configuration = {
     new ESLintPlugin({
         extensions: ["js", "jsx", "ts", "tsx"],
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      ignoreOrder: true,
+    }),
+
 
   ],
   /* optimization: {

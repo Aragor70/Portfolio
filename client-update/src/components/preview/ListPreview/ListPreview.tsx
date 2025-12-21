@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+
 import { LanguageContext } from '../../../context/LanguageContext';
 import { UserContext } from '../../../context/UserContext';
 import { Language } from '../../../utils/constant';
@@ -9,13 +9,9 @@ import { Translate } from '../../Translate/Translate';
 const ListPreview = ( props: any ) => {
 
     const { Component } = props;
-
     const languageContext = useContext<any>(LanguageContext)
-
     const [ list, setList ] = useState([])
-
     const [ loadingList, setLoadingList ] = useState(false)
-    
     const [ isEditable, setIsEditable ] = useState(false)
 
     useEffect(() => {
@@ -52,14 +48,13 @@ const ListPreview = ( props: any ) => {
     if (loadingList) return <Loading />
     if (!list.length) return null
 
-    
     return (
         <Fragment>
-            {props?.title &&  <h1>{ props?.title }</h1>}
+            {props?.title && <h1>{ props?.title }</h1>}
 
             {
                 props?.status === 'draft' && <Fragment>
-                    <div className="params" style={{ marginBottom: '30px' }}>
+                    <div className={props.className} style={{ marginBottom: '30px' }}>
                         <i><Translate tKey="sd.section.drafts.overview" /></i>
                     </div>
                 </Fragment>
@@ -73,4 +68,4 @@ const ListPreview = ( props: any ) => {
         </Fragment>
     );
 }
-export default withRouter(ListPreview);
+export default ListPreview;

@@ -1,10 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { DateRange } from 'react-date-range'
 
-
-import '/src/style/css/date-range-picker/default.css'
-import '/src/style/css/date-range-picker/styles.css'
-
 /* import { ReactComponent as CalendarSvg } from '../style/calendar.svg'; */
 import { Language } from '../../utils/constant'
 

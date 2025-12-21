@@ -50,11 +50,15 @@ const config: Configuration = {
                     },
                 },
                 {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: true,
-                    },
-                },
+                  loader: "sass-loader",
+                  options: {
+                    sourceMap: true,
+                    sassOptions: {
+                      api: "modern",
+                      quietDeps: true
+                    }
+                  }
+                }
             ],
           },
           {
@@ -89,7 +93,10 @@ const config: Configuration = {
     new ESLintPlugin({
         extensions: ["js", "jsx", "ts", "tsx"],
     }),
-    new MiniCssExtractPlugin({       filename: "[name].[contenthash].css",     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      ignoreOrder: true,
+    }),
   ],
 };
 
