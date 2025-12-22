@@ -1,9 +1,6 @@
 import React from "react";
 
-
-
 const EducationsTemplate = ({ projects = [] }: { projects: any[] }) => {
-
     return (
         <body>
             <main>

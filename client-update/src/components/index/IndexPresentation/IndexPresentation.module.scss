@@ -1,12 +1,10 @@
 @use "src/styles/common.scss" as *;
-
 :global {
   * {
     box-sizing: border-box;
     /* font-family: 'Lato', sans-serif; */
   }
 }
-
 .homeContent {
   width: 100%;
   min-height: 88vh;
@@ -36,21 +34,17 @@
     right: 0;
     margin-top: 0;
   }
-
   .naviButtons {
     justify-content: center;
     row-gap: 10px;
     margin-bottom: 30px;
-
     img {
         width: 55px;
         height: 47px;
     }
   }
 }
-
 .naviButtons {
-
   width: 100%;
   align-items: center;
   justify-content: flex-start;
@@ -60,7 +54,6 @@
   row-gap: 15px;
   padding: 30px 0;
   margin: auto 0;
-
   > * {
     width: 100%;
     display: inline-flex;
@@ -70,25 +63,21 @@
     padding: 5.5px;
     cursor: pointer;
     z-index: 5;
-
     &:active {
       position: relative;
       top: 2px;
       color: green;
     }
-
     nav {
       width: auto;
       padding: 0 7.5px;
     }
-
     img:nth-last-child(2),
     img:nth-last-child(1) {
         height: auto !important;
     }
   }
 }
-
 .avatar {
   width: 100%;
   min-height: 180px;
@@ -98,7 +87,6 @@
   align-items: center;
   z-index: 2;
   margin: auto 0;
-
   > img {
     margin: 15px;
     border-radius: 50%;
@@ -106,7 +94,6 @@
     border: 2px solid #0a1248;
     cursor: pointer;
   }
-
   > span {
     height: 100%;
     display: flex;
@@ -114,7 +101,6 @@
     font-family: 'Lato', sans-serif;
     font-size: 24px;
     position: relative;
-
     > span {
       height: 100%;
       display: flex;
@@ -126,7 +112,6 @@
     }
   }
 }
-
 .inUpdate {
   width: auto;
   height: auto;
@@ -139,28 +124,23 @@
   background-color: #f2f2f2;
   transition: all 0.7s ease;
 }
-
 .frontImage {
   display: none;
   z-index: 1;
   position: relative;
   transition: all 0.5s ease;
-
   .switchButton {
     width: 35px;
     height: 35px;
-
     .left {
       position: absolute;
       left: 0;
     }
-
     .right {
       position: absolute;
       right: 0;
     }
   }
-
   .number_of_images {
     position: absolute;
     bottom: 0;
@@ -171,7 +151,6 @@
     align-items: center;
     transition: all 0.3s ease;
     z-index: 5;
-
     div {
       width: 25%;
       cursor: pointer;
@@ -181,7 +160,6 @@
     }
   }
 }
-
 .homeExtended {
   display: none;
   
@@ -196,18 +174,15 @@
     padding: 0 30px;
     border-radius: 7.5px;
     position: relative;
-
     > section:nth-child(1) {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-
       article {
         align-items: center;
       }
     }
-
     .sectionContent {
       width: 100%;
       min-height: auto;
@@ -218,11 +193,9 @@
       padding: 0 30px;
       position: relative;
       margin-block: auto;
-
       > article {
         width: 100%;
       }
-
       .languageSwitcher {
         position: absolute;
         top: 30px;
@@ -232,17 +205,14 @@
       }
       .param {
         padding-block: 70px;
-
         .naviButtons {
           width: 100%;
           padding-block: 0;
           margin-top: 30px;
-
           img {
             width: 43px;
             height: 39px;
           }
-
           nav {
             width: 100%;
           }
@@ -250,7 +220,6 @@
       }
     }
   }
-
   section {
     width: 100%;
   }
@@ -261,12 +230,10 @@
     column-gap: 40px !important;
   }
 }
-
 .darkLight {
   color: #fff;
   min-height: 300px;
   position: relative;
-
   &::before {
     background-color: rgba(8, 27, 51, 0.8);
     content: '';
@@ -277,24 +244,20 @@
     bottom: 0;
     z-index: -1;
   }
-
   > * {
     width: 100% !important;
     color: #fff;
     text-align: center;
   }
-
   h3 {
     font-size: 50px;
     font-weight: 900;
     margin: 0;
   }
-
   p {
     font-size: 22px;
   }
 }
-
 .param {
   
   padding-block: 70px;
@@ -303,16 +266,13 @@
   @media (min-width: 1023px) {
     padding-inline: 30px !important;
   }
-
 }
-
 .hexagon > * {
   margin: 0 auto;
   width: 430px;
   height: 430px;
   position: relative;
 }
-
 .hexagon img {
   inline-size: 100%;
   height: 100%;
@@ -325,7 +285,6 @@
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
 }
-
 // .section-content .params
 // {
 //     width: 100%;
@@ -345,7 +304,6 @@
 //     .params > * {
 //         padding-left: 40px;
 //         padding-right: 40px;
-
 //     }
 //     .params {
         

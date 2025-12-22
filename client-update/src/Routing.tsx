@@ -1,12 +1,10 @@
 import React, { Fragment, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import Loading from './components/Loading/Loading';
 const Login = React.lazy(() => import('./pages/auth/Login'));
 const Register = React.lazy(() => import('./pages/auth/Register'));
 const ScrollTopButton = React.lazy(() => import('./components/ScrollTopButton/ScrollTopButton'));
 const SocialMediaGroup = React.lazy(() => import('./components/SocialMediaGroup/SocialMediaGroup'));
-
 const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
 const AT = React.lazy(() => import('./pages/AT'));
 const Education = React.lazy(() => import('./pages/Education'));
@@ -16,12 +14,9 @@ const Messages = React.lazy(() => import('./pages/Messages'));
 const SD = React.lazy(() => import('./pages/SD'));
 const CV = React.lazy(() => import('./pages/CV'));
 
-
 /* import DS from './interface/DS'; */
 
-
 const Routing = () => {
-
 
     return (
         <Fragment>
@@ -53,14 +48,12 @@ const Routing = () => {
                     <Route exact path="/admin">
                         <AdminDashboard />
                     </Route>
-
                     <Route exact path="/login">
                         <Login />
                     </Route>
                     <Route exact path="/register">
                         <Register />
                     </Route>
-
                         
                 </Switch>
                 

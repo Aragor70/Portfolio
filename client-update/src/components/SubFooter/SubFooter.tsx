@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 
-
 const SubFooter = () => {
-
     return (
         <Fragment>
             <section>

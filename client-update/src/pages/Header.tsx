@@ -1,5 +1,4 @@
 import React, { Fragment, useContext } from 'react';
-
 import leftArrow from '../style/left-arrow.png';/* 
 import homeBtn from '../style/home.png';
  */
@@ -7,23 +6,17 @@ import dsBtn from '../style/ds.png';
 import sdBtn from '../style/sd.png';
 import cvBtn from '../style/cv.png';
 import atBtn from '../style/at.png';
-
 import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher';
 import { withRouter } from 'react-router-dom';
 import { PageTitleContext } from '../context/PageTitleContext';
-
 const Header = ({ location: { pathname }, history }: any) => {
-
     // <img src={leftArrow} style={{ width: "55px", marginRight: '7.5px' }}  />
-
     const { pageTitle } = useContext(PageTitleContext);
     return (
         <Fragment>
-
             <div className='header-element'></div>
                         
                 <header className='header-content'>
-
 
                     <div className="page-title">
                     <p>

@@ -3,12 +3,10 @@
     display: grid;
     column-gap: 80px;
     grid-template-columns: repeat(2, 1fr);
-
     > * {
         margin-inline: auto;
     }
 }
-
 .icons {
     
     width: 100%;
@@ -17,10 +15,8 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
-
     padding: 40px 20px;
     border-radius: 25px;
-
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -29,19 +25,16 @@
     @media (max-width: 550px) {
         row-gap: 10px;
     }
-
     > * {
         width: 30%;
         height: 90px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-
         flex-direction: column;
         padding: 7.5px;
         margin: 0;
         float: left;
-
         span {
             text-align: center;
             margin-top: 5.5px;
@@ -59,7 +52,6 @@
         }
     }
 }
-
 .moreAbout {
     float: left;
     display: flex;
@@ -67,7 +59,6 @@
     justify-content: flex-end;
     width: 100%;
     text-align: left;
-
     line-height: 23pt;
     margin: 7.5px 0 !important;
     padding: 0;
@@ -80,7 +71,6 @@
     @media (min-width: 1023px) {
         padding-inline: 40px;
     }
-
     span {
         color: #0A1248;
         cursor: pointer;
@@ -108,26 +98,21 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-
         &:nth-last-child(1) {
             margin-left: 30px;
         }
     }
 }
-
 .textCenter {
     text-align: center;
 }
-
 .noOpacity {
     opacity: 0;
 }
-
 @media (min-width: 768px) {
     .fadeIn {
         animation: fadeIn 1.5s;
     }
-
     .animated {
         width: 100% !important;
         animation-duration: 1.3s;
@@ -135,24 +120,20 @@
         -webkit-animation-duration: 1.3s;
         -webkit-animation-fill-mode: both
     }
-
     .fadeInUp {
         opacity: 0;
         animation-name: fadeInUp;
         -webkit-animation-name: fadeInUp;
     }
 }
-
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 @keyframes fadeInUp {
     from {
         transform: translate3d(0,100px,0)
     }
-
     to {
         transform: translate3d(0,0,0);
         opacity: 1
@@ -162,13 +143,11 @@
     from {
         transform: translate3d(0,100px,0)
     }
-
     to {
         transform: translate3d(0,0,0);
         opacity: 1
     }
 }
-
 .param {
     position: relative;
     background-color: #f2f2f2;
@@ -186,7 +165,6 @@
         display: flex;
         flex-direction: column;
         text-align: left;
-
         @media (max-width: 1023px) {
             padding: 20px !important;
             margin: 0;
@@ -195,7 +173,6 @@
             flex-direction: column;
         }
     }
-
     > p {
         line-height: 23pt;
         margin: 7.5px 0;
@@ -210,7 +187,6 @@
     label {
         font-size: 20px;
     }
-
     h3 {
         width: 100%;
         font-weight: 900;

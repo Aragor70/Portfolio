@@ -1,27 +1,20 @@
 import React, { Fragment, useContext } from 'react';
-
 import leftArrow from '/assets/icons/left-arrow.png';
 import dsBtn from '/assets/icons/ds.png';
 import sdBtn from '/assets/icons/sd.png';
 import cvBtn from '/assets/icons/cv.png';
 import atBtn from '/assets/icons/at.png';
-
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { PageTitleContext } from '../../context/PageTitleContext';
-
 interface HeaderTypes extends RouteComponentProps {}
-
 const Header = ({ location: { pathname }, history }: HeaderTypes) => {
-
     const { pageTitle } = useContext(PageTitleContext);
     return (
         <Fragment>
-
             <div className='header-element'></div>
                         
                 <header className='header-content'>
-
                     <div className="page-title">
                     <p>
                         {

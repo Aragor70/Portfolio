@@ -1,15 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import Footer from './components/Footer/Footer';
-
 import Header from './components/Header/Header';
 import Routing from './Routing';
-
 import setAuthToken from './utils/setAuthToken';
-
 import '/src/styles/style.scss'
-
 import '/src/style/sass/style.scss'
 import '/src/style/sass/header.scss';
 // import '/src/style/sass/section.scss';
@@ -20,15 +15,12 @@ import '/src/style/sass/admin.scss';
 // import '/src/style/sass/contact-me.scss';
 import '/src/style/sass/aside.scss';
 import '/src/style/sass/attacher.scss';
-
 const Layout = () => {
-
     useEffect(() => {
       if (localStorage?.token) {
         setAuthToken(localStorage.token);
       }
     }, [])
-
 
     return (
         <Fragment>

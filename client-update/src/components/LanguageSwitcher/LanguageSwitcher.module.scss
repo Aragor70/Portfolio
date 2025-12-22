@@ -6,13 +6,11 @@
     justify-content: center;
     min-height: 55px;
     font-size: 15px;
-
     margin-bottom: auto;
     margin-top: 9px;
     margin-left: auto;
     position: absolute;
     right: calc(30px + 15px + 5.5px);
-
     @media screen and (max-width: 1023px) {
         
         right: calc(15px + 5.5px);
@@ -25,7 +23,6 @@
             display: none !important;
         }
     }
-
     img {
         inline-size: 30px;
         height: 35px;
@@ -56,7 +53,6 @@
             padding: 7.5px 0;
         }
     }
-
     .shadowBox {
         z-index: 14;
         position: fixed;

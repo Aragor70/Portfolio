@@ -5,13 +5,9 @@ import downloadIcon from '/assets/icons/download-outline.svg';
 import emailIcon from '/assets/icons/share-social-outline.svg';
 import jsPDF from "jspdf";
 import { Translate } from "../Translate/Translate";
-
 const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { filePath?: string | null | any , htmlFile?: string | null | any, fileName?: null | string }) => {
-
     const fadeInUpElement = useRef(null);
-
     useEffect(() => {
-
         (() => {
             
             if (fadeInUpElement.current) {
@@ -24,22 +20,15 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
     
                 
             }
-
         })()
-
     }, [fadeInUpElement])
-
 
     const handleShare = async ( type = 'email' ) => {
         try {
-
             if (type === 'email') {
-
                 const data = new FormData();
                 data.append('name', 'Image Upload');
-
                 data.append('file', emailIcon)
-
                 const payload = {
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -47,36 +36,25 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
                     body: data
                 }
                 const res = await email(payload)
-
                 return res;
-
             }
             
-
-
 
         } catch (err) {
             console.log(err.message)
         }
     }
-
     const handlePdf = async () => {
-
         const doc = new jsPDF('p', 'pt', 'a4');
-
         doc.html(htmlFile, {
             callback: function (doc) {
               doc.save(fileName || 'a4.pdf');
             }
         });
 
-
-
     }
 
-
     if (!filePath && !htmlFile) return null;
-
     return (
         <ul className="uploader-list no-opacity" ref={fadeInUpElement}>
             

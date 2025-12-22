@@ -1,27 +1,21 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/server';
 import clsx from 'clsx';
-
 import Attacher from '../Attacher/Attacher';
 import { Translate } from '../Translate/Translate';
 import { PageTitleContext } from '../../context/PageTitleContext';
 import TechWithPopup from '../preview/TechPreview/TechWithPopup';
 import { skills } from '../../utils/constant';
 import CVTemplate from '../../documents/CVTemplate';
-
 import styles from "./CVPresentation.module.scss";
-
 const CVPresentation = () => {
-
     const { setPageTitle } = useContext(PageTitleContext);
-
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.skills" />)
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
-
     const [ isHover, setIsHover ] = useState(false)
     
     const mapWithComma = (list: string[]) => {
@@ -29,9 +23,7 @@ const CVPresentation = () => {
             index > 0 && ", ",
             <TechWithPopup key={index} element={element} isHover={isHover} setIsHover={setIsHover} />])
     }
-
     const fadeInUpElement = useRef(null)
-
     useEffect(() => {
             
         if (fadeInUpElement.current) {
@@ -39,9 +31,7 @@ const CVPresentation = () => {
             fadeInUpElement.current.classList.add(styles.fadeInUp)
             fadeInUpElement.current.classList.remove(styles.noOpacity)
         }
-
     }, [fadeInUpElement])
-
     return (
         <div className={clsx(styles.sectionContent, styles.fadeIn)}>
                 
@@ -49,12 +39,10 @@ const CVPresentation = () => {
                 htmlFile={ReactDOM.renderToString(<CVTemplate projects={[]} />)}
                 fileName="Curriculum_Vitae-Mikolaj_Prus.pdf"
             />
-
             <div className={styles.param}>
                 <h3><Translate tKey="cv.sections.summary.title" /></h3>
                 <Translate tKey="cv.sections.summary.text" />
             </div>
-
             <div className={styles.param}>
             <h3><Translate tKey="cv.sections.tech.title" /></h3>
                 <Translate tKey="cv.sections.tech.text" />
@@ -67,7 +55,6 @@ const CVPresentation = () => {
                     mapWithComma(skills.languages)
                 }
                 </div>
-
                 <h3><Translate tKey="cv.sections.frameworks.title" /></h3>
                 <div className={styles.skillsList}>
                 {
@@ -95,7 +82,6 @@ const CVPresentation = () => {
                     mapWithComma(skills.services)
                 }
                 </div>
-
             </div>
         </div>
     )

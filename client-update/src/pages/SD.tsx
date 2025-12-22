@@ -1,6 +1,5 @@
 import React, { Fragment, Suspense, useContext, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/server';
-
 /* 
 import pht from '../style/pht.jpg'; */
 import typesImg from '/assets/images/types.png';
@@ -24,13 +23,11 @@ import imgMocha from '/assets/icons/mocha.png';/*
 import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 import imgMachine from '/assets/icons/machine.png';
 import imgJavaScript1 from '/assets/icons/javascript-logo.svg';
-
 import angularImg from '/assets/icons/logo-angular.svg'
 import reactImg from '/assets/icons/logo-react.svg'
 import ionicImg from '/assets/icons/logo-ionic.svg'
 import nestImg from '/assets/icons/nestjs-icon.svg'
 import expressImg from '/assets/icons/expressjs-icon.svg'
-
 import types1 from '/assets/images/types1.png';
 import onloud1 from '/assets/images/onloud1.png';
 import shortnister1 from '/assets/images/shortnister1.png';
@@ -43,7 +40,6 @@ import nivest1 from '/assets/images/NiVest1.png';
 import tsServerExample1 from '/assets/images/ts-server-example1.jpg';
 import emojis1 from '/assets/images/emojis.png';
 import niconnect1 from '/assets/images/niconnect.png';
-
 import { Route, Switch, withRouter, useRouteMatch, BrowserRouter as Router, Link } from 'react-router-dom';
 import Project from './Project';
 import GithubStats from '../components/GithubStats/GithubStats';
@@ -61,11 +57,9 @@ import { Language } from '../utils/LanguageConfig';
 import Attacher from '../components/Attacher/Attacher';
 import ProjectsTemplate from '../documents/ProjectsTemplate';
 import SDPresentation from '../components/sd/Presentation/SDPresentation';
-
 const SD = () => {
     
     const { path, url } = useRouteMatch();
-
     return (
         <Suspense fallback={<Loading />}>
             <Router>
@@ -78,7 +72,6 @@ const SD = () => {
                     <Route exact path={path}>
                         <SDPresentation  />
                     </Route>
-
                 </Switch>
             </Router>
         </Suspense>

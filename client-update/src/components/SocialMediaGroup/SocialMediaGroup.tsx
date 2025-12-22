@@ -1,7 +1,5 @@
 import React from 'react';
-
 const SocialMediaGroup = () => {
-
     return (
         <ul className="pop-up" style={{ opacity: '1' }}>
             <li>

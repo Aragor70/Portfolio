@@ -1,24 +1,19 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Translate } from '../Translate/Translate';
-
 import i18n from '../../utils/i18n';
 import { Language, availableLanguages, defaultLanguage } from '../../utils/LanguageConfig';
-
 
 import polish from '/assets/icons/poland.svg';
 import english from '/assets/icons/united-kingdom.svg';
 import { LanguageContext } from '../../context/LanguageContext';
 import clsx from 'clsx';
-
 const LANGUAGE_CODE_TO_KEY: {
   [K in Language]: string;
 } = {
   'en-GB': "language-switcher.language.english-gb",
   'pl': "language-switcher.language.polish",
 }
-
 import styles from "./LanguageSwitcher.module.scss";
-
 interface LanguageSwitcherProps {
   className?: string
 }
@@ -26,16 +21,13 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
   
   const [selectedLanguageCode, setSelectedLanguageCode] = useState<Language>(defaultLanguage);
   const [showSelect, setShowSelect] = useState(false)
-
   
   // eslint-disable-next-line
   const languageContext = useContext<any>(LanguageContext);
-
   const flag: { 'en-GB': string, 'pl': string} = {
     'en-GB': english,
     'pl': polish
   }
-
   const saveLanguage = async (languageCode: Language) => {
     try {
       localStorage.setItem('languageCode', languageCode);
@@ -44,7 +36,6 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       i18n.changeLanguage(languageCode);
       languageContext.setLanguageCode(languageCode)
       setShowSelect(false);
-
     } catch (err) {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
@@ -53,9 +44,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       console.log(err.message)
     }
   }
-
   useEffect(() => {
-
     const languageCode: Language = localStorage.getItem('languageCode');
     
     if (languageCode) {
@@ -70,9 +59,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       languageContext.setLanguageCode(defaultLanguage)
       setShowSelect(false);
     }
-
   }, [languageContext])
-
   return (
     <Fragment>
       <label className={clsx(styles.languageSwitcher, className)} >
@@ -114,5 +101,4 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     </Fragment>
   );
 };
-
 export default LanguageSwitcher;

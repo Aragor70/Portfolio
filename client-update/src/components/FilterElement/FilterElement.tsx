@@ -1,6 +1,5 @@
 import React, { Fragment, memo, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-
 import DateRangePicker from './DateRangePicker';
 import { Translate } from '../Translate/Translate';
 import { Language, json } from '../../utils/constant';
@@ -9,9 +8,7 @@ import { ReactComponent as ArrowSvg } from '/assets/icons/play-outline.svg';
 import ErrorResponse from '../ErrorResponse/ErrorResponse';
 import { getProject } from '../../actions/project';
 import Loading from '../Loading/Loading';
-
 import styles from "./FilterElement.module.scss";
-
 type FilterFormData = {
     phrase?: null | string,
     startDate?: null | string,
@@ -19,10 +16,8 @@ type FilterFormData = {
     languageCode: Language,
     isVisible?: boolean
 }
-
 // eslint-disable-next-line
 const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
-
     const [ formData, setFormData ] = useState<FilterFormData>({
         phrase: null,
         startDate: null,
@@ -30,21 +25,15 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         languageCode: Language.ENGLISH,
         isVisible: true
     })
-
     const [ openSearch, setOpenSearch ] = useState(false)
     const [ openDatePicker, setOpenDatePicker ] = useState(false)
     const [ openSelect, setOpenSelect ] = useState(false)
     const [ searchList, setSearchList ] = useState([])
-
     const [ loadingSearch, setLoadingSearch ] = useState(false)
-
     const [errorResponse, setErrorResponse] = useState('')
-
     const refOne = useRef<any>(null)
     const refTwo = useRef<any>(null)
-
     const handleSearch = async (payload: FilterFormData, isExact: false | true = false) => {
-
         setLoadingSearch(true)
         
         const res = await loadValues(payload, isExact)
@@ -59,18 +48,14 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         setOpenSelect(true)
         setSearchList(res)
         setErrorResponse('')
-
         setLoadingSearch(false)
         
     }
-
     const handleSubmit = async (e: any = null) => {
-
 
         if (!openSearch) {
             return setOpenSearch(true)
         }
-
         if (e) e.preventDefault()
         
         const res = await loadValues(formData)
@@ -81,9 +66,7 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
             return setErrorResponse('search.error.message')
             
         }
-
         const values = res?.filter((element: any) => element?.name?.toLowerCase() === formData?.phrase?.toLowerCase() )
-
         if (values[0]) {
             setProjects(values)
         } else {
@@ -92,38 +75,28 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         setErrorResponse('')
         
     }
-
     const handleSelect = async (element: any = null) => {
-
         const value = await { ...formData, phrase: element.name }
         setFormData(value)
         await handleSearch(value, true)
         const res = await getProject(element.name)
         await setProjects([res])
-
         setOpenSelect(false)
-
         const article: any = await document.querySelector(styles.sectionContent + '  h1')
         
         await article.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-
     }
-
     const hideOnEscape = (e: any) => {
         
         if( e.key === "Escape" ) {
-
-            setOpenSearch(!!formData.phrase && openSearch)
+            setOpenSearch(Boolean(formData.phrase && openSearch))
             setOpenSelect(false)
             setOpenDatePicker(false)
-
         }
     }
-
     const hideOnClickOutside = (e: any) => {
-
         if( refOne.current && !refOne.current.contains(e.target) ) {
-            setOpenSearch(!!formData.phrase && openSearch)
+            setOpenSearch(Boolean(formData.phrase && openSearch))
             setOpenSelect(false)
             setOpenDatePicker(false)
         }
@@ -133,19 +106,16 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         
         document.addEventListener("keydown", hideOnEscape, true)
         document.addEventListener("click", hideOnClickOutside, true)
-
         return () => {
             window.removeEventListener('keydown', hideOnEscape)
             window.removeEventListener('click', hideOnClickOutside)
         }
         // eslint-disable-next-line
     }, [formData])
-
     return (
         <article className={styles.searchContent}>
             <h1><Translate tKey="list.search.headline" /></h1>
             <form className={styles.filter} onSubmit={(e: any) => handleSubmit(e)}>
-
             <div className={clsx(styles.searchWrapper, {
                 [styles.active]: Boolean(openSearch)
             })} ref={refOne}>
@@ -186,5 +156,4 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
         </article>
     );
 })
-
 export default FilterElement;

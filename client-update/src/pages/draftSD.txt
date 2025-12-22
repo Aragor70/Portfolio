@@ -1,8 +1,5 @@
 
-
 export default () => {
-
-
 
     
     <div className="section-content">
@@ -10,7 +7,6 @@ export default () => {
     
             
     <article className='blue'>
-
         <Switch>
             <Route exact path={path}>
                 <div className="section-image">
@@ -28,7 +24,6 @@ export default () => {
                                 <GithubStats repos={repos} name='NiVest-Software' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
                         <li className="icon"><img src={angularImg} alt="angular" /><span>Angular</span></li>
@@ -47,9 +42,7 @@ export default () => {
             </Route>
         </Switch>           
 
-
     </article>
-
     
         <Switch>  
             
@@ -60,7 +53,6 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
         <Switch>
             <Route exact path={path}>
                 <h1><Translate tKey="sd.section.events.headline" /></h1>
@@ -89,13 +81,11 @@ export default () => {
                         </li>
                     
                     </ul>
-
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
                         <li className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></li>
                         <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/uhelp`)}>View project details</span> */}
                         {/* <li className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Messages", "_blank")}><i className="fas fa-code fa"></i></div> */}
@@ -103,18 +93,15 @@ export default () => {
                     </ul>
                 
                 </div>
-
             </Route>
         </Switch>
     </article>
-
         <Switch>
             <Route exact path={path}>
                 <h1>Projects Online</h1>
             
             </Route>
         </Switch>
-
     <article>
         <Switch>
             <Route exact path={path}>
@@ -133,7 +120,6 @@ export default () => {
                                 <GithubStats repos={repos} name='NiBank' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
                         <li className="icon"><img src={reactImg} alt="reactjs" /><span>React Js</span></li>
@@ -141,7 +127,6 @@ export default () => {
                         <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>SCSS</span></li>
                         <li className="icon"><img src={ionicImg} alt="ionic" /><span>Ionic</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/NiVest`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiVest_App-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -149,10 +134,8 @@ export default () => {
                     </ul>
                 
                 </div>
-
             </Route>
         </Switch>
-
         <Switch>
             <Route exact path={path}>
                 <div className="section-image">
@@ -161,7 +144,6 @@ export default () => {
                 <div className="params">
                     <h3 className="content-center"><img src={ typesImg } alt="types" /></h3>
                     <p>Real-Time TypeScript React app</p><p>You can communicate with anyone in any location with the reliability of texting and the richness of chat. Connect with friends and family, send photos, videos, GIFs, emoji, and more.</p><p>Intuitive and modern, Types makes conversations easy, expressive, and fun.</p>
-
                     
                         {
                             loadingRepos ? null : 
@@ -169,7 +151,6 @@ export default () => {
                                 <GithubStats repos={repos} name='Messages' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
                         <li className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></li>
@@ -180,7 +161,6 @@ export default () => {
                         <li className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></li>
                         <li className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/types`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/NiTypes-Messenger-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -188,10 +168,8 @@ export default () => {
                     </ul>
                 
                 </div>
-
             </Route>
         </Switch>
-
 
         <Switch>  
             
@@ -202,7 +180,6 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
         <Switch>
             <Route exact path={path}>
                 <div className="section-image">
@@ -222,7 +199,6 @@ export default () => {
                                 <GithubStats repos={repos} name='NiChess' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></li>
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
@@ -234,7 +210,6 @@ export default () => {
                         <li className="icon"><img src={imgSocketio} style={{ width: '36px'}} alt="socketIo" /><span>Socket Io</span></li>
                         <li className="icon"><img src={imgJest} alt="jest" /><span>Jest</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/nichess`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://github.com/Aragor70/NiChess", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -242,10 +217,8 @@ export default () => {
                     </ul>
                 
                 </div>
-
             </Route>
         </Switch>
-
 
         <Switch>  
             
@@ -257,20 +230,15 @@ export default () => {
             </Route>
         </Switch> 
 
-
         <Switch>
-
             <Route exact path={path}>
                 <div className="section-image">
                     <img src={efforts1} alt="projects_image" />
                 </div>
                 <div className="params">
                     <h3 className="content-center"><span style={{ fontSize: '45px' }}>Efforts</span></h3>
-
                         <p>A global platform for measuring efforts.</p>
-
                         <p>The website allows review your tasks in a form of the list. Click on them to <b>mark as completed</b> {"("}you can update the status back{")"}. To make your efforts more efficient, we suggest you to filter the cards by status or a date of their creation.</p>
-
                     
                         {
                             loadingRepos ? null : 
@@ -278,7 +246,6 @@ export default () => {
                                 <GithubStats repos={repos} name='Efforts' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></li>
                         <li className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></li>
@@ -293,11 +260,9 @@ export default () => {
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Efforts-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
                         <li className="icon-box" onClick={() => window.open("https://efforts.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></li>
                     </ul>
-
                 </div>
             </Route>
         </Switch> 
-
         <Switch>  
             
             <Route exact path={`${path}/efforts`}>
@@ -307,8 +272,6 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
-
 
         <Switch>
             <Route exact path={path}>
@@ -321,7 +284,6 @@ export default () => {
                         <p>Take control of your URL address. Meet Shortster, to build a shortcut address. 
                         Get the quick report of the frequency.</p>
                         <p>Right now you know how many times your partners clicked your address.</p>
-
                         {
                             loadingRepos ? null : 
                             <Fragment>
@@ -329,7 +291,6 @@ export default () => {
                             </Fragment>
                         }
                         
-
 
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typescript" /><span>TypeScript</span></li>
@@ -351,7 +312,6 @@ export default () => {
                 </div>
             </Route>
         </Switch>
-
         <Switch>  
             
             <Route exact path={`${path}/shortnister`}>
@@ -361,7 +321,6 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
         <Switch>
             <Route exact path={path}>
                 <div className="section-image">
@@ -389,18 +348,15 @@ export default () => {
                         <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></li>
                         <li className="icon"><img src={imgMongoDB} alt="mongoDB" /><span>Mongo DB</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/onloud`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/OnLoud-Lyrics_Platform", "_blank")}><i className="fab fa-chrome fa"></i></li>
                     </ul>
-
                     
                 </div>
             </Route>
         </Switch>  
-
         <Switch>  
             
             <Route exact path={`${path}/onloud`}>
@@ -410,17 +366,14 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
     </article>
     
-
         <Switch>
             <Route exact path={path}>
                 <h1><Translate tKey="sd.section.repos.headline" /></h1>
             </Route>
         </Switch>
     <article>
-
         
     <Switch>
             <Route exact path={path}>
@@ -440,7 +393,6 @@ export default () => {
                             </Fragment>
                         }
 
-
                     <ul className="icons">
                         <li className="icon"><img src={imgTypescript} alt="typeScript" /><span>TypeScript</span></li>
                         <li className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></li>
@@ -449,7 +401,6 @@ export default () => {
                         <li className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></li>
                         <li className="icon"><i className="fas fa-database fa-2x"></i><span>MongoDB</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/TS-Server-Example`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Auth_Server_Module-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -457,12 +408,10 @@ export default () => {
                     </ul>
                 
                 </div>
-
             </Route>
         </Switch>           
        
         <Switch>
-
             <Route exact path={path}>
                 <div className="section-image">
                     <img src={webshot1} alt="projects_image" />
@@ -471,9 +420,7 @@ export default () => {
                     <h3 className="content-center"><span style={{ fontSize: '45px' }}>WebShot</span></h3>
                     <p>WebShot - JavaScript React app</p>
                         <p>Automated screenshot generator.</p>
-
                         <p>The website allows you to generate screenshots of any website and save them into the Google Drive service.</p>
-
                     
                         {
                             loadingRepos ? null : 
@@ -481,7 +428,6 @@ export default () => {
                                 <GithubStats repos={repos} name='WebShot' />
                             </Fragment>
                         }
-
                     <ul className="icons">
                         <li className="icon"><img src={imgJavaScript1} alt="javaScript" /><span>JavaScript</span></li>
                         <li className="icon"><i className="fab fa-react fa-2x"></i><span>React Js</span></li>
@@ -497,11 +443,9 @@ export default () => {
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/WebShot-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
                         {/* <li className="icon-box" onClick={() => window.open("", "_blank")}><i className="fab fa-chrome fa"></i></li> */}
                     </ul>
-
                 </div>
             </Route>
         </Switch> 
-
         <Switch>  
             
             <Route exact path={`${path}/webshot`}>
@@ -512,7 +456,6 @@ export default () => {
             </Route>
         </Switch> 
 
-
         <Switch>
             <Route exact path={path}>
                 <div className="section-image">
@@ -521,9 +464,7 @@ export default () => {
                 <div className="params" style={{ marginBottom: '0' }}>
                     <h3 className="content-center"><span style={{ fontSize: '45px' }}>Emojis</span></h3>
                     <p>Emojis - JavaScript React Python Django app</p>
-
                     <p>App is currently waiting for deployment.</p>
-
                     
                         {
                             loadingRepos ? null : 
@@ -537,7 +478,6 @@ export default () => {
                         <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></li>
                         <li className="icon"><i className="fas fa-database fa-2x"></i><span>PostgreSQL</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/emojis`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://redirect.m-prus.uk/Emojis-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -545,7 +485,6 @@ export default () => {
                     </ul>    
                 </div>
             </Route>
-
             <Switch>  
             
             <Route exact path={`${path}/emojis`}>
@@ -555,10 +494,8 @@ export default () => {
                 />
             </Route>
             
-
             </Switch>
         </Switch>
-
         
         <Switch>
             <Route exact path={path}>
@@ -586,7 +523,6 @@ export default () => {
                         <li className="icon"><i className="fab fa-css3-alt fa-2x"></i><span>CSS 3</span></li>
                         <li className="icon"><i className="fas fa-database fa-2x"></i><span>MySql</span></li>
                     </ul>
-
                     <ul className="more-about">
                         {/* <span onClick={() => history.push(`${url}/niconnect`)}>View project details</span> */}
                         <li className="icon-box" onClick={() => window.open("https://github.com/Aragor70/Niconnect.uk", "_blank")}><i className="fas fa-code fa"></i></li>
@@ -596,7 +532,6 @@ export default () => {
                 </div>
             </Route>
         </Switch>  
-
         <Switch>  
             
             <Route exact path={`${path}/niconnect`}>
@@ -606,7 +541,6 @@ export default () => {
                 />
             </Route>
         </Switch> 
-
     </article>
     
         <Switch>

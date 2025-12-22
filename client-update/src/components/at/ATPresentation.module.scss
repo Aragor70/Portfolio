@@ -1,5 +1,4 @@
 @use "src/styles/common.scss" as *;
-
 .sectionContent {
     width: 100%;
     min-height: 88vh;
@@ -23,7 +22,6 @@
     .param {
         width: 100%;
         row-gap: 10px;
-
         h3 {
             justify-content: flex-start;
         }
@@ -34,11 +32,9 @@
         }
     }
 }
-
 .messageForm
 {
     padding: 0 15px;
-
     input, 
     .textarea {
         width: 100%;
@@ -68,7 +64,6 @@
     height: 100%;
     text-align: center;
 }
-
 .outputResponse
 {
     text-align: center;

@@ -2,7 +2,6 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { Route, Switch, useRouteMatch, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom/server';
 import { clsx } from 'clsx';
-
 import typesImg from '/assets/images/types.png';
 import imgJest from '/assets/icons/jest.png';
 import imgMongoDB from '/assets/icons/mongodb.png';
@@ -12,13 +11,11 @@ import imgSocketio from '/assets/icons/socketio.png';
 import imgMocha from '/assets/icons/mocha.png';
 import imgMachine from '/assets/icons/machine.png';
 import imgJavaScript1 from '/assets/icons/javascript-logo.svg';
-
 import angularImg from '/assets/icons/logo-angular.svg'
 import reactImg from '/assets/icons/logo-react.svg'
 import ionicImg from '/assets/icons/logo-ionic.svg'
 import nestImg from '/assets/icons/nestjs-icon.svg'
 import expressImg from '/assets/icons/expressjs-icon.svg'
-
 import types1 from '/assets/images/types1.png';
 import onloud1 from '/assets/images/onloud1.png';
 import shortnister1 from '/assets/images/shortnister1.png';
@@ -31,7 +28,6 @@ import nivest1 from '/assets/images/NiVest1.png';
 import tsServerExample1 from '/assets/images/ts-server-example1.jpg';
 import emojis1 from '/assets/images/emojis.png';
 import niconnect1 from '/assets/images/niconnect.png';
-
 import Project from '../../../pages/Project';
 import GithubStats from '../../GithubStats/GithubStats';
 import { Translate } from '../../Translate/Translate';
@@ -47,35 +43,25 @@ import { PageTitleContext } from '../../../context/PageTitleContext';
 import { Language } from '../../../utils/LanguageConfig';
 import Attacher from '../../Attacher/Attacher';
 import ProjectsTemplate from '../../../documents/ProjectsTemplate';
-
 import styles from "./SDPresentation.module.scss";
-
 const SDPresentation = () => {
-
     const { setPageTitle } = useContext(PageTitleContext);
     const { path, url } = useRouteMatch();
-
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.projects" />)
-
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
-
     const { languageCode } = useContext<{ languageCode: Language }>(LanguageContext);
-
     const [repos, setRepos] = useState([])
     const [loadingRepos, setLoadingRepos] = useState<boolean>(false)
     const [loadingProjects, setLoadingProjects] = useState<boolean>(false)
     const [projects, setProjects] = useState([])
     const [errorResponse, setErrorResponse] = useState('')
-
     useEffect(() => {
-
         (async() => {
             setLoadingProjects(true)
-
             const res = await getProjects({ isVisible: true })
             if (typeof res === 'string') {
                 setLoadingProjects(false)
@@ -85,48 +71,36 @@ const SDPresentation = () => {
             setProjects(res)
             setLoadingProjects(false)
         })()
-
         return () => {
             setProjects([])
         }
-
     }, [languageCode])
-
     useEffect(() => {
-
         (async() => {
             setLoadingRepos(true)
-
             const extended_repos = await getAllRepos();
             
             setLoadingRepos(false)
-
             return setRepos(extended_repos || [])
         })()
-
         return () => {
             setRepos([])
         }
     }, [])
-
     const fadeInUpElement = useRef(null)
-
     useEffect(() => {
-
         if (fadeInUpElement.current) {
             fadeInUpElement.current.classList.add(styles.animated)
             fadeInUpElement.current.classList.add(styles.fadeInUp)
             fadeInUpElement.current.classList.remove(styles.noOpacity)
         }
     }, [fadeInUpElement])
-
     return (
         <Fragment>
             <div className={styles.sectionContent}>
             
                 <Attacher htmlFile={ReactDOM.renderToString(<ProjectsTemplate projects={projects} />)} fileName="Software_Development-Mikolaj_Prus.pdf" />
                 <article>
-
                     <div></div>
                     <div className={clsx(styles.param, styles.noOpacity)} ref={fadeInUpElement}>
                         
@@ -135,20 +109,15 @@ const SDPresentation = () => {
                         </p>
                         
                     </div>
-
                 </article>
-
                 <FilterElement languageCode={languageCode} setProjects={setProjects} loadValues={getProjects} />
-
                 {
                     loadingProjects ? <Loading /> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : projects.length ? <Fragment>
-
                         <ListPreview status="ongoing" title={<Translate tKey="sd.section.ongoing.headline" />} style={{ className: 'blue' }} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                         <ListPreview status="event" title={<Translate tKey="sd.section.events.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                         <ListPreview status="online" title={<Translate tKey="sd.section.online.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                         <ListPreview status="repository" title={<Translate tKey="sd.section.repos.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                         <ListPreview status="draft" title={<Translate tKey="sd.section.drafts.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
-
                     </Fragment> : (
                         <p className="small-center">
                             <Translate tKey="sd.notfound" />

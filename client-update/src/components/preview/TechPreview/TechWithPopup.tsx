@@ -1,19 +1,14 @@
 import React, { Fragment } from 'react';
 import TechPreview from '../TechPreview/TechPreview';
-
 import styles from "./TechWithPopup.module.scss";
-
 const TechWithPopup = ({ element, isHover, setIsHover }: any) => {
-
     const handleClick: any = () => {
-
         if (isHover === element) {
             setIsHover(null)
         } else {
             setIsHover(element)
         }
     }
-
     return (
         <Fragment>
             <label className={styles.techWithPopup}>

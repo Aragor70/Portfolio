@@ -1,25 +1,18 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-
 import { withRouter } from 'react-router-dom';
-
 import { Translate } from '../components/Translate/Translate';
 import { PageTitleContext } from '../context/PageTitleContext';
 
-
 // eslint-disable-next-line
 const AdminDashboard = ({ history }: any) => {
-
     const { setPageTitle } = useContext(PageTitleContext);
-
     useEffect(() => {
         setPageTitle('Admin Dashboard')
-
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
     
-
 
     return (
         <Fragment>
@@ -33,7 +26,6 @@ const AdminDashboard = ({ history }: any) => {
                             <nav><Translate tKey="home.menu.register" /></nav>
                         </div>
                     </div>
-
             </div>
         </Fragment>
     );

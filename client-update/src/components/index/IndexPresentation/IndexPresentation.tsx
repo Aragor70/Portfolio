@@ -1,7 +1,6 @@
 import React, { Fragment, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import clsx from "clsx";
-
 import nestImg from "/assets/icons/nestjs-icon.svg";
 import { Translate } from "../../Translate/Translate";
 import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
@@ -22,19 +21,14 @@ import nivest1 from "/assets/images/NiVest1.png";
 import nivest2 from "/assets/images/NiVest2.png";
 import useSlider from "./hooks/useSlider";
 import CustomLine from "../../CustomLine/CustomLine";
-
 import styles from "./IndexPresentation.module.scss";
-
 const IndexPresentation = () => {
     const image = useRef(null);
     const history = useHistory();
-
     const arryImages = [
         nivest1, nivest2, types1, onloud1, nichess1, shortnister1, webshot1, efforts1
     ];
-
     const { currentIndex } = useSlider(arryImages.length);
-
     const navigationButtons = [
         { path: '/work_experience', icon: sdBtn1, label: 'home.menu.experience' },
         { path: '/software_projects', icon: cvBtn2, label: 'home.menu.projects' },
@@ -42,7 +36,6 @@ const IndexPresentation = () => {
         { path: '/education', icon: edBtn2, label: 'home.menu.education' },
         { path: '/contact_mikolaj', icon: atBtn1, label: 'home.menu.contact' },
     ];
-
     const renderNavigationButtons = () => (
         <div className={styles.naviButtons}>
             {navigationButtons.map(({ path, icon, label }) => (
@@ -53,7 +46,6 @@ const IndexPresentation = () => {
             ))}
         </div>
     );
-
     return (
         <Fragment>
             <div className={styles.homeContent}>
@@ -69,7 +61,6 @@ const IndexPresentation = () => {
                 <h1><Translate tKey="home.me.title" /></h1>
                 {renderNavigationButtons()}
             </div>
-
             <div className={styles.homeExtended}>
                 <section className={styles.sectionContent}>
                     <LanguageSwitcher className={styles.languageSwitcher} />
@@ -93,13 +84,11 @@ const IndexPresentation = () => {
                         </div>
                     </article>
                 </section>
-
                 <section>
                     <div className={clsx(styles.param, styles.noShadow, styles.textCenter)}>
                         <Translate tKey="home.sections.overview.headline" />
                     </div>
                 </section>
-
                 <section>
                     <article className={styles.gridDouble}>
                         <div className={clsx(styles.param, "left", styles.noShadow, styles.noGaps)}>
@@ -115,7 +104,6 @@ const IndexPresentation = () => {
                         </div>
                     </article>
                 </section>
-
                 <section>
                     <article className={styles.gridDouble}>
                         <div></div>
@@ -144,11 +132,8 @@ const IndexPresentation = () => {
         </Fragment>
     );
 };
-
 export default IndexPresentation;
-
 /* 
-
         <Fragment>
             <div className="home-content">
                 <LanguageSwitcher />
@@ -159,7 +144,6 @@ export default IndexPresentation;
                 <h1 className="box2">
                     <Translate tKey="home.me.title" />
                 </h1>
-
                 <div className="navi-buttons box3">
                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                         <img src={sdBtn1} alt="software_development" />
@@ -183,21 +167,14 @@ export default IndexPresentation;
                     </div>
                     
                 </div>
-
                 <img src={circle} alt="circle" />
-
             </div>
-
             <div className="home-extended">
                 
                 <section className="section-content">
-
                         <LanguageSwitcher />
-
                         <article className="grid-double">
-
                             <div className="params left">
-
                                 <h3 className="content-center"><span style={{ fontSize: '2.1em' }}><Translate tKey="home.me.name" /></span></h3>
                                 <p style={{ fontSize: '1.1em' }}><Translate tKey="home.me.title" /></p>
                                 
@@ -237,25 +214,18 @@ export default IndexPresentation;
                             </div>
                             
                         </article>
-
                 </section>
-
                 <section>
-
                     <div className="params">
                         <Translate tKey="home.sections.overview.headline" />
                     </div>
                 </section>
-
                 
                 <section>
-
                     <div>
-
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.collections.title" /></span></h3>
                             <p><Translate tKey="home.sections.overview.collections.text" /></p>
                             
-
                             <ul className={styles.icons}>
                                 <li className="icon"><i className="fas fa-tv fa-2x"></i><span><Translate tKey="home.sections.overview.collections.client" /></span></li>
                                 <li className="icon"><i className="fas fa-server fa-2x"></i><span><Translate tKey="home.sections.overview.collections.server" /></span></li>
@@ -264,16 +234,12 @@ export default IndexPresentation;
                         
                     </div>
                 </section>
-
                 <section>
-
                     <article className="grid-double">
-
                         <div className="params left">
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.collections.title" /></span></h3>
                             <p><Translate tKey="home.sections.overview.collections.text" /></p>
                             
-
                             <ul className={styles.icons}>
                                 <li className="icon"><i className="fas fa-tv fa-2x"></i><span><Translate tKey="home.sections.overview.collections.client" /></span></li>
                                 <li className="icon"><i className="fas fa-server fa-2x"></i><span><Translate tKey="home.sections.overview.collections.server" /></span></li>
@@ -281,13 +247,10 @@ export default IndexPresentation;
                             </ul>
                         
                         </div>
-
                     </article>
                 </section>
-
                 <section>
                     <article className="grid-double">
-
 
                         <div className="params">
                             
@@ -295,20 +258,17 @@ export default IndexPresentation;
                         <div className="params right">
                             <h3 className="content-center"><span style={{ fontSize: '45px' }}><Translate tKey="home.sections.overview.project.title" /></span></h3>
                             <p><Translate tKey="home.sections.overview.project.text" /></p>
-
                             <ul className={styles.icons}>
                                 <li className="icon"><i className="fab fa-angular fa-2x"></i><span>Angular</span></li>
                                 <li className="icon"><img src={nestImg} alt="nestjs" /><span>Nest Js</span></li>
                                 <li className="icon"><i className="fas fa-palette fa-2x"></i><span>SCSS</span></li>
                             </ul>
-
                             <ul className="more-about">
                                 <li className={styles.iconBox} onClick={() => window.open("https://redirect.m-prus.uk/NiVest_Software-GitHub_Repository", "_blank")}><i className="fas fa-code fa"></i></li>
                                 <li className={styles.iconBox} onClick={() => window.open("https://nivest-software.m-prus.uk/", "_blank")}><i className="fab fa-chrome fa"></i></li>
                             </ul>
                         
                         </div>
-
                     </article>
                 </section>
                 <section>
@@ -318,10 +278,8 @@ export default IndexPresentation;
                 </section>
                 <section>
                     
-
                 
                 </section>
             </div>
         </Fragment>
-
 */

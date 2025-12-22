@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
-
 import imgEngineers from '/assets/icons/engineers.png';
 import autosize from 'autosize';
 import axios from 'axios';
@@ -7,37 +6,27 @@ import { Translate } from '../Translate/Translate';
 import ErrorResponse from '../ErrorResponse/ErrorResponse';
 import { PageTitleContext } from '../../context/PageTitleContext';
 import Attacher from '../Attacher/Attacher';
-
 import styles from "./ATPresentation.module.scss";
 import clsx from 'clsx';
-
 const ATPresentation = () => {
-
     const { setPageTitle } = useContext(PageTitleContext);
-
     useEffect(() => {
         setPageTitle(<Translate tKey="home.menu.contact" />)
-
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
-
     const messageText = useRef(null)
-
     const [openMessage, setOpenMessage] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(false)
     const [output, setOutput] = useState('')
     const [errorResponse, setErrorResponse] = useState('')
-
     /* const [subject, setSubject] = useState('') */
-
     const [formData, setFormData] = useState<{ from?: string, message?: string, text?: string }>({
         from: "",
         message: "",
         text: ""
     })
-
     // eslint-disable-next-line
     const handleChange = (e: any) => {
         
@@ -46,26 +35,19 @@ const ATPresentation = () => {
         
     }
     const handleSubmit = async () => {
-
         const config = {
             headers: {
                 'Content-Type': 'application/json'
             }
         }
-
         try {
             setLoadingMessage(true)
-
             const response = await axios.post('https://api.m-prus.uk/api/contact', formData, config)
-
             console.log(response)
-
             setLoadingMessage(false)
-
             setFormData({})
             setOutput('Done')
             setErrorResponse('')
-
         } catch (err: any) {
             setErrorResponse('error.message')
             setLoadingMessage(false)
@@ -76,11 +58,8 @@ const ATPresentation = () => {
         
         setErrorResponse('')
         setOutput('')
-
     }, [openMessage])
-
     const fadeInUpElement = useRef(null)
-
     useEffect(() => {
         if (fadeInUpElement.current) {
             fadeInUpElement.current.classList.add(styles.animated)
@@ -88,7 +67,6 @@ const ATPresentation = () => {
             fadeInUpElement.current.classList.remove(styles.noOpacity)
         }
     }, [fadeInUpElement])
-
     return (
         <div className={styles.sectionContent}>
             
@@ -97,7 +75,6 @@ const ATPresentation = () => {
             <div className={clsx(styles.param, styles.noOpacity, styles.center)} ref={fadeInUpElement}>
             
                 <p style={{ display: 'flex', justifyContent: "center" }}><img src={imgEngineers} alt="engineer" /></p>
-
                 <p><Translate tKey="at.text" /></p>
                 <p>
                     mikey.prus@gmail.com
@@ -106,14 +83,10 @@ const ATPresentation = () => {
                 
                     <li className={styles.iconBox}><i className="fab fa-linkedin fa-2x" onClick={() => window.open("https://www.linkedin.com/in/mikolaj-prus", "_blank")}></i></li>
                 </ul>
-
                 <ul className={styles.moreAbout}>
                     <li className={styles.iconBox} style={{ borderRadius: '0', boxShadow: 'none' }} onClick={() => setOpenMessage(!openMessage)}><button><Translate tKey="at.form.headline" /></button></li>
-
                 </ul>
-
             </div>
-
             {/* {
                 openMessage && <Fragment>
                     <div className="params">
@@ -127,7 +100,6 @@ const ATPresentation = () => {
                                 Other
                             </li>
                         </ul>
-
                     </div>
                 </Fragment>
             } */}
@@ -139,11 +111,9 @@ const ATPresentation = () => {
                             loadingMessage ? <Fragment>
                                 <p className={styles.outputResponse}><Translate tKey="loading" /></p>
                             </Fragment> : errorResponse ? <ErrorResponse message={errorResponse} style={{ css: { color: 'red' }}} /> : <Fragment>
-
                                 {
                                     output ? <Fragment>
                                         <ul className={styles.outputResponse} style={{ padding: '0 40px', listStyle: 'none', margin: '7.5px 0' }}>
-
                                             <div className={styles.iconBox}>
                                                 {
                                                     output === "Done" ? <i style={{ color: 'green' }} className="fas fa-check fa-4x" onClick={() => setOpenMessage(false)}></i> : <i style={{ color: 'red' }} className="fas fa-times fa-4x" onClick={() => setOpenMessage(false)}></i>
@@ -171,7 +141,6 @@ const ATPresentation = () => {
                                                 {
                                                     formData.subject && <div className="icon-box" style={{ position: 'absolute', right: '0', top: '0' }}><i className="fas fa-backspace fa-2x" onClick={() => setFormData({ ...formData, subject: ''})}></i></div>
                                                 }
-
                                                 </h6>
                                                 <input type="text" name="subject" value={formData.subject || ''} onChange={ (e: any) => handleChange(e)} placeholder={formData.subject || 'Other'} />
                                             </li> */}
@@ -188,14 +157,11 @@ const ATPresentation = () => {
                                         <ul className={styles.moreAbout}>
                                             <li className={styles.iconBox} style={{ borderRadius: '0', boxShadow: 'none' }}><button onClick={() => handleSubmit()}><Translate tKey="at.form.submit" /></button></li>
                                         </ul>
-
                                     </Fragment>
                                 }
-
                             </Fragment>
                         }
                         
-
                     </div>
                 </Fragment>
             }

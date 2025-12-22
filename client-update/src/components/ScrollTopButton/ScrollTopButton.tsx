@@ -2,11 +2,8 @@ import React, { useContext, useEffect, useRef } from "react";
 import { ScrollContext } from "../../context/ScrollContext";
 import { handleScrollToTop } from '../../utils/autoHandlers';
 
-
 const ScrollTopButton = () => {
-
     const scrollButton = useRef<any>(null)
-
     const { scrollPosition } = useContext<any>(ScrollContext)
     
     useEffect(() => {
@@ -22,7 +19,6 @@ const ScrollTopButton = () => {
         })()
   
     }, [scrollPosition, scrollButton]);
-
     return (
         <ul className="scroll-up" ref={scrollButton}>
             <li>

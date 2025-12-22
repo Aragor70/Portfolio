@@ -3,17 +3,12 @@ import React, { Fragment } from 'react';
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
-
 const Timeline = ({  }: any) => {
-
     return (
         <Fragment>
             <section className="timeline">
-
                 <article>
-
                     <div>
-
                         <div className="story marked left">                            
                             <div>
                                 <h3 className="content-center"><span style={{ fontSize: '45px' }}>Content management</span></h3>
@@ -39,13 +34,11 @@ const Timeline = ({  }: any) => {
                                 
                             </div>
                         </div>
-
 
                     </div>
                     <div></div>
                     <div>
                         
-
                         <div className="story marked right">
                             
                             <div>
@@ -58,13 +51,9 @@ const Timeline = ({  }: any) => {
                                 </p>
                                 
                             </div>
-
                         </div>
-
                     </div>
-
                 </article>
-
             </section>
         </Fragment>
     );

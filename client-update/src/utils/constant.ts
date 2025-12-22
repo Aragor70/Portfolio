@@ -1,10 +1,8 @@
 export const URL = 'https://api.m-prus.uk'
-
 export enum Language {
     ENGLISH = 'en-GB',
     POLISH = 'pl',
 }
-
 // eslint-disable-next-line
 export const json: { 'en-GB': any, 'pl': any } = { 'en-GB': {
     "sd.input.search.placeholder": "Search by name",
@@ -26,7 +24,6 @@ type SkillsTypes = {
   databases: string[],
   services: string[],
 }
-
 export const skills: SkillsTypes = {
   languages: [
     'HTML 5', 'CSS 3', 'SCSS', 'JavaScript', 'TypeScript', 'Python', 'PHP', 'SQL'

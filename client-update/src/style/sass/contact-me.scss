@@ -15,7 +15,6 @@
 .contactMe:hover {
     font-weight: 900;
 }
-
 .contactMe label {
     padding: 10px;
     height: 50px;
@@ -27,12 +26,10 @@
     justify-content: center;
     align-items: center;
 }
-
 .contactMe label img {
     height: 100%;
     inline-size: 100%;
 }
-
 footer .contactMe {
     position: absolute;
     top: 0;
@@ -44,7 +41,6 @@ footer .contactMe label {
     height: 35px;
     inline-size: 35px;
 }
-
 @media (max-width: 1023px) {
     
     footer .contactMe {

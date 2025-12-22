@@ -1,9 +1,6 @@
 import React from 'react';
-
 import '/src/style/sass/timeline.scss';
-
 import TimelineItem from '../CustomLineElement/CustomLineElement';
-
 const CustomLine = () =>{
     
     const timelineData = [
@@ -43,6 +40,5 @@ const CustomLine = () =>{
             ))}
         </div>)
 )};
-
 
 export default CustomLine

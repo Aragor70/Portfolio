@@ -1,9 +1,6 @@
 import React from "react";
 
-
-
 const ProjectsTemplate = ({ projects = [] }: { projects: any[] }) => {
-
     return (
         <body>
             <main>

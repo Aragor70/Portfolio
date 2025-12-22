@@ -1,9 +1,6 @@
 import React from "react";
 
-
-
 const CVTemplate = ({ projects = [] }: { projects: any[] }) => {
-
     return (
         <body>
             <main>

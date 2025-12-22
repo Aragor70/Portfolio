@@ -23,12 +23,10 @@
     width: 100%;
     height: 100px;
 }
-
 .header-content > * {
     max-width: 1920px !important;
     margin-inline: auto;
 }
-
 .page-title
 {
     width: 100%;
@@ -42,7 +40,6 @@
     /* box-shadow: 0 -2.5px 0 -1px rgba(8,27,51,.8) inset; */
 }
 
-
 .page-title span
 {
     height: 90px;
@@ -53,9 +50,7 @@
     padding-left: 7.5px;
     padding-right: 7.5px;
     background-color: none;
-
 }
-
 .page-title p
 {
     margin: 0;
@@ -70,7 +65,6 @@
     text-align: center;
     
 }
-
 .page-title::after {
     content: "";
     position: relative;
@@ -80,7 +74,6 @@
     width: 100%;
     box-shadow: 0 -1.5px 0 -1px rgba(8,27,51,.8) inset;
 }
-
 @media (max-width: 1023px) {
     
     .page-title > p
@@ -88,7 +81,6 @@
         padding: 0 15px;
     }
 }
-
 
 @media (min-width: 1023px) {
     
@@ -104,19 +96,16 @@
         position: relative;
         max-width: 1920px;
         padding: 0 30px;
-
         > p {
             padding: 0 45px;
         }
     }
 }
 
-
 .page-title .btn
 {
     cursor: pointer;
 }
-
 .logo
 {
     width: 128px;
@@ -125,7 +114,6 @@
     right: 0;
     top: 0;
 }
-
 .logo::before {
     content: '';
     position: absolute;

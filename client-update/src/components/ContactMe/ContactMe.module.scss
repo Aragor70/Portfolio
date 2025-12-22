@@ -11,11 +11,9 @@
     border-radius: 7.5px;
     transition: 0.15s ease;
     margin: 0 auto;
-
     &:hover {
         font-weight: 900;
     }
-
     label {
         padding: 10px;
         height: 50px;
@@ -26,14 +24,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         img {
             height: 100%;
             inline-size: 100%;
         }
     }
 }
-
 footer .contactMe {
     position: absolute;
     top: 0;
@@ -44,7 +40,6 @@ footer .contactMe {
     @media (max-width: 1023px) {
         display: none;
     }
-
     label {
         height: 35px;
         inline-size: 35px;
