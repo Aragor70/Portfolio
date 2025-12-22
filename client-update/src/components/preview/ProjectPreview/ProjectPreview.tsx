@@ -178,11 +178,11 @@ const ProjectPreview = ( props: any ) => {
                         }
 
                         {
-                            !!props.repositories?.length && <li className="icon-box" onClick={() => window.open(props?.repositories[0]?.url, "_blank")}><i className="fas fa-code fa"></i></li>
+                            !!props.repositories?.length && <li className={styles.iconBox} onClick={() => window.open(props?.repositories[0]?.url, "_blank")}><i className="fas fa-code fa"></i></li>
                         }
 
                         {
-                            openEdit['website'] ? <textarea className="textarea" value={formData?.website || ''} name="website" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="What is the website url?"></textarea> : !!props.website && <li className="icon-box" onClick={() => window.open(props.website, "_blank")}><i className="fab fa-chrome fa"></i></li>
+                            openEdit['website'] ? <textarea className="textarea" value={formData?.website || ''} name="website" onChange={ (e: any) => handleChange(e)} contentEditable suppressContentEditableWarning placeholder="What is the website url?"></textarea> : !!props.website && <li className={styles.iconBox} onClick={() => window.open(props.website, "_blank")}><i className="fab fa-chrome fa"></i></li>
                         }
                         
                     </ul>
@@ -202,14 +202,13 @@ const ProjectPreview = ( props: any ) => {
                         </ul>
                         
                         {
-                            props.location.pathname.includes('project') && <Fragment>
-                                        
+                            props.location.pathname.includes('project') && (
                                 <div>
                                     <span>order</span>
 
                                     <input type='text' name="order" value={formData?.order || ''} placeholder="Enter an order by status (default 0)" onChange={(e: any) => handleChange(e)} />
-                                </div> 
-                            </Fragment>
+                                </div>
+                            )
                         }
                         <button type='button' onClick={() => toggleEdit('status')}>Cancel</button>
                         <button type='button' >Submit</button>

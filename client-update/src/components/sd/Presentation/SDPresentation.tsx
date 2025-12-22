@@ -78,10 +78,8 @@ const SDPresentation = () => {
 
             const res = await getProjects({ isVisible: true })
             if (typeof res === 'string') {
-                
                 setLoadingProjects(false)
                 return setErrorResponse(res)
-                
             }
             setErrorResponse('')
             setProjects(res)
@@ -116,12 +114,10 @@ const SDPresentation = () => {
     useEffect(() => {
 
         if (fadeInUpElement.current) {
-            
             fadeInUpElement.current.classList.add(styles.animated)
             fadeInUpElement.current.classList.add(styles.fadeInUp)
             fadeInUpElement.current.classList.remove(styles.noOpacity)
         }
-
     }, [fadeInUpElement])
 
     return (
