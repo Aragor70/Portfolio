@@ -1,6 +1,8 @@
 import React, { Fragment, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+
 import Loading from './components/Loading/Loading';
+
 const Login = React.lazy(() => import('./pages/auth/Login'));
 const Register = React.lazy(() => import('./pages/auth/Register'));
 const ScrollTopButton = React.lazy(() => import('./components/ScrollTopButton/ScrollTopButton'));
@@ -13,8 +15,6 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Messages = React.lazy(() => import('./pages/Messages'));
 const SD = React.lazy(() => import('./pages/SD'));
 const CV = React.lazy(() => import('./pages/CV'));
-
-/* import DS from './interface/DS'; */
 
 const Routing = () => {
 

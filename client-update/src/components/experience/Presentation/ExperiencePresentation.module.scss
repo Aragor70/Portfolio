@@ -41,6 +41,8 @@
     width: 100%;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
     @media (max-width: 1023px) {
         display: none;
     }
@@ -52,17 +54,17 @@
     }
 }
 
-.experience .sectionImage
-{
-    gap: 40px;
-    flex-direction: column;
-}
-    
-.experience .hexagon {
+.hexagon {
     width: 450px;
     height: 450px;
     display: block;
     position: relative;
     transition: all 1s ease-in-out;
     padding: 0;
+
+    > img {
+        inline-size: 100%;
+        height: 100%;
+        clip-path: polygon(0% 25%,0% 75%,50% 100%,100% 75%,100% 25%,50% 0%);
+    }
 }

@@ -1,24 +1,25 @@
 import { email } from "../../actions/share";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import jsPDF from "jspdf";
+
 import downloadIcon from '/assets/icons/download-outline.svg';
 import emailIcon from '/assets/icons/share-social-outline.svg';
-import jsPDF from "jspdf";
 import { Translate } from "../Translate/Translate";
+
+import styles from "./Attacher.module.scss";
+import clsx from "clsx";
+
 const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { filePath?: string | null | any , htmlFile?: string | null | any, fileName?: null | string }) => {
     const fadeInUpElement = useRef(null);
     useEffect(() => {
         (() => {
-            
             if (fadeInUpElement.current) {
-                
                 setTimeout(() => {
-                    fadeInUpElement.current.classList.add('animated')
-                    fadeInUpElement.current.classList.add('fadeInUp')
-                    fadeInUpElement.current.classList.remove('no-opacity')
+                    fadeInUpElement.current.classList.add(styles.animated)
+                    fadeInUpElement.current.classList.add(styles.fadeInUp)
+                    fadeInUpElement.current.classList.remove(styles.noOpacity)
                 }, 500)
-    
-                
             }
         })()
     }, [fadeInUpElement])
@@ -56,7 +57,7 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
 
     if (!filePath && !htmlFile) return null;
     return (
-        <ul className="uploader-list no-opacity" ref={fadeInUpElement}>
+        <ul className={clsx(styles.uploaderList, styles.noOpacity)} ref={fadeInUpElement}>
             
             <li>
                 {

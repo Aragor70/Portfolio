@@ -66,7 +66,7 @@ const ExperiencePresentation = ({ projects, loadingProjects, errorResponse, lang
 
                     <div className={styles.sectionImage}>
                         {/* <img src={brikkapp1} alt="projects_image" /> */}
-                        <label className="hexagon">
+                        <label className={styles.hexagon}>
                             <img src={brikkapp1} alt="projects_image" />
                         </label>
                     </div>
@@ -99,7 +99,7 @@ const ExperiencePresentation = ({ projects, loadingProjects, errorResponse, lang
                 </div>
 
                 <div className={styles.sectionImage}>
-                    <label className="hexagon">
+                    <label className={styles.hexagon}>
                         <img src={data4you3} alt="projects_image" />
                     </label>
                     {/* <img src={data4you1} alt="projects_image" /> */}

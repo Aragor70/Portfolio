@@ -1,4 +1,6 @@
-.uploader-list
+@use "src/styles/common.scss" as *;
+
+.uploaderList
 {
     padding: 32px 30px;
     list-style: none;
@@ -15,21 +17,21 @@
     }
 }
 @media (max-width: 1023px) {
-    .uploader-list span {
+    .uploaderList span {
         display: none;
     }
-    .uploader-list img {
+    .uploaderList img {
         margin-left: auto;
     }
     
-    .uploader-list li label {
+    .uploaderList li label {
         width: auto !important;
     }
-    .uploader-list li a {
+    .uploaderList li a {
         width: auto !important;
     }
 }
-.uploader-list li {
+.uploaderList li {
     gap: 7.5px;
     display: flex;
     flex-direction: row;
@@ -37,11 +39,11 @@
     padding: 0 7.5px;
     
 }
-.uploader-list li > * {
+.uploaderList li > * {
     padding: 2.5px;
     font-size: 18px;
 }
-.uploader-list li {
+.uploaderList li {
     > label {
         display: flex;
         align-items: center;
@@ -60,21 +62,21 @@
         color: rgba(8,27,51,.8);
     }
 }
-.uploader-list li img {
+.uploaderList li img {
     inline-size: 35px;
 }
-.uploader-list li label:hover img {
+.uploaderList li label:hover img {
     transform: scale(1.1);
 }
-.uploader-list li a:hover img {
+.uploaderList li a:hover img {
     transform: scale(1.1);
 }
-.uploader-list li label:hover span {
+.uploaderList li label:hover span {
     position: relative;
     top: 2px;
     font-weight: 600;
 }
-.uploader-list li a:hover span {
+.uploaderList li a:hover span {
     position: relative;
     top: 2px;
     font-weight: 600;

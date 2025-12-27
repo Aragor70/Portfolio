@@ -1,8 +1,11 @@
 import React from "react";
+
+import styles from "./SideNav.module.scss";
+
 const SideNav = () => {
 
     return (
-        <aside>
+        <aside className={styles.aside}>
             <div>
                 <p>
                     <span>
