@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState, Fragment } from 'react';
 import ReactDOM from 'react-dom/server';
 import clsx from 'clsx';
+
 import gdansk1 from '/assets/images/gdansk1.jpg';
 import koszalin1 from '/assets/images/koszalin1.jpg';
 import { Translate } from '../../Translate/Translate';
@@ -15,7 +16,9 @@ import { PageTitleContext } from '../../../context/PageTitleContext';
 import { Language } from '../../../utils/LanguageConfig';
 import Attacher from '../../Attacher/Attacher';
 import EducationsTemplate from '../../../documents/EducationsTemplate';
+
 import styles from "./EducationPresentation.module.scss";
+
 const EducationPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     useEffect(() => {
@@ -77,7 +80,7 @@ const EducationPresentation = () => {
                     <ListPreview status="current" title={<Translate tKey="education.section.current.headline" />} list={projects} Component={ProjectPreview} />
                     <ListPreview status="completed" title={<Translate tKey="education.section.completed.headline" />} list={projects} Component={ProjectPreview} />
                 </Fragment> : (
-                    <p className="small-center">
+                    <p className={styles.smallCenter}>
                         <Translate tKey="education.notfound" />
                     </p>
                 )

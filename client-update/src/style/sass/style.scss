@@ -179,12 +179,6 @@ p
     display: flex;
     flex-direction: column;
 }
-.small-center {
-    @media screen and (max-width: 1023px) {
-        width: 100%;
-        text-align: center;   
-    }
-}
 @media (min-width: 1023px) {
     body, html
     {
@@ -433,23 +427,6 @@ ul.more-about {
 //         }
 //     }
 // }
-.loading {
-    width: 100%;
-    display: flex;
-    z-index: 10;
-}
-.loading h2 {
-    max-width: 100%;
-    position: relative;
-    padding: 20px;
-    z-index: 100;
-    margin: 0 auto;
-    text-shadow: -0.75px -0.75px rgba(0, 0, 0, 0.20);
-    font-weight: 500;
-    letter-spacing: 1.3px;
-    text-align: center;
-    font-style: italic;
-}
 @media (min-width: 1023px) {
     .min-only {
         display: none;

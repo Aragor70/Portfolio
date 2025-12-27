@@ -119,7 +119,7 @@ const SDPresentation = () => {
                         <ListPreview status="repository" title={<Translate tKey="sd.section.repos.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                         <ListPreview status="draft" title={<Translate tKey="sd.section.drafts.headline" />} list={projects} Component={ProjectPreview} repos={repos} loadingRepos={loadingRepos} className={styles.param} />
                     </Fragment> : (
-                        <p className="small-center">
+                        <p className={styles.smallCenter}>
                             <Translate tKey="sd.notfound" />
                         </p>
                     )
@@ -169,7 +169,7 @@ const SDPresentation = () => {
         
             <Switch>  
                 
-                <Route path={`${url}/:name`}>
+                <Route path={`${url}/:project_name`}>
                     <Project 
                         name="NiVest-Software"
                         title="NiVest Software CMS"
@@ -311,7 +311,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/types`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="Types"
                         title="Real-Time TypeScript React app"
@@ -365,7 +365,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/nichess`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="Nichess"
                         title="Real-Time TypeScript React app"
@@ -416,7 +416,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/efforts`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="Efforts"
                         title="A global platform for measuring efforts."
@@ -468,7 +468,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/shortnister`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="ShortNister"
                         title="TypeScript React app"
@@ -517,7 +517,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/onloud`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="onLoud"
                         title="JavaScript React app"
@@ -611,7 +611,7 @@ const SDPresentation = () => {
     
             <Switch>  
                 
-                <Route exact path={`${path}/webshot`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="WebShot"
                         title="JavaScript React app"
@@ -652,7 +652,7 @@ const SDPresentation = () => {
     
                 <Switch>  
                 
-                <Route exact path={`${path}/emojis`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="Emojis"
                         title="JavaScript React Python Django app"
@@ -699,7 +699,7 @@ const SDPresentation = () => {
             </Switch>
     
             <Switch>  
-                <Route exact path={`${path}/niconnect`}>
+                <Route exact path={`${path}/:project_name`}>
                     <Project 
                         name="niconnect.uk"
                         title="JavaScript PHP app"

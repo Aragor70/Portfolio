@@ -64,7 +64,6 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
                 
             setLoadingSearch(false)
             return setErrorResponse('search.error.message')
-            
         }
         const values = res?.filter((element: any) => element?.name?.toLowerCase() === formData?.phrase?.toLowerCase() )
         if (values[0]) {

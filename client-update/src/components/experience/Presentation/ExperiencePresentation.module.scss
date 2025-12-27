@@ -10,7 +10,6 @@
     background-color: #f2f2f2;
     @media (min-width: 1023px) {
         padding: 30px;
-        
         width: 100%;
         min-height: 88vh;
         display: flex;
@@ -36,27 +35,6 @@
         }
     }
     
-    > h1 {
-        width: 100%;
-        position: relative;
-        padding-top: 100px;
-        padding-bottom: 45px;
-        min-height: 300px;
-        display: flex;
-        align-items: center;
-        @media (max-width: 1023px) {
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background-image: url('/assets/images/logo.png');
-                background-position: top right;
-                background-repeat: no-repeat;
-                opacity: 0.55;
-                z-index: 1;
-            }
-        }
-    }
 }
 .sectionImage {
     display: flex;
@@ -73,29 +51,18 @@
         aspect-ratio: 16 / 10;
     }
 }
-.blue {
-    position: relative;
+
+.experience .sectionImage
+{
+    gap: 40px;
+    flex-direction: column;
+}
     
-    @media (max-width: 1023px) {
-        .param {
-            box-shadow: rgba(92, 176, 189, 0.5) -1px 7.5px 7.5px 0px;
-        }
-    }
-    @media (min-width: 1023px) {
-        
-        &::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -500%;
-            left: -500%;
-            height: calc(100% + 60px);
-            transform: rotate(-5deg);
-            background-color: #5cb0bd;
-            z-index: 2;
-        }
-        * {
-            z-index: 2;
-        }
-    }
+.experience .hexagon {
+    width: 450px;
+    height: 450px;
+    display: block;
+    position: relative;
+    transition: all 1s ease-in-out;
+    padding: 0;
 }

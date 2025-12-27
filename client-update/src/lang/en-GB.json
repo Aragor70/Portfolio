@@ -161,5 +161,6 @@
         "section.project.description": "Description",
         "section.project.repository": "Repository",
         "section.project.icons": "Tech stack"
-    }
+    },
+    "input.NiVest-Software": ""
 }

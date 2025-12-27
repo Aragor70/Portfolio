@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/server';
 import clsx from 'clsx';
+
 import Attacher from '../Attacher/Attacher';
 import { Translate } from '../Translate/Translate';
 import { PageTitleContext } from '../../context/PageTitleContext';
 import TechWithPopup from '../preview/TechPreview/TechWithPopup';
 import { skills } from '../../utils/constant';
 import CVTemplate from '../../documents/CVTemplate';
+
 import styles from "./CVPresentation.module.scss";
+
 const CVPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     useEffect(() => {
@@ -25,7 +28,7 @@ const CVPresentation = () => {
     }
     const fadeInUpElement = useRef(null)
     useEffect(() => {
-            
+
         if (fadeInUpElement.current) {
             fadeInUpElement.current.classList.add(styles.animated)
             fadeInUpElement.current.classList.add(styles.fadeInUp)
@@ -34,7 +37,6 @@ const CVPresentation = () => {
     }, [fadeInUpElement])
     return (
         <div className={clsx(styles.sectionContent, styles.fadeIn)}>
-                
             <Attacher
                 htmlFile={ReactDOM.renderToString(<CVTemplate projects={[]} />)}
                 fileName="Curriculum_Vitae-Mikolaj_Prus.pdf"
