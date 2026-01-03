@@ -1,12 +1,14 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
-import { LanguageContext } from '../../../context/LanguageContext';
+
+import { SettingsContext } from '../../../context/SettingsContext';
 import { UserContext } from '../../../context/UserContext';
 import { Language } from '../../../utils/constant';
 import Loading from '../../Loading/Loading';
 import { Translate } from '../../Translate/Translate';
+
 const ListPreview = ( props: any ) => {
     const { Component } = props;
-    const languageContext = useContext<any>(LanguageContext)
+    const settingsContext = useContext<any>(SettingsContext)
     const [ list, setList ] = useState([])
     const [ loadingList, setLoadingList ] = useState(false)
     const [ isEditable, setIsEditable ] = useState(false)
@@ -45,7 +47,7 @@ const ListPreview = ( props: any ) => {
                 </Fragment>
             }
             {
-                list?.length ? list?.map((element: any, index: number) => <Component key={index} {...props} {...element} languageCode={languageContext?.languageCode || Language.ENGLISH} isEditable={isEditable} />) : null
+                list?.length ? list?.map((element: any, index: number) => <Component key={index} {...props} {...element} languageCode={settingsContext.language.languageCode || Language.ENGLISH} isEditable={isEditable} />) : null
             }
 
         </Fragment>

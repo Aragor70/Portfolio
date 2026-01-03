@@ -1,9 +1,12 @@
 import moment from 'moment';
 import React, { Fragment } from 'react';
+
 import { ReactComponent as CommitSvg} from '/assets/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '/assets/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '/assets/icons/create-outline.svg'
+
 import styles from "./GithubStats.module.scss";
+
 const GithubStats = ({ repos, name }: any) => {
     const repository : any = (repos.filter((element: any) => element?.name?.toLowerCase() === name?.toLowerCase()))[0] || null
     

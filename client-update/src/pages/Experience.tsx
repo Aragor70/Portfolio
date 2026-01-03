@@ -22,7 +22,7 @@ import imgGoogleDrive from '../style/icons/Google-Drive.png'; */
 /* import imgMachine from '../style/icons/machine.png'; */
 import { Translate } from '../components/Translate/Translate';
 import { getExperiences } from '../actions/experience';
-import { LanguageContext } from '../context/LanguageContext';
+import { SettingsContext } from '../context/SettingsContext';
 import { ScrollContext } from '../context/ScrollContext';
 import { PageTitleContext } from '../context/PageTitleContext';
 import { Language } from '../utils/LanguageConfig';
@@ -33,13 +33,13 @@ const Experience = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     const { path } = useRouteMatch();
     useEffect(() => {
-        setPageTitle(<Translate tKey="home.menu.experience" />)
+        setPageTitle(<Translate tKey="label.menu.experience" />)
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
     
-    const { languageCode } = useContext<{ languageCode: Language }>(LanguageContext);
+    const { language: {state: languageCode} } = useContext<{ language: {state: Language} }>(SettingsContext);
     
     const [loadingProjects, setLoadingProjects] = useState<boolean>(false)
     const [projects, setProjects] = useState([])

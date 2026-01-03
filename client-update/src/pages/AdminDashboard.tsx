@@ -20,10 +20,10 @@ const AdminDashboard = ({ history }: any) => {
                 
                     <div className="navi-buttons box3">
                         <div className="navi-button" onClick={() => history.push('/login')}>
-                            <nav><Translate tKey="home.menu.login" /></nav>
+                            <nav><Translate tKey="label.menu.login" /></nav>
                         </div>
                         <div className="navi-button" onClick={() => history.push('/register')}>
-                            <nav><Translate tKey="home.menu.register" /></nav>
+                            <nav><Translate tKey="label.menu.register" /></nav>
                         </div>
                     </div>
             </div>

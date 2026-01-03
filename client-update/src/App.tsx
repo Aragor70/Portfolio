@@ -1,26 +1,34 @@
 import React, { useEffect, useMemo, useState } from 'react';
-
 import { withRouter } from 'react-router-dom';
+
 import { ErrorContext } from './context/ErrorContext';
-import { LanguageContext } from './context/LanguageContext';
+import { SettingsContext } from './context/SettingsContext';
 import { UserContext } from './context/UserContext';
 import { loadUser } from './actions/auth';
 import { Language } from './utils/constant';
 import Layout from './Layout';
 import { PageTitleContext } from './context/PageTitleContext';
 import { ScrollContext } from './context/ScrollContext';
+
 const App = () => {
   const [ user, setUser ] = useState(null);
   const [ loadingUser, setLoadingUser ] = useState(false);
   const [ errorResponse, setErrorResponse ] = useState('');
   const [ languageCode, setLanguageCode ] = useState(Language.ENGLISH);
-  const [ pageTitle, setPageTitle ] = useState('')
+  const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+  const [ pageTitle, setPageTitle ] = useState('');
   const [ scrollPosition, setScrollPosition ] = useState<number | null>(null);
+
+  const settings = {
+    language: { state: languageCode, setState: setLanguageCode },
+    menu: { state: isMenuOpen, setState: setIsMenuOpen }
+  }
+
   const value = useMemo(() => ({ user, setUser, loadingUser, setLoadingUser }), [user, loadingUser]);
-  const languageValue = useMemo(() => ({ languageCode, setLanguageCode }), [languageCode]);
+  const settingsValue = useMemo(() => (settings), [languageCode, isMenuOpen]);
   const errorValue = useMemo(() => ({ errorResponse, setErrorResponse }), [errorResponse]);
-  const pageTitleValue = useMemo(() => ({ pageTitle, setPageTitle }), [pageTitle])
-  const scrollValue = useMemo(() => ({ scrollPosition, setScrollPosition }), [scrollPosition])
+  const pageTitleValue = useMemo(() => ({ pageTitle, setPageTitle }), [pageTitle]);
+  const scrollValue = useMemo(() => ({ scrollPosition, setScrollPosition }), [scrollPosition]);
   
   const refreshUser = async () => {
   
@@ -49,15 +57,15 @@ const App = () => {
   
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-        window.removeEventListener('scroll', handleScroll);
-        setScrollPosition(null);
-    };
-}, []);
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+          setScrollPosition(null);
+      };
+  }, []);
 
   return (
     <UserContext.Provider value={value}>
-    <LanguageContext.Provider value={languageValue}>
+    <SettingsContext.Provider value={settingsValue}>
     <ErrorContext.Provider value={errorValue}>
     <PageTitleContext.Provider value={pageTitleValue}>
     <ScrollContext.Provider value={scrollValue}>
@@ -66,7 +74,7 @@ const App = () => {
     </ScrollContext.Provider>
     </PageTitleContext.Provider>
     </ErrorContext.Provider>
-    </LanguageContext.Provider>
+    </SettingsContext.Provider>
     </UserContext.Provider>
   );
 }

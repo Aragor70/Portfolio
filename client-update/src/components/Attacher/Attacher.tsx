@@ -2,13 +2,13 @@ import { email } from "../../actions/share";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
+import clsx from "clsx";
 
 import downloadIcon from '/assets/icons/download-outline.svg';
 import emailIcon from '/assets/icons/share-social-outline.svg';
 import { Translate } from "../Translate/Translate";
 
 import styles from "./Attacher.module.scss";
-import clsx from "clsx";
 
 const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { filePath?: string | null | any , htmlFile?: string | null | any, fileName?: null | string }) => {
     const fadeInUpElement = useRef(null);
@@ -39,8 +39,6 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
                 const res = await email(payload)
                 return res;
             }
-            
-
         } catch (err) {
             console.log(err.message)
         }
@@ -52,7 +50,6 @@ const Attacher = ({ filePath = null, htmlFile = null, fileName = null }: { fileP
               doc.save(fileName || 'a4.pdf');
             }
         });
-
     }
 
     if (!filePath && !htmlFile) return null;

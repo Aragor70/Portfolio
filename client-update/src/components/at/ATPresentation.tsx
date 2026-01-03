@@ -2,16 +2,19 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import imgEngineers from '/assets/icons/engineers.png';
 import autosize from 'autosize';
 import axios from 'axios';
+import clsx from 'clsx';
+
 import { Translate } from '../Translate/Translate';
 import ErrorResponse from '../ErrorResponse/ErrorResponse';
 import { PageTitleContext } from '../../context/PageTitleContext';
 import Attacher from '../Attacher/Attacher';
+
 import styles from "./ATPresentation.module.scss";
-import clsx from 'clsx';
+
 const ATPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     useEffect(() => {
-        setPageTitle(<Translate tKey="home.menu.contact" />)
+        setPageTitle(<Translate tKey="label.menu.contact" />)
         return () => {
             setPageTitle('')
         }

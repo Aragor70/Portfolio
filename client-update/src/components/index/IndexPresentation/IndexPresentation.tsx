@@ -1,16 +1,14 @@
 import React, { Fragment, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import clsx from "clsx";
+
 import nestImg from "/assets/icons/nestjs-icon.svg";
 import { Translate } from "../../Translate/Translate";
 import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
+import { navigationButtons } from "../../../utils/constant";
+import useSlider from "./hooks/useSlider";
+
 import photo from "/assets/icons/avatar.png";
-import sdBtn1 from "/assets/icons/puzzle-piece-solid.svg";
-import cvBtn2 from "/assets/icons/image-solid.svg";
-import skBtn from "/assets/icons/Forma-1.svg";
-import atBtn1 from "/assets/icons/envelope-regular.svg";
-import edBtn2 from "/assets/icons/chart-line-solid.svg";
-import circle from "/assets/components/circle.svg";
 import types1 from "/assets/images/types1.png";
 import onloud1 from "/assets/images/onloud1.png";
 import shortnister1 from "/assets/images/shortnister1.png";
@@ -19,9 +17,9 @@ import efforts1 from "/assets/images/efforts1.png";
 import nichess1 from "/assets/images/nichess1.png";
 import nivest1 from "/assets/images/NiVest1.png";
 import nivest2 from "/assets/images/NiVest2.png";
-import useSlider from "./hooks/useSlider";
-import CustomLine from "../../CustomLine/CustomLine";
+
 import styles from "./IndexPresentation.module.scss";
+
 const IndexPresentation = () => {
     const image = useRef(null);
     const history = useHistory();
@@ -29,19 +27,13 @@ const IndexPresentation = () => {
         nivest1, nivest2, types1, onloud1, nichess1, shortnister1, webshot1, efforts1
     ];
     const { currentIndex } = useSlider(arryImages.length);
-    const navigationButtons = [
-        { path: '/work_experience', icon: sdBtn1, label: 'home.menu.experience' },
-        { path: '/software_projects', icon: cvBtn2, label: 'home.menu.projects' },
-        { path: '/skills', icon: skBtn, label: 'home.menu.skills' },
-        { path: '/education', icon: edBtn2, label: 'home.menu.education' },
-        { path: '/contact_mikolaj', icon: atBtn1, label: 'home.menu.contact' },
-    ];
+    
     const renderNavigationButtons = () => (
         <div className={styles.naviButtons}>
-            {navigationButtons.map(({ path, icon, label }) => (
+            {navigationButtons.map(({ path, icon, name }) => (
                 <div key={path} onClick={() => history.push(path)}>
-                    <img src={icon} alt={label} />
-                    <nav><Translate tKey={label} /></nav>
+                    <img src={icon} alt={name} />
+                    <nav><Translate tKey={`label.${name}`} /></nav>
                 </div>
             ))}
         </div>
@@ -147,23 +139,23 @@ export default IndexPresentation;
                 <div className="navi-buttons box3">
                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                         <img src={sdBtn1} alt="software_development" />
-                        <nav><Translate tKey="home.menu.experience" /></nav>
+                        <nav><Translate tKey="label.menu.experience" /></nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
                         <img src={cvBtn2} alt="software_projects" />
-                        <nav><Translate tKey="home.menu.projects" /></nav>
+                        <nav><Translate tKey="label.menu.projects" /></nav>
                     </div>
                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
                         <img src={skBtn} alt="skills" />
-                        <nav><Translate tKey="home.menu.skills" /></nav>
+                        <nav><Translate tKey="label.menu.skills" /></nav>
                     </div>
                     <div className="navi-button ed" onClick={() => history.push('/education')}>
                         <img src={edBtn2} alt="education" />
-                        <nav><Translate tKey="home.menu.education" /></nav>
+                        <nav><Translate tKey="label.menu.education" /></nav>
                     </div>
                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
                         <img src={atBtn1} alt="contact_mikolaj" />
-                        <nav><Translate tKey="home.menu.contact" /></nav>
+                        <nav><Translate tKey="label.menu.contact" /></nav>
                     </div>
                     
                 </div>
@@ -181,23 +173,23 @@ export default IndexPresentation;
                                 <div className="navi-buttons">
                                     <div className="navi-button sd" onClick={() => history.push('/work_experience')}>
                                         <img src={sdBtn1} alt="software_development"/>
-                                        <nav><Translate tKey="home.menu.experience" /></nav>
+                                        <nav><Translate tKey="label.menu.experience" /></nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/software_projects')}>
                                         <img src={cvBtn2} alt="software_projects" />
-                                        <nav><Translate tKey="home.menu.projects" /></nav>
+                                        <nav><Translate tKey="label.menu.projects" /></nav>
                                     </div>
                                     <div className="navi-button cv" onClick={() => history.push('/skills')}>
                                         <img src={skBtn} alt="skills" />
-                                        <nav><Translate tKey="home.menu.skills" /></nav>
+                                        <nav><Translate tKey="label.menu.skills" /></nav>
                                     </div>
                                     <div className="navi-button ed" onClick={() => history.push('/education')}>
                                         <img src={edBtn2} alt="education" />
-                                        <nav><Translate tKey="home.menu.education" /></nav>
+                                        <nav><Translate tKey="label.menu.education" /></nav>
                                     </div>
                                     <div className="navi-button at" onClick={() => history.push('/contact_mikolaj')}>
                                         <img src={atBtn1} alt="contact_mikolaj" />
-                                        <nav><Translate tKey="home.menu.contact" /></nav>
+                                        <nav><Translate tKey="label.menu.contact" /></nav>
                                     </div>
                                 </div>
                             

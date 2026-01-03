@@ -1,48 +1,63 @@
 import React, { Fragment, useContext } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import leftArrow from '/assets/icons/left-arrow.png';
 import dsBtn from '/assets/icons/ds.png';
 import sdBtn from '/assets/icons/sd.png';
 import cvBtn from '/assets/icons/cv.png';
 import atBtn from '/assets/icons/at.png';
-import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
 import { PageTitleContext } from '../../../context/PageTitleContext';
+import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
+import { SettingsContext, SettingsContextType } from '../../../context/SettingsContext';
 
 import styles from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({pathname}: any) => {
     const { pageTitle } = useContext(PageTitleContext);
-    const location = useLocation();
     const history = useHistory();
+
+    const { menu } = useContext<SettingsContextType>(SettingsContext);
+
     return (
         <Fragment>
-            <div className={styles.headerlement}></div>
-                        
                 <header className={styles.headerContent}>
                     <div className={styles.pageTitle}>
                     <p>
                         {
-                            location.pathname === "/" ? null : <Fragment>
+                            pathname === "/" ? null : <Fragment>
                                 <img src={leftArrow} style={{ width: "35px", marginRight: '7.5px' }} className="btn" onClick={() => history.goBack()} alt="leftArrow"  />
                                 
                                 {
-                                    location.pathname.split('/')[1] === 'off' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="SD" />
+                                    pathname.split('/')[1] === 'off' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="SD" />
                                 }
                                 {
-                                    location.pathname.split('/')[1] === 'off' && <img src={dsBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="DS" />
+                                    pathname.split('/')[1] === 'off' && <img src={dsBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="DS" />
                                 }
                                 {
-                                    location.pathname.split('/')[1] === 'off' && <img src={cvBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="CV" />
+                                    pathname.split('/')[1] === 'off' && <img src={cvBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="CV" />
                                 }
                                 {
-                                    location.pathname.split('/')[1] === 'off' && <img src={atBtn} style={{ width: "35px" , marginRight: '7.5px'}} onClick={() => history.push('/')} alt="AT" />
+                                    pathname.split('/')[1] === 'off' && <img src={atBtn} style={{ width: "35px" , marginRight: '7.5px'}} onClick={() => history.push('/')} alt="AT" />
                                 }
                             </Fragment>
                         }
                         <span style={pageTitle === 'home' ? { cursor: 'pointer' } : {}}>{pageTitle}</span>
                     </p>
                     <LanguageSwitcher />
+                    <label className={styles.menuButton} onClick={() => {
+                        menu.setState(!menu.state)
+                    }}>
+                        {
+                            menu.state ? <Fragment>
+                                <span>Close menu</span><i className="fas fa-bars"></i>
+                            </Fragment>
+                            : <Fragment>
+                                <span>Open menu</span><i className="fas fa-bars"></i>
+                            </Fragment>
+                            
+                        }
+                        
+                    </label>
                     </div>
             </header>
         </Fragment>

@@ -1,10 +1,11 @@
+@use "src/styles/common.scss" as *;
 
 .aside {
-    width: 97px;
     position: fixed;
-    left: 0;
+    right: 0;
     top: 0;
     bottom: 0;
+    left: 64px;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
@@ -12,18 +13,49 @@
     padding: 20px;
     z-index: 100;
 
-    > div {
+    @media (min-width: 320px) {
+        left: unset;
+    }
+    &__wrapper {
+        width: 250px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 64px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 20px 0;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+        
+        @media (min-width: 320px) {
+            left: unset;
+        }
 
-        > p {
-            text-align: center;
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            > p {
+                text-align: center;
+            }
+        }
+        > div:nth-child(2) {
+            margin: auto 0;
+        }
+        .closeButton {
+            background-color: #f5f5f5;
+            border: none;
+            margin: 0;
+            height: 96px;
         }
     }
 
-    > div:nth-child(2) {
-        margin: auto 0;
+    @media (min-width: 1023px) {
+        position: relative;
+        left: unset !important;
+        right: 0;
     }
 }

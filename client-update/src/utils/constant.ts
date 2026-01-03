@@ -1,3 +1,9 @@
+import sdBtn1 from "/assets/icons/puzzle-piece-solid.svg";
+import cvBtn2 from "/assets/icons/image-solid.svg";
+import skBtn from "/assets/icons/Forma-1.svg";
+import atBtn1 from "/assets/icons/envelope-regular.svg";
+import edBtn2 from "/assets/icons/chart-line-solid.svg";
+
 export const URL = 'https://api.m-prus.uk'
 export enum Language {
     ENGLISH = 'en-GB',
@@ -41,3 +47,11 @@ export const skills: SkillsTypes = {
     'Digitalocean', 'Heroku', 'Netlify', 'SocketIO', 'Google Drive API', 'ScreenshotMachine API', 'Amazon s3 Storage'
   ]
 }
+
+export const navigationButtons = [
+  { path: '/work_experience', icon: sdBtn1, name: 'menu.experience' },
+  { path: '/software_projects', icon: cvBtn2, name: 'menu.projects' },
+  { path: '/skills', icon: skBtn, name: 'menu.skills' },
+  { path: '/education', icon: edBtn2, name: 'menu.education' },
+  { path: '/contact_mikolaj', icon: atBtn1, name: 'menu.contact' },
+];

@@ -44,15 +44,6 @@
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Full-Stack Software Enginner",
-        "menu": {
-            "experience": "Work experience",
-            "projects": "Projects",
-            "skills": "Software skills",
-            "education": "Education",
-            "contact": "Contact",
-            "login": "Login",
-            "register": "Register"
-        },
         "sections": {
             "overview.headline": "Overview of my work",
             "overview.collections": {
@@ -162,5 +153,14 @@
         "section.project.repository": "Repository",
         "section.project.icons": "Tech stack"
     },
-    "input.NiVest-Software": ""
+    "input.NiVest-Software": "",
+    "label.menu": {
+        "experience": "Work experience",
+        "projects": "Projects",
+        "skills": "Software skills",
+        "education": "Education",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Register"
+    }
 }

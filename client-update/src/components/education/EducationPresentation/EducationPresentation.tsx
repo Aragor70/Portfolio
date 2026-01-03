@@ -6,7 +6,7 @@ import gdansk1 from '/assets/images/gdansk1.jpg';
 import koszalin1 from '/assets/images/koszalin1.jpg';
 import { Translate } from '../../Translate/Translate';
 import FilterElement from '../../FilterElement/FilterElement';
-import { LanguageContext } from '../../../context/LanguageContext';
+import { SettingsContext } from '../../../context/SettingsContext';
 import ErrorResponse from '../../ErrorResponse/ErrorResponse';
 import Loading from '../../Loading/Loading';
 import ListPreview from '../../preview/ListPreview/ListPreview';
@@ -22,13 +22,13 @@ import styles from "./EducationPresentation.module.scss";
 const EducationPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     useEffect(() => {
-        setPageTitle(<Translate tKey="home.menu.education" />)
+        setPageTitle(<Translate tKey="label.menu.education" />)
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
     
-    const { languageCode } = useContext<{ languageCode: Language }>(LanguageContext);
+    const { language: {state: languageCode} } = useContext<{ language: {state: Language} }>(SettingsContext);
     const [loadingProjects, setLoadingProjects] = useState<boolean>(false)
     const [projects, setProjects] = useState([])
     const [errorResponse, setErrorResponse] = useState('')

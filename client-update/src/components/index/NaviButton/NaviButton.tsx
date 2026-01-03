@@ -1,7 +1,15 @@
 import React from "react";
 import clsx from "clsx";
+
 import styles from "./NaviButton.module.scss";
-const NaviButton = ({ label, useCase, icon, onClick }: any) => {
+
+interface NaviButtonProps {
+    label: string,
+    useCase: string,
+    icon: any,
+    onClick: any
+}
+const NaviButton = ({ label, useCase, icon, onClick }: NaviButtonProps) => {
     
     return (
         <div className={clsx(styles.naviButton, {

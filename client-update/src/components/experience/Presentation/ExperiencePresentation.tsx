@@ -28,11 +28,10 @@ const ExperiencePresentation = ({ projects, loadingProjects, errorResponse, lang
             if (fadeInUpElement.current) {
                 fadeInUpElement.current.classList.add(styles.animated)
                 fadeInUpElement.current.classList.add(styles.fadeInUp)
-                fadeInUpElement.current.classList.remove(styles.noOopacity)
+                fadeInUpElement.current.classList.remove(styles.noOpacity)
             }
         })()
     }, [fadeInUpElement])
-        
 
     return (
         <div className={clsx(styles.sectionContent, styles.experience)}>

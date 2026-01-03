@@ -5,7 +5,7 @@ import { Language } from '../utils/LanguageConfig';
 import { getProject } from '../actions/project';
 import ErrorResponse from '../components/ErrorResponse/ErrorResponse';
 import Loading from '../components/Loading/Loading';
-import { LanguageContext } from '../context/LanguageContext';
+import { SettingsContext } from '../context/SettingsContext';
 import { ProjectType } from '../types/Project';
 
 const SingleProjectPresentation = React.lazy(() => import('../components/SingleProject/Presentation/Presentation'));
@@ -20,7 +20,7 @@ const Project = ({}: any) => {
     
     const [ loadingProject, setLoadingProject ] = useState<boolean>(false)
     const [ errorResponse, setErrorResponse ] = useState('')
-    const { languageCode } = useContext(LanguageContext);
+    const { language: {state: languageCode} } = useContext<{ language: {state: Language} }>(SettingsContext);
     const [ title, setTitle ] = useState<string | null>(null);
     const [ text, setText ] = useState<string | null>(null);
     const [ otherLngVersion, setOtherLngVersion ] = useState(false)

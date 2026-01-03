@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { Route, Switch, useRouteMatch, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom/server';
 import { clsx } from 'clsx';
+
 import typesImg from '/assets/images/types.png';
 import imgJest from '/assets/icons/jest.png';
 import imgMongoDB from '/assets/icons/mongodb.png';
@@ -34,7 +35,7 @@ import { Translate } from '../../Translate/Translate';
 import { getAllRepos } from '../../../actions/github';
 import { getProjects } from '../../../actions/project';
 import ProjectPreview from '../../preview/ProjectPreview/ProjectPreview';
-import { LanguageContext } from '../../../context/LanguageContext';
+import { SettingsContext } from '../../../context/SettingsContext';
 import ListPreview from '../../preview/ListPreview/ListPreview';
 import Loading from '../../Loading/Loading';
 import FilterElement from '../../FilterElement/FilterElement';
@@ -43,17 +44,19 @@ import { PageTitleContext } from '../../../context/PageTitleContext';
 import { Language } from '../../../utils/LanguageConfig';
 import Attacher from '../../Attacher/Attacher';
 import ProjectsTemplate from '../../../documents/ProjectsTemplate';
+
 import styles from "./SDPresentation.module.scss";
+
 const SDPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     const { path, url } = useRouteMatch();
     useEffect(() => {
-        setPageTitle(<Translate tKey="home.menu.projects" />)
+        setPageTitle(<Translate tKey="label.menu.projects" />)
         return () => {
             setPageTitle('')
         }
     }, [setPageTitle])
-    const { languageCode } = useContext<{ languageCode: Language }>(LanguageContext);
+    const { language: {state: languageCode} } = useContext<{ language: {state: Language} }>(SettingsContext);
     const [repos, setRepos] = useState([])
     const [loadingRepos, setLoadingRepos] = useState<boolean>(false)
     const [loadingProjects, setLoadingProjects] = useState<boolean>(false)

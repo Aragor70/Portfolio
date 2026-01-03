@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 export const handleScrollToTop = (scrollTo: any): void => {
     
     if(scrollTo.current) {

@@ -47,7 +47,6 @@ import { Translate } from '../components/Translate/Translate';
 import { getAllRepos } from '../actions/github';
 import { getProjects } from '../actions/project';
 import ProjectPreview from '../components/preview/ProjectPreview/ProjectPreview';
-import { LanguageContext } from '../context/LanguageContext';
 import ListPreview from '../components/preview/ListPreview/ListPreview';
 import Loading from '../components/Loading/Loading';
 import FilterElement from '../components/FilterElement/FilterElement';

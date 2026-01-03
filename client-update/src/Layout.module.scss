@@ -1,0 +1,33 @@
+.layout {
+    
+    &.isMenuOpen {
+        @media (min-width: 1023px) {
+            display: grid;
+            grid-template-columns: 1fr 250px; // main + sidebar
+            // grid-template-rows: auto 1fr auto; // header, main, footer
+
+            grid-template-areas:
+                "header sidenav"
+                "main   sidenav"
+                "footer sidenav";
+                
+            > * {
+                width: 100%;
+            }
+
+            > header {
+                grid-area: header;
+            }
+            > main {
+                grid-area: main;
+            }
+            > footer {
+                grid-area: footer;
+            }
+            > aside > div {
+                left: unset;
+            }
+        }
+    }
+
+}

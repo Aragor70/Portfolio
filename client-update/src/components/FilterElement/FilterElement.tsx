@@ -1,23 +1,19 @@
 import React, { Fragment, memo, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+
 import DateRangePicker from './DateRangePicker';
 import { Translate } from '../Translate/Translate';
 import { Language, json } from '../../utils/constant';
 import { ReactComponent as CalendarSvg } from '/assets/icons/calendar.svg';
 import { ReactComponent as ArrowSvg } from '/assets/icons/play-outline.svg';
 import ErrorResponse from '../ErrorResponse/ErrorResponse';
+import { FilterFormData } from '../../types/Project';
 import { getProject } from '../../actions/project';
 import Loading from '../Loading/Loading';
+
 import styles from "./FilterElement.module.scss";
-type FilterFormData = {
-    phrase?: null | string,
-    startDate?: null | string,
-    endDate?: Date,
-    languageCode: Language,
-    isVisible?: boolean
-}
-// eslint-disable-next-line
-const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
+
+const FilterElement = ({ languageCode = Language.ENGLISH, setProjects, loadValues }: any) => {
     const [ formData, setFormData ] = useState<FilterFormData>({
         phrase: null,
         startDate: null,
@@ -154,5 +150,5 @@ const FilterElement = memo(({ languageCode = Language.ENGLISH, setProjects, load
             </form>
         </article>
     );
-})
+}
 export default FilterElement;

@@ -3,8 +3,17 @@ import { DateRange } from 'react-date-range'
 /* import { ReactComponent as CalendarSvg } from '../style/calendar.svg'; */
 import { Language } from '../../utils/constant'
 import styles from "./FilterElement.module.scss";
-// eslint-disable-next-line
-const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLISH, refOne = null }: any) => {
+import { FilterFormData } from '../../types/Project';
+
+interface DateRangePickerProps {
+  formData: FilterFormData,
+  setFormData: (value: FilterFormData) => void, 
+  languageCode: Language,
+  refOne: any,
+  className?: string
+}
+
+const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLISH, refOne = null }: DateRangePickerProps) => {
 
   /* const isToday = async (date: Date) => moment(date).format('DD.MM.YYYY') === moment().format('DD.MM.YYYY') */
  
@@ -55,7 +64,7 @@ const DateRangePicker = ({ formData, setFormData, languageCode = Language.ENGLIS
               onChange={(item: any) => handleChange({ ...formData, ...item.range1})}
               editableDateInputs={true}
               moveRangeOnFirstSelection={false}
-              ranges={[formData]}
+              ranges={[formData as any]}
               months={1}
               direction="horizontal"
               className={styles.calendar}

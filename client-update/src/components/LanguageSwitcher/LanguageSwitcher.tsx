@@ -1,12 +1,15 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
+import clsx from 'clsx';
+
 import { Translate } from '../Translate/Translate';
 import i18n from '../../utils/i18n';
 import { Language, availableLanguages, defaultLanguage } from '../../utils/LanguageConfig';
 
 import polish from '/assets/icons/poland.svg';
 import english from '/assets/icons/united-kingdom.svg';
-import { LanguageContext } from '../../context/LanguageContext';
-import clsx from 'clsx';
+
+import { SettingsContext } from '../../context/SettingsContext';
+
 const LANGUAGE_CODE_TO_KEY: {
   [K in Language]: string;
 } = {
@@ -22,8 +25,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
   const [selectedLanguageCode, setSelectedLanguageCode] = useState<Language>(defaultLanguage);
   const [showSelect, setShowSelect] = useState(false)
   
-  // eslint-disable-next-line
-  const languageContext = useContext<any>(LanguageContext);
+  const settingsContext = useContext<any>(SettingsContext);
   const flag: { 'en-GB': string, 'pl': string} = {
     'en-GB': english,
     'pl': polish
@@ -34,12 +36,12 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       
       setSelectedLanguageCode(languageCode);
       i18n.changeLanguage(languageCode);
-      languageContext.setLanguageCode(languageCode)
+      settingsContext.language.setState(languageCode)
       setShowSelect(false);
     } catch (err) {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
-      languageContext.setLanguageCode(defaultLanguage)
+      settingsContext.language.setState(defaultLanguage)
       setShowSelect(false);
       console.log(err.message)
     }
@@ -50,16 +52,16 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     if (languageCode) {
       setSelectedLanguageCode(languageCode);
       i18n.changeLanguage(languageCode);
-      languageContext.setLanguageCode(languageCode)
+      settingsContext.language.setState(languageCode)
       setShowSelect(false);
       
     } else {
       setSelectedLanguageCode(defaultLanguage);
       i18n.changeLanguage(defaultLanguage);
-      languageContext.setLanguageCode(defaultLanguage)
+      settingsContext.language.setState(defaultLanguage)
       setShowSelect(false);
     }
-  }, [languageContext])
+  }, [settingsContext])
   return (
     <Fragment>
       <label className={clsx(styles.languageSwitcher, className)} >

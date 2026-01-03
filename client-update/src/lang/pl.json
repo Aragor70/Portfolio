@@ -44,15 +44,6 @@
     "home": {
         "me.name": "Mikołaj Prus",
         "me.title": "Rozwijam oprogramowanie",
-        "menu": {
-            "experience": "Projekty w zawodzie",
-            "projects": "Projekty własne",
-            "skills": "Umiejętności",
-            "education": "Edukacja",
-            "contact": "Kontakt",
-            "login": "Zaloguj",
-            "register": "Załóż konto"
-        },
         "sections": {
             "overview.headline": "Przegląd mojej pracy",
             "overview.collections": {
@@ -160,5 +151,14 @@
         "section.project.description": "Opis",
         "section.project.repository": "Repozytorium",
         "section.project.icons": "Narzedzia"
+    },
+    "label.menu": {
+        "experience": "Projekty w zawodzie",
+        "projects": "Projekty własne",
+        "skills": "Umiejętności",
+        "education": "Edukacja",
+        "contact": "Kontakt",
+        "login": "Zaloguj",
+        "register": "Załóż konto"
     }
 }

@@ -14,7 +14,7 @@ import styles from "./CVPresentation.module.scss";
 const CVPresentation = () => {
     const { setPageTitle } = useContext(PageTitleContext);
     useEffect(() => {
-        setPageTitle(<Translate tKey="home.menu.skills" />)
+        setPageTitle(<Translate tKey="label.menu.skills" />)
         return () => {
             setPageTitle('')
         }
