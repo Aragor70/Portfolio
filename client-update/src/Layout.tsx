@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
 import '/src/styles/style.scss';
@@ -24,13 +24,15 @@ const Layout = () => {
       }
     }, [])
 
+    const location = useLocation();
+
     const { menu } = useContext<SettingsContextType>(SettingsContext);
     const links = navigationButtons;
 
     return (
         <Fragment>
             <div className={clsx(styles.layout, {
-                [styles.isMenuOpen]: menu.state
+                [styles.isMenuOpen]: Boolean(menu.state && location.pathname !== '/')
             })}>
                 <Switch>
                     <Route render={({ location: { pathname } }) => pathname !== '/' && (
