@@ -26,7 +26,7 @@ const Header = ({pathname}: any) => {
                 <p>
                     {
                         pathname === "/" ? null : <Fragment>
-                            <img src={leftArrow} style={{ width: "35px", marginRight: '7.5px' }} className="btn" onClick={() => history.goBack()} alt="leftArrow"  />
+                            <img src={leftArrow} style={{ width: "35px", marginRight: '7.5px' }} className="btn" onClick={() => history.push('/')} alt="leftArrow"  />
                             
                             {
                                 pathname.split('/')[1] === 'off' && <img src={sdBtn} style={{ width: "35px" , marginRight: '7.5px'}} alt="SD" />
