@@ -30,7 +30,7 @@ const IndexPresentation = () => {
     
     const renderNavigationButtons = () => (
         <div className={styles.naviButtons}>
-            {navigationButtons.map(({ path, icon, name }) => (
+            {navigationButtons.filter(({path}) => path !== "/").map(({ path, icon, name }) => (
                 <div key={path} onClick={() => history.push(path)}>
                     <img src={icon} alt={name} />
                     <nav><Translate tKey={`label.${name}`} /></nav>

@@ -153,6 +153,9 @@
         "section.project.icons": "Narzedzia"
     },
     "label.menu": {
+        "open": "Otwórz menu",
+        "close": "Zamknij menu",
+        "home": "Strona główna",
         "experience": "Projekty w zawodzie",
         "projects": "Projekty własne",
         "skills": "Umiejętności",

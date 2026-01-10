@@ -3,6 +3,7 @@ import HtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import autosize from 'autosize';
 import clsx from 'clsx';
+
 import { ScrollContext } from '../../../context/ScrollContext';
 import GithubStats from '../../GithubStats/GithubStats';
 import { Translate } from '../../Translate/Translate';
@@ -11,7 +12,9 @@ import { Language } from '../../../utils/constant';
 import { ReactComponent as CommitSvg} from '../style/icons/code-commit-solid.svg'
 import { ReactComponent as UpdateSvg} from '../style/icons/refresh-outline.svg'
 import { ReactComponent as CreateSvg} from '../style/icons/create-outline.svg' */
+
 import styles from "../../sd/Presentation/SDPresentation.module.scss";
+
 const ProjectPreview = ( props: any ) => {
     const { languageCode = Language.ENGLISH } = props;
     const { style } = props;

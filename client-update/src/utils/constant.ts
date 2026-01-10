@@ -49,6 +49,7 @@ export const skills: SkillsTypes = {
 }
 
 export const navigationButtons = [
+  { path: '/', icon: null, name: 'menu.home' },
   { path: '/work_experience', icon: sdBtn1, name: 'menu.experience' },
   { path: '/software_projects', icon: cvBtn2, name: 'menu.projects' },
   { path: '/skills', icon: skBtn, name: 'menu.skills' },

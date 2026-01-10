@@ -155,6 +155,9 @@
     },
     "input.NiVest-Software": "",
     "label.menu": {
+        "open": "Open menu",
+        "close": "Close menu",
+        "home": "Home page",
         "experience": "Work experience",
         "projects": "Projects",
         "skills": "Software skills",

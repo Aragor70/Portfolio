@@ -1,14 +1,14 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
-import { Translate } from '../Translate/Translate';
 import i18n from '../../utils/i18n';
+import { Translate } from '../Translate/Translate';
 import { Language, availableLanguages, defaultLanguage } from '../../utils/LanguageConfig';
 
 import polish from '/assets/icons/poland.svg';
 import english from '/assets/icons/united-kingdom.svg';
 
-import { SettingsContext } from '../../context/SettingsContext';
+import { SettingsContext, SettingsContextType } from '../../context/SettingsContext';
 
 const LANGUAGE_CODE_TO_KEY: {
   [K in Language]: string;
@@ -23,7 +23,8 @@ interface LanguageSwitcherProps {
 const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
   
   const [selectedLanguageCode, setSelectedLanguageCode] = useState<Language>(defaultLanguage);
-  const [showSelect, setShowSelect] = useState(false)
+  const [showSelect, setShowSelect] = useState(false);
+  const { menu } = useContext<SettingsContextType>(SettingsContext);
   
   const settingsContext = useContext<any>(SettingsContext);
   const flag: { 'en-GB': string, 'pl': string} = {
@@ -64,7 +65,9 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
   }, [settingsContext])
   return (
     <Fragment>
-      <label className={clsx(styles.languageSwitcher, className)} >
+      <label className={clsx(styles.languageSwitcher, className, {
+        [styles.menuIsOpen]: Boolean(menu.state)
+      })} >
         <label onClick={() => setShowSelect(!showSelect)}>
           <span>
             <Translate tKey={LANGUAGE_CODE_TO_KEY[selectedLanguageCode]} />
@@ -79,7 +82,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
                     {
                       availableLanguages.filter((element: Language) => element !== selectedLanguageCode).map((languageCode: Language) => {
                         return (
-                          <label 
+                          <label
                             key={languageCode}
                             onClick={() => {
                               saveLanguage(languageCode);
@@ -88,9 +91,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
                             <span>
                               <Translate tKey={LANGUAGE_CODE_TO_KEY[languageCode]} />
                             </span>
-  
                             <img src={flag[languageCode]} alt="flag" />
-  
                           </label>
                         );
                       })
