@@ -8,7 +8,7 @@ const Footer = () => {
             <Switch>
                 <Route render={({ location }) => location.pathname !== '/contact_mikolaj' && <ContactMe />} />
             </Switch>
-            <p>&#169; Nicolai 2025</p>
+            <p>&#169; Nicolai 2026</p>
         </div>
     );
 }
